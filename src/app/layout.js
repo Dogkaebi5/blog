@@ -11,7 +11,25 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className='container mx-auto'>
+          <div className='flex justify-between items-center'>
+            <p>logo</p>
+            <nav className="flex sm:justify-center space-x-2 my-2">
+              {[
+                ['Home', '/'],
+                ['粤', '/cantonese'],
+                ['Code', '/code'],
+                ['Blog', '/blog'],
+                ['About', '/about'],
+              ].map(([title, url]) => (
+                <a href={url} key={title} className='spread-underline w-20'>{title}</a>
+              ))}
+            </nav>
+          </div>
+          <div>{children}</div>
+        </div>
+      </body>
     </html>
   )
 }
