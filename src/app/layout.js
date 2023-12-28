@@ -1,5 +1,7 @@
+
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Navigation from './components/Navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -10,22 +12,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className={inter.className}>
         <div className='container mx-auto'>
           <div className='flex justify-between items-center'>
             <p>logo</p>
-            <nav className="flex sm:justify-center space-x-2 my-2">
-              {[
-                ['Home', '/'],
-                ['粤', '/cantonese'],
-                ['Code', '/code'],
-                ['Blog', '/blog'],
-                ['About', '/about'],
-              ].map(([title, url]) => (
-                <a href={url} key={title} className='spread-underline w-20'>{title}</a>
-              ))}
-            </nav>
+            <Navigation/>
           </div>
           <div>{children}</div>
         </div>
