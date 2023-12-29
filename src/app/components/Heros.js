@@ -3,13 +3,13 @@ import { usePathname } from "next/navigation"
 
 const Heros = () => {
   const pathname = usePathname()
-  const navigation = [['Home', '/'],['粤', '/cantonese'],['Code', '/code'],['Blog', '/blog'],['About', '/about']];
+  let title
 
-  const title = navigation.map(([title, url]) => {
-    if (pathname == url) {
-      return title
-    }
-  })
+  if (pathname == '/') title = "독깨비 노트"
+  if (pathname == '/cantonese') title = "粵"
+  if (pathname == '/code') title = "CODE"
+  if (pathname == '/blog') title = "BLOG"
+  if (pathname == '/about') title = "독깨비 ..."
 
   return (
     <div className="bg-slate-100 h-80 flex flex-col justify-center items-center">
