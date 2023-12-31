@@ -12,10 +12,10 @@ const Heros = () => {
   if (pathname == '/about') title = "독깨비 ..."
 
   return (
-    <div className="bg-slate-100 h-80 flex flex-col justify-center items-center">
-      <h1 className="text-3xl font-bold">{title}</h1>
-      <p className="mt-4">This is {title} sub text</p>
-    </div>
+      <div className="bg-slate-100 h-80 flex flex-col justify-center items-center">
+        <h1 className="text-3xl font-bold">{title}</h1>
+        <p className="mt-4">This is {title} sub text</p>
+      </div>
   )
 }
 
