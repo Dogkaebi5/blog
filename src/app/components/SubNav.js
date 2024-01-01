@@ -4,7 +4,12 @@ import { usePathname } from "next/navigation"
 
 const SubNav = () => {
   const pathname = usePathname()
-  let nav = ["한자", "음절", "회화", "문화"];
+  let nav = [];
+
+  if (pathname == "/cantonese") nav = ["한자", "음절", "회화", "문화"];
+  if (pathname == "/code") nav = ["HTML", "CSS", "JavaScript"];
+  if (pathname == "/blog") nav = ["중국 문화", "책", "일상"];
+
 
   return (
     <>
@@ -20,7 +25,7 @@ const SubNav = () => {
           ))}
         </div>
         <form>
-          <input className="border rounded-lg py-1 w-40 mr-2"/>
+          <input className="border rounded-lg pl-2 py-1 w-40 mr-2"/>
           <input type="submit" value="검색" className="bg-black text-white border rounded-lg py-1 px-6"/>
         </form>
       </div>
