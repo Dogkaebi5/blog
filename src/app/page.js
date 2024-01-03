@@ -9,7 +9,6 @@ export default function Home() {
       <Heros/>
       <SubNav/>
       it is home<br/>
-      <Link href="/read/1">read 1</Link><br/>
       <PageCard/>
     </>
   )
