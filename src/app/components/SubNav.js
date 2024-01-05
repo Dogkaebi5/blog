@@ -10,7 +10,7 @@ const SubNav = () => {
 
   if (pathname == "/cantonese") nav = ["한자", "음절", "회화", "문화"];
   if (pathname == "/code") nav = ["HTML", "CSS", "JavaScript"];
-  if (pathname == "/blog") nav = ["중국 문화", "책", "일상"];
+  if (pathname == "/blog") nav = ["책", "일상"];
 
   const activeClass = "rounded-full border py-2 px-8 mr-2 bg-slate-600 text-white"
   const notActiveClass = "rounded-full border py-2 px-8 mr-2"
