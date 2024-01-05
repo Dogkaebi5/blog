@@ -1,11 +1,9 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
 import { useEffect, useState } from "react"
 import PageCard from "./PageCard"
 
-const PageCards = () => {
+const CardList = () => {
   const [data, setData] = useState(null)
 
   useEffect(() => {
@@ -23,10 +21,12 @@ const PageCards = () => {
 
   return ( 
     <div className="mt-4 grid grid-cols grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-      {data.data.map((post) => 
-        <PageCard key={post.id} data={post}/>
+      {(data == null) 
+        ? "글이 없습니다" 
+        :data.data.map((post) => 
+          <PageCard key={post.id} data={post}/>
       )}
     </div>
   )
 }
-export default PageCards
+export default CardList

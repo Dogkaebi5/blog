@@ -1,13 +1,13 @@
 import Heros from "./components/Heros";
 import SubNav from "./components/SubNav";
-import PageCard from "./components/PageCards";
+import CardList from "./components/CardList";
 
 export default function Home() {
   return (
     <>
       <Heros/>
       <SubNav/>
-      <PageCard/>
+      <CardList/>
     </>
   )
 }
