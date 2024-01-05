@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <div className='container mx-auto'>
+        <div className=' max-w-7xl mx-auto'>
           <div className='flex justify-between items-center'>
             <p>logo</p>
             <Navigation/>
