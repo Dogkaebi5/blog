@@ -1,7 +1,3 @@
 export default function cantonese() {
-  return (
-    <>
-    it is about
-    </>
-  )
+  return <>it is about</>;
 }

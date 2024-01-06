@@ -1,32 +1,29 @@
-"use client"
-
-import { useEffect, useState } from "react"
-import PageCard from "./PageCard"
+"use client";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import Card from "./Card";
+import { setList } from "../controller/cardListSetter";
 
 const CardList = () => {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(null);
+  const path = usePathname();
+  const params = useSearchParams();
+  const tagPram = params.get("tag");
 
   useEffect(() => {
-    const fetchData = async() => {
-      try {
-        const res = await fetch('/json/data.json')
-        const jsonData = await res.json();
-        setData(jsonData);
-      }catch (err) {
-        console.error('Err fetch :',err)
-      }
-    }
-    fetchData()
-  },[]);
+    const postList = async () => {
+      const list = await setList(path, tagPram);
+      setData(list);
+    };
+    postList(path);
+  }, [path, tagPram]);
 
-  return ( 
+  return (
     <div className="mt-4 grid grid-cols grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-      {(data == null) 
-        ? "글이 없습니다" 
-        :data.data.map((post) => 
-          <PageCard key={post.id} data={post}/>
-      )}
+      {data == null || data == undefined
+        ? "글이 없습니다"
+        : data.map((post) => <Card key={post.id} data={post} />)}
     </div>
-  )
-}
-export default CardList
+  );
+};
+export default CardList;
