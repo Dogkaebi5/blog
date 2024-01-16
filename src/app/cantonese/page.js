@@ -5,6 +5,7 @@ export default function Cantonese() {
   const nav = [
     ["한자", "/"],
     ["음절", "/syllable"],
+    ["단어", "/word"],
     ["회화", "/conversation"],
   ];
   const activeClass =
@@ -66,35 +67,10 @@ export default function Cantonese() {
 
   return (
     <>
-      <Heros />
-      <div className="flex justify-between items-center mt-10 mb-4">
-        <div>
-          {nav.map(([category, url]) => {
-            return (
-              <Link
-                href={"/cantonese" + url}
-                key={url}
-                className={url == "/" ? activeClass : notActiveClass}
-              >
-                {category}
-              </Link>
-            );
-          })}
-        </div>
-        <form>
-          <input className="border rounded-lg pl-2 py-1 w-40 mr-2" />
-          <input
-            type="submit"
-            value="검색"
-            className="bg-black text-white border rounded-lg py-1 px-6"
-          />
-        </form>
-      </div>
-      <hr />
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 xl:grid-cols-10 gap-4">
         {data.map((post) => (
           <div key="" className="mt-4 bg-slate-200">
-            <Link href={`/read/${post.id}`}>
+            <Link href={`/cantonese/${post.id}`}>
               <h1 className="font-bold text-6xl bg-slate-300 text-center py-5">
                 {post.hanzi}
               </h1>

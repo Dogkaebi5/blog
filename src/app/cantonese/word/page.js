@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Heros from "../../components/Heros";
 
-export default function Conversation() {
+export default function Cantonese() {
   return (
     <>
-      <div>Conversation</div>
+      <div>word</div>
     </>
   );
 }
