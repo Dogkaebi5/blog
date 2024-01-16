@@ -2,13 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-.spread-underline{
+body {
+  font-family: Arial, "Microsoft YaHei", sans-serif;
+}
+
+.spread-underline {
   display: inline-block;
   position: relative;
   text-align: center;
 }
 
-.spread-underline:after {    
+.spread-underline:after {
   bottom: 0;
   content: "";
   height: 1px;
@@ -19,7 +23,7 @@
   width: 0;
 }
 
-.spread-underline:hover:after { 
-  width: 100%; 
-  left: 0; 
+.spread-underline:hover:after {
+  width: 100%;
+  left: 0;
 }

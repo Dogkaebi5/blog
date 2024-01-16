@@ -19,7 +19,7 @@ const CardList = () => {
   }, [path, tagPram]);
 
   return (
-    <div className="mt-4 grid grid-cols grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       {data == null || data == undefined
         ? "글이 없습니다"
         : data.map((post) => <Card key={post.id} data={post} />)}

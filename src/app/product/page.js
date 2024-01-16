@@ -1,13 +1,11 @@
-import CardList from "../components/CardList";
 import Heros from "../components/Heros";
 import SubNav from "../components/SubNav";
 
-export default function code() {
+export default function product() {
   return (
     <>
       <Heros />
       <SubNav />
-      <CardList />
     </>
   );
 }

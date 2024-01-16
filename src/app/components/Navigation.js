@@ -1,26 +1,38 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Navigation = () =>{
+const Navigation = () => {
   const pathname = usePathname();
-  const navigation = [['Home', '/'],['粤', '/cantonese'],['Code', '/code'],['Blog', '/blog'],['About', '/about'],];
+  const navigation = [
+    ["Home", "/"],
+    ["粤", "/cantonese"],
+    ["Blog", "/blog"],
+    ["Product", "/product"],
+    ["About", "/about"],
+  ];
 
   return (
     <nav className="flex sm:justify-center space-x-2 my-2">
       {navigation.map(([title, url]) => {
-        const isActive = pathname === url
+        const isActive = pathname === url;
         return (
-          <Link 
+          <Link
             href={url}
             key={title}
-            className={isActive ? 'spread-underline w-20 font-bold':'spread-underline w-20'}>{title}
+            className={
+              isActive
+                ? "spread-underline w-20 font-bold"
+                : "spread-underline w-20"
+            }
+          >
+            {title}
           </Link>
-        )
+        );
       })}
     </nav>
-  )
-}
+  );
+};
 
 export default Navigation;
