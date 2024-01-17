@@ -1,17 +1,6 @@
 import Link from "next/link";
-import Heros from "../components/Heros";
 
 export default function Cantonese() {
-  const nav = [
-    ["한자", "/"],
-    ["음절", "/syllable"],
-    ["단어", "/word"],
-    ["회화", "/conversation"],
-  ];
-  const activeClass =
-    "rounded-full border py-2 px-8 mr-2 bg-slate-600 text-white";
-  const notActiveClass = "rounded-full border py-2 px-8 mr-2";
-
   const data = [
     {
       id: 1,
@@ -70,7 +59,7 @@ export default function Cantonese() {
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 xl:grid-cols-10 gap-4">
         {data.map((post) => (
           <div key="" className="mt-4 bg-slate-200">
-            <Link href={`/cantonese/${post.id}`}>
+            <Link href={`/dictionary/${post.id}`}>
               <h1 className="font-bold text-6xl bg-slate-300 text-center py-5">
                 {post.hanzi}
               </h1>

@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import Heros from "../components/Heros";
-import { useState } from "react";
-import { useParams, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function RootLayout({ children }) {
   const pathName = usePathname();
@@ -26,9 +25,9 @@ export default function RootLayout({ children }) {
             return (
               <Link
                 href={"/cantonese" + url}
-                key={url}
+                key={category}
                 className={
-                  pathName == "/cantonese" + url ? activeClass : notActiveClass
+                  pathName == `/cantonese${url}` ? activeClass : notActiveClass
                 }
               >
                 {category}
