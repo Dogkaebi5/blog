@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 export default function Read(props) {
   // const res = await fetch("http://localhost:3000//json/data.json");
   // const jsonData = await res.json();
@@ -11,22 +9,16 @@ export default function Read(props) {
   //     return obj;
   //   }
   // });
-  let character = "一";
-  const audioUrl =
-    "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/sound/jat1.Mp3";
+  const character = "一";
+  const syllabel = "jat1";
+  const phrases = ["一往無前", "一事無成", "一五一十", "一心一意", "一言為定"];
+  const audioUrlOrigin =
+    "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/sound/";
 
-  const [isPlaying, setIsPlaying] = useState(false);
-
+  const audioUrl = `${audioUrlOrigin}/${syllabel}.Mp3`;
   const handleAudio = () => {
     const audio = new Audio(audioUrl);
-
-    if (!isPlaying) {
-      audio.play();
-    } else {
-      audio.pause();
-      audio.currentTime = 0;
-    }
-    setIsPlaying(!isPlaying);
+    audio.play();
   };
 
   const contentClass = "bg-white px-3 py-2 text-center mt-1";
@@ -47,7 +39,7 @@ export default function Read(props) {
               onClick={handleAudio}
               className={`${contentClass} underline hover:text-gray-400`}
             >
-              jat1
+              {syllabel}
             </p>
             <p className={smTieleClass}>UTF-8</p>
             <p className={contentClass}>{character.codePointAt(0)}</p>
@@ -77,18 +69,16 @@ export default function Read(props) {
       <hr className="border-gray-400" />
       <div className="p-4">
         <p className="font-semibold mb-4">성어</p>
-        <div>
-          <p className="text-blue-600">一往無前</p>
-          <hr />
-          <p className="text-blue-600">一事無成</p>
-          <hr />
-          <p className="text-blue-600">一五一十</p>
-          <hr />
-          <p className="text-blue-600">一心一意</p>
-          <hr />
-          <p className="text-blue-600">一言為定</p>
-          <hr />
-        </div>
+        <p>
+          {phrases.map((phrase) => {
+            return (
+              <span key={phrase}>
+                <span className="text-blue-600">{phrase}</span>
+                <span> , </span>
+              </span>
+            );
+          })}
+        </p>
         <hr />
       </div>
     </>
