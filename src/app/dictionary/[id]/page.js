@@ -41,8 +41,8 @@ export default function Read(props) {
             >
               {syllabel}
             </p>
-            <p className={smTieleClass}>UTF-8</p>
-            <p className={contentClass}>{character.codePointAt(0)}</p>
+            <p className={smTieleClass}>발음</p>
+            <p className={contentClass}>얕</p>
           </div>
           <div className="min-w-36">
             <p className={smTieleClass}>간체자 (简体字)</p>
@@ -53,6 +53,8 @@ export default function Read(props) {
           <div className="min-w-36">
             <p className={smTieleClass}>한국 음·한자</p>
             <p className={contentClass}>한 일</p>
+            <p className={smTieleClass}>UTF</p>
+            <p className={contentClass}>{character.codePointAt(0)}</p>
           </div>
         </div>
       </div>
