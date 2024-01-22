@@ -19,6 +19,7 @@ export default function Syllable() {
   }, []);
 
   const labelClass = "text-sm font-bold";
+  const boxClass = "justify-center m-2 p-4 rounded-xl bg-slate-100";
   const selectClass =
     "border rounded-lg my-2 p-1 text-center sm:min-w-40 w-full";
   const linkClass = "text-xs border rounded-lg underline p-1 bg-slate-200";
@@ -43,55 +44,63 @@ export default function Syllable() {
   };
 
   return (
-    <div className="w-full mt-8 text-center">
-      <div className="md:flex justify-center mb-6">
-        <div className="justify-center mx-2 p-4 rounded-xl bg-slate-100">
-          <p className={labelClass}>성모(聲母)</p>
-          <select
-            value={initial}
-            className={selectClass}
-            onChange={handleInitial}
-          >
-            <option value="전체">전체</option>
-            {initialOptions.map((i) => (
-              <option value={i} key={i + 1}>
-                {i}
-              </option>
-            ))}
-          </select>
-          <Link href={"/"}>
-            <p className={linkClass}>More &gt;&gt;</p>
-          </Link>
+    <div className="text-center">
+      <div className="my-6 sm:w-fit w-full mx-auto">
+        <div className="sm:flex justify-center">
+          <div className={boxClass}>
+            <p className={labelClass}>성모(聲母)</p>
+            <select
+              value={initial}
+              className={selectClass}
+              onChange={handleInitial}
+            >
+              <option value="전체">전체</option>
+              {initialOptions.map((i) => (
+                <option value={i} key={i + 1}>
+                  {i}
+                </option>
+              ))}
+            </select>
+            <Link href={"/"}>
+              <p className={linkClass}>More &gt;&gt;</p>
+            </Link>
+          </div>
+          <div className={boxClass}>
+            <p className={labelClass}>운모(韻母)</p>
+            <select
+              value={vowel}
+              className={selectClass}
+              onChange={handleVowel}
+            >
+              <option value="전체">전체</option>
+              {vowelOptions.map((v) => (
+                <option value={v} key={v + 1}>
+                  {v}
+                </option>
+              ))}
+            </select>
+            <Link href={"/"}>
+              <p className={linkClass}>More &gt;&gt;</p>
+            </Link>
+          </div>
+          <div className={boxClass}>
+            <p className={labelClass}>성조(聲調)</p>
+            <select className={selectClass}>
+              <option>전체</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+            </select>
+            <Link href={"/"}>
+              <p className={linkClass}>More &gt;&gt;</p>
+            </Link>
+          </div>
         </div>
-
-        <div className="justify-center mx-2 p-4 rounded-xl bg-slate-100">
-          <p className={labelClass}>운모(韻母)</p>
-          <select value={vowel} className={selectClass} onChange={handleVowel}>
-            <option value="전체">전체</option>
-            {vowelOptions.map((v) => (
-              <option value={v} key={v + 1}>
-                {v}
-              </option>
-            ))}
-          </select>
-          <Link href={"/"}>
-            <p className={linkClass}>More &gt;&gt;</p>
-          </Link>
-        </div>
-        <div className="justify-center mx-2 p-4 rounded-xl bg-slate-100">
-          <p className={labelClass}>성조(聲調)</p>
-          <select className={selectClass}>
-            <option>전체</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-          </select>
-          <Link href={"/"}>
-            <p className={linkClass}>More &gt;&gt;</p>
-          </Link>
+        <div className={linkClass + " mt-2 font-bold"}>
+          <Link href={"/cantonese/syllableSp"}>간단하게 보기 &gt;&gt;</Link>
         </div>
       </div>
 

@@ -4,7 +4,6 @@ import syllable from "../../yueYin";
 export default function Initial(props) {
   const yueYin = syllable.yueYin;
   let alpha = props.params.id;
-
   if (alpha == "-") alpha = "";
   function checkIsInital(text) {
     return !(
