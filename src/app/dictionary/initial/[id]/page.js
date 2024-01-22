@@ -19,6 +19,17 @@ export default function Initial(props) {
 
   let isInitial = checkIsInital(alpha);
 
+  function checkList(text) {
+    if (alpha == "") return !checkIsInital(text);
+    if (isInitial) {
+      if (alpha == "n") return text.startsWith("n") && !text.startsWith("ng");
+      if (alpha == "g") return text.startsWith("g") && !text.startsWith("gw");
+      if (alpha == "k") return text.startsWith("k") && !text.startsWith("kw");
+      return text.startsWith(alpha);
+    }
+    return text.endsWith(alpha);
+  }
+
   return (
     <div className="p-8">
       <h1 className="p-8 bg-slate-100 inline-block rounded-md font-bold text-6xl">
@@ -36,13 +47,7 @@ export default function Initial(props) {
         <h3 className="font-bold mb-4">음절 조합</h3>
         <div className="flex flex-wrap">
           {yueYin.map((alp) => {
-            return (
-              alpha == ""
-                ? !checkIsInital(alp)
-                : isInitial
-                ? alp.startsWith(alpha)
-                : alp.endsWith(alpha)
-            ) ? (
+            return checkList(alp) ? (
               <Link href={`/dictionary/yueyin/${alp}`} key={alp}>
                 <span className="p-1 text-blue-600 underline">{alp}</span>
               </Link>
