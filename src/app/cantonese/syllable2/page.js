@@ -94,29 +94,32 @@ export default function Syllable() {
           </Link>
         </div>
       </div>
+
       <table className="mx-auto">
-        <tr>
-          <td className={intialCalss}></td>
-          {initials.map((i) => (
-            <td className={intialCalss} key={i + 2}>
-              {i}
-            </td>
-          ))}
-        </tr>
-        {vowels.map((v) => (
-          <tr key={v}>
-            <td className={vowelCalss}>{v}</td>
-            {initials.map((i) => {
-              let init;
-              i == "-" ? (init = "") : (init = i);
-              return (
-                <td className="text-sm border" key={i + 3}>
-                  {yueYin.includes(init + v) ? init + v : ""}
-                </td>
-              );
-            })}
+        <tbody>
+          <tr>
+            <td className={intialCalss}></td>
+            {initials.map((i) => (
+              <td className={intialCalss} key={i + 2}>
+                {i}
+              </td>
+            ))}
           </tr>
-        ))}
+          {vowels.map((v) => (
+            <tr key={v}>
+              <td className={vowelCalss}>{v}</td>
+              {initials.map((i) => {
+                let init;
+                i == "-" ? (init = "") : (init = i);
+                return (
+                  <td className="text-sm border" key={i + 3}>
+                    {yueYin.includes(init + v) ? init + v : ""}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
