@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import syllable from "./yueYin";
+import Link from "next/link";
 
 export default function Syllable() {
   const [initials, setInitials] = useState([]);
@@ -17,7 +18,10 @@ export default function Syllable() {
     setVowels(syllable.vowel);
   }, []);
 
-  const selectClass = "border rounded-lg p-1 w-20 ml-2 text-center";
+  const labelClass = "text-sm font-bold";
+  const selectClass =
+    "border rounded-lg my-2 p-1 text-center sm:min-w-40 w-full";
+  const linkClass = "text-xs border rounded-lg underline p-1 bg-slate-200";
   const intialCalss = "text-sm border text-pink-600";
   const vowelCalss = "text-sm border text-blue-600";
 
@@ -41,8 +45,8 @@ export default function Syllable() {
   return (
     <div className="w-full mt-8 text-center">
       <div className="md:flex justify-center mb-6">
-        <div className="flex justify-center mx-2">
-          <p>성모(聲母)</p>
+        <div className="justify-center mx-2 p-4 rounded-xl bg-slate-100">
+          <p className={labelClass}>성모(聲母)</p>
           <select
             value={initial}
             className={selectClass}
@@ -55,9 +59,13 @@ export default function Syllable() {
               </option>
             ))}
           </select>
+          <Link href={"/"}>
+            <p className={linkClass}>More &gt;&gt;</p>
+          </Link>
         </div>
-        <div className="flex justify-center mx-2">
-          <p>운모(韻母)</p>
+
+        <div className="justify-center mx-2 p-4 rounded-xl bg-slate-100">
+          <p className={labelClass}>운모(韻母)</p>
           <select value={vowel} className={selectClass} onChange={handleVowel}>
             <option value="전체">전체</option>
             {vowelOptions.map((v) => (
@@ -66,9 +74,12 @@ export default function Syllable() {
               </option>
             ))}
           </select>
+          <Link href={"/"}>
+            <p className={linkClass}>More &gt;&gt;</p>
+          </Link>
         </div>
-        <div className="flex justify-center mx-2">
-          <p>성조(聲調)</p>
+        <div className="justify-center mx-2 p-4 rounded-xl bg-slate-100">
+          <p className={labelClass}>성조(聲調)</p>
           <select className={selectClass}>
             <option>전체</option>
             <option>1</option>
@@ -78,6 +89,9 @@ export default function Syllable() {
             <option>5</option>
             <option>6</option>
           </select>
+          <Link href={"/"}>
+            <p className={linkClass}>More &gt;&gt;</p>
+          </Link>
         </div>
       </div>
       <table className="mx-auto">
