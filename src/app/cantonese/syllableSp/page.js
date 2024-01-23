@@ -1,4 +1,4 @@
-export default function Syllable() {
+export default function SyllableSp() {
   const initials = {
     b: "ㅂ",
     p: "ㅍ",

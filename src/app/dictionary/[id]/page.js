@@ -1,6 +1,6 @@
 "use client";
 
-export default function Read(props) {
+export default function HanJa(props) {
   // const res = await fetch("http://localhost:3000//json/data.json");
   // const jsonData = await res.json();
   // const allData = await jsonData.data;

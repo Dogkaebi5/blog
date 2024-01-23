@@ -1,3 +1,3 @@
-export default function cantonese() {
+export default function About() {
   return <>it is about</>;
 }

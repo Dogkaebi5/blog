@@ -1,4 +1,4 @@
-export default function Syllable() {
+export default function Syllable1() {
   return (
     <div className="w-full mt-8 text-center">
       <div className="flex justify-between">
