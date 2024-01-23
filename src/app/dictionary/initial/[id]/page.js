@@ -88,18 +88,31 @@ export default function Initial(props) {
 
   return (
     <div className="p-8">
-      <h1 className="p-8 bg-slate-100 inline-block rounded-md font-bold text-6xl">
-        {alpha == "" ? "-" : alpha}
-      </h1>
-      <div className="px-2 my-4">
-        <p className="my-4">
-          {isInitial ? "성모(聲母) " : "음모(韻母) "}발음 : [아~]{" "}
-        </p>
+      <button className="px-4 mb-6 bg-slate-200 rounded-full" type="button">
+        <Link href={"/cantonese/syllable"}>&lt;&lt; 음절</Link>
+      </button>
+      <div className="flex">
+        <h1 className="p-8 bg-slate-100 inline-block rounded-md font-bold text-6xl">
+          {alpha == "" ? "-" : alpha}
+        </h1>
+        <div className="p-4">
+          <p>
+            구분 :{" "}
+            {isInitial
+              ? alpha == "ng" || alpha == "m"
+                ? "성모(聲母) 겸 음모(韻母) "
+                : "성모(聲母)"
+              : "음모(韻母) "}
+          </p>
+          <p>발음 : [아~]</p>
+        </div>
+      </div>
+      <div className="p-4">
         <p>긴 [아]의 발음이 나는 운모(韻母)인 동시에 음절(音節)일 수도 있다.</p>
         <p>모든 성모(聲母)와 조합이 가능한 3개의 운모 중 하나이다.</p>
       </div>
       <hr />
-      <div className="p-2">
+      <div className="p-2 mt-4">
         <h3 className="font-bold mb-4">음절 조합</h3>
         <div className="flex flex-wrap">
           {yueYin.map((alp) => {
