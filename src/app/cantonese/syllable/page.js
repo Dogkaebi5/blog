@@ -11,11 +11,11 @@ export default function Syllable() {
 
   const yueYin = syllable.yueYin;
   const initialOptions = Object.keys(syllable.initial);
-  const vowelOptions = syllable.vowel;
+  const vowelOptions = Object.keys(syllable.vowel);
 
   useEffect(() => {
     setInitials(Object.keys(syllable.initial));
-    setVowels(syllable.vowel);
+    setVowels(Object.keys(syllable.vowel));
   }, []);
 
   const labelClass = "text-sm font-bold";
@@ -37,7 +37,7 @@ export default function Syllable() {
   const handleVowel = (e) => {
     setVowel(e.target.value);
     if (e.target.value == "전체") {
-      setVowels(syllable.vowel);
+      setVowels(Object.keys(syllable.vowel));
     } else {
       setVowels([e.target.value]);
     }

@@ -5,7 +5,7 @@ const syllable = {
       detail:
         "엄밀히는 성모(聲母)가 아닌 성모가 없을 때의 표기 방식이다. 운모 자체가 월음(粵音)인 경우이다",
     },
-    b: { pronunciation: "ㅂ", detail: "" },
+    b: { pronunciation: "ㅃ", detail: "" },
     p: { pronunciation: "ㅍ", detail: "" },
     m: {
       pronunciation: "ㅁ",
@@ -41,64 +41,251 @@ const syllable = {
         "영어 발음 표기법과 같게 [j]는 [이] 발음이 난다. (Jacob이 제이콥이 아닌 야곱인 이유)",
     },
   },
-  vowel: [
-    "aa",
-    "aai",
-    "aau",
-    "aam",
-    "aan",
-    "aang",
-    "aap",
-    "aat",
-    "aak",
-    "ai",
-    "au",
-    "am",
-    "an",
-    "ang",
-    "ap",
-    "at",
-    "ak",
-    "e",
-    "ei",
-    "eu",
-    "em",
-    "eng",
-    "ep",
-    "ek",
-    "i",
-    "iu",
-    "im",
-    "in",
-    "ing",
-    "ip",
-    "it",
-    "ik",
-    "o",
-    "oi",
-    "ou",
-    "on",
-    "ong",
-    "ot",
-    "ok",
-    "oe",
-    "oeng",
-    "oek",
-    "eoi",
-    "eon",
-    "eot",
-    "u",
-    "ui",
-    "un",
-    "ung",
-    "ut",
-    "uk",
-    "yu",
-    "yun",
-    "yut",
-    "m",
-    "ng",
-  ],
+  vowel: {
+    aa: {
+      pronunciation: "아~",
+      detail:
+        "[아]의 긴 발음이다. 모든 성모(聲母)와 조합이 가능한 운모(韻母) 3개 중 하나이다.",
+    },
+    aai: {
+      pronunciation: "아~이",
+      detail: "",
+    },
+    aau: {
+      pronunciation: "아~우",
+      detail: "",
+    },
+    aam: {
+      pronunciation: "암~",
+      detail: "",
+    },
+    aan: {
+      pronunciation: "안~",
+      detail: "",
+    },
+    aang: {
+      pronunciation: "앙~",
+      detail: "",
+    },
+    aap: {
+      pronunciation: "압~",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    aat: {
+      pronunciation: "앗~",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    aak: {
+      pronunciation: "악~",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    ai: {
+      pronunciation: "아이",
+      detail: "",
+    },
+    au: {
+      pronunciation: "아우",
+      detail: "",
+    },
+    am: {
+      pronunciation: "암",
+      detail: "",
+    },
+    an: {
+      pronunciation: "안",
+      detail: "",
+    },
+    ang: {
+      pronunciation: "앙",
+      detail: "",
+    },
+    ap: {
+      pronunciation: "압",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    at: {
+      pronunciation: "앗",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    ak: {
+      pronunciation: "악",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    e: {
+      pronunciation: "에",
+      detail: "[ㅓ]가 아닌 [에] 발음이다",
+    },
+    ei: {
+      pronunciation: "에이",
+      detail: "",
+    },
+    eu: {
+      pronunciation: "에우",
+      detail: "[eu]는 [deu6] 한가지 조합만 존재한다.",
+    },
+    em: {
+      pronunciation: "엠",
+      detail: "[em]은 [lem2] 한가지 조합만 존재한다.",
+    },
+    eng: {
+      pronunciation: "엥~",
+      detail:
+        "[eng]과 [ing]은 똑 같은 [엥]발음이 난다. 하지만 [eng]은 긴음이고 [ing]은 짧은 음이다.",
+    },
+    ep: {
+      pronunciation: "엡",
+      detail: "[ep]은 [gep6] 한가지 조합만 존재한다. 입음(入音) 중 하나이다.",
+    },
+    ek: {
+      pronunciation: "엑",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    i: {
+      pronunciation: "이",
+      detail: "",
+    },
+    iu: {
+      pronunciation: "이우",
+      detail: "",
+    },
+    im: {
+      pronunciation: "임",
+      detail: "",
+    },
+    in: {
+      pronunciation: "인",
+      detail: "",
+    },
+    ing: {
+      pronunciation: "잉",
+      detail: "",
+    },
+    ip: {
+      pronunciation: "입",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    it: {
+      pronunciation: "잇",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    ik: {
+      pronunciation: "익",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    o: {
+      pronunciation: "오ㅓ",
+      detail: "한글에 없는 발음이다. [오]하는 입으로 [어]를 말할 때 발음 된다",
+    },
+    oi: {
+      pronunciation: "오ㅓ이 ",
+      detail: "",
+    },
+    ou: {
+      pronunciation: "오ㅓ우",
+      detail: "",
+    },
+    on: {
+      pronunciation: "오언",
+      detail: "",
+    },
+    ong: {
+      pronunciation: "오엉",
+      detail: "",
+    },
+    ot: {
+      pronunciation: "오엇",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    ok: {
+      pronunciation: "오억",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    oe: {
+      pronunciation: "여",
+      detail: "[oe]는 [여] 발음이 난다.",
+    },
+    oeng: {
+      pronunciation: "영",
+      detail: "",
+    },
+    oek: {
+      pronunciation: "역",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    eoi: {
+      pronunciation: "오이",
+      detail: "[eo]는 [오] 발음이 난다.",
+    },
+    eon: {
+      pronunciation: "온",
+      detail: "",
+    },
+    eot: {
+      pronunciation: "옷",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    u: {
+      pronunciation: "우",
+      detail: "",
+    },
+    ui: {
+      pronunciation: "우이",
+      detail: "",
+    },
+    un: {
+      pronunciation: "운",
+      detail: "",
+    },
+    ung: {
+      pronunciation: "웅",
+      detail: "",
+    },
+    ut: {
+      pronunciation: "웃",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    uk: {
+      pronunciation: "욱",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    yu: {
+      pronunciation: "위",
+      detail: "",
+    },
+    yun: {
+      pronunciation: "윈",
+      detail: "",
+    },
+    yut: {
+      pronunciation: "윗",
+      detail:
+        "입음(入音) 중 하나이다. 받침음이 [p, t, k]인 경우 입음이다. 입음은 1, 3, 6 성만 존재한다. 광둥어에서 6성9조(六聲九調)의 6성보다 3개 많은 3조가 여기에 속한다.",
+    },
+    m: {
+      pronunciation: "",
+      detail: "",
+    },
+    ng: {
+      pronunciation: "",
+      detail: "",
+    },
+  },
   yueYin: [
     "aa",
     "baa",

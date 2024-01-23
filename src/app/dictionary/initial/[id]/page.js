@@ -113,7 +113,7 @@ export default function Initial(props) {
                 : " 성모(聲母)"
               : " 음모(韻母) "}
           </p>
-          <p>발음 : {data.pronunciation}</p>
+          <p>발음 : [{data.pronunciation}]</p>
         </div>
       </div>
       <div className="p-4">
