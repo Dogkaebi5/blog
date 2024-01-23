@@ -1,26 +1,46 @@
 const syllable = {
-  initial: [
-    "-",
-    "b",
-    "p",
-    "m",
-    "f",
-    "d",
-    "t",
-    "n",
-    "l",
-    "g",
-    "k",
-    "ng",
-    "h",
-    "gw",
-    "kw",
-    "w",
-    "z",
-    "c",
-    "s",
-    "j",
-  ],
+  initial: {
+    "-": {
+      pronunciation: "없음",
+      detail:
+        "엄밀히는 성모(聲母)가 아닌 성모가 없을 때의 표기 방식이다. 운모 자체가 월음(粵音)인 경우이다",
+    },
+    b: { pronunciation: "ㅂ", detail: "" },
+    p: { pronunciation: "ㅍ", detail: "" },
+    m: {
+      pronunciation: "ㅁ",
+      detail:
+        "성모(聲母)이면서 운모(韻母)인 발음이다. 성모로 사용할 때 [ㅁ] 발음이고, 운모일 때 [음] 발음이다",
+    },
+    f: {
+      pronunciation: "f",
+      detail:
+        "한글에는 없는 발음이다. [ㅎ]과 [ㅍ]의 중간음으로 앞니로 밑 입술을 물면 나오는 발음이다.",
+    },
+    d: { pronunciation: "ㄷ", detail: "" },
+    t: { pronunciation: "ㅌ", detail: "" },
+    n: { pronunciation: "ㄴ", detail: "" },
+    l: { pronunciation: "ㄹ", detail: "" },
+    g: { pronunciation: "ㄱ", detail: "" },
+    k: { pronunciation: "ㅋ", detail: "" },
+    ng: {
+      pronunciation: "으/응",
+      detail:
+        "한국어에 없는 발음이다. [으,은,응]의 중간 발음이다. 성모(聲母)와 운모(韻母)로 사용된다. 성모의 예시로 ngaa의 경우 빠르게 [아]로 들리지만, 실제로는 [으아]의 발음이다. 운모일 때는 [은]발음으로 사용된다.",
+    },
+    h: { pronunciation: "ㅎ", detail: "" },
+    gw: { pronunciation: "구", detail: "" },
+    kw: { pronunciation: "쿠", detail: "" },
+    w: { pronunciation: "우", detail: "" },
+    z: { pronunciation: "ㅈ", detail: "" },
+    c: { pronunciation: "ㅊ", detail: "" },
+    s: { pronunciation: "ㅅ", detail: "" },
+    j: {
+      pronunciation: "이",
+      detail:
+        "영어 발음 표기법과 같게 [j]는 [이] 발음이 난다. (Jacob이 제이콥이 아닌 야곱인 이유)",
+    },
+  },
   vowel: [
     "aa",
     "aai",

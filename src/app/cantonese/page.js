@@ -58,7 +58,7 @@ export default function Cantonese() {
     <>
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 xl:grid-cols-10 gap-4">
         {data.map((post) => (
-          <div key="" className="mt-4 bg-slate-200">
+          <div key={post.id} className="mt-4 bg-slate-200">
             <Link href={`/dictionary/${post.id}`}>
               <h1 className="font-bold text-6xl bg-slate-300 text-center py-5">
                 {post.hanzi}

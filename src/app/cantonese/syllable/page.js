@@ -10,11 +10,11 @@ export default function Syllable() {
   const [vowel, setVowel] = useState("전체");
 
   const yueYin = syllable.yueYin;
-  const initialOptions = syllable.initial;
+  const initialOptions = Object.keys(syllable.initial);
   const vowelOptions = syllable.vowel;
 
   useEffect(() => {
-    setInitials(syllable.initial);
+    setInitials(Object.keys(syllable.initial));
     setVowels(syllable.vowel);
   }, []);
 
@@ -29,7 +29,7 @@ export default function Syllable() {
   const handleInitial = (e) => {
     setInitial(e.target.value);
     if (e.target.value == "전체") {
-      setInitials(syllable.initial);
+      setInitials(Object.keys(syllable.initial));
     } else {
       setInitials([e.target.value]);
     }
