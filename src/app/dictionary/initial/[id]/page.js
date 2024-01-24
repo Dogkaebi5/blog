@@ -90,7 +90,8 @@ export default function Initial(props) {
   }
 
   const alpha = props.params.id;
-  const yueYin = syllable.yueYin;
+  const yueYin = Object.keys(syllable.yueYin);
+  //
   const isInitial = checkIsInital(alpha);
   const type = isInitial ? "initial" : "vowel";
   const data = syllable[type][alpha];

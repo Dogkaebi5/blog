@@ -9,7 +9,7 @@ export default function Syllable() {
   const [initial, setInitial] = useState("전체");
   const [vowel, setVowel] = useState("전체");
 
-  const yueYin = syllable.yueYin;
+  const yueYin = Object.keys(syllable.yueYin);
   const initialOptions = Object.keys(syllable.initial);
   const vowelOptions = Object.keys(syllable.vowel);
 

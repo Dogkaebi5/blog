@@ -35,8 +35,8 @@ export default function YueYin(props) {
     return [yueYin.substring(0, 1), yueYin.substring(1)];
   }
 
-  function checkToens() {
-    const data = syllable.tone;
+  function matchData() {
+    const data = syllable.yueYin;
     const keys = Object.keys(data);
 
     for (let i = 0; i < keys.length; i++) {
@@ -48,7 +48,8 @@ export default function YueYin(props) {
 
   let initial = checkAlpha()[0];
   let vowel = checkAlpha()[1];
-  let tones = checkToens();
+  let data = matchData();
+  let tones = data.tone;
 
   const audioUrlOrigin =
     "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/sound/";
@@ -66,8 +67,8 @@ export default function YueYin(props) {
           {yueYin}
         </h1>
         <div className="p-2">
-          <p>월음 (粵音)</p>
-          <p>발음 : [바~]</p>
+          <p className="font-bold mb-2">월음 (粵音)</p>
+          <p>발음 : [{data.pronunciation}]</p>
         </div>
       </div>
       <div className="my-4 p-2">
