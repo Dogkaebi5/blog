@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 개인 홈페이지
 
-## Getting Started
+Next.js 14 이용 작성
 
-First, run the development server:
+`광둥어 / 프로젝트 / 일기 / 이력서 `
+위의 카테고리로 작성 예정
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 광둥어
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 음절 - 광둥어 발음 및 성조 데이터
+- 한자 - 광둥어에서 자주 사용하는 한자 우선 작성 후, 한자 사전으로 데이터 늘려보자
+- 단어 - 광둥어에서 자주 사용하는 단어. 중국어 단어는 우선 보류.
+- 회화 - 간단한 회한 내용 작성. 일기 형식?
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 프로젝트
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+기획에 관련된 기능 페이지 기획 후 작성
 
-## Learn More
+### 일기
 
-To learn more about Next.js, take a look at the following resources:
+개인 일기
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 이력서
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+개인 이력서
 
-## Deploy on Vercel
+### 댓글 및 문의 기능
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+우선 구글auth 로 로그인 후 작성가능으로 생각 중
