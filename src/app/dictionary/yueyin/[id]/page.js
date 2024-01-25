@@ -8,26 +8,18 @@ export default function YueYin(props) {
 
   function checkAlpha() {
     if (checkIsVowel(yueYin)) return ["", yueYin];
-
     if (yueYin.startsWith("gw") || yueYin.startsWith("kw"))
       return [yueYin.substring(0, 2), yueYin.substring(2)];
-
     if (yueYin.startsWith("ng")) {
-      if (yueYin.length == 2) {
-        return ["", yueYin];
-      } else {
-        return [yueYin.substring(0, 2), yueYin.substring(2)];
-      }
+      return yueYin.length == 2
+        ? ["", yueYin]
+        : [yueYin.substring(0, 2), yueYin.substring(2)];
     }
-
     if (yueYin.startsWith("m")) {
-      if (yueYin.length == 1) {
-        return ["", yueYin];
-      } else {
-        return [yueYin.substring(0, 1), yueYin.substring(1)];
-      }
+      return yueYin.length == 1
+        ? ["", yueYin]
+        : [yueYin.substring(0, 1), yueYin.substring(1)];
     }
-
     return [yueYin.substring(0, 1), yueYin.substring(1)];
   }
 
