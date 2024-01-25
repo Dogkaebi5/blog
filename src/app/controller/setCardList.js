@@ -1,6 +1,6 @@
 import { fetchData } from "./fetchData";
 
-async function setList(path, tag) {
+async function setCardList(path, tag) {
   const jsonData = await fetchData();
   const allData = jsonData.data;
   let filteredData = allData.filter((post) => "/" + post.category == path);
@@ -12,4 +12,4 @@ async function setList(path, tag) {
   return filteredData;
 }
 
-export { setList };
+export { setCardList };

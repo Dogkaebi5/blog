@@ -2,14 +2,17 @@
 import { usePathname } from "next/navigation";
 
 const Heros = () => {
-  const pathname = usePathname();
+  const path = usePathname();
   let title;
 
-  if (pathname == "/") title = "독깨비 노트";
-  if (pathname == "/cantonese") title = "粵";
-  if (pathname == "/code") title = "CODE";
-  if (pathname == "/blog") title = "BLOG";
-  if (pathname == "/about") title = "독깨비 ...";
+  let pathname = path.split("/")[1];
+  console.log(pathname);
+
+  if (pathname == "") title = "독깨비 노트";
+  if (pathname == "cantonese") title = "粵";
+  if (pathname == "code") title = "CODE";
+  if (pathname == "blog") title = "BLOG";
+  if (pathname == "about") title = "독깨비 ...";
 
   return (
     <div className="bg-slate-100 h-60 flex flex-col justify-center items-center">

@@ -2,7 +2,7 @@
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Card from "./Card";
-import { setList } from "../controller/cardListSetter";
+import { setCardList } from "../controller/setCardList";
 
 const CardList = () => {
   const [data, setData] = useState(null);
@@ -12,7 +12,7 @@ const CardList = () => {
 
   useEffect(() => {
     const postList = async () => {
-      const list = await setList(path, tagPram);
+      const list = await setCardList(path, tagPram);
       setData(list);
     };
     postList(path);
