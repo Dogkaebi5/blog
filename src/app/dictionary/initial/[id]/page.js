@@ -1,23 +1,13 @@
 import Link from "next/link";
 import syllable from "../../yueYin";
+import { checkIsVowel } from "@/app/controller/checkYueYinType";
 
 export default function Initial(props) {
-  function checkIsInital(text) {
-    return !(
-      text.startsWith("a") ||
-      text.startsWith("e") ||
-      text.startsWith("i") ||
-      text.startsWith("o") ||
-      text.startsWith("u") ||
-      text.startsWith("y")
-    );
-  }
-
   function checkList(text) {
     let nText;
     text == "-" ? (nText = "") : (nText = text);
 
-    if (alpha == "-") return !checkIsInital(nText);
+    if (alpha == "-") return checkIsVowel(nText);
     if (alpha == "m") {
       return (
         nText.startsWith(alpha) ||
@@ -92,7 +82,7 @@ export default function Initial(props) {
   const alpha = props.params.id;
   const yueYin = Object.keys(syllable.yueYin);
   //
-  const isInitial = checkIsInital(alpha);
+  const isInitial = !checkIsVowel(alpha);
   const type = isInitial ? "initial" : "vowel";
   const data = syllable[type][alpha];
 

@@ -1,18 +1,13 @@
 "use client";
 import { handleAudio } from "@/app/controller/handleAudio";
 import syllable from "../../yueYin";
+import { checkIsVowel } from "@/app/controller/checkYueYinType";
 
 export default function YueYin(props) {
   const yueYin = props.params.id;
 
   function checkAlpha() {
-    if (
-      yueYin.startsWith("a") ||
-      yueYin.startsWith("e") ||
-      yueYin.startsWith("o") ||
-      yueYin.startsWith("u")
-    )
-      return ["", yueYin];
+    if (checkIsVowel(yueYin)) return ["", yueYin];
 
     if (yueYin.startsWith("gw") || yueYin.startsWith("kw"))
       return [yueYin.substring(0, 2), yueYin.substring(2)];

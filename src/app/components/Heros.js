@@ -3,10 +3,8 @@ import { usePathname } from "next/navigation";
 
 const Heros = () => {
   const path = usePathname();
-  let title;
-
   let pathname = path.split("/")[1];
-  console.log(pathname);
+  let title;
 
   if (pathname == "") title = "독깨비 노트";
   if (pathname == "cantonese") title = "粵";
