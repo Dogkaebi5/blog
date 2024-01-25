@@ -1,25 +1,11 @@
 "use client";
 
-export default function HanJa(props) {
-  // const res = await fetch("http://localhost:3000//json/data.json");
-  // const jsonData = await res.json();
-  // const allData = await jsonData.data;
-  // const data = allData.filter((obj) => {
-  //   if (obj.id == Number(props.params.id)) {
-  //     return obj;
-  //   }
-  // });
-  const character = "一";
-  const syllabel = "jat1";
-  const phrases = ["一往無前", "一事無成", "一五一十", "一心一意", "一言為定"];
-  const audioUrlOrigin =
-    "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/sound/";
+import { handleAudio } from "@/app/controller/handleAudio";
 
-  const audioUrl = `${audioUrlOrigin}/${syllabel}.Mp3`;
-  const handleAudio = () => {
-    const audio = new Audio(audioUrl);
-    audio.play();
-  };
+export default function HanJa(props) {
+  const character = "一";
+  const yueYin = "jat1";
+  const phrases = ["一往無前", "一事無成", "一五一十", "一心一意", "一言為定"];
 
   const contentClass = "bg-white px-3 py-2 text-center mt-1";
   const smTieleClass = "text-sm mt-2";
@@ -36,10 +22,10 @@ export default function HanJa(props) {
           <div className="min-w-36">
             <p className={smTieleClass}>음절 (音節)</p>
             <p
-              onClick={handleAudio}
+              onClick={() => handleAudio(yueYin)}
               className={`${contentClass} underline hover:text-gray-400`}
             >
-              {syllabel}
+              {yueYin}
             </p>
             <p className={smTieleClass}>발음</p>
             <p className={contentClass}>얕</p>

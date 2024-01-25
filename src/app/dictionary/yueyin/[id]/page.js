@@ -1,4 +1,5 @@
 "use client";
+import { handleAudio } from "@/app/controller/handleAudio";
 import syllable from "../../yueYin";
 
 export default function YueYin(props) {
@@ -50,15 +51,6 @@ export default function YueYin(props) {
   let vowel = checkAlpha()[1];
   let data = matchData();
   let tones = data.tone;
-
-  const audioUrlOrigin =
-    "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/sound/";
-
-  const handleAudio = (syllabel) => {
-    const audioUrl = `${audioUrlOrigin}/${syllabel}.Mp3`;
-    const audio = new Audio(audioUrl);
-    audio.play();
-  };
 
   return (
     <div className="mt-6 p-4">
