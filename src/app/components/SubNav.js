@@ -7,8 +7,6 @@ const SubNav = () => {
   const pathnames = path.split("/");
   const lastPathname = pathnames[pathnames.length - 1];
 
-  console.log(lastPathname);
-
   const params = useSearchParams();
   const tag = params.get("tag");
   let nav = [];

@@ -8,10 +8,14 @@ export default function Syllable() {
   const [vowels, setVowels] = useState([]);
   const [initial, setInitial] = useState("전체");
   const [vowel, setVowel] = useState("전체");
+  const [isHan, setIshan] = useState(false);
 
   const yueYin = Object.keys(syllable.yueYin);
   const initialOptions = Object.keys(syllable.initial);
   const vowelOptions = Object.keys(syllable.vowel);
+  const yueYinDetails = Object.values(Object.values(syllable.yueYin));
+  const hans = yueYinDetails.map((detail) => detail.han);
+  let count = -1;
 
   useEffect(() => {
     setInitials(Object.keys(syllable.initial));
@@ -41,6 +45,11 @@ export default function Syllable() {
     } else {
       setVowels([e.target.value]);
     }
+  };
+
+  const handleIsHan = (e) => {
+    console.log(e.target.value);
+    setIshan(!isHan);
   };
 
   return (
@@ -102,6 +111,18 @@ export default function Syllable() {
         <div className={linkClass + " mt-2 font-bold"}>
           <Link href={"/cantonese/syllableSp"}>간단하게 보기 &gt;&gt;</Link>
         </div>
+        <label className="relative inline-flex items-center cursor-pointer mt-4">
+          <input
+            type="checkbox"
+            value={isHan}
+            className="sr-only peer"
+            onClick={handleIsHan}
+          />
+          <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+          <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+            음절/한자
+          </span>
+        </label>
       </div>
 
       <table className="mx-auto">
@@ -114,28 +135,34 @@ export default function Syllable() {
               </td>
             ))}
           </tr>
-          {vowels.map((v) => (
-            <tr key={v}>
-              <td className={vowelCalss}>
-                <Link href={`/dictionary/initial/${v}`}>{v}</Link>
-              </td>
-              {initials.map((i) => {
-                let init;
-                i == "-" ? (init = "") : (init = i);
-                return (
-                  <td className="text-sm border" key={i + 3}>
-                    {yueYin.includes(init + v) ? (
-                      <Link href={`/dictionary/yueyin/${init + v}`}>
-                        {init + v}
-                      </Link>
-                    ) : (
-                      ""
-                    )}
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
+          {vowels.map((v) => {
+            return (
+              <tr key={v}>
+                <td className={vowelCalss}>
+                  <Link href={`/dictionary/initial/${v}`}>{v}</Link>
+                </td>
+                {initials.map((i) => {
+                  let init;
+                  i == "-" ? (init = "") : (init = i);
+                  if (yueYin.includes(init + v)) count++;
+                  return (
+                    <td className="text-sm border" key={i + 3}>
+                      {yueYin.includes(init + v) ? (
+                        <Link
+                          href={`/dictionary/yueyin/${init + v}`}
+                          className={"px-0.5"}
+                        >
+                          {isHan ? hans[count] : init + v}
+                        </Link>
+                      ) : (
+                        ""
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
