@@ -8,13 +8,22 @@ const SubNav = () => {
   const tag = params.get("tag");
   let nav = [];
 
-  if (pathname == "/cantonese") nav = ["한자", "음절", "회화"];
-  if (pathname == "/blog") nav = ["책", "일상", "코딩"];
+  if (pathname == "/cantonese")
+    nav = [
+      ["한자", ""],
+      ["음절", "/syllable"],
+      ["회화", "/conversation"],
+    ];
+  if (pathname == "/blog")
+    nav = [
+      ["책", "?tag=book"],
+      ["일상", "?tag=daily"],
+      ["코딩", "?tag=coding"],
+    ];
 
   const activeClass =
     "rounded-full border py-2 px-8 mr-2 bg-slate-600 text-white";
   const notActiveClass = "rounded-full border py-2 px-8 mr-2";
-  let isAll = true;
 
   return (
     <>
@@ -26,10 +35,10 @@ const SubNav = () => {
           >
             All
           </Link>
-          {nav.map((item) => {
+          {nav.map(([item, param]) => {
             return (
               <Link
-                href={pathname + "?tag=" + item}
+                href={pathname + param}
                 key={item}
                 className={tag == item ? activeClass : notActiveClass}
               >

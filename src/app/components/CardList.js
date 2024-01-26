@@ -5,7 +5,7 @@ import Card from "./Card";
 import { setCardList } from "../controller/setCardList";
 
 const CardList = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState();
   const path = usePathname();
   const params = useSearchParams();
   const tagPram = params.get("tag");
