@@ -1,6 +1,7 @@
 import { fetchData } from "./fetchData";
 
 async function setCardList(path, tag) {
+  // path 미사용
   const jsonData = await fetchData();
   const allData = jsonData.data;
 

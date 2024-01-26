@@ -8,6 +8,8 @@ const SubNav = () => {
   const tag = params.get("tag");
   let nav = [];
 
+  console.log(tag);
+
   if (pathname == "/cantonese")
     nav = [
       ["한자", ""],
@@ -16,8 +18,8 @@ const SubNav = () => {
     ];
   if (pathname == "/blog")
     nav = [
-      ["책", "?tag=book"],
       ["일상", "?tag=daily"],
+      ["책", "?tag=book"],
       ["코딩", "?tag=coding"],
     ];
 
@@ -40,7 +42,15 @@ const SubNav = () => {
               <Link
                 href={pathname + param}
                 key={item}
-                className={tag == item ? activeClass : notActiveClass}
+                className={
+                  tag != null
+                    ? tag == param.split("=")[1]
+                      ? activeClass
+                      : notActiveClass
+                    : pathname == param
+                    ? activeClass
+                    : notActiveClass
+                }
               >
                 {item}
               </Link>

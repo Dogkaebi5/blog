@@ -19,10 +19,7 @@ export default function Initial(props) {
   const data = syllable[type][alpha];
 
   function checkYueYinList(yueYin) {
-    let nText;
-    yueYin == "-" ? (nText = "") : (nText = yueYin);
-
-    if (alpha == "-") return checkIsVowel(nText);
+    if (alpha == "-") return checkIsVowel(yueYin);
     if (alpha == "m") return nText.startsWith(alpha) || nText.endsWith("hm");
     if (alpha == "ng") return nText.startsWith(alpha) || nText.endsWith("hng");
 

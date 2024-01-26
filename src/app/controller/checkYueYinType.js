@@ -1,12 +1,15 @@
+const startsWithMultiple = (str, prefixes) => {
+  const pattern = new RegExp(`^(${prefixes.join("|")})`);
+  return pattern.test(str);
+};
+
+const endsWithMultiple = (str, suffixes) => {
+  const pattern = new RegExp(`(${suffixes.join("|")})$`);
+  return pattern.test(str);
+};
+
 function checkIsVowel(text) {
-  return (
-    text.startsWith("a") ||
-    text.startsWith("e") ||
-    text.startsWith("i") ||
-    text.startsWith("o") ||
-    text.startsWith("u") ||
-    text.startsWith("y")
-  );
+  return startsWithMultiple(text, ["a", "e", "i", "o", "u", "y"]);
 }
 
 function checkIncludeNGK(text) {
@@ -23,24 +26,17 @@ function checkOnlyStartWithNGK(yueYin, text) {
 }
 
 function checkLongAVowel(yueYin, text) {
-  if (text.startsWith("a"))
-    return yueYin.endsWith(text) && !yueYin.endsWith("a" + text);
+  return yueYin.endsWith(text) && !yueYin.endsWith("a" + text);
 }
 
 function checkEVowel(yueYin, text) {
-  if (text.startsWith("e"))
-    return yueYin.endsWith(text) && !yueYin.endsWith("o" + text);
+  return yueYin.endsWith(text) && !yueYin.endsWith("o" + text);
 }
 
 function checkIVowel(yueYin, text) {
-  if (text.startsWith("i"))
-    return (
-      yueYin.endsWith(text) &&
-      !yueYin.endsWith("ai") &&
-      !yueYin.endsWith("ei") &&
-      !yueYin.endsWith("oi") &&
-      !yueYin.endsWith("ui")
-    );
+  return (
+    yueYin.endsWith(text) && !endsWithMultiple(yueYin, ["ai", "ei", "oi", "ui"])
+  );
 }
 
 function checkOVowel(yueYin, text) {
@@ -54,11 +50,8 @@ function checkUVowel(yueYin, text) {
   if (text.startsWith("u"))
     return (
       yueYin.endsWith(text) &&
-      !yueYin.endsWith("au") &&
-      !yueYin.endsWith("eu") &&
-      !yueYin.endsWith("iu") &&
-      !yueYin.endsWith("ou") &&
-      !yueYin.endsWith("y" + text)
+      !yueYin.endsWith("y" + text) &&
+      !endsWithMultiple(yueYin, ["au", "eu", "iu", "ou"])
     );
 }
 
