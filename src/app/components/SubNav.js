@@ -3,24 +3,28 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
 const SubNav = () => {
-  const pathname = usePathname();
+  const path = usePathname();
+  const pathnames = path.split("/");
+  const lastPathname = pathnames[pathnames.length - 1];
+
+  console.log(lastPathname);
+
   const params = useSearchParams();
   const tag = params.get("tag");
   let nav = [];
 
-  console.log(tag);
-
-  if (pathname == "/cantonese")
+  if (pathnames[1] == "cantonese")
     nav = [
-      ["한자", ""],
-      ["음절", "/syllable"],
-      ["회화", "/conversation"],
+      ["한자", "/cantonese"],
+      ["음절", "/cantonese/syllable"],
+      ["회화", "/cantonese/conversation"],
     ];
-  if (pathname == "/blog")
+  if (pathnames[1] == "blog")
     nav = [
-      ["일상", "?tag=daily"],
-      ["책", "?tag=book"],
-      ["코딩", "?tag=coding"],
+      ["All", "/blog"],
+      ["일상", "/blog?tag=daily"],
+      ["책", "/blog?tag=book"],
+      ["코딩", "/blog?tag=coding"],
     ];
 
   const activeClass =
@@ -31,23 +35,18 @@ const SubNav = () => {
     <>
       <div className="flex justify-between items-center mt-10 mb-4">
         <div>
-          <Link
-            href={pathname}
-            className={tag == null ? activeClass : notActiveClass}
-          >
-            All
-          </Link>
           {nav.map(([item, param]) => {
+            let params = param.split("/");
             return (
               <Link
-                href={pathname + param}
+                href={param}
                 key={item}
                 className={
-                  tag != null
-                    ? tag == param.split("=")[1]
+                  tag == null
+                    ? lastPathname == params[params.length - 1]
                       ? activeClass
                       : notActiveClass
-                    : pathname == param
+                    : tag == param.split("=")[1]
                     ? activeClass
                     : notActiveClass
                 }
