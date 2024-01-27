@@ -16,7 +16,10 @@ export default function Initial(props) {
   const yueYins = Object.keys(syllable.yueYin);
   const isInitial = !checkIsVowel(alpha);
   const type = isInitial ? "initial" : "vowel";
-  const data = syllable[type][alpha];
+  const data = syllable[type][alpha] ?? {
+    pronunciation: "-",
+    detail: "존재하지 않거나 단독으로 존재하지 않는 발음입니다",
+  };
 
   function checkYueYinList(yueYin) {
     if (alpha == "-") return checkIsVowel(yueYin);
@@ -41,6 +44,8 @@ export default function Initial(props) {
 
   const yueYinURL = "/cantonese/syllable/yueyin/";
 
+  let keyIndex = 0;
+
   return (
     <div className="p-8">
       <button className="px-4 mb-6 bg-slate-200 rounded-full" type="button">
@@ -63,7 +68,9 @@ export default function Initial(props) {
         </div>
       </div>
       <div className="p-4">
-        <p>{data.detail}</p>
+        {data.detail.split("/").map((content) => (
+          <p key={alpha + keyIndex++}>{content}</p>
+        ))}
       </div>
       <hr />
       <div className="p-2 mt-4">
