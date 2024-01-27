@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function SyllableSp() {
   const initials = {
     b: "ㅂ",
@@ -17,7 +19,18 @@ export default function SyllableSp() {
     s: "ㅅ",
     j: "이",
   };
+  const initials2 = {
+    p: "ㅍ(ㅂ)",
+    t: "ㅅ(ㄷ)",
+    k: "ㅋ(ㄱ)",
+    n: "ㄴ",
+    ng: "ㅇ",
+    m: "ㅁ",
+  };
   const vowels = { a: "ㅏ", e: "ㅔ", i: "ㅣ", o: "ㅗㅓ", u: "ㅜ", y: "ㅣ" };
+  const vowels2 = { ing: "앵", oe: "ㅕ", eo: "ㅗ", yu: "ㅟ" };
+
+  const initialURL = "/cantonese/syllable/initial/";
 
   return (
     <div className="p-4">
@@ -28,7 +41,7 @@ export default function SyllableSp() {
             <tr>
               {Object.keys(initials).map((i) => (
                 <th className="border p-1 text-pink-400" key={i}>
-                  {i}
+                  <Link href={initialURL + i}>{i}</Link>
                 </th>
               ))}
             </tr>
@@ -47,20 +60,18 @@ export default function SyllableSp() {
         <table>
           <tbody className="text-center">
             <tr>
-              <th className="border p-1 text-pink-400">p</th>
-              <th className="border p-1 text-pink-400">t</th>
-              <th className="border p-1 text-pink-400">k</th>
-              <th className="border p-1 text-pink-400">n</th>
-              <th className="border p-1 text-pink-400">ng</th>
-              <th className="border p-1 text-pink-400">m</th>
+              {Object.keys(initials2).map((i) => (
+                <th className="border p-1 text-pink-400" key={i}>
+                  <Link href={initialURL + i}>{i}</Link>
+                </th>
+              ))}
             </tr>
             <tr>
-              <td className="border p-1">ㅍ(ㅂ)</td>
-              <td className="border p-1">ㅌ(ㄷ)</td>
-              <td className="border p-1">ㅋ(ㄱ)</td>
-              <td className="border p-1">ㄴ</td>
-              <td className="border p-1">ㅇ</td>
-              <td className="border p-1">ㅁ</td>
+              {Object.values(initials2).map((i) => (
+                <td className="border p-1" key={i}>
+                  {i}
+                </td>
+              ))}
             </tr>
           </tbody>
         </table>
@@ -72,7 +83,7 @@ export default function SyllableSp() {
             <tr>
               {Object.keys(vowels).map((i) => (
                 <th className="border p-1 text-blue-400" key={i}>
-                  {i}
+                  <Link href={initialURL + i}>{i}</Link>
                 </th>
               ))}
             </tr>
@@ -91,16 +102,18 @@ export default function SyllableSp() {
         <table>
           <tbody className="text-center">
             <tr>
-              <th className="border p-1 text-blue-400">ing</th>
-              <th className="border p-1 text-blue-400">oe</th>
-              <th className="border p-1 text-blue-400">eo</th>
-              <th className="border p-1 text-blue-400">yu</th>
+              {Object.keys(vowels2).map((i) => (
+                <th className="border p-1 text-blue-400" key={i}>
+                  {i}
+                </th>
+              ))}
             </tr>
             <tr>
-              <td className="border p-1">앵</td>
-              <td className="border p-1">ㅕ</td>
-              <td className="border p-1">ㅗ</td>
-              <td className="border p-1">ㅟ</td>
+              {Object.values(vowels2).map((i) => (
+                <td className="border p-1" key={i}>
+                  {i}
+                </td>
+              ))}
             </tr>
           </tbody>
         </table>

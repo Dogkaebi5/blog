@@ -20,13 +20,14 @@ export default function Initial(props) {
 
   function checkYueYinList(yueYin) {
     if (alpha == "-") return checkIsVowel(yueYin);
-    if (alpha == "m") return nText.startsWith(alpha) || nText.endsWith("hm");
-    if (alpha == "ng") return nText.startsWith(alpha) || nText.endsWith("hng");
+    if (alpha == "m") return yueYin.startsWith(alpha) || yueYin.endsWith("hm");
+    if (alpha == "ng")
+      return yueYin.startsWith(alpha) || yueYin.endsWith("hng");
 
     if (isInitial) {
       return checkIncludeNGK(alpha)
-        ? checkOnlyStartWithNGK(nText, alpha)
-        : nText.startsWith(alpha);
+        ? checkOnlyStartWithNGK(yueYin, alpha)
+        : yueYin.startsWith(alpha);
     }
     if (!isInitial) {
       if (alpha.startsWith("a")) return checkLongAVowel(yueYin, alpha);
@@ -34,9 +35,11 @@ export default function Initial(props) {
       if (alpha == "i") return checkIVowel(yueYin, alpha);
       if (alpha.startsWith("o")) return checkOVowel(yueYin, alpha);
       if (alpha.startsWith("u")) return checkUVowel(yueYin, alpha);
-      return nText.endsWith(alpha);
+      return yueYin.endsWith(alpha);
     }
   }
+
+  const yueYinURL = "/cantonese/syllable/yueyin/";
 
   return (
     <div className="p-8">
@@ -68,7 +71,7 @@ export default function Initial(props) {
         <div className="flex flex-wrap">
           {yueYins.map((yueYin) => {
             return checkYueYinList(yueYin) ? (
-              <Link href={`/dictionary/yueyin/${yueYin}`} key={yueYin}>
+              <Link href={yueYinURL + yueYin} key={yueYin}>
                 <span className="p-1 text-blue-600 underline">{yueYin}</span>
               </Link>
             ) : null;
