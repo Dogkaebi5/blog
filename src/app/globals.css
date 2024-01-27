@@ -7,6 +7,13 @@ body {
   transition: all;
 }
 
+td {
+  padding: 0 4px;
+  text-align: center;
+  border: 1px solid;
+  border-color: #ddd;
+}
+
 .spread-underline {
   display: inline-block;
   position: relative;
