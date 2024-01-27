@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,10 +15,8 @@ export default function RootLayout({ children }) {
     <html lang="ko">
       <body className={inter.className}>
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center">
-            <p>logo</p>
-            <Navigation />
-          </div>
+          <Navigation />
+
           <div>{children}</div>
         </div>
       </body>

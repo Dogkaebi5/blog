@@ -15,6 +15,7 @@ const SubNav = () => {
     nav = [
       ["한자", "/cantonese"],
       ["음절", "/cantonese/syllable"],
+      ["단어", "/cantonese/word"],
       ["회화", "/cantonese/conversation"],
     ];
   if (pathnames[1] == "blog")
