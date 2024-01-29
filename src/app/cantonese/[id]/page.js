@@ -3,20 +3,27 @@
 import { handleAudio } from "@/app/controller/handleAudio";
 
 export default function HanJa(props) {
-  const character = "一";
+  const character = "一往無前";
   const yueYin = "jat1";
   const phrases = ["一往無前", "一事無成", "一五一十", "一心一意", "一言為定"];
 
   const contentClass = "bg-white px-3 py-2 text-center mt-1";
-  const smTieleClass = "text-sm mt-2";
+  const smTieleClass = "text-xs mt-2 font-bold";
+  const titleClass = "bg-white flex justify-center items-center ";
+  const singleCharacterClass = titleClass + "text-9xl";
+  const characterClass = titleClass + "text-6xl col-span-2";
 
   return (
     <>
       <div className="mt-10 p-4 bg-slate-200">
         <p className="font-semibold mb-2">한자 (繁體字)</p>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8">
-          <div className="min-w-36">
-            <h1 className="text-center text-9xl bg-white p-2">{character}</h1>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 ">
+          <div
+            className={
+              character.length == 1 ? singleCharacterClass : characterClass
+            }
+          >
+            <h1 className="">{character}</h1>
           </div>
 
           <div className="min-w-36">
