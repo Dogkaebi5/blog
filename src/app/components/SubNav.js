@@ -32,7 +32,7 @@ const SubNav = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center mt-10 mb-4">
+      <div className="flex justify-between items-center mt-8">
         <div>
           {nav.map(([item, param]) => {
             let params = param.split("/");
@@ -64,7 +64,7 @@ const SubNav = () => {
           />
         </form>
       </div>
-      <hr />
+      <hr className="mt-4 mb-6" />
     </>
   );
 };

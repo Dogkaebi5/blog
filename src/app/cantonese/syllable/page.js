@@ -63,7 +63,7 @@ export default function Syllable() {
       <Heros />
       <SubNav />
       <div className="text-center">
-        <div className="my-6 sm:w-fit w-full mx-auto">
+        <div className="sm:w-fit w-full mx-auto">
           <div className="sm:flex justify-center">
             <div className={boxClass}>
               <p className={labelClass}>성모(聲母)</p>

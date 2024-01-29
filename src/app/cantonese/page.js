@@ -60,11 +60,11 @@ export default function Cantonese() {
     <>
       <Heros />
       <SubNav />
-      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 xl:grid-cols-10 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 xl:grid-cols-10 gap-4">
         {data.map((post) => (
-          <div key={post.id} className="mt-4 bg-slate-200">
+          <div key={post.id} className="bg-slate-100 border">
             <Link href={`/cantonese/${post.id}`}>
-              <h1 className="font-bold text-6xl bg-slate-300 text-center py-5">
+              <h1 className="font-bold text-6xl bg-slate-200 text-center py-5">
                 {post.hanzi}
               </h1>
               <p className="p-2 text-nowrap overflow-hidden text-ellipsis">

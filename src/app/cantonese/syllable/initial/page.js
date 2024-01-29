@@ -5,7 +5,7 @@ export default function Syllable() {
   const initials = Object.keys(syllable.initial);
   const initialURL = "/cantonese/syllable/initial/";
   const way = "bg-yellow-100 py-1 ";
-  const posit = "w-20 bg-blue-";
+  const posit = "w-20 bg-blue-50";
   const chinese = "bg-gray-100 ";
 
   return (
@@ -61,27 +61,27 @@ export default function Syllable() {
                 <td className={way} rowspan="2">
                   발음 방법
                 </td>
-                <td className={posit + "100"} rowspan="2">
+                <td className={posit} rowspan="2">
                   발음 위치
                 </td>
-                <td className={posit + "100"} colspan="2">
+                <td className={posit} colspan="2">
                   입술
                 </td>
-                <td className={posit + "100"} colspan="5">
+                <td className={posit} colspan="5">
                   혀
                 </td>
-                <td className={posit + "100"} rowspan="2">
+                <td className={posit} rowspan="2">
                   목
                 </td>
               </tr>
               <tr>
-                <td className={posit + "50"}>두 입술</td>
-                <td className={posit + "50"}>입술, 이빨</td>
-                <td className={posit + "50"}>끝</td>
-                <td className={posit + "50"}>옆</td>
-                <td className={posit + "50"}>몸</td>
-                <td className={posit + "50"}>뿌리</td>
-                <td className={posit + "50"}>뿌리 원순</td>
+                <td className={posit}>두 입술</td>
+                <td className={posit}>입술, 이빨</td>
+                <td className={posit}>끝</td>
+                <td className={posit}>옆</td>
+                <td className={posit}>몸</td>
+                <td className={posit}>뿌리</td>
+                <td className={posit}>뿌리 원순</td>
               </tr>
             </thead>
             <tbody>
@@ -89,7 +89,7 @@ export default function Syllable() {
                 <td className={chinese} rowspan="2">
                   塞音 (清)
                 </td>
-                <td className={way}>파열음 내보냄</td>
+                <td className={way}>파열음 (내붊)</td>
                 <td className={chinese} rowspan="2">
                   청음
                 </td>
@@ -111,7 +111,7 @@ export default function Syllable() {
                 <td>　</td>
               </tr>
               <tr>
-                <td className={way}>파열음 안 내보냄</td>
+                <td className={way}>파열음 (안 내붊)</td>
                 <td>
                   <Link href={initialURL + "p"}>p 婆</Link>
                 </td>
@@ -130,10 +130,10 @@ export default function Syllable() {
                 <td>　</td>
               </tr>
               <tr>
-                <td className={chinese} rowspan="2">
+                <td className={chinese + " px-4"} rowspan="2">
                   塞擦音 (清)
                 </td>
-                <td className={way}>파찰음 내보냄</td>
+                <td className={way}>파찰음 (내붊)</td>
                 <td className={chinese} rowspan="2">
                   청음
                 </td>
@@ -149,7 +149,7 @@ export default function Syllable() {
                 <td>　</td>
               </tr>
               <tr>
-                <td className={way}>파찰음 안 내보냄</td>
+                <td className={way + "px-4"}>파찰음 (안 내붊)</td>
                 <td>　</td>
                 <td>　</td>
                 <td>　</td>
