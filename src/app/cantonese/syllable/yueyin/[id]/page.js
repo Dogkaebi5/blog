@@ -2,6 +2,8 @@
 import { handleAudio } from "@/app/controller/handleAudio";
 import syllable from "../../yueYin";
 import { checkIsVowel } from "@/app/controller/checkYueYinType";
+import * as ccss from "@/app/controller/cssName";
+import Link from "next/link";
 
 export default function YueYin(props) {
   const yueYin = props.params.id;
@@ -38,36 +40,48 @@ export default function YueYin(props) {
   let vowel = checkAlpha()[1];
   let data = matchData();
   let tones = data.tone;
+  const syllableURL = "/cantonese/syllable/initial/";
 
   return (
-    <div className="mt-6 p-4">
-      <div className="flex">
-        <h1 className="p-8 bg-slate-100 inline-block rounded-md font-bold text-6xl">
-          {yueYin}
-        </h1>
-        <div className="p-2">
-          <p className="font-bold mb-2">월음 (粵音)</p>
-          <p>발음 : [{data.pronunciation}]</p>
+    <div className={ccss.noHeroContent}>
+      <div className={ccss.headerBtnBlock}>
+        <button className={ccss.headerBtn}>
+          <Link href={syllableURL + initial}>&lt;&lt; 성모 [{initial}]</Link>
+        </button>
+        <button className={ccss.headerBtn}>
+          <Link href={syllableURL + vowel}>운모 [{vowel}] &gt;&gt;</Link>
+        </button>
+      </div>
+      <div className={ccss.mainBlock}>
+        <div className="flex">
+          <h1 className={ccss.alpTitle}>{yueYin}</h1>
+          <div className={ccss.subBlock + " py-4"}>
+            <p className="font-bold mb-2">월음 (粵音)</p>
+            <p>발음 : [{data.pronunciation}]</p>
+          </div>
+        </div>
+        <div className={ccss.subBlock + " pt-4"}>
+          <p>성모 : {initial}</p>
+          <p>운모 : {vowel}</p>
+        </div>
+        <hr className={ccss.hr} />
+        <div className={ccss.subBlock}>
+          <h2 className={ccss.h2}>성조</h2>
+          {tones.map((tone) => {
+            return (
+              <p
+                className={ccss.linkText}
+                key={yueYin + tone}
+                onClick={() => {
+                  handleAudio(yueYin + tone);
+                }}
+              >
+                {yueYin + tone} 🔊
+              </p>
+            );
+          })}
         </div>
       </div>
-      <div className="my-4 p-2">
-        <p>성모 : {initial}</p>
-        <p>운모 : {vowel}</p>
-      </div>
-      <hr className="mb-4" />
-      {tones.map((tone) => {
-        return (
-          <p
-            key={yueYin + tone}
-            className="p-2 m-2 hover:bg-slate-50"
-            onClick={() => {
-              handleAudio(yueYin + tone);
-            }}
-          >
-            <span className="text-blue-500 underline">{yueYin + tone}</span> 🔊
-          </p>
-        );
-      })}
     </div>
   );
 }

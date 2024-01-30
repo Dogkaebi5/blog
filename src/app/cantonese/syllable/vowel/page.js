@@ -1,48 +1,46 @@
 import Link from "next/link";
 import syllable from "../yueYin";
+import * as ccss from "@/app/controller/cssName";
 
 export default function Syllable() {
   const vowels = Object.keys(syllable.vowel);
   const initialURL = "/cantonese/syllable/initial/";
-  const m = "font-bold text-blue-500 w-14 bg-slate-100";
-  const way = "bg-yellow-100 py-1 font-bold";
-  const posit = "w-20 bg-blue-50 font-bold";
 
   return (
-    <>
-      <div className="mx-2 my-8 flex justify-between">
-        <button className="px-4 py-1 bg-slate-200 rounded-full" type="button">
+    <div className={ccss.noHeroContent}>
+      <div className={ccss.headerBtnBlock}>
+        <button className={ccss.headerBtn} type="button">
           <Link href={"/cantonese/syllable"}>&lt;&lt; 음절</Link>
         </button>
-        <button className="px-4 py-1 bg-slate-200 rounded-full" type="button">
+        <button className={ccss.headerBtn} type="button">
           <Link href={initialURL}>성모 &gt;&gt; </Link>
         </button>
       </div>
-      <div className="p-4">
-        <h1 className="font-bold text-3xl">운모(韻母)</h1>
-        <p className="p-4 mt-6 bg-slate-50 rounded-xl">
+      <div className={ccss.mainBlock}>
+        <h1 className={ccss.h1}>운모(韻母)</h1>
+        <p className={ccss.textBox}>
           운모는 한국어의 모음과 비슷한 개념이다.
           <br />
           운모는 또 운복(韻腹)과 운미(韻尾)로 구성되어 있다.
           <br />
           운복은 9개, 운미는 8개가 있고 총57개 조합이 있다.
         </p>
-        <hr className="my-8" />
-        <div className="p-4">
-          <h2 className="text-lg mb-4 font-bold text-start">운복 & 운미</h2>
+        <hr className={ccss.hr} />
+        <div className={ccss.subBlock}>
+          <h2 className={ccss.h2}>운복 & 운미</h2>
           <table>
             <tbody>
-              <tr>
-                <td className={m}>운복</td>
-                <td className={m}>aa</td>
-                <td className={m}>a</td>
-                <td className={m}>e</td>
-                <td className={m}>i</td>
-                <td className={m}>o</td>
-                <td className={m}>u</td>
-                <td className={m}>oe</td>
-                <td className={m}>eo</td>
-                <td className={m}>yu</td>
+              <tr className="font-bold">
+                <td className={ccss.tBlue}>운복</td>
+                <td className={ccss.tBlue}>aa</td>
+                <td className={ccss.tBlue}>a</td>
+                <td className={ccss.tBlue}>e</td>
+                <td className={ccss.tBlue}>i</td>
+                <td className={ccss.tBlue}>o</td>
+                <td className={ccss.tBlue}>u</td>
+                <td className={ccss.tBlue}>oe</td>
+                <td className={ccss.tBlue}>eo</td>
+                <td className={ccss.tBlue}>yu</td>
               </tr>
               <tr>
                 <td rowspan="2">발음</td>
@@ -85,16 +83,16 @@ export default function Syllable() {
         <div className="p-4">
           <table>
             <tbody>
-              <tr>
-                <td className={m}>운미</td>
-                <td className={m}>-i</td>
-                <td className={m}>-u</td>
-                <td className={m}>-m</td>
-                <td className={m}>-n</td>
-                <td className={m}>-ng</td>
-                <td className={m}>-p</td>
-                <td className={m}>-t</td>
-                <td className={m}>-k</td>
+              <tr className="font-bold">
+                <td className={ccss.tBlue}>운미</td>
+                <td className={ccss.tBlue}>-i</td>
+                <td className={ccss.tBlue}>-u</td>
+                <td className={ccss.tBlue}>-m</td>
+                <td className={ccss.tBlue}>-n</td>
+                <td className={ccss.tBlue}>-ng</td>
+                <td className={ccss.tBlue}>-p</td>
+                <td className={ccss.tBlue}>-t</td>
+                <td className={ccss.tBlue}>-k</td>
               </tr>
               <tr>
                 <td>발음</td>
@@ -114,41 +112,43 @@ export default function Syllable() {
             </tbody>
           </table>
         </div>
-        <hr className="my-8" />
-        <div className="p-4">
-          <h2 className="text-lg mb-4 font-bold text-start">운모 종류</h2>
-          <div className="flex flex-wrap mt-6">
+        <hr className={ccss.hr} />
+        <div className={ccss.subBlock}>
+          <h2 className={ccss.h2}>운모 종류</h2>
+          <div className={ccss.alpWrap}>
             {vowels.map((vowel) => (
               <Link
                 href={initialURL + vowel}
                 key={vowel}
-                className="p-1 m-1 border rounded-lg hover:bg-black"
+                className={ccss.alpCardOutBox}
               >
-                <h2 className="p-4 border bg-slate-100 inline-block rounded-md font-bold text-2xl">
-                  {vowel}
-                </h2>
+                <h2 className={ccss.alpCardInBox}>{vowel}</h2>
               </Link>
             ))}
           </div>
         </div>
-        <hr className="my-6" />
-        <div className="p-4">
-          <table className="text-sm">
-            <caption className="text-lg mb-4 font-bold text-start">
-              운모 조합표
-            </caption>
+        <hr className={ccss.hr} />
+        <div className={ccss.subBlock}>
+          <h2 className={ccss.h2}>운모 조합표</h2>
+          <table className={ccss.table}>
             <thead>
-              <tr className={posit}>
-                <td>운모</td>
-                <td>단 원음</td>
-                <td colspan="2">복 원음</td>
-                <td colspan="3">코 미음</td>
-                <td colspan="3">입성</td>
+              <tr className={ccss.tBlue}>
+                <td className="font-bold py-1">운모</td>
+                <td className="font-bold py-1">단 원음</td>
+                <td className="font-bold py-1" colspan="2">
+                  복 원음
+                </td>
+                <td className="font-bold py-1" colspan="3">
+                  코 미음
+                </td>
+                <td className="font-bold py-1" colspan="3">
+                  입성
+                </td>
               </tr>
             </thead>
             <tbody>
-              <tr className={posit}>
-                <td className={way + " w-20"}>음위</td>
+              <tr className={ccss.tBlue}>
+                <td className={ccss.tYellow + " w-20"}>음위</td>
                 <td className="w-20">-</td>
                 <td className="w-20">-i</td>
                 <td className="w-20">-u</td>
@@ -160,7 +160,7 @@ export default function Syllable() {
                 <td className="w-20">-k</td>
               </tr>
               <tr>
-                <td className={way}>aa</td>
+                <td className={ccss.tYellow}>aa</td>
                 <td>
                   <Link href={initialURL + "aa"}>aa 呀</Link>
                 </td>
@@ -190,7 +190,7 @@ export default function Syllable() {
                 </td>
               </tr>
               <tr>
-                <td className={way}>a</td>
+                <td className={ccss.tYellow}>a</td>
                 <td></td>
                 <td>
                   <Link href={initialURL + "ai"}>ai 矮</Link>
@@ -218,7 +218,7 @@ export default function Syllable() {
                 </td>
               </tr>
               <tr>
-                <td className={way}>e</td>
+                <td className={ccss.tYellow}>e</td>
                 <td>
                   <Link href={initialURL + "e"}>e 誒</Link>
                 </td>
@@ -244,7 +244,7 @@ export default function Syllable() {
                 </td>
               </tr>
               <tr>
-                <td className={way}>i</td>
+                <td className={ccss.tYellow}>i</td>
                 <td>
                   <Link href={initialURL + "i"}>i 衣</Link>
                 </td>
@@ -272,7 +272,7 @@ export default function Syllable() {
                 </td>
               </tr>
               <tr>
-                <td className={way}>o</td>
+                <td className={ccss.tYellow}>o</td>
                 <td>
                   <Link href={initialURL + "o"}>o 柯</Link>
                 </td>
@@ -298,7 +298,7 @@ export default function Syllable() {
                 </td>
               </tr>
               <tr>
-                <td className={way}>u</td>
+                <td className={ccss.tYellow}>u</td>
                 <td>
                   <Link href={initialURL + "u"}>u 烏</Link>
                 </td>
@@ -322,7 +322,7 @@ export default function Syllable() {
                 </td>
               </tr>
               <tr>
-                <td className={way}>oe</td>
+                <td className={ccss.tYellow}>oe</td>
                 <td>
                   <Link href={initialURL + "oe"}>oe 靴</Link>
                 </td>
@@ -340,7 +340,7 @@ export default function Syllable() {
                 </td>
               </tr>
               <tr>
-                <td className={way}>eo</td>
+                <td className={ccss.tYellow}>eo</td>
                 <td></td>
                 <td>
                   <Link href={initialURL + "eoi"}>eoi 去</Link>
@@ -358,7 +358,7 @@ export default function Syllable() {
                 <td></td>
               </tr>
               <tr>
-                <td className={way}>yu</td>
+                <td className={ccss.tYellow}>yu</td>
                 <td>
                   <Link href={initialURL + "yu"}>yu 於</Link>
                 </td>
@@ -376,7 +376,7 @@ export default function Syllable() {
                 <td></td>
               </tr>
               <tr>
-                <td className={way}>독립 음절</td>
+                <td className={ccss.tYellow}>독립 음절</td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -395,6 +395,6 @@ export default function Syllable() {
           </table>
         </div>
       </div>
-    </>
+    </div>
   );
 }
