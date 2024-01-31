@@ -10,7 +10,7 @@ body {
 }
 
 td {
-  padding: 0 4px;
+  padding: 4px;
   text-align: center;
   border: 1px solid;
   border-color: #ddd;

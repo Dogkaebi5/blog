@@ -5,6 +5,7 @@ export const mainBlock = "p-8";
 export const subBlock = "px-4";
 export const h1 = "font-bold text-3xl mb-8";
 export const h2 = "text-lg mb-8 font-bold text-start";
+export const h3 = "mb-2 font-bold text-start";
 export const hr = "mt-12 mb-8";
 export const textBox = "p-4 mt-6 bg-slate-50 rounded-xl";
 export const alpWrap = "flex flex-wrap";
