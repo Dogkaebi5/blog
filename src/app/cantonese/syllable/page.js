@@ -63,7 +63,16 @@ export default function Syllable() {
       <Heros />
       <SubNav />
       <div className="text-center">
-        <div className="sm:w-fit w-full mx-auto">
+        <div className="sm:w-fit  max-w-2xl mx-auto">
+          <div className="text-start mx-auto my-4 text-sm">
+            월음(粵音)은 광둥어 발음 표기법을 뜻한다. <br />
+            중국도 광둥어 전공은 있지만 통일된 학습법이 있지는 않다. <br />
+            <br />
+            월음의 표기법은 : <br />
+            월병(粵拼), 황석릉(黃錫凌), 예일(耶魯), 광저우(廣州), IPA,
+            교원(教院), 유석상(劉錫祥) 등이 있다. <br />
+            <br />본 사이트에서 사용하는 월음은 월병(粵拼)이다.
+          </div>
           <div className="sm:flex justify-center">
             <div className={boxClass}>
               <p className={labelClass}>성모(聲母)</p>

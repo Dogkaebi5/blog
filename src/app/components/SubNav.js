@@ -14,7 +14,7 @@ const SubNav = () => {
   if (pathnames[1] == "cantonese")
     nav = [
       ["한자", "/cantonese"],
-      ["음절", "/cantonese/syllable"],
+      ["월음", "/cantonese/syllable"],
       ["단어", "/cantonese/word"],
       ["회화", "/cantonese/conversation"],
     ];
