@@ -18,12 +18,12 @@ const SubNav = () => {
       ["단어", "/cantonese/word"],
       ["회화", "/cantonese/conversation"],
     ];
-  if (pathnames[1] == "blog")
+  if (pathnames[1] == "")
     nav = [
-      ["All", "/blog"],
-      ["일상", "/blog?tag=daily"],
-      ["책", "/blog?tag=book"],
-      ["코딩", "/blog?tag=coding"],
+      ["All", "/"],
+      ["일상", "/?tag=daily"],
+      ["책", "/?tag=book"],
+      ["코딩", "/?tag=coding"],
     ];
 
   const activeClass =

@@ -8,7 +8,6 @@ const Navigation = () => {
   const navigation = [
     ["Home", "/"],
     ["粤", "/cantonese"],
-    ["Blog", "/blog"],
     ["Product", "/product"],
     ["About", "/about"],
   ];
