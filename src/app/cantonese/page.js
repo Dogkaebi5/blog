@@ -70,9 +70,9 @@ export default function Cantonese() {
         {data.map((post) => {
           const id = post.hanzi.codePointAt(0);
           return (
-            <div key={id} className="bg-slate-100 border">
+            <div key={id} className="bg-slate-200 border">
               <Link href={`/cantonese/${id}`}>
-                <h1 className="font-bold text-6xl bg-slate-200 text-center py-5">
+                <h1 className="font-bold text-6xl bg-white text-center py-5">
                   {post.hanzi}
                 </h1>
                 <p className="p-2 text-nowrap overflow-hidden text-ellipsis">

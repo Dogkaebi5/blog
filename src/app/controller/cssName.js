@@ -20,8 +20,9 @@ export const tYellow = "bg-yellow-100 py-1 px-4 min-w-20";
 export const tBlue = "w-20 bg-blue-50";
 export const alpTitle =
   "p-8 bg-slate-100 inline-block rounded-md font-bold text-6xl";
-export const cnTitleBox = "bg-white flex justify-center items-center";
+export const cnTitleBox =
+  "bg-white flex justify-center items-center rounded-xl border";
 export const linkText =
   "p-2 rounded-lg text-blue-600 underline hover:bg-zinc-100";
-export const smLabel = "text-xs mt-2 font-bold";
-export const contentBox = "bg-white px-3 py-2 text-center text-sm mt-2";
+export const smLabel = "py-2 text-gray-500 text-sm";
+export const contentBox = "px-6 py-2 text-sm";
