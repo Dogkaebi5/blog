@@ -24,4 +24,4 @@ export const cnTitleBox = "bg-white flex justify-center items-center";
 export const linkText =
   "p-2 rounded-lg text-blue-600 underline hover:bg-zinc-100";
 export const smLabel = "text-xs mt-2 font-bold";
-export const contentBox = "bg-white px-3 py-2 text-center mt-2";
+export const contentBox = "bg-white px-3 py-2 text-center text-sm mt-2";
