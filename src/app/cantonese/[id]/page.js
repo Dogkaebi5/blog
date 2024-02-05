@@ -13,7 +13,16 @@ export default function HanJa(props) {
   const params = props.params.id;
   const utfIds = params.split("-");
   const character = utfIds.map((utf) => String.fromCodePoint(utf));
-  const word = words[params];
+  const word = words[params] ?? {
+    tc: "-",
+    syllable: "-",
+    krSyllable: "-",
+    cn: "",
+    mandarin: "-",
+    hanja: "-",
+    category: "-",
+    mean: "-",
+  };
 
   return (
     <div className={ccss.noHeroContent}>
