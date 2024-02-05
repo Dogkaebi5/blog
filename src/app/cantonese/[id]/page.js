@@ -3,6 +3,7 @@
 import { handleAudio } from "@/app/controller/handleAudio";
 import * as ccss from "@/app/controller/cssName";
 import { words } from "../hanja";
+import syllable from "../syllable/yueYin";
 
 export default function HanJa(props) {
   const phrases = ["一往無前", "一事無成", "一五一十", "一心一意", "一言為定"];
@@ -15,13 +16,20 @@ export default function HanJa(props) {
   const character = utfIds.map((utf) => String.fromCodePoint(utf));
   const word = words[params] ?? {
     tc: "-",
-    syllable: "-",
-    krSyllable: "-",
+    yueYin: "-",
     cn: "",
     mandarin: "-",
     hanja: "-",
     category: "-",
     mean: "-",
+  };
+
+  const krSyllable = () => {
+    if (words[params] != null) {
+      const syllableWithoutTone = word.yueYin.replace(/\d+/g, "");
+      return syllable.yueYin[syllableWithoutTone].pronunciation;
+    }
+    return "-";
   };
 
   return (
@@ -34,13 +42,13 @@ export default function HanJa(props) {
           <div className="ml-4">
             <p className={ccss.smLabel}>월음 (粵音)</p>
             <p
-              onClick={() => handleAudio(word.syllable)}
+              onClick={() => handleAudio(word.yueYin)}
               className={ccss.contentBox}
             >
-              <span className={ccss.linkText}>{word.syllable} 🔊</span>
+              <span className={ccss.linkText}>{word.yueYin} 🔊</span>
             </p>
             <p className={ccss.smLabel}>발음</p>
-            <p className={ccss.contentBox}>{word.krSyllable}</p>
+            <p className={ccss.contentBox}>{krSyllable()}</p>
           </div>
         </div>
         {character.length == 1 ? (
