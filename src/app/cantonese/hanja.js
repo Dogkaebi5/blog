@@ -1,13 +1,13 @@
 export const words = {
-  38646: {
+  2362720225: {
     tc: "屋企",
-    yueYin: "ok kei",
-    cn: "",
-    mandarin: "wu qi",
+    yueYin: "uk1 kei2",
+    cn: "家",
+    mandarin: "wū qǐ",
     hanja: "",
     category: "명사",
     title: "집",
-    mean: "집",
+    mean: "집/가족",
   },
   38646: {
     tc: "零",

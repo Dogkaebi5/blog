@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Card = (props) => {
+const BlogCard = (props) => {
   const postData = props.data;
   return (
     <div className="mt-4 bg-slate-200">
@@ -27,4 +27,4 @@ const Card = (props) => {
   );
 };
 
-export default Card;
+export default BlogCard;
