@@ -6,7 +6,7 @@ import BlogCard from "./BlogCard";
 
 const BlogCardList = () => {
   const [data, setData] = useState();
-  const path = usePathname();
+  const path = usePathname().split("/")[1];
   const params = useSearchParams();
   const tagPram = params.get("tag");
 
