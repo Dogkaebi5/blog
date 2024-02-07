@@ -5,7 +5,7 @@ const BlogCard = (props) => {
   const postData = props.data;
   return (
     <div className="mt-4 bg-slate-200">
-      <Link href={`/read/${postData.id}`}>
+      <Link href={`/${postData.id}`}>
         <Image
           className="w-full"
           width={600}

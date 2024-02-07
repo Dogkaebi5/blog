@@ -13,7 +13,7 @@ const Navigation = () => {
   ];
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="sm:flex justify-between items-center hidden">
       <Link href={"/"} className="px-4 py-2 bg-slate-100 m-1">
         logo
       </Link>

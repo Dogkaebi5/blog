@@ -24,6 +24,7 @@ const SubNav = () => {
       ["일상", "/?tag=daily"],
       ["책", "/?tag=book"],
       ["코딩", "/?tag=coding"],
+      ["광둥어", "/?tag=cantonese"],
     ];
 
   const activeClass =
@@ -55,7 +56,7 @@ const SubNav = () => {
             );
           })}
         </div>
-        <form>
+        <form className="max-[250px]:hidden">
           <input className="border rounded-lg pl-2 py-1 w-40 mr-2" />
           <input
             type="submit"

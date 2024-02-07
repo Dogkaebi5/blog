@@ -1,6 +1,6 @@
 export const noHeroContent = "m-4";
 export const headerBtnBlock = "p-4 flex justify-between";
-export const headerBtn = "px-4 py-1 bg-slate-200 rounded-full";
+export const headerBtn = "px-4 py-1 bg-slate-100 rounded-full text-green-500";
 export const mainBlock = "p-8";
 export const subBlock = "px-4";
 export const h1 = "font-bold text-3xl mb-8";
