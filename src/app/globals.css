@@ -15,6 +15,42 @@ td {
   border: 1px solid;
   border-color: #ddd;
 }
+.navbar-burger,
+.navbar-burger span {
+  transition: all 400ms;
+  box-sizing: border-box;
+}
+.navbar-burger-active,
+.navbar-burger-active span {
+  transition: all 400ms;
+  box-sizing: border-box;
+}
+
+.navbar-burger-active span:nth-of-type(1) {
+  -webkit-transform: translateY(0) rotate (-45deg);
+  transform: translateY(8px) rotate(-45deg);
+}
+
+.navbar-burger-active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.navbar-burger-active span:nth-of-type(3) {
+  -webkit-transform: translateY(0) rotate(45deg);
+  transform: translateY(-8px) rotate(45deg);
+}
+
+@media (max-width: 960px) {
+  .navbar-main {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) {
+  .navbar-burger {
+    display: none;
+  }
+}
 
 .spread-underline {
   display: inline-block;
