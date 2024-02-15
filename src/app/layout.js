@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from "./components/Navigation";
-import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto relative">
           <Navigation />
 
           <div>{children}</div>

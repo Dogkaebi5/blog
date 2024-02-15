@@ -50,12 +50,18 @@ td {
   .navbar-burger {
     display: none;
   }
+  .navbar-burger-active {
+    display: none;
+  }
+  .navbar-menu {
+    display: none;
+  }
 }
 
 .spread-underline {
-  display: inline-block;
   position: relative;
   text-align: center;
+  width: 80px;
 }
 
 .spread-underline:after {
@@ -72,4 +78,22 @@ td {
 .spread-underline:hover:after {
   width: 100%;
   left: 0;
+}
+
+.draw-underline {
+  position: relative;
+}
+
+.draw-underline:after {
+  bottom: 0;
+  content: "";
+  height: 1px;
+  position: absolute;
+  background: #000;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.draw-underline:hover:after {
+  width: 100%;
 }
