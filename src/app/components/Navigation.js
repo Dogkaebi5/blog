@@ -18,7 +18,7 @@ const Navigation = () => {
   const [menuActiveClass, setMenuActiveClass] = useState("-right-96");
   const burgerLineClass = "absolute h-1 w-6 rounded-full my-1 bg-slate-800";
   const menuClass =
-    " navbar-menu transition-all absolute top-0 w-96 h-full bg-slate-100 opacity-90 pt-32 px-14";
+    " navbar-menu transition-all absolute top-0 w-96 h-full bg-black opacity-90 pt-32 px-14 text-white";
 
   function burgerBtnHandle(e) {
     e.preventDefault();

@@ -85,11 +85,11 @@ td {
 }
 
 .draw-underline:after {
-  bottom: 0;
+  bottom: -4px;
   content: "";
   height: 1px;
   position: absolute;
-  background: #000;
+  background: #fff;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
