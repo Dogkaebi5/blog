@@ -12,10 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
+      <head>
+        <link rel="icon" href="/next.svg" sizes="any" />
+        {/* 임시 파피콘 */}
+      </head>
       <body className={inter.className}>
         <div className="max-w-7xl mx-auto relative">
           <Navigation />
-
           <div>{children}</div>
         </div>
       </body>

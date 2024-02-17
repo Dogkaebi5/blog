@@ -1,13 +1,16 @@
 import { fetchData } from "./fetchData";
 
 async function setCardList(path, tag, btnNum) {
-  let result = [];
-  let maxCard = 8; //마지막 8개 미만 처리 추가 필요
-  let startNum = 1 - 1; //임시 btnNum 대체
-  const jsonData = await fetchData();
-  const allData = jsonData.data;
+  btnNum = 1; //임시 btnNum 대체
 
-  function setCategories() {
+  let result = [];
+  let maxCard;
+  let startNum = btnNum - 1;
+
+  const jsonData = await fetchData();
+  const categoryData = setCategories(jsonData.data);
+
+  function setCategories(allData) {
     if (allData == null) return null;
     if (path == "cantonese")
       return allData
@@ -19,7 +22,10 @@ async function setCardList(path, tag, btnNum) {
         .sort((a, b) => b.id - a.id);
     return allData.sort((a, b) => b.id - a.id);
   }
-  const categoryData = setCategories();
+
+  categoryData.length - btnNum * 8 >= 0
+    ? (maxCard = 8)
+    : (maxCard = categoryData.length % 8);
 
   for (startNum; startNum < maxCard; startNum++) {
     result.push(categoryData[startNum]);

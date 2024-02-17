@@ -15,7 +15,7 @@ const BlogCardList = () => {
       const list = await setCardList(path, tagPram);
       setData(list);
     };
-    postList(path);
+    postList();
   }, [path, tagPram]);
 
   return (
