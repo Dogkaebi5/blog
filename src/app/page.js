@@ -9,7 +9,6 @@ export default function Home() {
       <Heros />
       <SubNav />
       <BlogCardList />
-      <PageNav></PageNav>
     </>
   );
 }

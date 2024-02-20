@@ -1,6 +1,6 @@
 "use client";
 
-const PageNav = () => {
+const PageNav = (maxPage) => {
   return (
     <div className="my-8 flex justify-center items-center">
       <span className="p-1 hover:underline cursor-pointer">◀</span>

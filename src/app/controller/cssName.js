@@ -26,3 +26,8 @@ export const linkText =
   "p-2 rounded-lg text-blue-600 underline hover:bg-zinc-100";
 export const smLabel = "py-2 text-gray-500 text-sm";
 export const contentBox = "px-6 py-2 text-sm";
+export const blogCardList =
+  "mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4";
+export const pageNavWrap = "my-8 flex justify-center items-center";
+export const pageNumAct = "px-2 font-bold bg-violet-100 rounded-xl";
+export const pageNum = "p-1 hover:text-gray-500 cursor-pointer";
