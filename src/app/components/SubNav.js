@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
+import * as ccss from "@/app/controller/cssName";
 
 const SubNav = () => {
   const path = usePathname();
@@ -27,13 +28,9 @@ const SubNav = () => {
       ["광둥어", "/?tag=cantonese"],
     ];
 
-  const activeClass =
-    "rounded-full border py-2 px-8 mr-2 bg-slate-600 text-white";
-  const notActiveClass = "rounded-full border py-2 px-8 mr-2";
-
   return (
     <>
-      <div className="flex justify-between items-center mt-8">
+      <div className={ccss.subNavWrap}>
         <div>
           {nav.map(([item, param]) => {
             let params = param.split("/");
@@ -44,11 +41,11 @@ const SubNav = () => {
                 className={
                   tag == null
                     ? lastPathname == params[params.length - 1]
-                      ? activeClass
-                      : notActiveClass
+                      ? ccss.toggleActive
+                      : ccss.toggle
                     : tag == param.split("=")[1]
-                    ? activeClass
-                    : notActiveClass
+                    ? ccss.toggleActive
+                    : ccss.toggle
                 }
               >
                 {item}
@@ -57,12 +54,8 @@ const SubNav = () => {
           })}
         </div>
         <form className="max-[250px]:hidden">
-          <input className="border rounded-lg pl-2 py-1 w-40 mr-2" />
-          <input
-            type="submit"
-            value="검색"
-            className="bg-black text-white border rounded-lg py-1 px-6"
-          />
+          <input className={ccss.input} />
+          <input type="submit" value="검색" className={ccss.btn} />
         </form>
       </div>
       <hr className="mt-4 mb-6" />

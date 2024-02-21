@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import * as ccss from "@/app/controller/cssName";
 
 const BlogCard = (props) => {
   const postData = props.data;
   return (
-    <div className="mt-4 bg-slate-200">
+    <div className={ccss.blogCard}>
       <Link href={`/${postData.id}`}>
         <Image
           className="w-full"
@@ -13,14 +14,12 @@ const BlogCard = (props) => {
           src={postData.thumbnail}
           alt={postData.title}
         />
-        <div className="px-4 pt-4 pb-8">
-          <h2 className="font-bold text-lg">{postData.title}</h2>
-          <p className="text-gray-700 text-sm pb-2">
+        <div className={ccss.blogCardTextWrap}>
+          <h2 className={ccss.h2}>{postData.title}</h2>
+          <p className={ccss.blogDate}>
             {new Date(postData.date).toLocaleDateString()}
           </p>
-          <p className="text-nowrap overflow-hidden text-ellipsis">
-            {postData.content}
-          </p>
+          <p className={ccss.blogCardText}>{postData.content}</p>
         </div>
       </Link>
     </div>

@@ -23,7 +23,7 @@ export default async function Read(props) {
     <div className="p-16">
       <div className="px-4">
         <h1 className={ccss.h1}>{data.title}</h1>
-        <p className="text-gray-600">- {date}</p>
+        <p className={ccss.blogDate}>- {date}</p>
         <div className="flex mt-4">
           <Link className={ccss.headerBtn} href={`/?tag=${data.category}`}>
             {category()}

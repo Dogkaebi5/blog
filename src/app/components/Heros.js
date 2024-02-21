@@ -1,5 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
+import * as ccss from "@/app/controller/cssName";
 
 const Heros = () => {
   const path = usePathname();
@@ -11,9 +12,9 @@ const Heros = () => {
   if (pathname == "blog") title = "BLOG";
 
   return (
-    <div className="bg-slate-100 h-60 flex flex-col justify-center items-center">
-      <h1 className="text-3xl font-bold">{title}</h1>
-      <p className="mt-4">This is {title} sub text</p>
+    <div className={ccss.hero}>
+      <h1 className={ccss.h1}>{title}</h1>
+      <p>This is {title} sub text</p>
     </div>
   );
 };

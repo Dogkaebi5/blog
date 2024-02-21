@@ -64,7 +64,7 @@ const BlogCardList = () => {
 
   return (
     <>
-      <div className={ccss.blogCardList}>
+      <div className={ccss.blogCardsWrap}>
         {sortData == null || sortData == undefined
           ? "글이 없습니다"
           : sortData.map((post) => <BlogCard key={post.id} data={post} />)}
