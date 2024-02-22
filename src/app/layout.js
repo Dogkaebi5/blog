@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         {/* 임시 파피콘 */}
       </head>
       <body className={inter.className}>
-        <div className="max-w-7xl mx-auto relative">
+        <div className="max-w-7xl mx-auto relative overflow-hidden">
           <Navigation />
           <div>{children}</div>
         </div>

@@ -44,7 +44,7 @@ export default function Syllable() {
           </div>
         </div>
         <hr className={ccss.hr} />
-        <div className={ccss.subBlock}>
+        <div className={ccss.subBlock + " overflow-auto"}>
           <h2 className={ccss.h2}>성모 발음</h2>
 
           <table className={ccss.table}>

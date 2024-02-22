@@ -14,24 +14,26 @@ const Navigation = () => {
   ];
 
   const [burgerBtnClass, setBurgerBtnClass] = useState("navbar-burger");
-  const [menuActiveClass, setMenuActiveClass] = useState("-right-96");
+  const [menuActiveClass, setMenuActiveClass] = useState("-right-96 opacity-0");
+  const [navWrap, setNavWrap] = useState("");
   const burgerLineClass = "absolute h-1 w-6 rounded-full my-1 bg-slate-800";
   const menuClass =
-    " navbar-menu transition-all absolute top-0 w-96 h-full bg-black opacity-90 pt-32 px-14 text-white";
-
+    " navbar-menu absolute top-0 w-full h-screen touch-none bg-black opacity-95 pt-32 px-14 text-white";
   function burgerBtnHandle(e) {
     e.preventDefault();
     if (burgerBtnClass == "navbar-burger") {
       setBurgerBtnClass("navbar-burger-active");
       setMenuActiveClass("right-0");
+      setNavWrap("fixed w-full h-full overflow-hidden");
     } else {
       setBurgerBtnClass("navbar-burger");
-      setMenuActiveClass("-right-96");
+      setMenuActiveClass("-right-full opacity-0");
+      setNavWrap("");
     }
   }
 
   return (
-    <div className="flex justify-between items-center py-2">
+    <div className={navWrap + " flex justify-between py-2"}>
       <Link href={"/"} className="py-2 px-4 rounded-full bg-slate-100">
         DogKaeBi
       </Link>
@@ -52,12 +54,12 @@ const Navigation = () => {
         })}
       </nav>
       <div
-        className={`${burgerBtnClass} h-7 px-4 cursor-pointer relative mr-4 z-10`}
+        className={`${burgerBtnClass} h-7 w-8 mr-8 my-2 cursor-pointer relative z-10`}
         onClick={burgerBtnHandle}
       >
-        <span className={burgerLineClass + " top-0"}></span>
-        <span className={burgerLineClass + " top-2"}></span>
-        <span className={burgerLineClass + " bottom-0"}></span>
+        <span className={burgerLineClass + " top-0"}> </span>
+        <span className={burgerLineClass + " top-2"}> </span>
+        <span className={burgerLineClass + " bottom-0"}> </span>
       </div>
       <div className={menuActiveClass + menuClass}>
         {navigation.map(([title, url]) => {

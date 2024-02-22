@@ -58,7 +58,7 @@ export const syllableSelect =
   "mt-2 py-1 border rounded-lg text-sm text-center sm:min-w-40 w-full";
 export const linkBtn =
   "mt-2 text-xs rounded-lg p-1 bg-green-300 shadow border hover:underline hover:shadow-md";
-export const table = "my-4 text-sm container md:table-fixed";
+export const table = "my-4 text-sm overflow-auto container table-fixed";
 export const th = "font-extrabold";
 export const tGray = "bg-gray-100 px-4";
 export const tYellow = "bg-yellow-100 py-1 px-4";
