@@ -4,6 +4,7 @@ import syllable from "./yueYin";
 import Link from "next/link";
 import Heros from "@/app/components/Heros";
 import SubNav from "@/app/components/SubNav";
+import * as ccss from "@/app/controller/cssName";
 
 export default function Syllable() {
   const [initials, setInitials] = useState([]);
@@ -27,14 +28,6 @@ export default function Syllable() {
     setInitials(Object.keys(syllable.initial));
     setVowels(Object.keys(syllable.vowel));
   }, []);
-
-  const labelClass = "text-sm font-bold";
-  const boxClass = "justify-center m-2 p-4 rounded-xl bg-slate-100";
-  const selectClass =
-    "border rounded-lg my-2 p-1 text-center sm:min-w-40 w-full";
-  const linkClass = "text-xs border rounded-lg underline p-1 bg-slate-200";
-  const intialCalss = "text-sm border text-pink-600";
-  const vowelCalss = "text-sm border text-blue-600";
 
   const handleInitial = (e) => {
     setInitial(e.target.value);
@@ -63,22 +56,31 @@ export default function Syllable() {
       <Heros />
       <SubNav />
       <div className="text-center">
-        <div className="sm:w-fit  max-w-2xl mx-auto">
-          <div className="text-start mx-auto my-4 text-sm">
-            월음(粵音)은 광둥어 발음 표기법을 뜻한다. <br />
+        <div className={ccss.syllableWrap}>
+          <div className={ccss.syllableDetail}>
+            <span className={ccss.h2}>월음(粵音)</span>은 <br />
+            광둥어 발음 표기법을 뜻한다. <br />
             중국도 광둥어 전공은 있지만 통일된 학습법이 있지는 않다. <br />
+            즉 학파와 학교마다 표기법이 다른 경우가 많다. <br />
             <br />
-            월음의 표기법은 : <br />
-            월병(粵拼), 황석릉(黃錫凌), 예일(耶魯), 광저우(廣州), IPA,
-            교원(教院), 유석상(劉錫祥) 등이 있다. <br />
-            <br />본 사이트에서 사용하는 월음은 월병(粵拼)이다.
+            월음의 대표적인 표기법은 : <br />
+            (1) 월병(粵拼), <br />
+            (2) 황석릉(黃錫凌), <br />
+            (3) 예일(耶魯), <br />
+            (4) 광저우(廣州), <br />
+            (5) IPA, <br />
+            (6) 교원(教院), <br />
+            (7) 유석상(劉錫祥) 등이 있다. <br />
+            <br />본 사이트에서 사용하는 월음은{" "}
+            <span className="bg-green-100 p-1 rounded-xl ">월병(粵拼)</span>
+            이다.
           </div>
-          <div className="sm:flex justify-center">
-            <div className={boxClass}>
-              <p className={labelClass}>성모(聲母)</p>
+          <div className={ccss.syllableSelectorsWrap}>
+            <div className={ccss.syllableSelectorBox}>
+              <p className={ccss.syllablelable}>성모(聲母)</p>
               <select
                 value={initial}
-                className={selectClass}
+                className={ccss.syllableSelect}
                 onChange={handleInitial}
               >
                 <option value="전체">전체</option>
@@ -89,14 +91,14 @@ export default function Syllable() {
                 ))}
               </select>
               <Link href={"/cantonese/syllable/initial"}>
-                <p className={linkClass}>More &gt;&gt;</p>
+                <p className={ccss.linkBtn}>More &gt;&gt;</p>
               </Link>
             </div>
-            <div className={boxClass}>
-              <p className={labelClass}>운모(韻母)</p>
+            <div className={ccss.syllableSelectorBox}>
+              <p className={ccss.syllablelable}>운모(韻母)</p>
               <select
                 value={vowel}
-                className={selectClass}
+                className={ccss.syllableSelect}
                 onChange={handleVowel}
               >
                 <option value="전체">전체</option>
@@ -107,12 +109,12 @@ export default function Syllable() {
                 ))}
               </select>
               <Link href={"/cantonese/syllable/vowel"}>
-                <p className={linkClass}>More &gt;&gt;</p>
+                <p className={ccss.linkBtn}>More &gt;&gt;</p>
               </Link>
             </div>
-            <div className={boxClass}>
-              <p className={labelClass}>성조(聲調)</p>
-              <select className={selectClass}>
+            <div className={ccss.syllableSelectorBox}>
+              <p className={ccss.syllablelable}>성조(聲調)</p>
+              <select className={ccss.syllableSelect}>
                 <option>전체</option>
                 <option>1</option>
                 <option>2</option>
@@ -122,13 +124,13 @@ export default function Syllable() {
                 <option>6</option>
               </select>
               <Link href={"/cantonese/syllable/tone"}>
-                <p className={linkClass}>More &gt;&gt;</p>
+                <p className={ccss.linkBtn}>More &gt;&gt;</p>
               </Link>
             </div>
           </div>
-          <div className={linkClass + " mt-2 font-bold"}>
-            <Link href={simpleSyllabelURL}>간단하게 보기 &gt;&gt;</Link>
-          </div>
+          <Link href={simpleSyllabelURL}>
+            <div className={ccss.linkBtn}>간단하게 보기 &gt;&gt;</div>
+          </Link>
           <label className="relative inline-flex items-center cursor-pointer mt-4">
             <input
               type="checkbox"
@@ -146,9 +148,9 @@ export default function Syllable() {
         <table className="mx-auto">
           <tbody>
             <tr>
-              <td className={intialCalss}></td>
+              <td className={ccss.thRed}></td>
               {initials.map((i) => (
-                <td className={intialCalss} key={i + 2}>
+                <td className={ccss.thRed} key={i + 2}>
                   <Link href={initialURL + i}>{i}</Link>
                 </td>
               ))}
@@ -156,7 +158,7 @@ export default function Syllable() {
             {vowels.map((v) => {
               return (
                 <tr key={v}>
-                  <td className={vowelCalss}>
+                  <td className={ccss.thBlue}>
                     <Link href={initialURL + v}>{v}</Link>
                   </td>
                   {initials.map((i) => {
@@ -164,7 +166,7 @@ export default function Syllable() {
                     i == "-" ? (init = "") : (init = i);
                     if (yueYin.includes(init + v)) count++;
                     return (
-                      <td className="text-sm border" key={i + 3}>
+                      <td className="text-sm" key={i + 3}>
                         {yueYin.includes(init + v) ? (
                           <Link
                             href={yueYinURL + init + v}

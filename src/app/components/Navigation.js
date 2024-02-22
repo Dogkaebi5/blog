@@ -14,7 +14,6 @@ const Navigation = () => {
   ];
 
   const [burgerBtnClass, setBurgerBtnClass] = useState("navbar-burger");
-  const [isMenuActive, setIsMenuActive] = useState(false);
   const [menuActiveClass, setMenuActiveClass] = useState("-right-96");
   const burgerLineClass = "absolute h-1 w-6 rounded-full my-1 bg-slate-800";
   const menuClass =

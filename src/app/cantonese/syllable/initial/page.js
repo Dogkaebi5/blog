@@ -46,7 +46,247 @@ export default function Syllable() {
         <hr className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h2 className={ccss.h2}>성모 발음</h2>
+
           <table className={ccss.table}>
+            <thead className={ccss.th}>
+              <tr>
+                <td className={ccss.tGray} colspan="2">
+                  中文
+                </td>
+                <td className={ccss.tGray} colspan="2">
+                  塞音 (清)
+                </td>
+                <td className={ccss.tGray} colspan="2">
+                  塞擦音 (清)
+                </td>
+                <td className={ccss.tGray}>鼻音 (濁)</td>
+                <td className={ccss.tGray}>邊音 (濁)</td>
+                <td className={ccss.tGray}>擦音 (清)</td>
+                <td className={ccss.tGray}>半元音</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className={ccss.tGray} colspan="2">
+                  구분
+                </td>
+                <td className={ccss.tGray} colspan="2">
+                  청음
+                </td>
+                <td className={ccss.tGray} colspan="2">
+                  청음
+                </td>
+                <td className={ccss.tGray}>탁음</td>
+                <td className={ccss.tGray}>탁음</td>
+                <td className={ccss.tGray}>청음</td>
+                <td className={ccss.tGray}>-</td>
+              </tr>
+              <tr>
+                <td className={ccss.tYellow} colspan="2">
+                  발음
+                </td>
+                <td className={ccss.tYellow}>
+                  파열음
+                  <br />
+                  (내쉼)
+                </td>
+                <td className={ccss.tYellow}>
+                  파열음
+                  <br />
+                  (내쉼X)
+                </td>
+                <td className={ccss.tYellow}>
+                  파찰음
+                  <br />
+                  (내쉼)
+                </td>
+                <td className={ccss.tYellow}>
+                  파찰음
+                  <br />
+                  (내쉼X)
+                </td>
+                <td className={ccss.tYellow}>코음</td>
+                <td className={ccss.tYellow}>옆음</td>
+                <td className={ccss.tYellow}>마찰음</td>
+                <td className={ccss.tYellow}>반원음</td>
+              </tr>
+              <tr>
+                <td className={ccss.tBlue} rowspan="2">
+                  입술
+                </td>
+                <td className={ccss.tBlue}>두 입술</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "b"}>
+                    b 波
+                  </Link>
+                </td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "p"}>
+                    p 婆
+                  </Link>
+                </td>
+                <td>　</td>
+                <td>　</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "m"}>
+                    m 摸
+                  </Link>
+                </td>
+                <td>　</td>
+                <td>　</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "w"}>
+                    w 華
+                  </Link>
+                </td>
+              </tr>
+              <tr>
+                <td className={ccss.tBlue}>입술, 이빨</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "f"}>
+                    f 科
+                  </Link>
+                </td>
+                <td>　</td>
+              </tr>
+
+              <tr>
+                <td className={ccss.tBlue} rowspan="5">
+                  혀
+                </td>
+                <td className={ccss.tBlue}>끝</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "d"}>
+                    d 多
+                  </Link>
+                </td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "t"}>
+                    t 拖
+                  </Link>
+                </td>
+                <td>　</td>
+                <td>　</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "n"}>
+                    n 挪
+                  </Link>
+                </td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "l"}>
+                    l 羅
+                  </Link>
+                </td>
+                <td>　</td>
+                <td>　</td>
+              </tr>
+
+              <tr>
+                <td className={ccss.tBlue}>옆</td>
+                <td>　</td>
+                <td>　</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "z"}>
+                    z 知
+                  </Link>
+                </td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "c"}>
+                    c 雌
+                  </Link>
+                </td>
+                <td>　</td>
+                <td>　</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "s"}>
+                    s 思
+                  </Link>
+                </td>
+                <td>　</td>
+              </tr>
+              <tr>
+                <td className={ccss.tBlue}>몸</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "j"}>
+                    j 也
+                  </Link>
+                </td>
+              </tr>
+              <tr>
+                <td className={ccss.tBlue}>뿌리</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "g"}>
+                    g 哥
+                  </Link>
+                </td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "k"}>
+                    k 卡
+                  </Link>
+                </td>
+                <td>　</td>
+                <td>　</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "ng"}>
+                    ng 我
+                  </Link>
+                </td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+              </tr>
+              <tr>
+                <td className={ccss.tBlue}>뿌리 원순</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "gw"}>
+                    gw 姑
+                  </Link>
+                </td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "kw"}>
+                    kw 箍
+                  </Link>
+                </td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+              </tr>
+              <tr>
+                <td className={ccss.tBlue} colspan="2">
+                  목
+                </td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>
+                  <Link className="hover:underline" href={initialURL + "h"}>
+                    h 何
+                  </Link>
+                </td>
+                <td>　</td>
+              </tr>
+            </tbody>
+          </table>
+          {/* <table className={ccss.table}>
             <thead className={ccss.th}>
               <tr>
                 <td className={ccss.tGray} rowspan="2">
@@ -224,7 +464,7 @@ export default function Syllable() {
                 <td>　</td>
               </tr>
             </tbody>
-          </table>
+          </table> */}
         </div>
       </div>
     </div>
