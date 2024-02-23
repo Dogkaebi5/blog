@@ -7,7 +7,7 @@ export const toggle = "rounded-full py-2 px-7 border shadow-md";
 export const toggleActive = toggle + " bg-green-600 text-white";
 export const btn = "bg-black text-white border rounded-lg py-1 px-6";
 export const searchWrap =
-  "flex border rounded p-2 w-80 mr-2 shadow-sm focus:ring-1 focus:outline-none focus:border-green-500 focus:ring-green-500";
+  "bg-[10px] bg-[url('/magnifying-glass-solid.svg')] bg-no-repeat  flex border rounded py-2 pl-10 w-80 mr-2 shadow-sm focus:ring-1 focus:outline-none focus:border-green-500 focus:ring-green-500";
 export const headerBtnBlock = "p-4 flex justify-between";
 export const headerBtn =
   "px-4 py-1 bg-slate-100 rounded-full text-green-500 shadow";

@@ -55,14 +55,13 @@ const SubNav = () => {
             );
           })}
         </div>
-        <form className={ccss.searchWrap}>
-          <Image
-            height={20}
-            width={20}
-            alt="search"
-            src="/magnifying-glass-solid.svg"
+        <form className="">
+          <input
+            type="search"
+            placeholder="search.."
+            className={`${ccss.searchWrap}`}
+            style={{ backgroundSize: "16px" }}
           />
-          <input type="search" placeholder="search.." className="px-4" />
         </form>
       </div>
       <hr className="mt-4 mb-6" />
