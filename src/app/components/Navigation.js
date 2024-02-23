@@ -54,7 +54,7 @@ const Navigation = () => {
         })}
       </nav>
       <div
-        className={`${burgerBtnClass} h-7 w-8 mr-8 my-2 cursor-pointer relative z-10`}
+        className={`${burgerBtnClass} h-7 w-8 mr-4 my-2 cursor-pointer relative z-10`}
         onClick={burgerBtnHandle}
       >
         <span className={burgerLineClass + " top-0"}> </span>

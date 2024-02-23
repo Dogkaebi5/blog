@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import * as ccss from "@/app/controller/cssName";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 
 const SubNav = () => {
   const path = usePathname();
@@ -31,7 +33,7 @@ const SubNav = () => {
   return (
     <>
       <div className={ccss.subNavWrap}>
-        <div>
+        <div className="flex flex-wrap gap-2 mx-2">
           {nav.map(([item, param]) => {
             let params = param.split("/");
             return (
@@ -53,9 +55,14 @@ const SubNav = () => {
             );
           })}
         </div>
-        <form className="max-[250px]:hidden">
-          <input className={ccss.input} />
-          <input type="submit" value="검색" className={ccss.btn} />
+        <form className={ccss.searchWrap}>
+          <Image
+            height={20}
+            width={20}
+            alt="search"
+            src="/magnifying-glass-solid.svg"
+          />
+          <input type="search" placeholder="search.." className="px-4" />
         </form>
       </div>
       <hr className="mt-4 mb-6" />

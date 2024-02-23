@@ -92,9 +92,12 @@ const BlogCardList = () => {
           {pageNums.map((num) => {
             return num != -1 ? (
               currentPageNum == num ? (
-                <button className={ccss.pageNumAct}>{num}</button>
+                <button key={`btn${num}`} className={ccss.pageNumAct}>
+                  {num}
+                </button>
               ) : (
                 <button
+                  key={`btn${num}`}
                   className={ccss.pageNum}
                   onClick={() => handlePageNav(num)}
                 >
