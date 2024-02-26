@@ -116,26 +116,26 @@ export default function Syllable() {
                 </td>
                 <td className={ccss.tBlue}>두 입술</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "b"}>
+                  <Link className={ccss.tableLink} href={initialURL + "b"}>
                     b 波
                   </Link>
                 </td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "p"}>
+                  <Link className={ccss.tableLink} href={initialURL + "p"}>
                     p 婆
                   </Link>
                 </td>
                 <td>　</td>
                 <td>　</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "m"}>
+                  <Link className={ccss.tableLink} href={initialURL + "m"}>
                     m 摸
                   </Link>
                 </td>
                 <td>　</td>
                 <td>　</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "w"}>
+                  <Link className={ccss.tableLink} href={initialURL + "w"}>
                     w 華
                   </Link>
                 </td>
@@ -149,7 +149,7 @@ export default function Syllable() {
                 <td>　</td>
                 <td>　</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "f"}>
+                  <Link className={ccss.tableLink} href={initialURL + "f"}>
                     f 科
                   </Link>
                 </td>
@@ -162,24 +162,24 @@ export default function Syllable() {
                 </td>
                 <td className={ccss.tBlue}>끝</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "d"}>
+                  <Link className={ccss.tableLink} href={initialURL + "d"}>
                     d 多
                   </Link>
                 </td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "t"}>
+                  <Link className={ccss.tableLink} href={initialURL + "t"}>
                     t 拖
                   </Link>
                 </td>
                 <td>　</td>
                 <td>　</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "n"}>
+                  <Link className={ccss.tableLink} href={initialURL + "n"}>
                     n 挪
                   </Link>
                 </td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "l"}>
+                  <Link className={ccss.tableLink} href={initialURL + "l"}>
                     l 羅
                   </Link>
                 </td>
@@ -192,19 +192,19 @@ export default function Syllable() {
                 <td>　</td>
                 <td>　</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "z"}>
+                  <Link className={ccss.tableLink} href={initialURL + "z"}>
                     z 知
                   </Link>
                 </td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "c"}>
+                  <Link className={ccss.tableLink} href={initialURL + "c"}>
                     c 雌
                   </Link>
                 </td>
                 <td>　</td>
                 <td>　</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "s"}>
+                  <Link className={ccss.tableLink} href={initialURL + "s"}>
                     s 思
                   </Link>
                 </td>
@@ -220,7 +220,7 @@ export default function Syllable() {
                 <td>　</td>
                 <td>　</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "j"}>
+                  <Link className={ccss.tableLink} href={initialURL + "j"}>
                     j 也
                   </Link>
                 </td>
@@ -228,19 +228,19 @@ export default function Syllable() {
               <tr>
                 <td className={ccss.tBlue}>뿌리</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "g"}>
+                  <Link className={ccss.tableLink} href={initialURL + "g"}>
                     g 哥
                   </Link>
                 </td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "k"}>
+                  <Link className={ccss.tableLink} href={initialURL + "k"}>
                     k 卡
                   </Link>
                 </td>
                 <td>　</td>
                 <td>　</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "ng"}>
+                  <Link className={ccss.tableLink} href={initialURL + "ng"}>
                     ng 我
                   </Link>
                 </td>
@@ -251,12 +251,12 @@ export default function Syllable() {
               <tr>
                 <td className={ccss.tBlue}>뿌리 원순</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "gw"}>
+                  <Link className={ccss.tableLink} href={initialURL + "gw"}>
                     gw 姑
                   </Link>
                 </td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "kw"}>
+                  <Link className={ccss.tableLink} href={initialURL + "kw"}>
                     kw 箍
                   </Link>
                 </td>
@@ -278,7 +278,7 @@ export default function Syllable() {
                 <td>　</td>
                 <td>　</td>
                 <td>
-                  <Link className="hover:underline" href={initialURL + "h"}>
+                  <Link className={ccss.tableLink} href={initialURL + "h"}>
                     h 何
                   </Link>
                 </td>

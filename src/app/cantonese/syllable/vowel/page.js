@@ -30,17 +30,17 @@ export default function Syllable() {
           <h2 className={ccss.h2}>운복(韻母) & 운미(韻尾)</h2>
           <table>
             <tbody>
-              <tr className="font-bold">
-                <td className={ccss.tBlue}>운복</td>
-                <td className={ccss.tBlue}>aa</td>
-                <td className={ccss.tBlue}>a</td>
-                <td className={ccss.tBlue}>e</td>
-                <td className={ccss.tBlue}>i</td>
-                <td className={ccss.tBlue}>o</td>
-                <td className={ccss.tBlue}>u</td>
-                <td className={ccss.tBlue}>oe</td>
-                <td className={ccss.tBlue}>eo</td>
-                <td className={ccss.tBlue}>yu</td>
+              <tr className={ccss.tBlue + " font-bold"}>
+                <td className="px-4">운복</td>
+                <td className="px-4">aa</td>
+                <td className="px-4">a</td>
+                <td className="px-4">e</td>
+                <td className="px-4">i</td>
+                <td className="px-4">o</td>
+                <td className="px-4">u</td>
+                <td className="px-4">oe</td>
+                <td className="px-4">eo</td>
+                <td className="px-4">yu</td>
               </tr>
               <tr>
                 <td rowspan="2">발음</td>
@@ -83,16 +83,16 @@ export default function Syllable() {
         <div className="p-4">
           <table>
             <tbody>
-              <tr className="font-bold">
-                <td className={ccss.tBlue}>운미</td>
-                <td className={ccss.tBlue}>-i</td>
-                <td className={ccss.tBlue}>-u</td>
-                <td className={ccss.tBlue}>-m</td>
-                <td className={ccss.tBlue}>-n</td>
-                <td className={ccss.tBlue}>-ng</td>
-                <td className={ccss.tBlue}>-p</td>
-                <td className={ccss.tBlue}>-t</td>
-                <td className={ccss.tBlue}>-k</td>
+              <tr className={ccss.tBlue + " font-bold"}>
+                <td className="px-4">운미</td>
+                <td className="px-4">-i</td>
+                <td className="px-4">-u</td>
+                <td className="px-4">-m</td>
+                <td className="px-4">-n</td>
+                <td className="px-4">-ng</td>
+                <td className="px-4">-p</td>
+                <td className="px-4">-t</td>
+                <td className="px-4">-k</td>
               </tr>
               <tr>
                 <td>발음</td>
@@ -162,216 +162,324 @@ export default function Syllable() {
               <tr>
                 <td className={ccss.tYellow}>aa</td>
                 <td>
-                  <Link href={initialURL + "aa"}>aa 呀</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "aa"}>
+                    aa 呀
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "aai"}>aai 挨</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "aai"}>
+                    aai 挨
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "aau"}>aau 拗</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "aau"}>
+                    aau 拗
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "aam"}>aam 監</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "aam"}>
+                    aam 監
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "aan"}>aan 晏</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "aan"}>
+                    aan 晏
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "aang"}>aang 罌</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "aang"}>
+                    aang 罌
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "aap"}>aap 鴨</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "aap"}>
+                    aap 鴨
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "aat"}>aat 押</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "aat"}>
+                    aat 押
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "aak"}>aak 客</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "aak"}>
+                    aak 客
+                  </Link>
                 </td>
               </tr>
               <tr>
                 <td className={ccss.tYellow}>a</td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "ai"}>ai 矮</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ai"}>
+                    ai 矮
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "au"}>au 歐</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "au"}>
+                    au 歐
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "am"}>am 痷</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "am"}>
+                    am 痷
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "an"}>an 恩</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "an"}>
+                    an 恩
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ang"}>ang 鶯</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ang"}>
+                    ang 鶯
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ap"}>ap 急</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ap"}>
+                    ap 急
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "at"}>at 不</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "at"}>
+                    at 不
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ak"}>ak 德</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ak"}>
+                    ak 德
+                  </Link>
                 </td>
               </tr>
               <tr>
                 <td className={ccss.tYellow}>e</td>
                 <td>
-                  <Link href={initialURL + "e"}>e 誒</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "e"}>
+                    e 誒
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ei"}>ei 非</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ei"}>
+                    ei 非
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "eu"}>eu 掉</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "eu"}>
+                    eu 掉
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "em"}>em 舐</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "em"}>
+                    em 舐
+                  </Link>
                 </td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "eng"}>eng 鏡</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "eng"}>
+                    eng 鏡
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ep"}>ep 夾</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ep"}>
+                    ep 夾
+                  </Link>
                 </td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "ek"}>ek 尺</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ek"}>
+                    ek 尺
+                  </Link>
                 </td>
               </tr>
               <tr>
                 <td className={ccss.tYellow}>i</td>
                 <td>
-                  <Link href={initialURL + "i"}>i 衣</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "i"}>
+                    i 衣
+                  </Link>
                 </td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "iu"}>iu 妖</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "iu"}>
+                    iu 妖
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "im"}>im 淹</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "im"}>
+                    im 淹
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "in"}>in 煙</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "in"}>
+                    in 煙
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ing"}>ing 英</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ing"}>
+                    ing 英
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ip"}>ip 葉</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ip"}>
+                    ip 葉
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "it"}>it 熱</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "it"}>
+                    it 熱
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ik"}>ik 益</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ik"}>
+                    ik 益
+                  </Link>
                 </td>
               </tr>
               <tr>
                 <td className={ccss.tYellow}>o</td>
                 <td>
-                  <Link href={initialURL + "o"}>o 柯</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "o"}>
+                    o 柯
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "oi"}>oi 哀</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "oi"}>
+                    oi 哀
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ou"}>ou 奧</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ou"}>
+                    ou 奧
+                  </Link>
                 </td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "on"}>on 安</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "on"}>
+                    on 安
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ong"}>ong 康</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ong"}>
+                    ong 康
+                  </Link>
                 </td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "ot"}>ot 渴</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ot"}>
+                    ot 渴
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ok"}>ok 惡</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ok"}>
+                    ok 惡
+                  </Link>
                 </td>
               </tr>
               <tr>
                 <td className={ccss.tYellow}>u</td>
                 <td>
-                  <Link href={initialURL + "u"}>u 烏</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "u"}>
+                    u 烏
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "ui"}>ui 煨</Link>
-                </td>
-                <td></td>
-                <td></td>
-                <td>
-                  <Link href={initialURL + "un"}>un 碗</Link>
-                </td>
-                <td>
-                  <Link href={initialURL + "ung"}>ung 甕</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ui"}>
+                    ui 煨
+                  </Link>
                 </td>
                 <td></td>
+                <td></td>
                 <td>
-                  <Link href={initialURL + "ut"}>ut 活</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "un"}>
+                    un 碗
+                  </Link>
                 </td>
                 <td>
-                  <Link href={initialURL + "uk"}>uk 屋</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ung"}>
+                    ung 甕
+                  </Link>
+                </td>
+                <td></td>
+                <td>
+                  <Link className={ccss.tableLink} href={initialURL + "ut"}>
+                    ut 活
+                  </Link>
+                </td>
+                <td>
+                  <Link className={ccss.tableLink} href={initialURL + "uk"}>
+                    uk 屋
+                  </Link>
                 </td>
               </tr>
               <tr>
                 <td className={ccss.tYellow}>oe</td>
                 <td>
-                  <Link href={initialURL + "oe"}>oe 靴</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "oe"}>
+                    oe 靴
+                  </Link>
                 </td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "oeng"}>oeng 香</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "oeng"}>
+                    oeng 香
+                  </Link>
                 </td>
                 <td></td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "oek"}>oek 約</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "oek"}>
+                    oek 約
+                  </Link>
                 </td>
               </tr>
               <tr>
                 <td className={ccss.tYellow}>eo</td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "eoi"}>eoi 去</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "eoi"}>
+                    eoi 去
+                  </Link>
                 </td>
                 <td></td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "eon"}>eon 春</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "eon"}>
+                    eon 春
+                  </Link>
                 </td>
                 <td></td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "eot"}>eot 律</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "eot"}>
+                    eot 律
+                  </Link>
                 </td>
                 <td></td>
               </tr>
               <tr>
                 <td className={ccss.tYellow}>yu</td>
                 <td>
-                  <Link href={initialURL + "yu"}>yu 於</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "yu"}>
+                    yu 於
+                  </Link>
                 </td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "yun"}>yun 冤</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "yun"}>
+                    yun 冤
+                  </Link>
                 </td>
                 <td></td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "yut"}>yut 月</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "yut"}>
+                    yut 月
+                  </Link>
                 </td>
                 <td></td>
               </tr>
@@ -381,11 +489,15 @@ export default function Syllable() {
                 <td></td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "m"}>m 唔</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "m"}>
+                    m 唔
+                  </Link>
                 </td>
                 <td></td>
                 <td>
-                  <Link href={initialURL + "ng"}>ng 五</Link>
+                  <Link className={ccss.tableLink} href={initialURL + "ng"}>
+                    ng 五
+                  </Link>
                 </td>
                 <td></td>
                 <td></td>

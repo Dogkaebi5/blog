@@ -149,10 +149,7 @@ export default function Syllable() {
             <tr>
               <td className={ccss.thRed}></td>
               {initials.map((i) => (
-                <td
-                  className={ccss.thRed + " hover:underline underline-offset-4"}
-                  key={i + 2}
-                >
+                <td className={ccss.thRed + ccss.tableLink} key={i + 2}>
                   <Link href={initialURL + i}>{i}</Link>
                 </td>
               ))}
@@ -160,11 +157,7 @@ export default function Syllable() {
             {vowels.map((v) => {
               return (
                 <tr key={v}>
-                  <td
-                    className={
-                      ccss.thBlue + " hover:underline underline-offset-4"
-                    }
-                  >
+                  <td className={ccss.thBlue + ccss.tableLink}>
                     <Link href={initialURL + v}>{v}</Link>
                   </td>
                   {initials.map((i) => {
@@ -176,9 +169,7 @@ export default function Syllable() {
                         {yueYin.includes(init + v) ? (
                           <Link
                             href={yueYinURL + init + v}
-                            className={
-                              "px-0.5 + hover:underline underline-offset-4"
-                            }
+                            className={"px-0.5" + ccss.tableLink}
                           >
                             {isHan ? hans[count] : init + v}
                           </Link>

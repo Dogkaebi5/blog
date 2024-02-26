@@ -44,9 +44,11 @@ export default function HanJa(props) {
 
   return (
     <div className={ccss.noHeroContent}>
-      <div className="flex items-center ">
-        <div className={character.length == 1 ? charClass : wordClass}>
-          <h1 className="p-6">{character}</h1>
+      <div className="flex">
+        <div className={ccss.cnTitleBox}>
+          <h1 className={character.length == 1 ? " text-8xl" : " text-7xl"}>
+            {character}
+          </h1>
         </div>
         <div className="ml-4">
           <p className={ccss.smLabel}>월음 (粵音)</p>
