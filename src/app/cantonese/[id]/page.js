@@ -44,66 +44,61 @@ export default function HanJa(props) {
 
   return (
     <div className={ccss.noHeroContent}>
-      <div className="p-4 ">
-        <div className="flex items-center">
-          <div className={character.length == 1 ? charClass : wordClass}>
-            <h1 className="p-6">{character}</h1>
+      <div className="flex items-center ">
+        <div className={character.length == 1 ? charClass : wordClass}>
+          <h1 className="p-6">{character}</h1>
+        </div>
+        <div className="ml-4">
+          <p className={ccss.smLabel}>월음 (粵音)</p>
+          {yueYinArr.map((yueYin) => (
+            <p
+              className={ccss.yueYinPlayer}
+              key={yueYin}
+              onClick={() => handleAudio(yueYin)}
+            >
+              {yueYin}
+            </p>
+          ))}
+          <p className={ccss.smLabel}>발음</p>
+          <p className={ccss.contentBox}>{krSyllable()}</p>
+        </div>
+      </div>
+      {character.length == 1 ? (
+        <div className="p-6 flex">
+          <div>
+            <p className={ccss.smLabel}>한국 음·한자</p>
+            <p className={ccss.smLabel}>간체자 (简体字)</p>
+            <p className={ccss.smLabel}>보통화 (拼音)</p>
+            <p className={ccss.smLabel}>UTF</p>
           </div>
-          <div className="ml-4">
-            <p className={ccss.smLabel}>월음 (粵音)</p>
-            <div className="flex">
-              {yueYinArr.map((yueYin) => (
-                <p
-                  className="text-sm py-4"
-                  key={yueYin}
-                  onClick={() => handleAudio(yueYin)}
-                >
-                  <span className={ccss.linkText}>{yueYin} 🔊</span>
-                </p>
-              ))}
-            </div>
-            <p className={ccss.smLabel}>발음</p>
-            <p className={ccss.contentBox}>{krSyllable()}</p>
+          <div>
+            <p className={ccss.contentBox}>{word.hanja}</p>
+            <p className={ccss.contentBox}>
+              {word.cn == "" ? word.tc : word.cn}
+            </p>
+            <p className={ccss.contentBox}>{word.mandarin}</p>
+            {character.length == 1 && (
+              <p className={ccss.contentBox}>{idsArr[0]}</p>
+            )}
           </div>
         </div>
-        {character.length == 1 ? (
-          <div className="p-6 flex">
-            <div>
-              <p className={ccss.smLabel}>한국 음·한자</p>
-              <p className={ccss.smLabel}>간체자 (简体字)</p>
-              <p className={ccss.smLabel}>보통화 (拼音)</p>
-              <p className={ccss.smLabel}>UTF</p>
-            </div>
-            <div>
-              <p className={ccss.contentBox}>{word.hanja}</p>
-              <p className={ccss.contentBox}>
-                {word.cn == "" ? word.tc : word.cn}
-              </p>
-              <p className={ccss.contentBox}>{word.mandarin}</p>
-              {character.length == 1 && (
-                <p className={ccss.contentBox}>{idsArr[0]}</p>
-              )}
-            </div>
+      ) : (
+        <div className="p-6 flex">
+          <div>
+            <p className={ccss.smLabel}>拼音</p>
+            <p className={ccss.smLabel}>普通话</p>
           </div>
-        ) : (
-          <div className="p-6 flex">
-            <div>
-              <p className={ccss.smLabel}>拼音</p>
-              <p className={ccss.smLabel}>普通话</p>
-            </div>
-            <div>
-              <p className={ccss.contentBox}>{word.mandarin}</p>
-              <p className={ccss.contentBox}>
-                {word.cn == "" ? word.tc : word.cn}
-              </p>
-            </div>
+          <div>
+            <p className={ccss.contentBox}>{word.mandarin}</p>
+            <p className={ccss.contentBox}>
+              {word.cn == "" ? word.tc : word.cn}
+            </p>
           </div>
-        )}
-      </div>
-      <div className="w-full bg-gray-50">
-        <p className="text-sm p-4">
-          구분 : <span>{word.category}</span>
-        </p>
+        </div>
+      )}
+
+      <div className="w-full bg-green-50 text-sm p-4 rounded">
+        구분 : {word.category}
       </div>
       <hr className="border-gray-400" />
       <div className="p-4">
@@ -118,7 +113,7 @@ export default function HanJa(props) {
       <hr className="border-gray-400" />
       {character.length == 1 ? (
         <div className="p-4">
-          <p className="font-semibold mb-4">성어</p>
+          <p className="font-semibold mb-4">단어</p>
           <p>
             {phrases.map((phrase) => {
               return (

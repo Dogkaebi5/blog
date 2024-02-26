@@ -67,11 +67,15 @@ export default function Initial(props) {
         <hr className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h2 className={ccss.h2}>음절 조합</h2>
-          <div className={ccss.alpWrap}>
+          <div className={ccss.alpCardWrap}>
             {yueYins.map((yueYin) => {
               return checkYueYinList(yueYin) ? (
-                <Link href={yueYinURL + yueYin} key={yueYin}>
-                  <span className={ccss.linkText}>{yueYin}</span>
+                <Link
+                  className={ccss.alpCardOutBox}
+                  href={yueYinURL + yueYin}
+                  key={yueYin}
+                >
+                  <span className={ccss.alpCardInBox}>{yueYin}</span>
                 </Link>
               ) : null;
             })}

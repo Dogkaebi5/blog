@@ -47,7 +47,6 @@ export default function Syllable() {
   };
 
   const handleIsHan = (e) => {
-    console.log(e.target.value);
     setIshan(!isHan);
   };
 
@@ -91,7 +90,7 @@ export default function Syllable() {
                 ))}
               </select>
               <Link href={"/cantonese/syllable/initial"}>
-                <p className={ccss.linkBtn}>More &gt;&gt;</p>
+                <p className={ccss.linkGreenText}>More &gt;&gt;</p>
               </Link>
             </div>
             <div className={ccss.syllableSelectorBox}>
@@ -109,7 +108,7 @@ export default function Syllable() {
                 ))}
               </select>
               <Link href={"/cantonese/syllable/vowel"}>
-                <p className={ccss.linkBtn}>More &gt;&gt;</p>
+                <p className={ccss.linkGreenText}>More &gt;&gt;</p>
               </Link>
             </div>
             <div className={ccss.syllableSelectorBox}>
@@ -124,12 +123,12 @@ export default function Syllable() {
                 <option>6</option>
               </select>
               <Link href={"/cantonese/syllable/tone"}>
-                <p className={ccss.linkBtn}>More &gt;&gt;</p>
+                <p className={ccss.linkGreenText}>More &gt;&gt;</p>
               </Link>
             </div>
           </div>
           <Link href={simpleSyllabelURL}>
-            <div className={ccss.linkBtn}>간단하게 보기 &gt;&gt;</div>
+            <div className={ccss.linkGreenText}>월음 간략 버전 &gt;&gt;</div>
           </Link>
           <label className="relative inline-flex items-center cursor-pointer mt-4">
             <input
@@ -138,7 +137,7 @@ export default function Syllable() {
               className="sr-only peer"
               onClick={handleIsHan}
             />
-            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
             <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
               음절/한자
             </span>
@@ -150,7 +149,10 @@ export default function Syllable() {
             <tr>
               <td className={ccss.thRed}></td>
               {initials.map((i) => (
-                <td className={ccss.thRed} key={i + 2}>
+                <td
+                  className={ccss.thRed + " hover:underline underline-offset-4"}
+                  key={i + 2}
+                >
                   <Link href={initialURL + i}>{i}</Link>
                 </td>
               ))}
@@ -158,7 +160,11 @@ export default function Syllable() {
             {vowels.map((v) => {
               return (
                 <tr key={v}>
-                  <td className={ccss.thBlue}>
+                  <td
+                    className={
+                      ccss.thBlue + " hover:underline underline-offset-4"
+                    }
+                  >
                     <Link href={initialURL + v}>{v}</Link>
                   </td>
                   {initials.map((i) => {
@@ -170,7 +176,9 @@ export default function Syllable() {
                         {yueYin.includes(init + v) ? (
                           <Link
                             href={yueYinURL + init + v}
-                            className={"px-0.5"}
+                            className={
+                              "px-0.5 + hover:underline underline-offset-4"
+                            }
                           >
                             {isHan ? hans[count] : init + v}
                           </Link>

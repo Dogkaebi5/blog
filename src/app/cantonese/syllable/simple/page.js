@@ -44,15 +44,15 @@ export default function SyllableSp() {
             음절에서 확인하세요.
           </p>
         </div>
-        <div className="flex justify-between mt-4">
-          <Link className={ccss.linkText} href={syllableURL}>
+        <div className="flex justify-between mt-8">
+          <Link className={ccss.headerBtn} href={syllableURL}>
             월음음절 &gt;&gt;
           </Link>
 
-          <Link className={ccss.linkText} href={syllableURL + "initial"}>
+          <Link className={ccss.headerBtn} href={syllableURL + "initial"}>
             성모 &gt;&gt;
           </Link>
-          <Link className={ccss.linkText} href={syllableURL + "vowel"}>
+          <Link className={ccss.headerBtn} href={syllableURL + "vowel"}>
             운모 &gt;&gt;
           </Link>
         </div>

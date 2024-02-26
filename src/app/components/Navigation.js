@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const Navigation = () => {
-  const pathname = usePathname();
+  const fullPath = usePathname();
+  const pathname = "/" + fullPath.split("/")[1];
   const navigation = [
     ["Home", "/"],
     ["粤", "/cantonese"],
@@ -14,7 +15,9 @@ const Navigation = () => {
   ];
 
   const [burgerBtnClass, setBurgerBtnClass] = useState("navbar-burger");
-  const [menuActiveClass, setMenuActiveClass] = useState("-right-96 opacity-0");
+  const [menuActiveClass, setMenuActiveClass] = useState(
+    "-right-full opacity-0"
+  );
   const [navWrap, setNavWrap] = useState("");
   const burgerLineClass = "absolute h-1 w-6 rounded-full my-1 bg-slate-800";
   const menuClass =
@@ -34,7 +37,7 @@ const Navigation = () => {
 
   return (
     <div className={navWrap + " flex justify-between py-2"}>
-      <Link href={"/"} className="py-2 px-4 rounded-full bg-slate-100">
+      <Link href={"/"} className="h-8 py-1 px-4 rounded-full bg-green-100">
         DogKaeBi
       </Link>
       <nav className="navbar-main space-x-2 my-2 flex">
@@ -45,7 +48,9 @@ const Navigation = () => {
               href={url}
               key={title}
               className={
-                isActive ? "spread-underline font-bold" : "spread-underline"
+                isActive
+                  ? "spread-underline text-green-600 font-bold"
+                  : "spread-underline"
               }
             >
               {title}

@@ -77,18 +77,18 @@ export default function Syllable() {
         <p className={ccss.textBox}>
           모든 성조가 다 있는 음절은 매우 적다.
           <br />
-          <Link className={ccss.linkText} href={yueYinURL + "maa"}>
+          <Link className={ccss.linkGreenText} href={yueYinURL + "maa"}>
             maa
           </Link>
-          ,
-          <Link className={ccss.linkText} href={yueYinURL + "si"}>
+          ,&nbsp;
+          <Link className={ccss.linkGreenText} href={yueYinURL + "si"}>
             si
           </Link>
-          ,
-          <Link className={ccss.linkText} href={yueYinURL + "ngaa"}>
+          ,&nbsp;
+          <Link className={ccss.linkGreenText} href={yueYinURL + "ngaa"}>
             ngaa
           </Link>
-          가 대표적인 모든 성조가 있는 음절이다.
+          &nbsp;가 대표적인 모든 성조가 있는 음절이다.
         </p>
         <hr className={ccss.hr} />
         <h2 className={ccss.h2}>성조 변화 예시</h2>

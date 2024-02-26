@@ -31,7 +31,7 @@ export default function Syllable() {
         <hr className={ccss.hr} />
         <div className="px-4">
           <h2 className={ccss.h2}>성모 종류</h2>
-          <div className={ccss.alpWrap}>
+          <div className={ccss.alpCardWrap}>
             {initials.map((initial) => (
               <Link
                 href={initialURL + initial}

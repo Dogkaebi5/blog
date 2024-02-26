@@ -27,7 +27,7 @@ export default function Syllable() {
         </p>
         <hr className={ccss.hr} />
         <div className={ccss.subBlock}>
-          <h2 className={ccss.h2}>운복 & 운미</h2>
+          <h2 className={ccss.h2}>운복(韻母) & 운미(韻尾)</h2>
           <table>
             <tbody>
               <tr className="font-bold">
@@ -115,7 +115,7 @@ export default function Syllable() {
         <hr className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h2 className={ccss.h2}>운모 종류</h2>
-          <div className={ccss.alpWrap}>
+          <div className={ccss.alpCardWrap}>
             {vowels.map((vowel) => (
               <Link
                 href={initialURL + vowel}
@@ -148,7 +148,7 @@ export default function Syllable() {
             </thead>
             <tbody>
               <tr className={ccss.tBlue}>
-                <td className={ccss.tYellow + " w-20"}>음위</td>
+                <td className={ccss.tYellow}>음위</td>
                 <td className="w-20">-</td>
                 <td className="w-20">-i</td>
                 <td className="w-20">-u</td>

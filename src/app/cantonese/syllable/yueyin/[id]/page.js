@@ -70,13 +70,13 @@ export default function YueYin(props) {
           {tones.map((tone) => {
             return (
               <p
-                className={ccss.linkText}
+                className={ccss.yueYinPlayer}
                 key={yueYin + tone}
                 onClick={() => {
                   handleAudio(yueYin + tone);
                 }}
               >
-                {yueYin + tone} 🔊
+                {yueYin + tone}
               </p>
             );
           })}
