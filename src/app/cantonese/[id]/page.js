@@ -8,12 +8,7 @@ import { setTcFromId, splitIds } from "@/app/controller/handleId";
 
 export default function HanJa(props) {
   const phrases = ["一往無前", "一事無成", "一五一十", "一心一意", "一言為定"];
-
-  const charClass = ccss.cnTitleBox + " text-8xl";
-  const wordClass = ccss.cnTitleBox + " text-7xl";
-
   const params = props.params.id;
-
   const word = words[params] ?? {
     tc: "-",
     yueYin: "-",
