@@ -12,6 +12,7 @@ export default async function Read(props) {
     }
   })[0];
   const date = new Date(data.date).toLocaleDateString();
+
   const category = () => {
     if (data.category == "book") return "책";
     if (data.category == "daily") return "일상";
