@@ -1,6 +1,6 @@
 import { fetchData } from "./fetchData";
 
-async function setCardList(category, pageNum) {
+export async function setCardList(category, pageNum) {
   const jsonData = await fetchData();
 
   function setCategoryData() {
@@ -35,5 +35,3 @@ async function setCardList(category, pageNum) {
 
   return setResult();
 }
-
-export { setCardList };

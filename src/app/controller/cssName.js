@@ -51,7 +51,7 @@ export const blogCardText = "mt-2 text-nowrap overflow-hidden text-ellipsis";
 export const blogDate = "text-gray-600 text-sm";
 
 export const cnCardsWrap =
-  "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4";
+  "grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4";
 export const cnCard =
   "rounded-md border text-center shadow-md hover:shadow hover:scale-105";
 export const cnCardJutYin = "py-3 text-sm";
