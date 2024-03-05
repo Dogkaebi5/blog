@@ -3,19 +3,17 @@ import SubNav from "../components/SubNav";
 import CnCard from "../components/CnCard";
 import { cnCardsWrap } from "../controller/cssName";
 import { setIdFromTc } from "../controller/handleId";
-import app from "../controller/firebase";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
-import { words } from "./hanja";
+import { firestore } from "../controller/firebase";
+import { collection, getDocs } from "firebase/firestore/lite";
 
 export default async function Cantonese() {
-  const db = getFirestore(app);
-  const getTest = async () => {
-    const testCol = collection(db, "tc");
-    const testSnapshot = await getDocs(testCol);
-    return testSnapshot.docs.map((doc) => doc.data());
+  const getData = async () => {
+    const collectionRef = collection(firestore, "tc");
+    const snapshot = await getDocs(collectionRef);
+    return snapshot.docs.map((doc) => doc.data());
   };
 
-  const data = await getTest();
+  const data = await getData();
 
   return (
     <>

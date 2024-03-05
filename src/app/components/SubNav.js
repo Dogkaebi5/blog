@@ -2,8 +2,6 @@
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import * as ccss from "@/app/controller/cssName";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
 
 const SubNav = () => {
   const path = usePathname();

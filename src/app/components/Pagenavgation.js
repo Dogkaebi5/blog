@@ -1,7 +1,7 @@
 import * as ccss from "@/app/controller/cssName";
 import Link from "next/link";
 
-export default function PageNavgation(props) {
+const PageNavgation = (props) => {
   const maxPages = props.maxPages;
   const path = props.path;
   const tag = props.tag;
@@ -113,4 +113,6 @@ export default function PageNavgation(props) {
       }
     </div>
   );
-}
+};
+
+export default PageNavgation;
