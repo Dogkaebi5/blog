@@ -5,7 +5,7 @@ import SubNav from "@/app/components/SubNav";
 export default function Conversation() {
   return (
     <>
-      <Heros />
+      <Heros path={"cantonese"} />
       <SubNav />
       <BlogCardList />
     </>

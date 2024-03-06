@@ -2,7 +2,7 @@ import Link from "next/link";
 import syllable from "../yueYin";
 import * as ccss from "@/app/controller/cssName";
 
-export default function Syllable() {
+export default function Initial() {
   const initials = Object.keys(syllable.initial);
   const initialURL = "/cantonese/syllable/initial/";
 

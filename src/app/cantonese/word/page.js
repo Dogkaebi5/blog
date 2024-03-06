@@ -9,7 +9,7 @@ export default function Cantonese() {
   const data = Object.values(words);
   return (
     <>
-      <Heros />
+      <Heros path={"cantonese"} />
       <SubNav />
       <div className={wordCardsWrap}>
         {data.map((post) => {

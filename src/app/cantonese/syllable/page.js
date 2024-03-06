@@ -52,9 +52,9 @@ export default function Syllable() {
 
   return (
     <>
-      <Heros />
+      <Heros path={"cantonese"} />
       <SubNav />
-      <div className="text-center">
+      <div className="text-center mb-16">
         <div className={ccss.syllableWrap}>
           <div className={ccss.syllableDetail}>
             <span className={ccss.h2}>월음(粵音)</span>은 <br />

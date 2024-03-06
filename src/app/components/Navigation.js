@@ -14,33 +14,46 @@ const Navigation = () => {
     ["About", "/about"],
   ];
 
-  const [burgerBtnClass, setBurgerBtnClass] = useState("navbar-burger");
-  const [menuActiveClass, setMenuActiveClass] = useState(
-    "-right-full opacity-0"
-  );
-  const [navWrap, setNavWrap] = useState("");
-  const burgerLineClass = "absolute h-1 w-6 rounded-full my-1 bg-slate-800";
-  const menuClass =
-    " navbar-menu absolute top-0 w-full h-screen touch-none bg-black opacity-95 pt-32 px-14 text-white";
+  // bugerBtn & menu css를 windtail로 만들기 어려워, 별도 globals.css에 작성
+  // 메뉴가 비활성일 때, 우측 화면 밖 + 투명
+  const menuClass = ` navbar-menu absolute top-0 w-full h-screen touch-none bg-black opacity-95 pt-32 px-14 text-white`;
+  const menuInactClass = ` -right-full opacity-0`;
+  const [menuActiveClass, setMenuActiveClass] = useState(menuInactClass);
+
+  const burgerLineClass = `absolute h-1 w-6 rounded-full my-1 bg-slate-800`;
+  const burgerBtnClass = `h-7 w-8 mr-4 my-2 cursor-pointer relative z-10`;
+  const [burgerActClass, setBurgerActClass] = useState(" navbar-burger");
+
+  // 메뉴 활성화 때 전체화면
+  const [navWrap, setNavWrap] = useState("navbar");
+  const nawWrapAct = `navbar active w-full h-full overflow-hidden`;
+
+  // btn handle. 아이콘 변경, 메뉴 출연, 스크롤 방지
+  const setActive = () => {
+    setBurgerActClass(" navbar-burger active");
+    setMenuActiveClass(" right-0");
+    setNavWrap(nawWrapAct);
+  };
+  const setInactive = () => {
+    setBurgerActClass(" navbar-burger");
+    setMenuActiveClass(menuInactClass);
+    setNavWrap("navbar");
+  };
   function burgerBtnHandle(e) {
     e.preventDefault();
-    if (burgerBtnClass == "navbar-burger") {
-      setBurgerBtnClass("navbar-burger-active");
-      setMenuActiveClass("right-0");
-      setNavWrap("fixed w-full h-full overflow-hidden");
+    if (burgerActClass == " navbar-burger") {
+      setActive();
     } else {
-      setBurgerBtnClass("navbar-burger");
-      setMenuActiveClass("-right-full opacity-0");
-      setNavWrap("");
+      setInactive();
     }
   }
 
   return (
-    <div className={navWrap + " flex justify-between py-2"}>
+    <div className={navWrap}>
       <Link href={"/"} className="h-8 py-1 px-4 rounded-full bg-green-100">
         DogKaeBi
       </Link>
-      <nav className="navbar-main space-x-2 my-2 flex">
+      <nav className="navbar-main flex space-x-2 my-2 ">
         {navigation.map(([title, url]) => {
           const isActive = pathname === url;
           return (
@@ -59,7 +72,7 @@ const Navigation = () => {
         })}
       </nav>
       <div
-        className={`${burgerBtnClass} h-7 w-8 mr-4 my-2 cursor-pointer relative z-10`}
+        className={burgerBtnClass + burgerActClass}
         onClick={burgerBtnHandle}
       >
         <span className={burgerLineClass + " top-0"}> </span>
@@ -71,6 +84,7 @@ const Navigation = () => {
           const isActive = pathname === url;
           return (
             <Link
+              onClick={setInactive}
               href={url}
               key={title}
               className={

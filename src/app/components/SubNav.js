@@ -3,6 +3,9 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import * as ccss from "@/app/controller/cssName";
 
+////////
+// btns임으로 use client를 사용
+
 const SubNav = () => {
   const path = usePathname();
   const pathnames = path.split("/");
@@ -32,21 +35,24 @@ const SubNav = () => {
     <>
       <div className={ccss.subNavWrap}>
         <div className="flex flex-wrap gap-2 mx-2">
-          {nav.map(([item, param]) => {
-            let params = param.split("/");
+          {nav.map(([item, url]) => {
+            let params = url.split("/");
             return (
               <Link
-                href={param}
+                href={url}
                 key={item}
                 className={
                   tag == null
                     ? lastPathname == params[params.length - 1]
                       ? ccss.toggleActive
                       : ccss.toggle
-                    : tag == param.split("=")[1]
+                    : tag == url.split("=")[1]
                     ? ccss.toggleActive
                     : ccss.toggle
                 }
+                //// 현재 페이지 확인
+                // 쿼리tag가 없으면 path와 url비교
+                // 퀴리tag가 있으면 tag와 url 태크와 비교
               >
                 {item}
               </Link>
@@ -59,6 +65,7 @@ const SubNav = () => {
             placeholder="search.."
             className={`${ccss.searchWrap}`}
             style={{ backgroundSize: "16px" }}
+            //// logo 삽입 때문에 class가 길다
           />
         </form>
       </div>

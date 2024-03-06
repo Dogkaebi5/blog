@@ -5,38 +5,54 @@ import { firestore } from "@/app/controller/firebase";
 import { doc, getDoc } from "firebase/firestore/lite";
 import YueYinPlayer from "@/app/components/YueYinPlayer";
 
+////////
+// use client에서 에러 지속 발생, async로 변경
+
 export default async function HanJa(props) {
+  // params 5글자씩 분리, 각 한자 추출
   const params = props.params.id;
   const idsArr = splitIds(params);
   const character = setTcFromId(idsArr);
 
-  let data = {
-    tc: "-",
-    yueYin: "-",
-    cn: "-",
-    mandarin: "-",
-    hanja: "-",
-    category: "-",
-    mean: "-",
-  };
-  let yueYinArr = [];
-
-  ////// firestore에서 데이터 가져오기....
-  ////// krSyllable-syllable.yueYin[syllableWithoutTones[0]].pronunciation; 에러
-  ////// data도 firestore 데이터로 set 안되는 듯
+  //firestore 데이터 받기
   const getData = async () => {
     const docRef = doc(firestore, "tc", params);
-    const snapshot = await getDoc(docRef);
-    return snapshot.data();
+    try {
+      const snapshot = await getDoc(docRef);
+      console.log("Success");
+      return snapshot.data();
+    } catch (err) {
+      console.error("Error :", err);
+    }
   };
-  data = await getData();
-  yueYinArr = data.yueYin.split(" ");
+  let data = await getData();
 
+  // 데이터가 없을 때 데이터 초기화
+  if (data == null || data == undefined) {
+    data = {
+      tc: "-",
+      yueYin: "-",
+      cn: "-",
+      mandarin: "-",
+      hanja: "-",
+      category: "-",
+      mean: "-",
+    };
+  }
+  // 월음 한개씩 array로 분리
+  let yueYinArr = data.yueYin.split(" ");
+  // 임시 단어 리스트
   const phrases = ["一往無前", "一事無成", "一五一十", "一心一意", "一言為定"];
 
+  // 발음 세팅
   const krSyllable = () => {
-    if (data != null) {
+    // 초기 데이터가 아닌 경우 설정
+    if (data.yueYin != "-") {
+      // 성조(숫자) 정규식으로 제거
       const syllableWithoutTones = data.yueYin.replace(/\d+/g, "").split(" ");
+      // 한자(문자 1개) or 단어의 경우
+      // 한자: 해당 발음 return
+      // 단어: map으로 해당 발음 array 생성 및 join으로 string으로 전환
       if (syllableWithoutTones.length == 1) {
         return syllable.yueYin[syllableWithoutTones[0]].pronunciation;
       } else {
@@ -58,6 +74,7 @@ export default async function HanJa(props) {
         </div>
         <div className="ml-4">
           <p className={ccss.smLabel}>월음 (粵音)</p>
+          {/* use client에서 onClick을 사용할 수 없어서 별도 컴포넌트로 작성 */}
           <YueYinPlayer yueYinArr={yueYinArr} />
           <p className={ccss.smLabel}>발음</p>
           <p className={ccss.contentBox}>{krSyllable()}</p>
@@ -91,7 +108,10 @@ export default async function HanJa(props) {
           <div>
             <p className={ccss.contentBox}>{data.mandarin}</p>
             <p className={ccss.contentBox}>
-              {data.cn == "" ? data.tc : data.cn}
+              {
+                // 간체자가 없으면 원래 한자 표시
+                data.cn == "" ? data.tc : data.cn
+              }
             </p>
           </div>
         </div>
@@ -102,13 +122,17 @@ export default async function HanJa(props) {
       </div>
       <hr className="border-gray-400" />
       <div className="p-4">
-        {data.mean.split("/").map((text) => {
-          return (
-            <p className="py-1" key={text}>
-              · {text}
-            </p>
-          );
-        })}
+        {
+          // TODO: html 태그 사용 여부?
+          // 임시 / 으로 줄 바꿈
+          data.mean.split("/").map((text) => {
+            return (
+              <p className="py-1" key={text}>
+                · {text}
+              </p>
+            );
+          })
+        }
       </div>
       <hr className="border-gray-400" />
       {character.length == 1 ? (

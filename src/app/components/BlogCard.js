@@ -8,7 +8,7 @@ const BlogCard = (props) => {
     <div className={ccss.blogCard}>
       <Link scroll={false} href={`/${postData.id}`}>
         <Image
-          className="w-full"
+          className="object-cover w-full h-56"
           width={600}
           height={400}
           src={postData.thumbnail}
@@ -20,6 +20,7 @@ const BlogCard = (props) => {
             {new Date(postData.date).toLocaleDateString()}
           </p>
           <p className={ccss.blogCardText}>{postData.content}</p>
+          {/* TODO: summary 추가로 content 대체 여부? */}
         </div>
       </Link>
     </div>

@@ -25,3 +25,7 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+////////
+// 사이드를 남기는 것을 예상해서 max-w-7xl로 했다.
+// 모든 페이지에 헤더 nav를 사용해서 layout에서 wrap으로 nav와 children을 포함
+////////
