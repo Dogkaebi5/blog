@@ -1,9 +1,8 @@
-"use client";
-import { handleAudio } from "@/app/controller/handleAudio";
 import syllable from "../../yueYin";
 import { checkIsVowel } from "@/app/controller/checkYueYinType";
 import * as ccss from "@/app/controller/cssName";
 import Link from "next/link";
+import YueYinPlayer from "@/app/components/YueYinPlayer";
 
 export default function YueYin(props) {
   const yueYin = props.params.id;
@@ -40,6 +39,8 @@ export default function YueYin(props) {
   let vowel = checkAlpha()[1];
   let data = matchData();
   let tones = data.tone;
+  let yueYinArr = tones.map((tone) => yueYin + tone);
+
   const syllableURL = "/cantonese/syllable/initial/";
 
   return (
@@ -67,19 +68,7 @@ export default function YueYin(props) {
         <hr className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h2 className={ccss.h2}>성조</h2>
-          {tones.map((tone) => {
-            return (
-              <p
-                className={ccss.yueYinPlayer}
-                key={yueYin + tone}
-                onClick={() => {
-                  handleAudio(yueYin + tone);
-                }}
-              >
-                {yueYin + tone}
-              </p>
-            );
-          })}
+          <YueYinPlayer yueYinArr={yueYinArr} />
         </div>
       </div>
     </div>

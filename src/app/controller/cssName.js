@@ -31,7 +31,7 @@ export const cnTitleBox =
   "flex items-center rounded-xl shadow-lg ring ring-green-200 px-6";
 
 export const yueYinPlayer =
-  "w-fit px-4 py-2 rounded-lg text-blue-600 underline underline-offset-4 hover:bg-green-50 hover:shadow after:content-['🔊'] after:ml-1 after:inline-block after:no-underline";
+  "inline-block px-4 py-2 rounded-lg text-blue-600 underline underline-offset-4 hover:bg-green-50 hover:shadow after:content-['🔊'] after:ml-1 after:inline-block after:no-underline";
 export const linkGreenText =
   "mt-2 text-sm text-green-600 underline-offset-2 hover:underline hover:font-bold";
 
