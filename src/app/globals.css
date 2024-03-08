@@ -77,13 +77,18 @@ td {
   width: 80px;
 }
 
+.spread-underline:hover {
+  color: #16a34a;
+  scale: 110%;
+}
+
 .spread-underline:after {
   bottom: 0;
   content: "";
   height: 1px;
   left: 50%;
   position: absolute;
-  background: #000;
+  background: #16a34a;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }

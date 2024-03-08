@@ -3,6 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Syllable() {
+  const toneTable = [
+    ["IA", "1", "음평 陰平", "상음입 上陰入"],
+    ["IIA", "2", "음상 陰上", ""],
+    ["IIIA", "3", "음거 陰去", "하음입 下陰入"],
+    ["IB", "4", "양평 陽平", ""],
+    ["IIB", "5", "양상 陽上", ""],
+    ["IIIB", "6", "양거 陽去", "양입 陽入"],
+  ];
   const yueYinURL = "/cantonese/syllable/yueyin/";
   return (
     <div className={ccss.noHeroContent}>
@@ -22,13 +30,12 @@ export default function Syllable() {
           성조의 뜻은 음높이가 변화하는 것을 뜻한다. <br />
           예시로 &#39;도&gt;도#&gt;레&#39;의 변화와 비슷하다
           <br />
-          모든 중국어(각 방언 포함)의 발음은 일반적으로 5개 음높이에서 성조를
-          만든다.
+          모든 중국어(각 방언 포함)의 발음은 일반적으로 5개 음높이에서 성조를 만든다.
           <br />
         </p>
         <hr className={ccss.hr} />
         <h2 className={ccss.h2}>광둥어 성조</h2>
-        <table className="my-4">
+        <table className="my-4 text-sm">
           <tbody>
             <tr>
               <td className={ccss.tGray}>구분</td>
@@ -36,42 +43,16 @@ export default function Syllable() {
               <td className={ccss.tGray}>음평 </td>
               <td className={ccss.tGray}>입성</td>
             </tr>
-            <tr>
-              <td>IA</td>
-              <td>1</td>
-              <td className="px-4">음평 陰平</td>
-              <td className="px-4">상음입 上陰入</td>
-            </tr>
-            <tr>
-              <td>IIA</td>
-              <td>2</td>
-              <td>음상 陰上</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>IIIA</td>
-              <td>3</td>
-              <td>음거 陰去</td>
-              <td>하음입 下陰入</td>
-            </tr>
-            <tr>
-              <td>IB</td>
-              <td>4</td>
-              <td>양평 陽平</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>IIB</td>
-              <td>5</td>
-              <td>양상 陽上</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>IIIB</td>
-              <td>6</td>
-              <td>양거 陽去</td>
-              <td>양입 陽入</td>
-            </tr>
+            {toneTable.map((span) => {
+              return (
+                <tr key={span[0]}>
+                  <td className="px-4">{span[0]}</td>
+                  <td className="px-4">{span[1]}</td>
+                  <td className="px-4">{span[2]}</td>
+                  <td className="px-4">{span[3]}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
         <p className={ccss.textBox}>
@@ -101,12 +82,10 @@ export default function Syllable() {
           <br />
           각 음을 1, 2, 3, 4, 5로 표기하면
           <br />
-          보통화 발음은 [ 55, 35, 214, 51] 4개 성조이다.
+          보통화 발음은 [ 55, 35, 214, 51 ] 4개 성조이다.
           <br />
-          광둥어 발음은 [ 55, 35, 33, 11, 13, 22 ] 6개 성조와 [5, 3, 2] 3개
-          입성이다.
-          <br /> 입성의 성조는 1성, 3성, 6성의 짧은 음으로 음절표기는 1, 3, 6를
-          사용한다.
+          광둥어 발음은 [ 55, 35, 33, 11, 13, 22 ] 6개 성조와 [5, 3, 2] 3개 입성이다.
+          <br /> 입성의 성조는 1성, 3성, 6성의 짧은 음으로 음절표기는 1, 3, 6를 사용한다.
           <Image
             className="py-4"
             width={600}
@@ -125,8 +104,7 @@ export default function Syllable() {
           보통화는 입성이 없다.
           <br />
           <br />
-          입성(入聲)은 사성인 평상거입(平上去入)중 하나로, 짧고 빨리 닫는 소리를
-          얘기한다. <br />
+          입성(入聲)은 사성인 평상거입(平上去入)중 하나로, 짧고 빨리 닫는 소리를 얘기한다. <br />
           <br />
           훈민정음에도 사용된 것으로 보아 한국어도 평상거입이 있었을 것이다.
           <br />
@@ -149,8 +127,7 @@ export default function Syllable() {
           <br />
           하지만 한국어는 성조가 달라도 의미가 크게 변화하지 않는다.
           <br />
-          <br /> 하지만 &quot;밥 먹었어&quot;와 &quot;밥 먹었어?&quot; 같은 말은
-          성조로 구분한다.
+          <br /> 하지만 &quot;밥 먹었어&quot;와 &quot;밥 먹었어?&quot; 같은 말은 성조로 구분한다.
         </p>
         <hr className={ccss.hr} />
       </div>

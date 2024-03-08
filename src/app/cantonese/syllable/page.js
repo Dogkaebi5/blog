@@ -1,51 +1,56 @@
 "use client";
-import { useEffect, useState } from "react";
-import syllable from "./yueYin";
+import { useState } from "react";
+import {
+  syllable,
+  simpleSyllableURL,
+  initialURL,
+  vowelURL,
+  yueYinURL,
+  toneURL,
+} from "./yueYin";
 import Link from "next/link";
 import Heros from "@/app/components/Heros";
 import SubNav from "@/app/components/SubNav";
 import * as ccss from "@/app/controller/cssName";
 
 export default function Syllable() {
-  const [initials, setInitials] = useState([]);
-  const [vowels, setVowels] = useState([]);
-  const [initial, setInitial] = useState("전체");
-  const [vowel, setVowel] = useState("전체");
-  const [isHan, setIshan] = useState(false);
-
+  // 전체 월음, 성모, 운모표
   const yueYin = Object.keys(syllable.yueYin);
-  const initialOptions = Object.keys(syllable.initial);
-  const vowelOptions = Object.keys(syllable.vowel);
-  const yueYinDetails = Object.values(Object.values(syllable.yueYin));
-  const hans = yueYinDetails.map((detail) => detail.han);
+  const allInitials = Object.keys(syllable.initial);
+  const allVowels = Object.keys(syllable.vowel);
+  // 표시되는 성모, 운모
+  const [showInitials, setShowInitials] = useState(allInitials);
+  const [showVowels, setShowVowels] = useState(allVowels);
+  // 선택한 성모, 운모
+  const [selectedInitial, setSelectedInitial] = useState("전체");
+  const [selectedVowel, setSelectedVowelVowel] = useState("전체");
+  // 월음-한자 표시 선택
+  const [isHan, setIshan] = useState(false);
+  // 한자 리스트
+  const hans = Object.values(Object.values(syllable.yueYin)).map(
+    (detail) => detail.han
+  );
+  // 한자 리스트 index num
   let count = -1;
 
-  const simpleSyllabelURL = "/cantonese/syllable/simple";
-  const initialURL = "/cantonese/syllable/initial/";
-  const yueYinURL = "/cantonese/syllable/yueyin/";
-
-  useEffect(() => {
-    setInitials(Object.keys(syllable.initial));
-    setVowels(Object.keys(syllable.vowel));
-  }, []);
-
+  // selector handlers
   const handleInitial = (e) => {
-    setInitial(e.target.value);
+    setSelectedInitial(e.target.value);
     if (e.target.value == "전체") {
-      setInitials(Object.keys(syllable.initial));
+      setShowInitials(allInitials);
     } else {
-      setInitials([e.target.value]);
+      setShowInitials([e.target.value]);
     }
   };
   const handleVowel = (e) => {
-    setVowel(e.target.value);
+    setSelectedVowelVowel(e.target.value);
     if (e.target.value == "전체") {
-      setVowels(Object.keys(syllable.vowel));
+      setShowVowels(allVowels);
     } else {
-      setVowels([e.target.value]);
+      setShowVowels([e.target.value]);
     }
   };
-
+  // toggle(checkbox) handler
   const handleIsHan = (e) => {
     setIshan(!isHan);
   };
@@ -78,36 +83,36 @@ export default function Syllable() {
             <div className={ccss.syllableSelectorBox}>
               <p className={ccss.syllablelable}>성모(聲母)</p>
               <select
-                value={initial}
+                value={selectedInitial}
                 className={ccss.syllableSelect}
                 onChange={handleInitial}
               >
                 <option value="전체">전체</option>
-                {initialOptions.map((i) => (
+                {allInitials.map((i) => (
                   <option value={i} key={i + 1}>
                     {i}
                   </option>
                 ))}
               </select>
-              <Link href={"/cantonese/syllable/initial"}>
+              <Link href={initialURL}>
                 <p className={ccss.linkGreenText}>More &gt;&gt;</p>
               </Link>
             </div>
             <div className={ccss.syllableSelectorBox}>
               <p className={ccss.syllablelable}>운모(韻母)</p>
               <select
-                value={vowel}
+                value={selectedVowel}
                 className={ccss.syllableSelect}
                 onChange={handleVowel}
               >
                 <option value="전체">전체</option>
-                {vowelOptions.map((v) => (
+                {allVowels.map((v) => (
                   <option value={v} key={v + 1}>
                     {v}
                   </option>
                 ))}
               </select>
-              <Link href={"/cantonese/syllable/vowel"}>
+              <Link href={vowelURL}>
                 <p className={ccss.linkGreenText}>More &gt;&gt;</p>
               </Link>
             </div>
@@ -122,14 +127,15 @@ export default function Syllable() {
                 <option>5</option>
                 <option>6</option>
               </select>
-              <Link href={"/cantonese/syllable/tone"}>
+              <Link href={toneURL}>
                 <p className={ccss.linkGreenText}>More &gt;&gt;</p>
               </Link>
             </div>
           </div>
-          <Link href={simpleSyllabelURL}>
+          <Link href={simpleSyllableURL}>
             <div className={ccss.linkGreenText}>월음 간략 버전 &gt;&gt;</div>
           </Link>
+          {/* toggle */}
           <label className="relative inline-flex items-center cursor-pointer mt-4">
             <input
               type="checkbox"
@@ -147,41 +153,51 @@ export default function Syllable() {
         <table className="mx-auto">
           <tbody>
             <tr>
+              {/* 첫줄 첫 빈칸 */}
               <td className={ccss.thRed}></td>
-              {initials.map((i) => (
-                <td className={ccss.thRed + ccss.tableLink} key={i + 2}>
-                  <Link href={initialURL + i}>{i}</Link>
-                </td>
-              ))}
-            </tr>
-            {vowels.map((v) => {
-              return (
-                <tr key={v}>
-                  <td className={ccss.thBlue + ccss.tableLink}>
-                    <Link href={initialURL + v}>{v}</Link>
+              {
+                /* 첫줄 성모 */
+                showInitials.map((i) => (
+                  <td className={ccss.thRed + ccss.tableLink} key={i + 2}>
+                    <Link href={initialURL + i}>{i}</Link>
                   </td>
-                  {initials.map((i) => {
-                    let init;
-                    i == "-" ? (init = "") : (init = i);
-                    if (yueYin.includes(init + v)) count++;
-                    return (
-                      <td className="text-sm" key={i + 3}>
-                        {yueYin.includes(init + v) ? (
-                          <Link
-                            href={yueYinURL + init + v}
-                            className={"px-0.5" + ccss.tableLink}
-                          >
-                            {isHan ? hans[count] : init + v}
-                          </Link>
-                        ) : (
-                          ""
-                        )}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
+                ))
+              }
+            </tr>
+            {
+              /* 첫열 운모 */
+              showVowels.map((v) => {
+                return (
+                  <tr key={v}>
+                    <td className={ccss.thBlue + ccss.tableLink}>
+                      <Link href={initialURL + v}>{v}</Link>
+                    </td>
+                    {
+                      /* 월음 유무 확인 및 테이블 작성 */
+                      showInitials.map((i) => {
+                        let init;
+                        i == "-" ? (init = "") : (init = i);
+                        if (yueYin.includes(init + v)) count++;
+                        return (
+                          <td className="text-sm" key={i + 3}>
+                            {yueYin.includes(init + v) ? (
+                              <Link
+                                href={yueYinURL + init + v}
+                                className={"px-0.5" + ccss.tableLink}
+                              >
+                                {isHan ? hans[count] : init + v}
+                              </Link>
+                            ) : (
+                              ""
+                            )}
+                          </td>
+                        );
+                      })
+                    }
+                  </tr>
+                );
+              })
+            }
           </tbody>
         </table>
       </div>

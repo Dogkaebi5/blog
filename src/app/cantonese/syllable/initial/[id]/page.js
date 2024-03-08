@@ -1,28 +1,29 @@
 import Link from "next/link";
-import syllable from "../../yueYin";
+import { syllable, syllableURL, yueYinURL } from "../../yueYin";
 import * as check from "@/app/controller/checkYueYinType";
 import * as ccss from "@/app/controller/cssName";
 
 export default function Initial(props) {
+  // 성모 or 운모 확인
   const alpha = props.params.id;
-  const yueYins = Object.keys(syllable.yueYin);
   const isInitial = !check.checkIsVowel(alpha);
   const type = isInitial ? "initial" : "vowel";
+
+  const yueYins = Object.keys(syllable.yueYin);
+  // 해당 성모 or 운모 데이터.
   const data = syllable[type][alpha] ?? {
     pronunciation: "-",
     detail: "존재하지 않거나 단독으로 존재하지 않는 발음입니다",
   };
 
+  //포함된 월음 찾기 (ctrller에 각 함수)
   function checkYueYinList(yueYin) {
     if (alpha == "-") return check.checkIsVowel(yueYin);
     if (alpha == "m") return yueYin.startsWith(alpha) || yueYin.endsWith("hm");
-    if (alpha == "ng")
-      return yueYin.startsWith(alpha) || yueYin.endsWith("hng");
+    if (alpha == "ng") return yueYin.startsWith(alpha) || yueYin.endsWith("hng");
 
     if (isInitial) {
-      return check.checkIncludeNGK(alpha)
-        ? check.checkOnlyStartWithNGK(yueYin, alpha)
-        : yueYin.startsWith(alpha);
+      return check.checkIncludeNGK(alpha) ? check.checkOnlyStartWithNGK(yueYin, alpha) : yueYin.startsWith(alpha);
     }
     if (!isInitial) {
       if (alpha.startsWith("a")) return check.checkLongAVowel(yueYin, alpha);
@@ -34,15 +35,15 @@ export default function Initial(props) {
     }
   }
 
-  const yueYinURL = "/cantonese/syllable/yueyin/";
-
-  let keyIndex = 0;
+  // content(상세내역) key 생성용
+  // TODO: content 태그 출력 여부
+  let contentKeyIndex = 0;
 
   return (
     <div className={ccss.noHeroContent}>
       <div className={ccss.headerBtnBlock}>
         <button className={ccss.headerBtn}>
-          <Link href={"/cantonese/syllable"}>&lt;&lt; 음절</Link>
+          <Link href={syllableURL}>&lt;&lt; 음절</Link>
         </button>
       </div>
       <div className={ccss.mainBlock}>
@@ -61,7 +62,7 @@ export default function Initial(props) {
         </div>
         <div className={ccss.subBlock + " pt-4"}>
           {data.detail.split("/").map((content) => (
-            <p key={alpha + keyIndex++}>{content}</p>
+            <p key={alpha + contentKeyIndex++}>{content}</p>
           ))}
         </div>
         <hr className={ccss.hr} />
@@ -70,11 +71,7 @@ export default function Initial(props) {
           <div className={ccss.alpCardWrap}>
             {yueYins.map((yueYin) => {
               return checkYueYinList(yueYin) ? (
-                <Link
-                  className={ccss.alpCardOutBox}
-                  href={yueYinURL + yueYin}
-                  key={yueYin}
-                >
+                <Link className={ccss.alpCardOutBox} href={yueYinURL + yueYin} key={yueYin}>
                   <span className={ccss.alpCardInBox}>{yueYin}</span>
                 </Link>
               ) : null;

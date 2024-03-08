@@ -1,5 +1,6 @@
 import * as ccss from "@/app/controller/cssName";
 import Link from "next/link";
+import { initialURL, syllableURL } from "../yueYin";
 
 export default function SyllableSp() {
   const initials = {
@@ -30,8 +31,6 @@ export default function SyllableSp() {
   };
   const vowels = { a: "ㅏ", e: "ㅔ", i: "ㅣ", o: "ㅗㅓ", u: "ㅜ", y: "ㅣ" };
   const vowels2 = { ing: "앵", oe: "ㅕ", eo: "ㅗ", yu: "ㅟ" };
-  const syllableURL = "/cantonese/syllable/";
-  const initialURL = syllableURL + "initial/";
 
   return (
     <div className={ccss.noHeroContent}>

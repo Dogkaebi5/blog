@@ -1,5 +1,5 @@
 import * as ccss from "@/app/controller/cssName";
-import syllable from "../syllable/yueYin";
+import { syllable } from "../syllable/yueYin";
 import { setTcFromId, splitIds } from "@/app/controller/handleId";
 import { firestore } from "@/app/controller/firebase";
 import { doc, getDoc } from "firebase/firestore/lite";

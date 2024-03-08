@@ -1,24 +1,23 @@
 import Link from "next/link";
-import syllable from "../yueYin";
+import { initialURL, syllable, syllableURL, vowelURL } from "../yueYin";
 import * as ccss from "@/app/controller/cssName";
 
 export default function Initial() {
   const initials = Object.keys(syllable.initial);
-  const initialURL = "/cantonese/syllable/initial/";
 
   return (
     <div className={ccss.noHeroContent}>
       <div className={ccss.headerBtnBlock}>
         <button className={ccss.headerBtn} type="button">
-          <Link href={"/cantonese/syllable"}>&lt;&lt; 음절</Link>
+          <Link href={syllableURL}>&lt;&lt; 음절</Link>
         </button>
         <button className={ccss.headerBtn} type="button">
-          <Link href={"/cantonese/syllable/vowel"}>운모 &gt;&gt; </Link>
+          <Link href={vowelURL}>운모 &gt;&gt; </Link>
         </button>
       </div>
       <div className={ccss.mainBlock}>
         <h1 className={ccss.h1}>성모(聲母)</h1>
-        <p className={ccss.textBox}>
+        <div className={ccss.textBox}>
           성모는 한국어의 자음과 비슷한 개념이다.
           <br />
           광둥어의 성모는 총 19개로 구성되어 있다.([-]은 무음이다)
@@ -27,17 +26,13 @@ export default function Initial() {
           광둥어에만 있는 개념이 아닌 중국어 발음에 공통적으로 있다.
           <br />
           보통화 병음(拼音)에서도 첫 발음인 알파벳을 성모라고 칭한다.
-        </p>
+        </div>
         <hr className={ccss.hr} />
         <div className="px-4">
           <h2 className={ccss.h2}>성모 종류</h2>
           <div className={ccss.alpCardWrap}>
             {initials.map((initial) => (
-              <Link
-                href={initialURL + initial}
-                key={initial}
-                className={ccss.alpCardOutBox}
-              >
+              <Link href={initialURL + initial} key={initial} className={ccss.alpCardOutBox}>
                 <h2 className={ccss.alpCardInBox}>{initial}</h2>
               </Link>
             ))}
@@ -46,7 +41,8 @@ export default function Initial() {
         <hr className={ccss.hr} />
         <div className={ccss.subBlock + " overflow-auto"}>
           <h2 className={ccss.h2}>성모 발음</h2>
-
+          {/* 하드 코드 table. */}
+          {/* TODO: 데이터 형식으로 변경 여부? colspan, rowspan이 너무 많음*/}
           <table className={ccss.table}>
             <thead className={ccss.th}>
               <tr>

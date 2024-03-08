@@ -1,16 +1,21 @@
 import Link from "next/link";
-import syllable from "../yueYin";
+import { syllable, syllableURL, initialURL } from "../yueYin";
 import * as ccss from "@/app/controller/cssName";
 
 export default function Syllable() {
   const vowels = Object.keys(syllable.vowel);
-  const initialURL = "/cantonese/syllable/initial/";
+  const vowelHeads = [
+    ["aa", "a", "e", "i", "o", "u", "oe", "eo", "yu"],
+    ["[ aː ]", "[ ɐ ]", "[ ɛː ] [ e ]", "[ iː ] [ ɪ ]", "[ ɔː ] [ o ]", "[ uː ] [ ʊ ]", "[ œː ]", "[ ɵ ]", "[ yː ]"],
+    ["ㅏ~", "ㅏ", "ㅔ", "ㅣ/ㅐ", "ㅗㅓ", "ㅜ~", "ㅓ", "ㅗ", "ㅟ"],
+  ];
+  const vewelFinals = [];
 
   return (
     <div className={ccss.noHeroContent}>
       <div className={ccss.headerBtnBlock}>
         <button className={ccss.headerBtn} type="button">
-          <Link href={"/cantonese/syllable"}>&lt;&lt; 음절</Link>
+          <Link href={syllableURL}>&lt;&lt; 음절</Link>
         </button>
         <button className={ccss.headerBtn} type="button">
           <Link href={initialURL}>성모 &gt;&gt; </Link>
@@ -27,8 +32,8 @@ export default function Syllable() {
         </p>
         <hr className={ccss.hr} />
         <div className={ccss.subBlock}>
-          <h2 className={ccss.h2}>운복(韻母) & 운미(韻尾)</h2>
-          <table>
+          <h2 className={ccss.h2}>운복(韻腹) & 운미(韻尾)</h2>
+          <table className="mt-4 text-sm">
             <tbody>
               <tr className={ccss.tBlue + " font-bold"}>
                 <td className="px-4">운복</td>
@@ -44,27 +49,23 @@ export default function Syllable() {
               </tr>
               <tr>
                 <td rowspan="2">발음</td>
-                <td>[aː]</td>
-                <td>[ɐ]</td>
+                <td>[ aː ]</td>
+                <td>[ ɐ ]</td>
                 <td>
-                  [ɛː]
-                  <br />
-                  [e]
-                </td>
-                <td>[iː]/[ɪ]</td>
-                <td>
-                  [ɔː]
-                  <br />
-                  [o]
+                  [ ɛː ]<br />[ e ]
                 </td>
                 <td>
-                  [uː]
-                  <br />
-                  [ʊ]
+                  [ iː ]<br />[ ɪ ]
                 </td>
-                <td>[œː]</td>
-                <td>[ɵ]</td>
-                <td>[yː]</td>
+                <td>
+                  [ ɔː ]<br />[ o ]
+                </td>
+                <td>
+                  [ uː ]<br />[ ʊ ]
+                </td>
+                <td>[ œː ]</td>
+                <td>[ ɵ ]</td>
+                <td>[ yː ]</td>
               </tr>
               <tr>
                 <td>ㅏ~</td>
@@ -79,9 +80,7 @@ export default function Syllable() {
               </tr>
             </tbody>
           </table>
-        </div>
-        <div className="p-4">
-          <table>
+          <table className="mt-4 text-sm">
             <tbody>
               <tr className={ccss.tBlue + " font-bold"}>
                 <td className="px-4">운미</td>
@@ -97,17 +96,15 @@ export default function Syllable() {
               <tr>
                 <td>발음</td>
                 <td>
-                  [-i]
-                  <br />
-                  [-y]
+                  [ -i ]<br />[ -y ]
                 </td>
-                <td>[-u]</td>
-                <td>[-m]</td>
-                <td>[-n]</td>
-                <td>[-ŋ]</td>
-                <td>[-p̚]</td>
-                <td>[-t̚]</td>
-                <td>[-k̚]</td>
+                <td>[ -u ]</td>
+                <td>[ -m ]</td>
+                <td>[ -n ]</td>
+                <td>[ -ŋ ]</td>
+                <td>[ -p̚ ]</td>
+                <td>[ -t̚ ]</td>
+                <td>[ -k̚ ]</td>
               </tr>
             </tbody>
           </table>
@@ -117,11 +114,7 @@ export default function Syllable() {
           <h2 className={ccss.h2}>운모 종류</h2>
           <div className={ccss.alpCardWrap}>
             {vowels.map((vowel) => (
-              <Link
-                href={initialURL + vowel}
-                key={vowel}
-                className={ccss.alpCardOutBox}
-              >
+              <Link href={initialURL + vowel} key={vowel} className={ccss.alpCardOutBox}>
                 <h2 className={ccss.alpCardInBox}>{vowel}</h2>
               </Link>
             ))}
