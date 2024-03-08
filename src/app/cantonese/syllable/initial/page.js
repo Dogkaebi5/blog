@@ -4,6 +4,16 @@ import * as ccss from "@/app/controller/cssName";
 
 export default function Initial() {
   const initials = Object.keys(syllable.initial);
+  const initialTable = [
+    ["b 波", "p 婆", "", "", "m 摸", "", "", "w 華"],
+    ["", "", "", "", "", "", "f 科", ""],
+    ["d 多", "t 拖", "", "", "n 挪", "l 羅", "", ""],
+    ["", "", "z 知", "c 雌", "", "", "s 思", ""],
+    ["", "", "", "", "", "", "", "j 也"],
+    ["g 哥", "k 卡", "", "", "ng 我", "", "", ""],
+    ["gw 姑", "kw 箍", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "h 何", ""],
+  ];
 
   return (
     <div className={ccss.noHeroContent}>
@@ -41,8 +51,6 @@ export default function Initial() {
         <hr className={ccss.hr} />
         <div className={ccss.subBlock + " overflow-auto"}>
           <h2 className={ccss.h2}>성모 발음</h2>
-          {/* 하드 코드 table. */}
-          {/* TODO: 데이터 형식으로 변경 여부? colspan, rowspan이 너무 많음*/}
           <table className={ccss.table}>
             <thead className={ccss.th}>
               <tr>
@@ -111,45 +119,23 @@ export default function Initial() {
                   입술
                 </td>
                 <td className={ccss.tBlue}>두 입술</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "b"}>
-                    b 波
-                  </Link>
-                </td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "p"}>
-                    p 婆
-                  </Link>
-                </td>
-                <td>　</td>
-                <td>　</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "m"}>
-                    m 摸
-                  </Link>
-                </td>
-                <td>　</td>
-                <td>　</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "w"}>
-                    w 華
-                  </Link>
-                </td>
+                {initialTable[0].map((i) => (
+                  <td key={"key" + i} className={ccss.tableLink}>
+                    <Link className={ccss.tableLink} href={initialURL + i.split(" ")[0]}>
+                      {i}
+                    </Link>
+                  </td>
+                ))}
               </tr>
               <tr>
                 <td className={ccss.tBlue}>입술, 이빨</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "f"}>
-                    f 科
-                  </Link>
-                </td>
-                <td>　</td>
+                {initialTable[1].map((i) => (
+                  <td key={"key" + i} className={ccss.tableLink}>
+                    <Link className={ccss.tableLink} href={initialURL + i.split(" ")[0]}>
+                      {i}
+                    </Link>
+                  </td>
+                ))}
               </tr>
 
               <tr>
@@ -157,128 +143,66 @@ export default function Initial() {
                   혀
                 </td>
                 <td className={ccss.tBlue}>끝</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "d"}>
-                    d 多
-                  </Link>
-                </td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "t"}>
-                    t 拖
-                  </Link>
-                </td>
-                <td>　</td>
-                <td>　</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "n"}>
-                    n 挪
-                  </Link>
-                </td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "l"}>
-                    l 羅
-                  </Link>
-                </td>
-                <td>　</td>
-                <td>　</td>
+                {initialTable[2].map((i) => (
+                  <td key={"key" + i} className={ccss.tableLink}>
+                    <Link className={ccss.tableLink} href={initialURL + i.split(" ")[0]}>
+                      {i}
+                    </Link>
+                  </td>
+                ))}
               </tr>
 
               <tr>
                 <td className={ccss.tBlue}>옆</td>
-                <td>　</td>
-                <td>　</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "z"}>
-                    z 知
-                  </Link>
-                </td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "c"}>
-                    c 雌
-                  </Link>
-                </td>
-                <td>　</td>
-                <td>　</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "s"}>
-                    s 思
-                  </Link>
-                </td>
-                <td>　</td>
+                {initialTable[3].map((i) => (
+                  <td key={"key" + i} className={ccss.tableLink}>
+                    <Link className={ccss.tableLink} href={initialURL + i.split(" ")[0]}>
+                      {i}
+                    </Link>
+                  </td>
+                ))}
               </tr>
               <tr>
                 <td className={ccss.tBlue}>몸</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "j"}>
-                    j 也
-                  </Link>
-                </td>
+                {initialTable[4].map((i) => (
+                  <td key={"key" + i} className={ccss.tableLink}>
+                    <Link className={ccss.tableLink} href={initialURL + i.split(" ")[0]}>
+                      {i}
+                    </Link>
+                  </td>
+                ))}
               </tr>
               <tr>
                 <td className={ccss.tBlue}>뿌리</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "g"}>
-                    g 哥
-                  </Link>
-                </td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "k"}>
-                    k 卡
-                  </Link>
-                </td>
-                <td>　</td>
-                <td>　</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "ng"}>
-                    ng 我
-                  </Link>
-                </td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
+                {initialTable[5].map((i) => (
+                  <td key={"key" + i} className={ccss.tableLink}>
+                    <Link className={ccss.tableLink} href={initialURL + i.split(" ")[0]}>
+                      {i}
+                    </Link>
+                  </td>
+                ))}
               </tr>
               <tr>
                 <td className={ccss.tBlue}>뿌리 원순</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "gw"}>
-                    gw 姑
-                  </Link>
-                </td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "kw"}>
-                    kw 箍
-                  </Link>
-                </td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
+                {initialTable[6].map((i) => (
+                  <td key={"key" + i} className={ccss.tableLink}>
+                    <Link className={ccss.tableLink} href={initialURL + i.split(" ")[0]}>
+                      {i}
+                    </Link>
+                  </td>
+                ))}
               </tr>
               <tr>
                 <td className={ccss.tBlue} colspan="2">
                   목
                 </td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>
-                  <Link className={ccss.tableLink} href={initialURL + "h"}>
-                    h 何
-                  </Link>
-                </td>
-                <td>　</td>
+                {initialTable[7].map((i) => (
+                  <td key={"key" + i} className={ccss.tableLink}>
+                    <Link className={ccss.tableLink} href={initialURL + i.split(" ")[0]}>
+                      {i}
+                    </Link>
+                  </td>
+                ))}
               </tr>
             </tbody>
           </table>
