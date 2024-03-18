@@ -15,7 +15,7 @@ export default function Cantonese() {
   return (
     <>
       <Heros path={"cantonese"} />
-      <SubNav />
+      <SubNav path={"cantonese"} />
       <div className={wordCardsWrap}>
         {data.map((post) => {
           return post.tc.length != 1 ? <CnCard key={setIdFromTc(post.tc)} data={post} /> : null;

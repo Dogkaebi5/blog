@@ -1,9 +1,9 @@
-import * as ccss from "@/app/controller/cssName";
-import { syllable } from "../syllable/yueYin";
+import { doc, getDoc } from "firebase/firestore/lite";
 import { setTcFromId, splitIds } from "@/app/controller/handleId";
 import { firestore } from "@/app/controller/firebase";
-import { doc, getDoc } from "firebase/firestore/lite";
 import YueYinPlayer from "@/app/components/YueYinPlayer";
+import * as ccss from "@/app/controller/cssName";
+import { syllable } from "../yueYin";
 
 ////////
 // use client에서 에러 지속 발생, async로 변경
@@ -56,9 +56,7 @@ export default async function HanJa(props) {
       if (syllableWithoutTones.length == 1) {
         return syllable.yueYin[syllableWithoutTones[0]].pronunciation;
       } else {
-        return syllableWithoutTones
-          .map((syl) => syllable.yueYin[syl].pronunciation)
-          .join(" ");
+        return syllableWithoutTones.map((syl) => syllable.yueYin[syl].pronunciation).join(" ");
       }
     }
     return "-";
@@ -68,9 +66,7 @@ export default async function HanJa(props) {
     <div className={ccss.noHeroContent}>
       <div className="flex">
         <div className={ccss.cnTitleBox}>
-          <h1 className={character.length == 1 ? " text-8xl" : " text-7xl"}>
-            {character}
-          </h1>
+          <h1 className={character.length == 1 ? " text-8xl" : " text-7xl"}>{character}</h1>
         </div>
         <div className="ml-4">
           <p className={ccss.smLabel}>월음 (粵音)</p>
@@ -90,13 +86,9 @@ export default async function HanJa(props) {
           </div>
           <div>
             <p className={ccss.contentBox}>{data.hanja}</p>
-            <p className={ccss.contentBox}>
-              {data.cn == "" ? data.tc : data.cn}
-            </p>
+            <p className={ccss.contentBox}>{data.cn == "" ? data.tc : data.cn}</p>
             <p className={ccss.contentBox}>{data.mandarin}</p>
-            {character.length == 1 && (
-              <p className={ccss.contentBox}>{idsArr[0]}</p>
-            )}
+            {character.length == 1 && <p className={ccss.contentBox}>{idsArr[0]}</p>}
           </div>
         </div>
       ) : (
@@ -117,9 +109,7 @@ export default async function HanJa(props) {
         </div>
       )}
 
-      <div className="w-full bg-green-50 text-sm p-4 rounded">
-        구분 : {data.category}
-      </div>
+      <div className="w-full bg-green-50 text-sm p-4 rounded">구분 : {data.category}</div>
       <hr className="border-gray-400" />
       <div className="p-4">
         {

@@ -1,6 +1,6 @@
 import * as ccss from "@/app/controller/cssName";
 import Link from "next/link";
-import { initialURL, syllableURL } from "../yueYin";
+import { initialURL, syllableURL } from "../../yueYin";
 
 export default function SyllableSp() {
   const initials = {
@@ -38,9 +38,8 @@ export default function SyllableSp() {
         <h1 className={ccss.h1}>음절(音節) 간단하게 보기</h1>
         <div className={ccss.textBox}>
           <p>
-            [음절 간단하게 보기]는 이해를 돕기위한 예시로 실제의 월음
-            음절(粵音音節)와는 내용이 다르니, 음절의 자세한 내용은 성모, 운모,
-            음절에서 확인하세요.
+            [음절 간단하게 보기]는 이해를 돕기위한 예시로 실제의 월음 음절(粵音音節)와는 내용이 다르니, 음절의 자세한
+            내용은 성모, 운모, 음절에서 확인하세요.
           </p>
         </div>
         <div className="flex justify-between mt-8">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { initialURL, syllable, syllableURL, vowelURL } from "../yueYin";
+import { initialURL, syllable, syllableURL, vowelURL } from "../../yueYin";
 import * as ccss from "@/app/controller/cssName";
 
 export default function Initial() {

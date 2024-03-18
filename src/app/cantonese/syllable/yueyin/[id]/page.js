@@ -1,4 +1,4 @@
-import { syllable, syllableURL } from "../../yueYin";
+import { syllable, syllableURL } from "../../../yueYin";
 import { checkIsVowel } from "@/app/controller/checkYueYinType";
 import * as ccss from "@/app/controller/cssName";
 import Link from "next/link";

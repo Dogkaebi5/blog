@@ -18,7 +18,7 @@ const SubNav = (props) => {
   const setNavData = () => {
     if (props.path == "cantonese")
       return [
-        ["한자", "/cantonese"],
+        ["한자", "/"],
         ["월음", "/cantonese/syllable"],
         ["단어", "/cantonese/word"],
         ["회화", "/cantonese/conversation"],
@@ -31,6 +31,7 @@ const SubNav = (props) => {
         ["코딩", "/blog?tag=coding"],
         ["광둥어", "/blog?tag=cantonese"],
       ];
+    return [];
   };
   let navData = setNavData();
 

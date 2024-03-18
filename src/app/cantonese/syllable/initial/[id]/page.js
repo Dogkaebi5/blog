@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { syllable, syllableURL, yueYinURL } from "../../yueYin";
+import { syllable, syllableURL, yueYinURL } from "../../../yueYin";
 import * as check from "@/app/controller/checkYueYinType";
 import * as ccss from "@/app/controller/cssName";
 

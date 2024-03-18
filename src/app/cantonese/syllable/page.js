@@ -1,13 +1,6 @@
 "use client";
 import { useState } from "react";
-import {
-  syllable,
-  simpleSyllableURL,
-  initialURL,
-  vowelURL,
-  yueYinURL,
-  toneURL,
-} from "./yueYin";
+import { syllable, simpleSyllableURL, initialURL, vowelURL, yueYinURL, toneURL } from "../yueYin";
 import Link from "next/link";
 import Heros from "@/app/components/Heros";
 import SubNav from "@/app/components/SubNav";
@@ -27,9 +20,7 @@ export default function Syllable() {
   // 월음-한자 표시 선택
   const [isHan, setIshan] = useState(false);
   // 한자 리스트
-  const hans = Object.values(Object.values(syllable.yueYin)).map(
-    (detail) => detail.han
-  );
+  const hans = Object.values(Object.values(syllable.yueYin)).map((detail) => detail.han);
   // 한자 리스트 index num
   let count = -1;
 
@@ -58,7 +49,7 @@ export default function Syllable() {
   return (
     <>
       <Heros path={"cantonese"} />
-      <SubNav />
+      <SubNav path={"cantonese"} />
       <div className="text-center mb-16">
         <div className={ccss.syllableWrap}>
           <div className={ccss.syllableDetail}>
@@ -75,18 +66,13 @@ export default function Syllable() {
             (5) IPA, <br />
             (6) 교원(教院), <br />
             (7) 유석상(劉錫祥) 등이 있다. <br />
-            <br />본 사이트에서 사용하는 월음은{" "}
-            <span className="bg-green-100 p-1 rounded-xl ">월병(粵拼)</span>
+            <br />본 사이트에서 사용하는 월음은 <span className="bg-green-100 p-1 rounded-xl ">월병(粵拼)</span>
             이다.
           </div>
           <div className={ccss.syllableSelectorsWrap}>
             <div className={ccss.syllableSelectorBox}>
               <p className={ccss.syllablelable}>성모(聲母)</p>
-              <select
-                value={selectedInitial}
-                className={ccss.syllableSelect}
-                onChange={handleInitial}
-              >
+              <select value={selectedInitial} className={ccss.syllableSelect} onChange={handleInitial}>
                 <option value="전체">전체</option>
                 {allInitials.map((i) => (
                   <option value={i} key={i + 1}>
@@ -100,11 +86,7 @@ export default function Syllable() {
             </div>
             <div className={ccss.syllableSelectorBox}>
               <p className={ccss.syllablelable}>운모(韻母)</p>
-              <select
-                value={selectedVowel}
-                className={ccss.syllableSelect}
-                onChange={handleVowel}
-              >
+              <select value={selectedVowel} className={ccss.syllableSelect} onChange={handleVowel}>
                 <option value="전체">전체</option>
                 {allVowels.map((v) => (
                   <option value={v} key={v + 1}>
@@ -137,16 +119,9 @@ export default function Syllable() {
           </Link>
           {/* toggle */}
           <label className="relative inline-flex items-center cursor-pointer mt-4">
-            <input
-              type="checkbox"
-              value={isHan}
-              className="sr-only peer"
-              onClick={handleIsHan}
-            />
+            <input type="checkbox" value={isHan} className="sr-only peer" onClick={handleIsHan} />
             <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
-            <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-              음절/한자
-            </span>
+            <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">음절/한자</span>
           </label>
         </div>
 
@@ -181,10 +156,7 @@ export default function Syllable() {
                         return (
                           <td className="text-sm" key={i + 3}>
                             {yueYin.includes(init + v) ? (
-                              <Link
-                                href={yueYinURL + init + v}
-                                className={"px-0.5" + ccss.tableLink}
-                              >
+                              <Link href={yueYinURL + init + v} className={"px-0.5" + ccss.tableLink}>
                                 {isHan ? hans[count] : init + v}
                               </Link>
                             ) : (

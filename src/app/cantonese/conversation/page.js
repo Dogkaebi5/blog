@@ -6,7 +6,7 @@ export default function Conversation() {
   return (
     <>
       <Heros path={"cantonese"} />
-      <SubNav />
+      <SubNav path={"cantonese"} />
       <BlogCardList />
     </>
   );
