@@ -1,19 +1,19 @@
 "use client";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { setCardList } from "../controller/setCardList";
+import { setCardList } from "@controller/setCardList";
+import * as ccss from "@controller/cssName";
 import BlogCard from "./BlogCard";
-import * as ccss from "@/app/controller/cssName";
 import PageNavgation from "./Pagenavgation";
 
 const BlogCardList = () => {
+  //// 서버 컴포넌트를 사용하려 했지만 쿼리를 확인해야 해서 방법 모색 중 -->
   // 현재 페이지 정보
   const path = usePathname();
   const params = useSearchParams();
   const tag = params.get("tag");
-  let page = params.get("page");
+  let page = params.get("page") ?? 1;
   // 쿼리 페이지가 없으면 기본으로 1
-  page == null ? (page = 1) : (page = parseInt(page));
 
   // cards data, cards 총 수량
   const [sortData, setSortData] = useState();
@@ -24,8 +24,10 @@ const BlogCardList = () => {
   const checkCategory = () => (path != "/" ? "cantonese" : tag);
   const category = checkCategory();
 
+  //// TODO: DB로 변경
   // 카테고리와 페이지 변경 시 useEffect
   const setPostList = async (category, pageNum) => {
+    //// --> 퀴리 사용하는 곳
     const res = await setCardList(category, pageNum);
     setSortData(res.list);
     setAllLength(res.allLength);
@@ -45,7 +47,7 @@ const BlogCardList = () => {
           ? "글이 없습니다"
           : sortData.map((post) => <BlogCard key={post.id} data={post} />)}
       </div>
-      <PageNavgation maxPages={maxPages} path={path} page={page} tag={tag} />
+      <PageNavgation maxPages={maxPages} />
     </>
   );
 };

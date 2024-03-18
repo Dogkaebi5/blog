@@ -1,15 +1,19 @@
-import * as ccss from "@/app/controller/cssName";
+"use client";
 import Link from "next/link";
+import { useSearchParams, usePathname } from "next/navigation";
+import * as ccss from "@controller/cssName";
 
 const PageNavgation = (props) => {
-  // 부모에서 받는 최대 페이지, 현재 링크, 현재 페이지
+  // 부모에서 받지 않고 직접 path 확인 == 낭비?
+  // 최대 페이지, 현재 페이지, 현재 태그, 현재 페이지
   const maxPages = props.maxPages;
-  const path = props.path;
-  const tag = props.tag;
-  let page = props.page;
+  const path = usePathname();
+  const params = useSearchParams();
+  const tag = params.get("tag");
+  let page = params.get("page") ?? 1;
 
   ////////
-  // nav 중산 숫자 세팅.
+  // nav 중간 숫자 세팅.
   // prev, next, first, last 자동 출력
   // -1 은 '...'으로 출력
   const setPageNums = () => {
@@ -27,15 +31,14 @@ const PageNavgation = (props) => {
       if (page == 3) return [2, 3, 4, -1];
       if (page == maxPages) return [-1, maxPages - 1];
       if (page == maxPages - 1) return [-1, maxPages - 2, maxPages - 1];
-      if (page == maxPages - 2)
-        return [-1, maxPages - 3, maxPages - 2, maxPages - 1];
+      if (page == maxPages - 2) return [-1, maxPages - 3, maxPages - 2, maxPages - 1];
       return [-1, page - 1, page, page + 1, -1];
     }
   };
 
   //url 설정
   const setNewParams = (num) => {
-    // 현재 페이지가 1 ~ max를 초과하면 반응 안함
+    // 선택한 페이지가 1 ~ max를 초과하면 반응 안함
     if (num < 1 || num > maxPages) return;
     // 쿼리가 없으면 page만 전달
     if (tag == "" || tag == null) {
@@ -64,11 +67,7 @@ const PageNavgation = (props) => {
         page == 1 ? (
           <span className={ccss.pageNumAct}>1</span>
         ) : (
-          <Link
-            href={{ pathname: path, query: setNewParams(1) }}
-            className={ccss.pageNum}
-            scroll={false}
-          >
+          <Link href={{ pathname: path, query: setNewParams(1) }} className={ccss.pageNum} scroll={false}>
             1
           </Link>
         )
@@ -99,14 +98,10 @@ const PageNavgation = (props) => {
       }
       {
         // 고정 last btn. 전체가 한 페이지면 표시 안함
-        maxPages == 1 ? null : page == maxPages ? (
+        maxPages < 2 ? null : page == maxPages ? (
           <span className={ccss.pageNumAct}>{maxPages}</span>
         ) : (
-          <Link
-            href={{ pathname: path, query: setNewParams(maxPages) }}
-            className={ccss.pageNum}
-            scroll={false}
-          >
+          <Link href={{ pathname: path, query: setNewParams(maxPages) }} className={ccss.pageNum} scroll={false}>
             {maxPages}
           </Link>
         )

@@ -15,6 +15,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "blogfiles.pstatic.net",
       },
+      {
+        protocol: "https",
+        hostname: "drive.google.com",
+      },
     ],
   },
 };

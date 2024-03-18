@@ -1,10 +1,11 @@
-import Heros from "../components/Heros";
-import SubNav from "../components/SubNav";
-import CnCard from "../components/CnCard";
-import { cnCardsWrap } from "../controller/cssName";
-import { setIdFromTc } from "../controller/handleId";
-import { firestore } from "../controller/firebase";
+import { firestore } from "@controller/firebase";
 import { collection, getDocs } from "firebase/firestore/lite";
+import { cnCardsWrap } from "@controller/cssName";
+import { setIdFromTc } from "@controller/handleId";
+import Heros from "@components/Heros";
+import SubNav from "@components/SubNav";
+import CnCard from "@components/CnCard";
+import PageNavgation from "@components/Pagenavgation";
 
 export default async function Cantonese() {
   ////////
@@ -21,20 +22,24 @@ export default async function Cantonese() {
   };
 
   // data를 await로 받지 않으면 에러 발생
-  const data = await getData();
+  const fetchData = await getData();
+  // data 순서 소팅
+  const data = fetchData.sort((a, b) => a.sortId - b.sortId);
 
   // TODO: cardList 수량 지정 및 pagenavigatino 추가
   return (
     <>
       <Heros path={"cantonese"} />
-      <SubNav />
+      <SubNav path={"cantonese"} />
+      <p className="text-sm pb-4 text-gray-400">등록 한자 : {data.length}</p>
       <div className={cnCardsWrap}>
-        {data.map((post) => {
-          return post.tc.length == 1 ? (
-            <CnCard key={setIdFromTc(post.tc)} data={post} />
-          ) : null;
-        })}
+        {data.length > 0
+          ? data.map((post) => {
+              return <CnCard key={setIdFromTc(post.tc)} data={post} />;
+            })
+          : "데이터를 찾지 못했습니다."}
       </div>
+      <PageNavgation maxPages={2} />
     </>
   );
 }

@@ -1,41 +1,44 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import * as ccss from "@/app/controller/cssName";
+import * as ccss from "@controller/cssName";
 
 ////////
-// btns임으로 use client를 사용
+// btns + 파람에 따라 css변경함으로 use client를 사용
+// client 를 사용하지 않는 방법을 고려했지만, tag에 따라서 변경으로 수정 못 함
 
-const SubNav = () => {
+const SubNav = (props) => {
   const path = usePathname();
   const pathnames = path.split("/");
   const lastPathname = pathnames[pathnames.length - 1];
 
   const params = useSearchParams();
   const tag = params.get("tag");
-  let nav = [];
 
-  if (pathnames[1] == "cantonese")
-    nav = [
-      ["한자", "/cantonese"],
-      ["월음", "/cantonese/syllable"],
-      ["단어", "/cantonese/word"],
-      ["회화", "/cantonese/conversation"],
-    ];
-  if (pathnames[1] == "")
-    nav = [
-      ["All", "/"],
-      ["일상", "/?tag=daily"],
-      ["책", "/?tag=book"],
-      ["코딩", "/?tag=coding"],
-      ["광둥어", "/?tag=cantonese"],
-    ];
+  const setNavData = () => {
+    if (props.path == "cantonese")
+      return [
+        ["한자", "/cantonese"],
+        ["월음", "/cantonese/syllable"],
+        ["단어", "/cantonese/word"],
+        ["회화", "/cantonese/conversation"],
+      ];
+    if (props.path == "")
+      return [
+        ["All", "/"],
+        ["일상", "/?tag=daily"],
+        ["책", "/?tag=book"],
+        ["코딩", "/?tag=coding"],
+        ["광둥어", "/?tag=cantonese"],
+      ];
+  };
+  let navData = setNavData();
 
   return (
     <>
       <div className={ccss.subNavWrap}>
         <div className="flex flex-wrap gap-2 mx-2">
-          {nav.map(([item, url]) => {
+          {navData.map(([item, url]) => {
             let params = url.split("/");
             return (
               <Link
