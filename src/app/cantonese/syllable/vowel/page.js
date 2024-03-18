@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { syllable, syllableURL, initialURL } from "../../yueYin";
-import * as ccss from "@/app/controller/cssName";
+import { syllable } from "@controller/yueYin";
+import { syllableURL, initialURL } from "@controller/urls";
+import * as ccss from "@controller/cssName";
 
 export default function Syllable() {
   const vowels = Object.keys(syllable.vowel);

@@ -1,12 +1,6 @@
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  setDoc,
-  doc,
-} from "firebase/firestore";
+import { getFirestore, collection, addDoc, setDoc, doc } from "firebase/firestore";
 import app from "./firebase";
-import { words } from "../cantonese/hanja";
+import { words } from "./hanja";
 import { setIdFromTc } from "./handleId";
 
 const db = getFirestore(app);

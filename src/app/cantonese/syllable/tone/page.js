@@ -1,4 +1,4 @@
-import * as ccss from "@/app/controller/cssName";
+import * as ccss from "@controller/cssName";
 import Image from "next/image";
 import Link from "next/link";
 

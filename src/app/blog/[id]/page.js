@@ -1,4 +1,4 @@
-import * as ccss from "@/app/controller/cssName";
+import * as ccss from "@controller/cssName";
 import Image from "next/image";
 import Link from "next/link";
 ////////
@@ -47,10 +47,7 @@ export default async function Read(props) {
         />
       </div>
       {/** 웹 에디터 문서를 반영하 dangerouslySetInnerHTML 사용 - 사용 시, 주의 필요 **/}
-      <div
-        className="my-5"
-        dangerouslySetInnerHTML={{ __html: data.content }}
-      />
+      <div className="my-5" dangerouslySetInnerHTML={{ __html: data.content }} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { setIdFromTc } from "../controller/handleId";
-import * as ccss from "@/app/controller/cssName";
+import { setIdFromTc } from "@controller/handleId";
+import * as ccss from "@controller/cssName";
 
 const CnCard = (props) => {
   const data = props.data;

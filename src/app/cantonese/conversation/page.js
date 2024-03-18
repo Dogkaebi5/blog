@@ -1,6 +1,6 @@
-import BlogCardList from "@/app/components/BlogCardList";
-import Heros from "@/app/components/Heros";
-import SubNav from "@/app/components/SubNav";
+import BlogCardList from "@components/BlogCardList";
+import Heros from "@components/Heros";
+import SubNav from "@components/SubNav";
 
 export default function Conversation() {
   return (

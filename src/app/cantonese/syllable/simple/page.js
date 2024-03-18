@@ -1,6 +1,6 @@
-import * as ccss from "@/app/controller/cssName";
 import Link from "next/link";
-import { initialURL, syllableURL } from "../../yueYin";
+import * as ccss from "@controller/cssName";
+import { initialURL, syllableURL } from "@controller/urls";
 
 export default function SyllableSp() {
   const initials = {

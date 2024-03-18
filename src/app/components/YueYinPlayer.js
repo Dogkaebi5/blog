@@ -1,5 +1,5 @@
 "use client";
-import * as ccss from "@/app/controller/cssName";
+import * as ccss from "@controller/cssName";
 
 const YueYinPlayer = (props) => {
   function handleAudio(syllabel) {
@@ -12,11 +12,7 @@ const YueYinPlayer = (props) => {
   return (
     <>
       {yueYinArr.map((yueYin) => (
-        <p
-          className={ccss.yueYinPlayer}
-          key={yueYin}
-          onClick={() => handleAudio(yueYin)}
-        >
+        <p className={ccss.yueYinPlayer} key={yueYin} onClick={() => handleAudio(yueYin)}>
           {yueYin}
         </p>
       ))}

@@ -1,4 +1,4 @@
-import * as ccss from "@/app/controller/cssName";
+import * as ccss from "@controller/cssName";
 
 ////////
 // hero가 있는 페이지에서 prop.path별로 다르게 보이게 하기

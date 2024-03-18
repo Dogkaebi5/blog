@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
-import { syllable, simpleSyllableURL, initialURL, vowelURL, yueYinURL, toneURL } from "../yueYin";
+import { syllable } from "@controller/yueYin";
+import { simpleSyllableURL, initialURL, vowelURL, yueYinURL, toneURL } from "@controller/urls";
 import Link from "next/link";
-import Heros from "@/app/components/Heros";
-import SubNav from "@/app/components/SubNav";
-import * as ccss from "@/app/controller/cssName";
+import Heros from "@components/Heros";
+import SubNav from "@components/SubNav";
+import * as ccss from "@controller/cssName";
 
 export default function Syllable() {
   // 전체 월음, 성모, 운모표

@@ -1,9 +1,9 @@
 import { doc, getDoc } from "firebase/firestore/lite";
-import { setTcFromId, splitIds } from "@/app/controller/handleId";
-import { firestore } from "@/app/controller/firebase";
-import YueYinPlayer from "@/app/components/YueYinPlayer";
-import * as ccss from "@/app/controller/cssName";
-import { syllable } from "../yueYin";
+import { setTcFromId, splitIds } from "@controller/handleId";
+import { firestore } from "@controller/firebase";
+import * as ccss from "@controller/cssName";
+import { syllable } from "@controller/yueYin";
+import YueYinPlayer from "@components/YueYinPlayer";
 
 ////////
 // use client에서 에러 지속 발생, async로 변경

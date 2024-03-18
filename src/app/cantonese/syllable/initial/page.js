@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { initialURL, syllable, syllableURL, vowelURL } from "../../yueYin";
-import * as ccss from "@/app/controller/cssName";
+import { syllable } from "@controller/yueYin";
+import { initialURL, syllableURL, vowelURL } from "@controller/urls";
+import * as ccss from "@controller/cssName";
 
 export default function Initial() {
   const initials = Object.keys(syllable.initial);

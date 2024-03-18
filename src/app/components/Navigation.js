@@ -9,8 +9,8 @@ const Navigation = () => {
   const pathname = "/" + fullPath.split("/")[1];
   const navigation = [
     ["Home", "/"],
-    ["Product", "/product"],
     ["Blog", "/blog"],
+    ["Product", "/product"],
     ["About", "/about"],
   ];
 
@@ -48,6 +48,8 @@ const Navigation = () => {
     }
   }
 
+  // TODO: 임시로고 변경
+  // 광둥어를 home으로 변경하면서, isActive의 2번째 조건 추가
   return (
     <div className={navWrap}>
       <Link href={"/"} className="h-8 py-1 px-4 rounded-full bg-green-100">
@@ -55,7 +57,7 @@ const Navigation = () => {
       </Link>
       <nav className="navbar-main flex space-x-2 my-2 ">
         {navigation.map(([title, url]) => {
-          const isActive = pathname === url;
+          const isActive = pathname == url || (pathname == "/cantonese" && url == "/");
           return (
             <Link
               href={url}

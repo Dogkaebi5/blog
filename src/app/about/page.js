@@ -1,5 +1,5 @@
 import Image from "next/image";
-import * as ccss from "@/app/controller/cssName";
+import * as ccss from "@controller/cssName";
 
 export default function About() {
   return (

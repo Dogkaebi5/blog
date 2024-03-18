@@ -1,9 +1,9 @@
-import Heros from "@/app/components/Heros";
-import SubNav from "@/app/components/SubNav";
-import { words } from "../hanja";
-import { setIdFromTc } from "@/app/controller/handleId";
-import { wordCardsWrap } from "@/app/controller/cssName";
-import CnCard from "@/app/components/CnCard";
+import Heros from "@components/Heros";
+import SubNav from "@components/SubNav";
+import CnCard from "@components/CnCard";
+import { words } from "@controller/hanja";
+import { setIdFromTc } from "@controller/handleId";
+import { wordCardsWrap } from "@controller/cssName";
 
 ////////
 // 원래 한자와 같은 데이터를 공유

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import * as ccss from "@/app/controller/cssName";
+import * as ccss from "@controller/cssName";
 
 // https://drive.google.com/uc?id=
 

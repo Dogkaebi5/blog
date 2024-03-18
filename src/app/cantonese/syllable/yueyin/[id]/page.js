@@ -1,8 +1,9 @@
-import { syllable, syllableURL } from "../../../yueYin";
-import { checkIsVowel } from "@/app/controller/checkYueYinType";
-import * as ccss from "@/app/controller/cssName";
 import Link from "next/link";
-import YueYinPlayer from "@/app/components/YueYinPlayer";
+import { syllable } from "@controller/yueYin";
+import { syllableURL } from "@controller/urls";
+import { checkIsVowel } from "@controller/checkYueYinType";
+import * as ccss from "@controller/cssName";
+import YueYinPlayer from "@components/YueYinPlayer";
 
 export default function YueYin(props) {
   const yueYin = props.params.id;

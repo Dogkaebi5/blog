@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { syllable, syllableURL, yueYinURL } from "../../../yueYin";
-import * as check from "@/app/controller/checkYueYinType";
-import * as ccss from "@/app/controller/cssName";
+import { syllable } from "@controller/yueYin";
+import { syllableURL, yueYinURL } from "@controller/urls";
+import * as check from "@controller/checkYueYinType";
+import * as ccss from "@controller/cssName";
 
 export default function Initial(props) {
   // 성모 or 운모 확인
