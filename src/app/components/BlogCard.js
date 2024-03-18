@@ -8,7 +8,7 @@ const BlogCard = (props) => {
   const postData = props.data;
   return (
     <div className={ccss.blogCard}>
-      <Link scroll={false} href={`/${postData.id}`}>
+      <Link scroll={false} href={`/blog/${postData.id}`}>
         <Image
           className="object-cover w-full h-56"
           width={600}
