@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Heros path={""} />
-      <SubNav path={""} />
+      <SubNav path={"blog"} />
       <BlogCardList />
     </>
   );

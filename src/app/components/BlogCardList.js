@@ -21,7 +21,7 @@ const BlogCardList = () => {
 
   // 두개 페이지에서 사용 중,
   // home과 cantonese 의 카테고리 구분
-  const checkCategory = () => (path != "/" ? "cantonese" : tag);
+  const checkCategory = () => (path == "/" ? "cantonese" : tag);
   const category = checkCategory();
 
   //// TODO: DB로 변경

@@ -23,13 +23,13 @@ const SubNav = (props) => {
         ["단어", "/cantonese/word"],
         ["회화", "/cantonese/conversation"],
       ];
-    if (props.path == "")
+    if (props.path == "blog")
       return [
-        ["All", "/"],
-        ["일상", "/?tag=daily"],
-        ["책", "/?tag=book"],
-        ["코딩", "/?tag=coding"],
-        ["광둥어", "/?tag=cantonese"],
+        ["All", "/blog"],
+        ["일상", "/blog?tag=daily"],
+        ["책", "/blog?tag=book"],
+        ["코딩", "/blog?tag=coding"],
+        ["광둥어", "/blog?tag=cantonese"],
       ];
   };
   let navData = setNavData();

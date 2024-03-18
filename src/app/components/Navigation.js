@@ -9,8 +9,8 @@ const Navigation = () => {
   const pathname = "/" + fullPath.split("/")[1];
   const navigation = [
     ["Home", "/"],
-    ["粤", "/cantonese"],
     ["Product", "/product"],
+    ["Blog", "/blog"],
     ["About", "/about"],
   ];
 
@@ -60,21 +60,14 @@ const Navigation = () => {
             <Link
               href={url}
               key={title}
-              className={
-                isActive
-                  ? "spread-underline text-green-600 font-bold"
-                  : "spread-underline"
-              }
+              className={isActive ? "spread-underline text-green-600 font-bold" : "spread-underline"}
             >
               {title}
             </Link>
           );
         })}
       </nav>
-      <div
-        className={burgerBtnClass + burgerActClass}
-        onClick={burgerBtnHandle}
-      >
+      <div className={burgerBtnClass + burgerActClass} onClick={burgerBtnHandle}>
         <span className={burgerLineClass + " top-0"}> </span>
         <span className={burgerLineClass + " top-2"}> </span>
         <span className={burgerLineClass + " bottom-0"}> </span>
@@ -87,9 +80,7 @@ const Navigation = () => {
               onClick={setInactive}
               href={url}
               key={title}
-              className={
-                isActive ? "draw-underline font-bold" : "draw-underline"
-              }
+              className={isActive ? "draw-underline font-bold" : "draw-underline"}
             >
               <p className="my-4 px-4">{title}</p>
             </Link>
