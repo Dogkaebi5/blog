@@ -19,10 +19,7 @@ export async function setCardList(category, pageNum) {
 
   // 현재 페이지의 카드 수량
   // 임시 최대 카드 8
-  const setMaxCard = () => {
-    return categoryData.length - pageNum * 8 >= 0 ? 8 : categoryData.length % 8;
-  };
-  const maxCard = setMaxCard();
+  const maxCard = categoryData.length - pageNum * 8 >= 0 ? 8 : categoryData.length % 8;
 
   // 시작 & 마지막 카드 id
   const startNum = (pageNum - 1) * 8;

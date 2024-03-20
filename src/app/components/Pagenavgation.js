@@ -1,21 +1,21 @@
-"use client";
+// "use client";
 import Link from "next/link";
-import { useSearchParams, usePathname } from "next/navigation";
+// import { useSearchParams, usePathname } from "next/navigation";
 import * as ccss from "@controller/cssName";
 
 const PageNavgation = (props) => {
   // 부모에서 받지 않고 직접 path 확인 == 낭비?
   // 최대 페이지, 현재 페이지, 현재 태그, 현재 페이지
-  const maxPages = props.maxPages;
-  const path = usePathname();
-  const params = useSearchParams();
-  const tag = params.get("tag");
-  let page = params.get("page") ?? 1;
+  const maxPages = Number(props.maxPages);
+  const page = Number(props.page);
+
+  console.log(props);
 
   ////////
   // nav 중간 숫자 세팅.
   // prev, next, first, last 자동 출력
   // -1 은 '...'으로 출력
+
   const setPageNums = () => {
     // 7 페이지 이하의 경우, 전부 표시
     if (maxPages < 7) {
@@ -35,16 +35,17 @@ const PageNavgation = (props) => {
       return [-1, page - 1, page, page + 1, -1];
     }
   };
+  const pageNums = setPageNums();
 
   //url 설정
   const setNewParams = (num) => {
     // 선택한 페이지가 1 ~ max를 초과하면 반응 안함
     if (num < 1 || num > maxPages) return;
     // 쿼리가 없으면 page만 전달
-    if (tag == "" || tag == null) {
+    if (props.tag == "" || props.tag == null) {
       return { page: num };
     } else {
-      return { tag: tag, page: num };
+      return { tag: props.tag, page: num };
     }
   };
 
@@ -53,11 +54,7 @@ const PageNavgation = (props) => {
       {
         // 고정 prev btn. 현재 1페이지면 표시 안함
         page == 1 ? null : (
-          <Link
-            href={{ pathname: path, query: setNewParams(page - 1) }}
-            className={ccss.pageNum + " mr-2"}
-            scroll={false}
-          >
+          <Link href={{ query: setNewParams(page - 1) }} className={ccss.pageNum + " mr-2"} scroll={false}>
             ◀
           </Link>
         )
@@ -67,7 +64,7 @@ const PageNavgation = (props) => {
         page == 1 ? (
           <span className={ccss.pageNumAct}>1</span>
         ) : (
-          <Link href={{ pathname: path, query: setNewParams(1) }} className={ccss.pageNum} scroll={false}>
+          <Link href={{ query: setNewParams(1) }} className={ccss.pageNum} scroll={false}>
             1
           </Link>
         )
@@ -75,7 +72,7 @@ const PageNavgation = (props) => {
 
       {
         //중간 페이지
-        setPageNums().map((pageNum) => {
+        pageNums.map((pageNum) => {
           return pageNum != -1 ? (
             page == pageNum ? (
               <span key={`btn${pageNum}`} className={ccss.pageNumAct}>
@@ -83,7 +80,7 @@ const PageNavgation = (props) => {
               </span>
             ) : (
               <Link
-                href={{ pathname: path, query: setNewParams(pageNum) }}
+                href={{ query: setNewParams(pageNum) }}
                 key={`btn${pageNum}`}
                 className={ccss.pageNum}
                 scroll={false}
@@ -101,7 +98,7 @@ const PageNavgation = (props) => {
         maxPages < 2 ? null : page == maxPages ? (
           <span className={ccss.pageNumAct}>{maxPages}</span>
         ) : (
-          <Link href={{ pathname: path, query: setNewParams(maxPages) }} className={ccss.pageNum} scroll={false}>
+          <Link href={{ query: setNewParams(maxPages) }} className={ccss.pageNum} scroll={false}>
             {maxPages}
           </Link>
         )
@@ -110,11 +107,7 @@ const PageNavgation = (props) => {
       {
         // 고정 next btn. 현재 last 페이지면 표시 안함
         page == maxPages ? null : (
-          <Link
-            href={{ pathname: path, query: setNewParams(page + 1) }}
-            className={ccss.pageNum + " ml-2"}
-            scroll={false}
-          >
+          <Link href={{ query: setNewParams(page + 1) }} className={ccss.pageNum + " ml-2"} scroll={false}>
             ▶
           </Link>
         )

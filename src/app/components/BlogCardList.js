@@ -11,7 +11,8 @@ const BlogCardList = async (props) => {
   // props으로 usePathname, useSearchParams 대체
   // home과 cantonese 의 카테고리 구분
   const category = props.path != "blog" ? "cantonese" : props.query.tag;
-  let page = props.query.page ?? 1;
+  const page = props.query.page ?? 1;
+  const maxCardInPage = 8;
 
   const cardData = await setCardList(category, page);
   const sortData = cardData.list;
@@ -21,7 +22,7 @@ const BlogCardList = async (props) => {
 
   // 총 페이지 수량은 총 길이(allLength) 나누기 1페이지의 표시 수량(임시 8) 올림(ceil)
   // TODO: 임시 수량 변경 or not
-  let maxPages = Math.ceil(allLength / 8);
+  const maxPages = Math.ceil(allLength / maxCardInPage);
 
   return (
     <>
@@ -30,7 +31,7 @@ const BlogCardList = async (props) => {
           ? "글이 없습니다"
           : sortData.map((post) => <BlogCard key={post.id} data={post} />)}
       </div>
-      <PageNavgation maxPages={maxPages} />
+      <PageNavgation path={props.path} tag={category} page={page} maxPages={maxPages} />
     </>
   );
 };
