@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { doc, setDoc } from "firebase/firestore";
-import { firestore } from "@controller/firebase";
-import { setIdFromTc } from "@controller/handleId";
-import { setDb } from "../controller/setDbTc";
+// import { doc, setDoc } from "firebase/firestore";
+// import { firestore } from "@controller/firebase";
+// import { setIdFromTc } from "@controller/handleId";
+import { setDb } from "@controller/setDbTc";
 
 export default function Admin() {
   const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ export default function Admin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await setDb(formData);
+    await setDb();
   };
 
   return (

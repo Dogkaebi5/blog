@@ -1,8 +1,8 @@
-import { doc, getDoc } from "firebase/firestore";
-import { firestore } from "@controller/firebase";
-import { setTcFromId, splitIds } from "@controller/handleId";
 import * as ccss from "@controller/cssName";
+import DbTc from "@controller/readDbTc";
+import DbWord from "@controller/readDbWord";
 import { syllable } from "@controller/yueYin";
+import { setTcFromId, splitIds } from "@controller/handleId";
 import YueYinPlayer from "@components/YueYinPlayer";
 
 ////////
@@ -14,24 +14,17 @@ export default async function HanJa(props) {
   const idsArr = splitIds(params);
   const character = setTcFromId(idsArr);
 
-  //firestore 데이터 받기
-  const getData = async () => {
-    let docRef;
-    if (character.length > 1) {
-      docRef = doc(firestore, "word", params);
-    } else {
-      docRef = doc(firestore, "tc", params);
-    }
-    try {
-      const snapshot = await getDoc(docRef);
-      console.log("Success");
-      return snapshot.data();
-    } catch (err) {
-      console.error("Error :", err);
-    }
-  };
-  let data = await getData();
+  //// firestore 데이터 받기
+  // ctrl로 통합 이동
 
+  // ctrl의 데이터에서 현재 데이터 찾기
+  // character는 array
+  function setData() {
+    return character.length > 1
+      ? DbWord.filter((d) => d.tc == character.join(""))[0]
+      : DbTc.filter((d) => d.tc == character)[0];
+  }
+  let data = setData();
   // 데이터가 없을 때 데이터 초기화
   if (data == null || data == undefined) {
     data = {
@@ -44,6 +37,7 @@ export default async function HanJa(props) {
       mean: "-",
     };
   }
+
   // 월음 한개씩 array로 분리
   let yueYinArr = data.yueYin.split(" ");
   // 임시 단어 리스트

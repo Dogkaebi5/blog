@@ -9,6 +9,7 @@ const Navigation = () => {
   const pathname = "/" + fullPath.split("/")[1];
   const navigation = [
     ["Home", "/"],
+    ["粵", "/cantonese"],
     ["Blog", "/blog"],
     ["Product", "/product"],
     ["About", "/about"],
@@ -57,7 +58,7 @@ const Navigation = () => {
       </Link>
       <nav className="navbar-main flex space-x-2 my-2 ">
         {navigation.map(([title, url]) => {
-          const isActive = pathname == url || (pathname == "/cantonese" && url == "/");
+          const isActive = pathname == url;
           return (
             <Link
               href={url}
