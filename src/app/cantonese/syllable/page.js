@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { syllable } from "@controller/yueYin";
-import { simpleSyllableURL, initialURL, vowelURL, yueYinURL, toneURL } from "@controller/urls";
+import { simpleSyllableURL, initialURL, vowelURL, toneURL, syllableURL } from "@controller/urls";
 import Link from "next/link";
 import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
@@ -157,7 +157,7 @@ export default function Syllable() {
                         return (
                           <td className="text-sm" key={i + 3}>
                             {yueYin.includes(init + v) ? (
-                              <Link href={yueYinURL + init + v} className={"px-0.5" + ccss.tableLink}>
+                              <Link href={syllableURL + init + v} className={"px-0.5" + ccss.tableLink}>
                                 {isHan ? hans[count] : init + v}
                               </Link>
                             ) : (

@@ -2,8 +2,9 @@ import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
 import BlogCardList from "@components/BlogCardList";
 
-// TODO: home = Blog or Cantonese
-export default function Home() {
+// Cantonese를 home으로 변경. 현 페이지 Blog로 변경
+
+export default function Blog() {
   return (
     <>
       <Heros path={""} />

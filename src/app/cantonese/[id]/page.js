@@ -1,6 +1,6 @@
-import { doc, getDoc } from "firebase/firestore/lite";
-import { setTcFromId, splitIds } from "@controller/handleId";
+import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "@controller/firebase";
+import { setTcFromId, splitIds } from "@controller/handleId";
 import * as ccss from "@controller/cssName";
 import { syllable } from "@controller/yueYin";
 import YueYinPlayer from "@components/YueYinPlayer";
@@ -16,7 +16,12 @@ export default async function HanJa(props) {
 
   //firestore 데이터 받기
   const getData = async () => {
-    const docRef = doc(firestore, "tc", params);
+    let docRef;
+    if (character.length > 1) {
+      docRef = doc(firestore, "word", params);
+    } else {
+      docRef = doc(firestore, "tc", params);
+    }
     try {
       const snapshot = await getDoc(docRef);
       console.log("Success");
@@ -56,12 +61,12 @@ export default async function HanJa(props) {
       if (syllableWithoutTones.length == 1) {
         return syllable.yueYin[syllableWithoutTones[0]].pronunciation;
       } else {
-        return syllableWithoutTones.map((syl) => syllable.yueYin[syl].pronunciation).join(" ");
+        return syllableWithoutTones.map((syl) => syllable.yueYin[syl].pronunciation).join(", ");
       }
     }
     return "-";
   };
-
+  let count = -1;
   return (
     <div className={ccss.noHeroContent}>
       <div className="flex">
@@ -80,14 +85,14 @@ export default async function HanJa(props) {
         <div className="p-6 flex">
           <div>
             <p className={ccss.smLabel}>한국 음·한자</p>
-            <p className={ccss.smLabel}>간체자 (简体字)</p>
-            <p className={ccss.smLabel}>보통화 (拼音)</p>
+            <p className={ccss.smLabel}>简体字/拼音</p>
             <p className={ccss.smLabel}>UTF</p>
           </div>
           <div>
             <p className={ccss.contentBox}>{data.hanja}</p>
-            <p className={ccss.contentBox}>{data.cn == "" ? data.tc : data.cn}</p>
-            <p className={ccss.contentBox}>{data.mandarin}</p>
+            <p className={ccss.contentBox}>
+              {data.cn == "" ? data.tc : data.cn} {data.mandarin}
+            </p>
             {character.length == 1 && <p className={ccss.contentBox}>{idsArr[0]}</p>}
           </div>
         </div>
@@ -111,17 +116,36 @@ export default async function HanJa(props) {
 
       <div className="w-full bg-green-50 text-sm p-4 rounded">구분 : {data.category}</div>
       <hr className="border-gray-400" />
-      <div className="p-4">
+      <div>
         {
           // TODO: html 태그 사용 여부?
           // 임시 / 으로 줄 바꿈
-          data.mean.split("/").map((text) => {
-            return (
-              <p className="py-1" key={text}>
-                · {text}
-              </p>
-            );
-          })
+          // #으로 발음별 뜻 풀이 분리
+          character.length > 1 ? (
+            <div className="px-4 py-2">
+              {data.mean.split("/").map((text) => (
+                <p className="py-1" key={text}>
+                  · {text}
+                </p>
+              ))}
+            </div>
+          ) : (
+            data.mean.split("#").map((mean) => {
+              count++;
+              return (
+                <div className="border px-4 py-2" key={mean}>
+                  <p className="font-bold">{yueYinArr[count]}</p>
+                  {mean.split("/").map((text) => {
+                    return (
+                      <p className="py-1" key={text}>
+                        · {text}
+                      </p>
+                    );
+                  })}
+                </div>
+              );
+            })
+          )
         }
       </div>
       <hr className="border-gray-400" />

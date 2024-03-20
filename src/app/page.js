@@ -1,5 +1,5 @@
 import { firestore } from "@controller/firebase";
-import { collection, getDocs } from "firebase/firestore/lite";
+import { collection, getDocs } from "firebase/firestore";
 import { cnCardsWrap } from "@controller/cssName";
 import { setIdFromTc } from "@controller/handleId";
 import Heros from "@components/Heros";
@@ -7,7 +7,7 @@ import SubNav from "@components/SubNav";
 import CnCard from "@components/CnCard";
 import PageNavgation from "@components/Pagenavgation";
 
-export default async function Cantonese() {
+export default async function Home() {
   ////////
   // 한자 리스트 페이지
   // firestore에서 데이터 async로 받기

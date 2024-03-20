@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { syllable } from "@controller/yueYin";
-import { syllableURL, yueYinURL } from "@controller/urls";
+import { syllableURL } from "@controller/urls";
 import * as check from "@controller/checkYueYinType";
 import * as ccss from "@controller/cssName";
 
@@ -72,7 +72,7 @@ export default function Initial(props) {
           <div className={ccss.alpCardWrap}>
             {yueYins.map((yueYin) => {
               return checkYueYinList(yueYin) ? (
-                <Link className={ccss.alpCardOutBox} href={yueYinURL + yueYin} key={yueYin}>
+                <Link className={ccss.alpCardOutBox} href={syllableURL + yueYin} key={yueYin}>
                   <span className={ccss.alpCardInBox}>{yueYin}</span>
                 </Link>
               ) : null;
