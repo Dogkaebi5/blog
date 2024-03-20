@@ -1,6 +1,6 @@
 import { cnCardsWrap } from "@controller/cssName";
 import { setIdFromTc } from "@controller/handleId";
-import DbTc from "@controller/readDbTc";
+import dbTc from "@controller/readDbTc";
 import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
 import CnCard from "@components/CnCard";
@@ -11,7 +11,7 @@ export default function Cantonese() {
   // 한자 리스트 페이지
   // 데이터는 read ctrl 으로 이동
   // data 순서 소팅
-  const sortData = DbTc.sort((a, b) => a.sortId - b.sortId);
+  const sortData = dbTc.sort((a, b) => b.sortId - a.sortId);
 
   // TODO: cardList 수량 지정 및 pagenavigatino 추가
   return (

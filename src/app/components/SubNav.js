@@ -15,25 +15,23 @@ const SubNav = (props) => {
   const params = useSearchParams();
   const tag = params.get("tag");
 
-  const setNavData = () => {
-    if (props.path == "cantonese")
-      return [
-        ["한자", "/"],
-        ["월음", "/cantonese/syllable"],
-        ["단어", "/cantonese/word"],
-        ["회화", "/cantonese/conversation"],
-      ];
-    if (props.path == "blog")
-      return [
-        ["All", "/blog"],
-        ["일상", "/blog?tag=daily"],
-        ["책", "/blog?tag=book"],
-        ["코딩", "/blog?tag=coding"],
-        ["광둥어", "/blog?tag=cantonese"],
-      ];
-    return [];
-  };
-  let navData = setNavData();
+  const navData =
+    props.path == "cantonese"
+      ? [
+          ["한자", "/cantonese"],
+          ["월음", "/cantonese/syllable"],
+          ["단어", "/cantonese/word"],
+          ["회화", "/cantonese/conversation"],
+        ]
+      : props.path == "blog"
+      ? [
+          ["All", "/blog"],
+          ["일상", "/blog?tag=daily"],
+          ["책", "/blog?tag=book"],
+          ["코딩", "/blog?tag=coding"],
+          ["광둥어", "/blog?tag=cantonese"],
+        ]
+      : [];
 
   return (
     <>

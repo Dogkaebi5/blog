@@ -1,6 +1,6 @@
-async function fetchData() {
+export default async function fetchData() {
   try {
-    const res = await fetch("/json/data.json");
+    const res = await fetch("http://localhost:3000/json/data.json");
     const jsonData = await res.json();
     return jsonData;
   } catch (err) {
@@ -8,5 +8,3 @@ async function fetchData() {
     return null;
   }
 }
-
-export { fetchData };

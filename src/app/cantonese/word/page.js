@@ -1,21 +1,21 @@
-import DbWord from "@controller/readDbWord";
+import dbWord from "@controller/readDbWord";
 import { setIdFromTc } from "@controller/handleId";
 import { wordCardsWrap } from "@controller/cssName";
 import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
 import CnCard from "@components/CnCard";
 import PageNavgation from "@components/Pagenavgation";
-// import { words } from "@controller/hanja";
 
 ////////
 // 원래 한자와 같은 데이터를 공유
 // 하지만 sort 및 관리에 불리로 예상하여
 // word DB 테이블 별도 작성
 
-export default async function Word() {
+export default function Word(props) {
+  console.log(props);
   // ctrl에서 db읽기로 통합
   // data 순서 소팅
-  const data = DbWord.sort((a, b) => a.sortId - b.sortId);
+  const data = dbWord.sort((a, b) => a.sortId - b.sortId);
 
   return (
     <>

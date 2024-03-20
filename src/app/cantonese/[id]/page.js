@@ -1,5 +1,5 @@
 import * as ccss from "@controller/cssName";
-import DbTc from "@controller/readDbTc";
+import dbTc from "@controller/readDbTc";
 import DbWord from "@controller/readDbWord";
 import { syllable } from "@controller/yueYin";
 import { setTcFromId, splitIds } from "@controller/handleId";
@@ -22,7 +22,7 @@ export default async function HanJa(props) {
   function setData() {
     return character.length > 1
       ? DbWord.filter((d) => d.tc == character.join(""))[0]
-      : DbTc.filter((d) => d.tc == character)[0];
+      : dbTc.filter((d) => d.tc == character)[0];
   }
   let data = setData();
   // 데이터가 없을 때 데이터 초기화

@@ -1,4 +1,4 @@
-import { fetchData } from "./fetchData";
+import fetchData from "./fetchData";
 ////////
 // 카테고리, 페이지 확인 후, 데이터 처리 및 응답
 
@@ -7,10 +7,6 @@ export async function setCardList(category, pageNum) {
   // TODO: 임시 데이터 -> DB로 변경
   // TODO: maxCards 받아서 설정 or not?
   const jsonData = await fetchData();
-
-  const currentURL = window.location.href;
-  const params = new URLSearchParams(currentURL);
-
   // 해당 카테고리 데이터 return (filter)
   // 카테고리가 없으면 전체 return
   // id 최신순 return (sort b - a)
