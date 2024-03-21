@@ -1,21 +1,18 @@
-// "use client";
 import Link from "next/link";
-// import { useSearchParams, usePathname } from "next/navigation";
 import * as ccss from "@controller/cssName";
 
 const PageNavgation = (props) => {
   // 부모에서 받지 않고 직접 path 확인 == 낭비?
   // 최대 페이지, 현재 페이지, 현재 태그, 현재 페이지
+  ////// 부모에서 최대 및 페이지만 받음, Link에 path 필요없음
+  ////// 페이지 ctrl 오류가 계속 발생 -> 쿼리가 string으로 인한 오류. 수정완료
   const maxPages = Number(props.maxPages);
   const page = Number(props.page);
-
-  console.log(props);
 
   ////////
   // nav 중간 숫자 세팅.
   // prev, next, first, last 자동 출력
   // -1 은 '...'으로 출력
-
   const setPageNums = () => {
     // 7 페이지 이하의 경우, 전부 표시
     if (maxPages < 7) {
@@ -89,7 +86,9 @@ const PageNavgation = (props) => {
               </Link>
             )
           ) : (
-            <span className="p-1">...</span>
+            <span key={`btn${pageNum}`} className="p-1">
+              ...
+            </span>
           );
         })
       }

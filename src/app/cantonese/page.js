@@ -6,12 +6,17 @@ import SubNav from "@components/SubNav";
 import CnCard from "@components/CnCard";
 import PageNavgation from "@components/Pagenavgation";
 
-export default function Cantonese() {
+export default function Cantonese(props) {
   ////////
   // 한자 리스트 페이지
   // 데이터는 read ctrl 으로 이동
   // data 순서 소팅
+  const page = props.searchParams.page ?? 1;
   const sortData = dbTc.sort((a, b) => b.sortId - a.sortId);
+
+  // 한자는 카드 최대24장
+  const maxCardInPage = 24;
+  const maxPages = Math.ceil(sortData.length / maxCardInPage);
 
   // TODO: cardList 수량 지정 및 pagenavigatino 추가
   return (
@@ -26,7 +31,7 @@ export default function Cantonese() {
             })
           : "데이터를 찾지 못했습니다."}
       </div>
-      <PageNavgation maxPages={2} />
+      <PageNavgation page={page} maxPages={maxPages} />
     </>
   );
 }

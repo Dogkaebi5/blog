@@ -1,4 +1,4 @@
-import BlogCardList from "@components/BlogCardList";
+import BlogCardList from "@/app/components/CardList";
 import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
 
