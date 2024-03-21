@@ -1,8 +1,8 @@
 import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
 import PageNavgation from "@components/Pagenavgation";
-import CardList from "@/app/components/CardList";
-import { setCardList } from "@/app/controller/setCardList";
+import CardList from "@components/CardList";
+import { setCardList } from "@controller/setCardList";
 
 ////////
 // 원래 한자와 같은 데이터를 공유

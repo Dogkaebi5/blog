@@ -31,6 +31,7 @@ export default async function HanJa(props) {
       tc: "-",
       yueYin: "-",
       cn: "-",
+      pinyin: "-",
       mandarin: "-",
       hanja: "-",
       category: "-",
@@ -40,7 +41,7 @@ export default async function HanJa(props) {
 
   // 월음 한개씩 array로 분리
   let yueYinArr = data.yueYin.split(" ");
-  // 임시 단어 리스트
+  // TODO: 삭제? 임시 단어 리스트
   const phrases = ["一往無前", "一事無成", "一五一十", "一心一意", "一言為定"];
 
   // 발음 세팅
@@ -60,7 +61,13 @@ export default async function HanJa(props) {
     }
     return "-";
   };
+  // mean 부분 발음별 분리용 count
   let count = -1;
+
+  // 간체자 & 보통화
+  const cn = data.cn == "" ? data.tc : data.cn;
+  const mandarin = data.mandarin == "" ? cn : data.mandarin;
+
   return (
     <div className={ccss.noHeroContent}>
       <div className="flex">
@@ -78,32 +85,27 @@ export default async function HanJa(props) {
       {character.length == 1 ? (
         <div className="p-6 flex">
           <div>
-            <p className={ccss.smLabel}>한국 음·한자</p>
-            <p className={ccss.smLabel}>简体字/拼音</p>
+            <p className={ccss.smLabel}>한국 한자음</p>
+            <p className={ccss.smLabel}>简体字 · 拼音</p>
+            <p className={ccss.smLabel}>普通话</p>
             <p className={ccss.smLabel}>UTF</p>
           </div>
           <div>
             <p className={ccss.contentBox}>{data.hanja}</p>
-            <p className={ccss.contentBox}>
-              {data.cn == "" ? data.tc : data.cn} {data.mandarin}
-            </p>
-            {character.length == 1 && <p className={ccss.contentBox}>{idsArr[0]}</p>}
+            <p className={ccss.contentBox}>{`${cn} ${data.pinyin}`}</p>
+            <p className={ccss.contentBox}>{mandarin}</p>
+            <p className={ccss.contentBox}>{idsArr}</p>
           </div>
         </div>
       ) : (
         <div className="p-6 flex">
           <div>
-            <p className={ccss.smLabel}>拼音</p>
+            <p className={ccss.smLabel}>简体字 · 拼音</p>
             <p className={ccss.smLabel}>普通话</p>
           </div>
           <div>
-            <p className={ccss.contentBox}>{data.mandarin}</p>
-            <p className={ccss.contentBox}>
-              {
-                // 간체자가 없으면 원래 한자 표시
-                data.cn == "" ? data.tc : data.cn
-              }
-            </p>
+            <p className={ccss.contentBox}>{`${cn} ${data.pinyin}`}</p>
+            <p className={ccss.contentBox}>{mandarin}</p>
           </div>
         </div>
       )}
