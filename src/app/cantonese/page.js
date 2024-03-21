@@ -1,10 +1,8 @@
-import { cnCardsWrap } from "@controller/cssName";
-import { setIdFromTc } from "@controller/handleId";
 import dbTc from "@controller/readDbTc";
 import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
-import CnCard from "@components/CnCard";
 import PageNavgation from "@components/Pagenavgation";
+import CardList from "../components/CardList";
 
 export default function Cantonese(props) {
   ////////
@@ -24,13 +22,7 @@ export default function Cantonese(props) {
       <Heros path={"cantonese"} />
       <SubNav path={"cantonese"} />
       <p className="text-sm pb-4 text-gray-400">등록 한자 : {sortData.length}</p>
-      <div className={cnCardsWrap}>
-        {sortData.length > 0
-          ? sortData.map((post) => {
-              return <CnCard key={setIdFromTc(post.tc)} data={post} />;
-            })
-          : "데이터를 찾지 못했습니다."}
-      </div>
+      <CardList path={"tc"} data={sortData} />
       <PageNavgation page={page} maxPages={maxPages} />
     </>
   );
