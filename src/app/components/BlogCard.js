@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import * as ccss from "@controller/cssName";
-
-// https://drive.google.com/uc?id=
+import { imgURL } from "../controller/urls";
 
 const BlogCard = (props) => {
   const postData = props.data;
+  const createdDate = postData.createdDate.toDate();
+  const updatedDate = postData.updatedDate != null ? postData.updatedDate.toDate() : null;
   return (
     <div className={ccss.blogCard}>
       <Link scroll={false} href={`/blog/${postData.id}`}>
@@ -13,14 +14,16 @@ const BlogCard = (props) => {
           className="object-cover w-full h-56"
           width={600}
           height={400}
-          src={postData.thumbnail}
+          src={imgURL + postData.thumbnail}
           alt={postData.title}
         />
         <div className={ccss.blogCardTextWrap}>
           <h2 className={ccss.h2}>{postData.title}</h2>
-          <p className={ccss.blogDate}>{new Date(postData.date).toLocaleDateString()}</p>
-          <p className={ccss.blogCardText}>{postData.content}</p>
-          {/* TODO: summary 추가로 content 대체 여부? */}
+          <p className={ccss.blogDate}>{createdDate.toLocaleString()}</p>
+          {postData.updatedDate != null ? (
+            <p className={ccss.blogDate}>{updatedDate.toLocaleString()} (Updated)</p>
+          ) : null}
+          <p className={ccss.blogCardText}>{postData.summary}</p>
         </div>
       </Link>
     </div>

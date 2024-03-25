@@ -1,4 +1,4 @@
-import fetchData from "./fetchData";
+import dbPost from "./readDbPost";
 import dbTc from "./readDbTc";
 import dbWord from "./readDbWord";
 ////////
@@ -13,9 +13,8 @@ export async function setCardList(category, pageNum, maxCardInPage) {
   function setCategoryData() {
     if (category == "tc") return dbTc.sort((a, b) => b.sortId - a.sortId);
     if (category == "word") return dbWord.sort((a, b) => b.sortId - a.sortId);
-    else if (category != null)
-      return fetchData.data.filter((post) => post.category == category).sort((a, b) => b.id - a.id);
-    return fetchData.data.sort((a, b) => b.id - a.id);
+    else if (category != null) return dbPost.filter((post) => post.category == category).sort((a, b) => b.id - a.id);
+    return dbPost.sort((a, b) => b.id - a.id);
   }
   const categoryData = setCategoryData();
 

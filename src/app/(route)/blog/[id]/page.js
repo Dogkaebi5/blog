@@ -1,23 +1,30 @@
-import * as ccss from "@controller/cssName";
 import Image from "next/image";
 import Link from "next/link";
+import dbPost from "@controller/readDbPost";
+import * as ccss from "@controller/cssName";
+import { imgURL } from "@controller/urls";
 ////////
 // [id] 폴더 router
-export default async function Read(props) {
-  // 임시로 local json 파일 읽기
-  const res = await fetch("http://localhost:3000/json/data.json");
-  const jsonData = await res.json();
-  const allData = await jsonData.data;
-  // 모든 데이터에서 filter로 id에 해당되는 data 추출
-  // usePathname을 사용하면 use client이어야 하고, async를 사용할 수 없다
-  const data = await allData.filter((obj) => {
-    if (obj.id == Number(props.params.id)) {
-      return obj;
+export default function Read(props) {
+  // // 임시로 local json 파일 읽기
+  // const res = await fetch("http://localhost:3000/json/data.json");
+  // const jsonData = await res.json();
+  // const allData = await jsonData.data;
+  // // 모든 데이터에서 filter로 id에 해당되는 data 추출
+  // // usePathname을 사용하면 use client이어야 하고, async를 사용할 수 없다
+
+  const data = dbPost.filter((post) => {
+    if (post.id == Number(props.params.id)) {
+      return post;
     }
   })[0];
 
-  // json의 날짜를 현지 날짜 string으로 변경
-  const date = new Date(data.date).toLocaleDateString();
+  // // json의 날짜를 현지 날짜 string으로 변경
+  // const date = new Date(data.date).toLocaleDateString();
+
+  const createdDate = data.createdDate.toDate();
+  const updatedDate = data.updatedDate != null ? data.updatedDate.toDate() : null;
+
   // 카테고리(태그) 표기 func
   const category = () => {
     if (data.category == "book") return "책";
@@ -30,7 +37,8 @@ export default async function Read(props) {
     <div className="p-16">
       <div className="px-4">
         <h1 className={ccss.h1}>{data.title}</h1>
-        <p className={ccss.blogDate}>- {date}</p>
+        <p className={ccss.blogDate}>- {createdDate.toLocaleDateString()}</p>
+        {updatedDate != null ? <p className={ccss.blogDate}>( {updatedDate.toLocaleDateString()} Updated )</p> : null}
         <div className="flex mt-4">
           <Link className={ccss.headerBtn} href={`/?tag=${data.category}`}>
             {category()}
@@ -42,7 +50,7 @@ export default async function Read(props) {
           className="object-cover w-full max-h-96"
           width={600}
           height={400}
-          src={data.thumbnail}
+          src={imgURL + data.thumbnail}
           alt={data.title}
         />
       </div>
