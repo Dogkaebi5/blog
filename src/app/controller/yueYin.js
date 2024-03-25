@@ -138,7 +138,7 @@ export const syllable = {
     },
     i: {
       pronunciation: `이 [iː]`,
-      detail: ``,
+      detail: `대부분 [이]로 들리지만 사실 [이]와 [애]의 중간음이다./운모(韻母)로 사용될 때는 [이]이지만,/운복(韻腹)으로는 [ㅐ] 강조음에서 [ㅔ] 발음일 수 있다.`,
     },
     iu: {
       pronunciation: `이우 [iːuː]`,

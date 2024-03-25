@@ -1,8 +1,8 @@
 import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
 import PageNavgation from "@components/Pagenavgation";
-import CardList from "../components/CardList";
-import { setCardList } from "../controller/setCardList";
+import CardList from "@components/CardList";
+import { setCardList } from "@controller/setCardList";
 
 export default async function Cantonese(props) {
   ////////

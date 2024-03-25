@@ -37,6 +37,7 @@ export default function About() {
               <p>씽크브릿지</p>
               <p>우리공간연구소</p>
               <p>글로벌디지털에셋</p>
+              <p>빅핸드인베스트먼트</p>
             </div>
             <div>
               <p>공장 건축현장 전기제어반 통번역</p>
@@ -45,6 +46,7 @@ export default function About() {
               <p>체험 콘텐츠 기획 및 운영</p>
               <p>전시 기획, 셋업, 운영</p>
               <p>사업 기획, 서비스 기획, PM</p>
+              <p>서비스 기획, 프로토타입 앱 개발</p>
             </div>
           </div>
         </div>
