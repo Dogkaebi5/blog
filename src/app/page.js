@@ -1,5 +1,5 @@
-import Heros from "@components/Heros";
 import Link from "next/link";
+import Heros from "@components/Heros";
 
 export default function Home() {
   const cardClass = "shadow p-6 rounded-xl";

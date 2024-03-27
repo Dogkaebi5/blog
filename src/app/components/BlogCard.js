@@ -20,9 +20,7 @@ const BlogCard = (props) => {
         <div className={ccss.blogCardTextWrap}>
           <h2 className={ccss.h2}>{postData.title}</h2>
           <p className={ccss.blogDate}>{createdDate.toLocaleString()}</p>
-          {postData.updatedDate != null ? (
-            <p className={ccss.blogDate}>{updatedDate.toLocaleString()} (Updated)</p>
-          ) : null}
+          {updatedDate != null ? <p className={ccss.blogDate}>{updatedDate.toLocaleString()} (Updated)</p> : null}
           <p className={ccss.blogCardText}>{postData.summary}</p>
         </div>
       </Link>
