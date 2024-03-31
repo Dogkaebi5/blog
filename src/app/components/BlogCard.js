@@ -14,14 +14,14 @@ const BlogCard = (props) => {
           className="object-cover w-full h-56"
           width={600}
           height={400}
-          src={imgURL + postData.thumbnail}
+          src={imgURL + postData.images[0]}
           alt={postData.title}
         />
         <div className={ccss.blogCardTextWrap}>
           <h2 className={ccss.h2}>{postData.title}</h2>
           <p className={ccss.blogDate}>{createdDate.toLocaleString()}</p>
           {updatedDate != null ? <p className={ccss.blogDate}>{updatedDate.toLocaleString()} (Updated)</p> : null}
-          <p className={ccss.blogCardText}>{postData.summary}</p>
+          <p className={ccss.blogCardText}>{postData.summary ?? ""}</p>
         </div>
       </Link>
     </div>

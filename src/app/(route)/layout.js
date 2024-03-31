@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import Navigation from "@components/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,11 +16,13 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/next.svg" sizes="any" />
         {/* 임시 파피콘 */}
       </head>
-      <body className={inter.className}>
-        <div className="max-w-7xl mx-auto relative overflow-hidden lg:overflow-visible">
-          <Navigation />
-          <div>{children}</div>
-        </div>
+      <body className={inter.className + " max-w-4xl mx-auto relative overflow-hidden lg:overflow-visible"}>
+        <Navigation />
+        <div>{children}</div>
+        <footer>
+          <hr />
+          <p className="py-2 text-center text-sm text-gray-400">© DogKaeBi</p>
+        </footer>
       </body>
     </html>
   );

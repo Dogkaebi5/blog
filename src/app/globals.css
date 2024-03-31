@@ -2,11 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Microsoft YaHei";
+  src: local("Microsoft YaHei");
+  unicode-range: U+2E80-2EFF, U+3400-4DBF, U+4E00-9FBF, U+F900-FAFF, U+20000-2A6DF, U+2F800-2FA1F;
+}
+
 * {
-  font-family: Arial, "Microsoft YaHei", sans-serif;
   transition: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
+  transition-duration: 300ms;
 }
 
 td {
@@ -15,6 +20,7 @@ td {
   border: 1px solid;
   border-color: #ddd;
 }
+
 .navbar-burger,
 .navbar-burger span {
   transition: all 400ms;

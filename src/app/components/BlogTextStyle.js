@@ -3,46 +3,49 @@ import { imgURL } from "../controller/urls";
 import Image from "next/image";
 import PrismLoader from "./PrismLoader";
 
-export function B({ text }) {
-  return <span className="font-bold">{text}</span>;
+export function H({ t, s = "2" }) {
+  return <h2 className={`text-${s}xl`}>{t}</h2>;
+}
+export function B({ t }) {
+  return <span className="font-bold">{t}</span>;
 }
 
-export function I({ text }) {
-  return <span className="italic">{text}</span>;
+export function I({ t }) {
+  return <span className="italic">{t}</span>;
 }
 
-export function X({ text }) {
-  return <span className="line-through">{text}</span>;
+export function X({ t }) {
+  return <span className="line-through">{t}</span>;
 }
 
-export function M({ text }) {
-  return <span className="bg-green-50">{text}</span>;
+export function M({ t }) {
+  return <span className="bg-green-50">{t}</span>;
 }
 
-export function U({ text }) {
-  return <span className="underline underline-offset-4">{text}</span>;
+export function U({ t }) {
+  return <span className="underline underline-offset-4">{t}</span>;
 }
 
-export function BQ({ text }) {
+export function BQ({ t }) {
   return (
     <blockquote className="border-l-8 pl-4 my-2">
-      <pre>{text}</pre>
+      <pre dangerouslySetInnerHTML={{ __html: t }} />
     </blockquote>
   );
 }
 
-export function FNR({ count }) {
+export function FNR({ c }) {
   return (
-    <Link id={`fnr-${count}`} href={`#fn-${count}`}>
-      <sup className=" text-blue-600">[{count}]</sup>
+    <Link id={`fnr-${c}`} href={`#fn-${c}`}>
+      <sup className=" text-blue-600">[{c}]</sup>
     </Link>
   );
 }
-export function FN({ notes }) {
+export function FN({ n }) {
   let count = 0;
-  return (
+  return n != null ? (
     <ol className="list-decimal text-sm text-gray-600 ml-6 mt-2">
-      {notes.map((note) => {
+      {n.map((note) => {
         count++;
         return (
           <li key={count}>
@@ -53,55 +56,47 @@ export function FN({ notes }) {
         );
       })}
     </ol>
+  ) : null;
+}
+
+export function IMG({ i, a }) {
+  return <Image className="my-2" alt={a} width={500} height={500} src={imgURL + i} />;
+}
+
+export function CI({ c }) {
+  return <code className="language-js">{c}</code>;
+}
+
+export function CP({ c }) {
+  return (
+    <pre className="language-js">
+      <code dangerouslySetInnerHTML={{ __html: c }} />
+    </pre>
   );
 }
 
-export function IMG({ img, alt }) {
-  return <Image className="my-2" alt={alt} width={500} height={500} src={imgURL + img} />;
-}
-
-export function CI({ code }) {
+export function LT({ t, u }) {
   return (
-    <>
-      <code className="language-js">{code}</code>
-      <PrismLoader />
-    </>
-  );
-}
-
-export function CP({ code }) {
-  return (
-    <>
-      <pre className="language-js">
-        <code>{code}</code>
-      </pre>
-      <PrismLoader />
-    </>
-  );
-}
-
-export function LT({ text, url }) {
-  return (
-    <Link className="text-blue-700 underline underline-offset-4" href={url}>
-      {text}
+    <Link className="text-blue-700 underline underline-offset-4" href={u}>
+      {t}
     </Link>
   );
 }
 
-export function LI({ url, img, alt }) {
+export function LI({ u, i, a }) {
   return (
-    <Link className="text-blue-700 my-2 underline underline-offset-4 inline-block" href={url}>
-      <Image alt={alt} width={500} height={500} src={imgURL + img} />
+    <Link className="text-blue-700 my-2 underline underline-offset-4 inline-block" href={u}>
+      <Image alt={a} width={500} height={500} src={imgURL + i} />
     </Link>
   );
 }
 
-export function T({ text, tip }) {
+export function T({ t, d }) {
   return (
     <div className="inline relative ">
-      <span className="underline underline-offset-4 decoration-dotted cursor-help peer">{text}</span>
+      <span className="underline underline-offset-4 decoration-dotted cursor-help peer">{t}</span>
       <div className="absolute left-2 -bottom-10 inline rounded p-1 text-sm bg-white border shadow invisible whitespace-nowrap opacity-0 peer-hover:visible peer-hover:opacity-100">
-        {tip}
+        {d}
       </div>
     </div>
   );

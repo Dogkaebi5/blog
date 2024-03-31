@@ -30,22 +30,22 @@ export const linkGreenText = "mt-2 text-sm text-green-600 underline-offset-2 hov
 export const smLabel = "py-2 text-gray-500 text-sm";
 export const contentBox = "px-6 py-2 text-sm";
 
-export const pageNavWrap = "my-8 flex justify-center items-center";
+export const pageNavWrap = "my-6 flex justify-center items-center";
 export const pageNumAct = "px-1 font-bold bg-green-500 rounded text-white";
 export const pageNum = "p-1 hover:text-gray-500 cursor-pointer";
 
-export const blogCardsWrap = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4";
+export const blogCardsWrap = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4";
 export const blogCard = "overflow-hidden rounded-md shadow-md hover:shadow hover:scale-105";
 export const blogCardTextWrap = "px-4 pt-4 pb-8";
 export const blogCardText = "mt-4 text-sm text-nowrap overflow-hidden text-ellipsis";
 export const blogDate = "text-gray-600 text-xs";
 
-export const cnCardsWrap = "grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4";
+export const cnCardsWrap = "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4";
 export const cnCard = "rounded-md border text-center shadow-md hover:shadow hover:scale-105";
 export const cnCardJutYin = "py-3 text-sm";
 export const cnCardTC = "font-bold text-6xl pb-6";
 export const cnCardTitle = "py-2 text-sm font-bold bg-gray-100";
-export const wordCardsWrap = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4";
+export const wordCardsWrap = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4";
 
 export const syllableWrap = "shadow sm:w-fit max-w-2xl mx-auto py-2 mb-4 px-4 rounded-xl";
 export const syllableDetail = "text-start mx-auto my-4 text-sm";
