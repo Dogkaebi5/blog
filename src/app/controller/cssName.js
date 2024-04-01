@@ -35,18 +35,18 @@ export const pageNavWrap = "my-6 flex justify-center items-center";
 export const pageNumAct = "px-1 font-bold bg-green-500 rounded text-white";
 export const pageNum = "p-1 hover:text-gray-500 cursor-pointer";
 
-export const blogCardsWrap = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4";
+export const blogCardsWrap = "mx-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4";
 export const blogCard = "overflow-hidden rounded-md shadow-md hover:shadow hover:scale-105";
 export const blogCardTextWrap = "px-4 pt-4 pb-8";
 export const blogCardText = "mt-4 text-sm text-nowrap overflow-hidden text-ellipsis";
 export const blogDate = "text-gray-600 text-xs";
 
-export const cnCardsWrap = "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4";
+export const cnCardsWrap = "mx-4 grid grid-cols-2 sm:grid-cols-4  gap-4";
 export const cnCard = "rounded-md border text-center shadow-md hover:shadow hover:scale-105";
 export const cnCardJutYin = "py-3 text-sm";
 export const cnCardTC = "font-bold text-6xl pb-6";
 export const cnCardTitle = "py-2 text-sm font-bold bg-gray-100";
-export const wordCardsWrap = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4";
+export const wordCardsWrap = "grid grid-cols-1 sm:grid-cols-3 mx-4";
 
 export const syllableWrap = "mx-auto py-2 mb-4 px-4 rounded-xl";
 export const syllableDetail = "text-start mx-auto my-4 text-sm";
@@ -55,9 +55,9 @@ export const syllableSelectorBox = "flex-1 justify-center px-4 py-2 rounded-xl b
 export const syllablelable = "font-bold text-sm";
 export const syllableSelect = "my-1 py-1 border rounded-lg text-sm text-center w-full";
 
-export const table = "my-4 text-sm overflow-auto container table-fixed";
+export const table = "my-4 text-sm container w-full text-nowrap";
 export const th = "font-extrabold";
-export const tGray = "bg-gray-100 px-4";
+export const tGray = "bg-gray-100 min-w-24";
 export const tYellow = "bg-yellow-100 py-1 px-4";
 export const tBlue = "bg-blue-50 px-4";
 export const thRed = "text-sm font-bold text-pink-600";
