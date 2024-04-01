@@ -13,9 +13,8 @@ export default function Home() {
         <Link href={"/blog"}>
           <div className={cardClass + " bg-yellow-50"}>일기</div>
         </Link>
-        <Link href={"/"}>
-          <div className={cardClass + " bg-gray-50"}>기획</div>
-        </Link>
+
+        <div className={cardClass + " bg-gray-50"}>기획 (공사중)</div>
       </div>
     </>
   );

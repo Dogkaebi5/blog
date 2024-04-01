@@ -51,7 +51,7 @@ export default function Syllable() {
     <>
       <Heros path={"cantonese"} />
       <SubNav path={"cantonese"} />
-      <div className="text-center mb-16">
+      <div className="text-center mb-8 max-w-4xl">
         <div className={ccss.syllableWrap}>
           <div className={ccss.syllableDetail}>
             <span className={ccss.h2}>월음(粵音)</span>은 <br />
@@ -60,13 +60,8 @@ export default function Syllable() {
             즉 학파와 학교마다 표기법이 다른 경우가 많다. <br />
             <br />
             월음의 대표적인 표기법은 : <br />
-            (1) 월병(粵拼), <br />
-            (2) 황석릉(黃錫凌), <br />
-            (3) 예일(耶魯), <br />
-            (4) 광저우(廣州), <br />
-            (5) IPA, <br />
-            (6) 교원(教院), <br />
-            (7) 유석상(劉錫祥) 등이 있다. <br />
+            ① 월병(粵拼), ② 황석릉(黃錫凌), ③ 예일(耶魯), ④ 광저우(廣州), ⑤ IPA, ⑥ 교원(教院), ⑦ 유석상(劉錫祥) 등이
+            있다. <br />
             <br />본 사이트에서 사용하는 월음은 <span className="bg-green-100 p-1 rounded-xl ">월병(粵拼)</span>
             이다.
           </div>
@@ -116,7 +111,7 @@ export default function Syllable() {
             </div>
           </div>
           <Link href={simpleSyllableURL}>
-            <div className={ccss.linkGreenText}>월음 간략 버전 &gt;&gt;</div>
+            <div className={ccss.linkGreenText + " mt-2 text-right"}>월음 간략 버전 &gt;&gt;</div>
           </Link>
           {/* toggle */}
           <label className="relative inline-flex items-center cursor-pointer mt-4">
@@ -126,53 +121,55 @@ export default function Syllable() {
           </label>
         </div>
 
-        <table className="mx-auto">
-          <tbody>
-            <tr>
-              {/* 첫줄 첫 빈칸 */}
-              <td className={ccss.thRed}></td>
-              {
-                /* 첫줄 성모 */
-                showInitials.map((i) => (
-                  <td className={ccss.thRed + ccss.tableLink} key={i + 2}>
-                    <Link href={initialURL + i}>{i}</Link>
-                  </td>
-                ))
-              }
-            </tr>
-            {
-              /* 첫열 운모 */
-              showVowels.map((v) => {
-                return (
-                  <tr key={v}>
-                    <td className={ccss.thBlue + ccss.tableLink}>
-                      <Link href={initialURL + v}>{v}</Link>
+        <div className="scrollBarX overflow-x-scroll p-2 bg-gray-50">
+          <table className="mx-auto bg-white">
+            <tbody>
+              <tr>
+                {/* 첫줄 첫 빈칸 */}
+                <td className={ccss.thRed}></td>
+                {
+                  /* 첫줄 성모 */
+                  showInitials.map((i) => (
+                    <td className={ccss.thRed + ccss.tableLink} key={i + 2}>
+                      <Link href={initialURL + i}>{i}</Link>
                     </td>
-                    {
-                      /* 월음 유무 확인 및 테이블 작성 */
-                      showInitials.map((i) => {
-                        let init;
-                        i == "-" ? (init = "") : (init = i);
-                        if (yueYin.includes(init + v)) count++;
-                        return (
-                          <td className="text-sm" key={i + 3}>
-                            {yueYin.includes(init + v) ? (
-                              <Link href={syllableURL + init + v} className={"px-0.5" + ccss.tableLink}>
-                                {isHan ? hans[count] : init + v}
-                              </Link>
-                            ) : (
-                              ""
-                            )}
-                          </td>
-                        );
-                      })
-                    }
-                  </tr>
-                );
-              })
-            }
-          </tbody>
-        </table>
+                  ))
+                }
+              </tr>
+              {
+                /* 첫열 운모 */
+                showVowels.map((v) => {
+                  return (
+                    <tr key={v}>
+                      <td className={ccss.thBlue + ccss.tableLink}>
+                        <Link href={initialURL + v}>{v}</Link>
+                      </td>
+                      {
+                        /* 월음 유무 확인 및 테이블 작성 */
+                        showInitials.map((i) => {
+                          let init;
+                          i == "-" ? (init = "") : (init = i);
+                          if (yueYin.includes(init + v)) count++;
+                          return (
+                            <td className="text-sm" key={i + 3}>
+                              {yueYin.includes(init + v) ? (
+                                <Link href={syllableURL + init + v} className={"px-0.5" + ccss.tableLink}>
+                                  {isHan ? hans[count] : init + v}
+                                </Link>
+                              ) : (
+                                ""
+                              )}
+                            </td>
+                          );
+                        })
+                      }
+                    </tr>
+                  );
+                })
+              }
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );

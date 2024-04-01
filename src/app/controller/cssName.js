@@ -1,3 +1,4 @@
+export const logo = "h-8 py-1 px-4 rounded-full bg-green-100";
 export const noHeroContent = "m-4";
 export const hero = "bg-gray-100 h-60 flex flex-col justify-center items-center";
 export const subNavWrap = "flex flex-col gap-4 md:flex-row justify-between items-center mt-8";
@@ -25,7 +26,7 @@ export const cnTitleBox = "flex items-center rounded-xl shadow-lg ring ring-gree
 
 export const yueYinPlayer =
   "inline-block px-4 py-2 rounded-lg text-blue-600 underline underline-offset-4 hover:bg-green-50 hover:shadow after:content-['🔊'] after:ml-1 after:inline-block after:no-underline";
-export const linkGreenText = "mt-2 text-sm text-green-600 underline-offset-2 hover:underline hover:font-bold";
+export const linkGreenText = "text-sm text-green-600 underline-offset-2 hover:underline hover:font-bold";
 
 export const smLabel = "py-2 text-gray-500 text-sm";
 export const contentBox = "px-6 py-2 text-sm";
@@ -47,12 +48,12 @@ export const cnCardTC = "font-bold text-6xl pb-6";
 export const cnCardTitle = "py-2 text-sm font-bold bg-gray-100";
 export const wordCardsWrap = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4";
 
-export const syllableWrap = "shadow sm:w-fit max-w-2xl mx-auto py-2 mb-4 px-4 rounded-xl";
+export const syllableWrap = "mx-auto py-2 mb-4 px-4 rounded-xl";
 export const syllableDetail = "text-start mx-auto my-4 text-sm";
-export const syllableSelectorsWrap = "sm:flex justify-center gap-2";
-export const syllableSelectorBox = "justify-center p-4 rounded-xl bg-gray-50 border";
-export const syllablelable = "font-bold text-sm mb-1";
-export const syllableSelect = "mt-2 py-1 border rounded-lg text-sm text-center sm:min-w-40 w-full";
+export const syllableSelectorsWrap = "sm:flex gap-2";
+export const syllableSelectorBox = "flex-1 justify-center px-4 py-2 rounded-xl bg-gray-50 border";
+export const syllablelable = "font-bold text-sm";
+export const syllableSelect = "my-1 py-1 border rounded-lg text-sm text-center w-full";
 
 export const table = "my-4 text-sm overflow-auto container table-fixed";
 export const th = "font-extrabold";

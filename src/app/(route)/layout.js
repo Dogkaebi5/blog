@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/next.svg" sizes="any" />
         {/* 임시 파피콘 */}
       </head>
-      <body className={inter.className + " max-w-4xl mx-auto relative overflow-hidden lg:overflow-visible"}>
+      <body className={inter.className + " max-w-4xl mx-auto relative"}>
         <Navigation />
         <div>{children}</div>
         <footer>

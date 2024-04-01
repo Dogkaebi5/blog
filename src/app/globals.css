@@ -9,9 +9,8 @@
 }
 
 * {
-  transition: all;
+  transition: all 400ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
 }
 
 td {
@@ -21,28 +20,47 @@ td {
   border-color: #ddd;
 }
 
-.navbar-burger,
-.navbar-burger span {
-  transition: all 400ms;
+.nav-burger {
+  position: relative;
+  height: 1.75rem;
+  width: 2rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  z-index: 9999;
   box-sizing: border-box;
 }
 
-.navbar-burger.active span {
-  transition: all 400ms;
+.nav-burger.active {
+  top: 0.5rem;
+  right: 0.25rem;
+  position: fixed;
+}
+
+.nav-burger span {
+  position: absolute;
+  height: 0.25rem;
+  width: 1.5rem;
+  border-radius: 100px;
+  margin: 0.25rem 0;
+  background-color: #111;
+  box-sizing: border-box;
+}
+
+.nav-burger.active span {
   box-sizing: border-box;
   background-color: snow;
 }
 
-.navbar-burger.active span:nth-of-type(1) {
+.nav-burger.active span:nth-of-type(1) {
   -webkit-transform: translateY(0) rotate (-45deg);
   transform: translateY(8px) rotate(-45deg);
 }
 
-.navbar-burger.active span:nth-of-type(2) {
+.nav-burger.active span:nth-of-type(2) {
   opacity: 0;
 }
 
-.navbar-burger.active span:nth-of-type(3) {
+.nav-burger.active span:nth-of-type(3) {
   -webkit-transform: translateY(0) rotate(45deg);
   transform: translateY(-8px) rotate(45deg);
 }
@@ -50,39 +68,26 @@ td {
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 8px 0;
+  align-items: center;
+  padding: 8px 4px;
 }
 .navbar.active {
   position: fixed;
 }
 
-@media (max-width: 960px) {
-  .navbar-main {
-    display: none;
-  }
+.nav-main {
+  margin: 0.5rem 0;
+  display: flex;
 }
-
-@media (min-width: 960px) {
-  .navbar.active {
-    position: relative;
-  }
-  .navbar-burger {
-    display: none;
-  }
-  .navbar-burger.active {
-    display: none;
-  }
-  .navbar-menu {
-    display: none;
-  }
-}
-
 .spread-underline {
   position: relative;
   text-align: center;
   width: 80px;
 }
-
+.spread-underline.active {
+  color: #16a34a;
+  font-weight: bold;
+}
 .spread-underline:hover {
   color: #16a34a;
   scale: 110%;
@@ -103,12 +108,47 @@ td {
   width: 100%;
   left: 0;
 }
+.nav-side {
+  visibility: hidden;
+  position: absolute;
+  right: -100%;
+  top: 0;
+  height: 100vh;
+  color: white;
+  background-color: #000;
+  opacity: 0;
+}
+
+/* display를 none하면 animation이 안됨으로 자녀의 none으로 해서 공간 삭제 */
+.nav-side > * {
+  display: none;
+}
+.nav-side.active > * {
+  display: initial;
+}
+
+.nav-side.active {
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+  padding: 8rem 4rem;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  touch-action: none;
+  opacity: 0.9;
+}
 
 .draw-underline {
   position: relative;
+  margin: 1rem 0;
+  padding: 0 1rem;
 }
 
 .draw-underline:after {
+  position: absolute;
+  left: 0;
   bottom: -4px;
   content: "";
   height: 1px;
@@ -120,4 +160,37 @@ td {
 
 .draw-underline:hover:after {
   width: 100%;
+}
+
+@media (max-width: 960px) {
+  .nav-main {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) {
+  .navbar.active {
+    position: relative;
+  }
+  .nav-side {
+    display: none;
+  }
+  .nav-burger {
+    display: none;
+  }
+  .nav-burger.active {
+    display: none;
+  }
+}
+
+.scrollBarX::-webkit-scrollbar {
+  height: 12px;
+}
+.scrollBarX::-webkit-scrollbar-thumb {
+  background: #3b70ff;
+  border-radius: 20px;
+}
+.scrollBarX::-webkit-scrollbar-track {
+  background: #d4dffc;
+  border-radius: 20px;
 }
