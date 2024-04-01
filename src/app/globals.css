@@ -19,30 +19,62 @@ td {
   border: 1px solid;
   border-color: #ddd;
 }
-.table-test {
+.initial-table {
   font-size: 12px;
 }
-.table-test tr:first-child {
+.initial-table tr:first-child {
   background-color: rgb(243, 244, 246);
   font-weight: bold;
 }
-.table-test tr:nth-child(2) {
+.initial-table tr:nth-child(2) {
   background-color: rgb(243, 244, 246);
 }
-.table-test tr:nth-child(3) td {
+.initial-table tr:nth-child(3) td {
   background-color: rgb(254, 249, 195);
   min-width: 5rem;
 }
-.table-test tr:nth-child(4) td:first-child,
-.table-test tr:nth-child(4) td:nth-child(2),
-.table-test tr:nth-child(5) td:first-child,
-.table-test tr:nth-child(6) td:first-child,
-.table-test tr:nth-child(6) td:nth-child(2),
-.table-test tr:nth-child(7) td:first-child,
-.table-test tr:nth-child(8) td:first-child,
-.table-test tr:nth-child(9) td:first-child,
-.table-test tr:nth-child(10) td:first-child,
-.table-test tr:nth-child(11) td:first-child {
+.initial-table tr:nth-child(4) td:first-child,
+.initial-table tr:nth-child(4) td:nth-child(2),
+.initial-table tr:nth-child(5) td:first-child,
+.initial-table tr:nth-child(6) td:first-child,
+.initial-table tr:nth-child(6) td:nth-child(2),
+.initial-table tr:nth-child(7) td:first-child,
+.initial-table tr:nth-child(8) td:first-child,
+.initial-table tr:nth-child(9) td:first-child,
+.initial-table tr:nth-child(10) td:first-child,
+.initial-table tr:nth-child(11) td:first-child {
+  background-color: rgb(239, 246, 255);
+}
+
+.vowel-table {
+  font-size: 13px;
+}
+.vowel-table tr:first-child {
+  background-color: rgb(243, 244, 246);
+  font-weight: bold;
+}
+.vowel-table tr:first-child td:first-child {
+  background-color: rgb(243, 244, 246);
+  font-weight: bold;
+}
+.vowel-table tr:nth-child(2) td {
+  background-color: rgb(243, 244, 246);
+  min-width: 4rem;
+}
+.vowel-table tr:nth-child(2) td:first-child {
+  background-color: #fef9c3;
+}
+.vowel-table td:first-child {
+  background-color: #fef9c3;
+  min-width: 5rem;
+}
+
+.vowel-hf {
+  font-size: 14px;
+}
+.vowel-hf tr:first-child td {
+  min-width: 4.2rem;
+  font-weight: bold;
   background-color: rgb(239, 246, 255);
 }
 

@@ -6,17 +6,6 @@ import * as ccss from "@controller/cssName";
 export default function Initial() {
   const initials = Object.keys(syllable.initial);
   const initialTable = [
-    ["b 波", "p 婆", "", "", "m 摸", "", "", "w 華"],
-    ["", "", "", "", "", "", "f 科", ""],
-    ["d 多", "t 拖", "", "", "n 挪", "l 羅", "", ""],
-    ["", "", "z 知", "c 雌", "", "", "s 思", ""],
-    ["", "", "", "", "", "", "", "j 也"],
-    ["g 哥", "k 卡", "", "", "ng 我", "", "", ""],
-    ["gw 姑", "kw 箍", "", "", "", "", "", ""],
-    ["", "", "", "", "", "", "h 何", ""],
-  ];
-
-  const textTable = [
     ["中文2", "塞音 (清)2", "塞擦音 (清)2", "鼻音 (濁)", "邊音 (濁)", "擦音 (清)", "半元音"],
     ["발음 분류2", "청음2", "청음2", "탁음", "탁음", "청음", "-"],
     [
@@ -96,15 +85,14 @@ export default function Initial() {
           </div>
           <div className="scrollBarX overflow-x-scroll ">
             <table className="mx-auto my-2">
-              <tbody className="table-test">
-                {textTable.map((row) => {
+              <tbody className="initial-table">
+                {initialTable.map((row) => {
                   return (
                     <tr key={"r" + row[0]}>
                       {row.map((text) => {
                         return text.endsWith("2") ? (
                           <td key={text} colspan="2">
-                            {" "}
-                            {text.split("2")[0]}{" "}
+                            {text.split("2")[0]}
                           </td>
                         ) : text.startsWith("2") ? (
                           <td key={text} rowspan="2">
