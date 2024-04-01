@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { syllable } from "@controller/yueYin";
-import { syllableURL } from "@controller/urls";
+import { initialURL } from "@controller/urls";
 import { checkIsVowel } from "@controller/checkYueYinType";
 import * as ccss from "@controller/cssName";
 import YueYinPlayer from "@components/YueYinPlayer";
@@ -36,15 +36,16 @@ export default function YueYin(props) {
   let data = matchData();
   let tones = data.tone;
   let yueYinArr = tones.map((tone) => yueYin + tone);
+  const initialBtnText = initial == "" ? "<< 성모표" : `<< 성모 [ ${initial} ]`;
 
   return (
     <div className={ccss.noHeroContent}>
       <div className={ccss.headerBtnBlock}>
         <button className={ccss.headerBtn}>
-          <Link href={syllableURL + initial}>&lt;&lt; 성모 [ {initial} ]</Link>
+          <Link href={initialURL + initial}>{initialBtnText}</Link>
         </button>
         <button className={ccss.headerBtn}>
-          <Link href={syllableURL + vowel}>운모 [ {vowel} ] &gt;&gt;</Link>
+          <Link href={initialURL + vowel}>운모 [ {vowel} ] &gt;&gt;</Link>
         </button>
       </div>
       <div className={ccss.mainBlock}>
