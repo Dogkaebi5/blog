@@ -27,7 +27,6 @@ const SubNav = (props) => {
       ? [
           ["All", "/blog"],
           ["일상", "/blog?tag=daily"],
-          ["책", "/blog?tag=book"],
           ["코딩", "/blog?tag=coding"],
           ["광둥어", "/blog?tag=cantonese"],
         ]
@@ -43,15 +42,7 @@ const SubNav = (props) => {
               <Link
                 href={url}
                 key={item}
-                className={
-                  tag == null
-                    ? lastPathname == params[params.length - 1]
-                      ? ccss.toggleActive
-                      : ccss.toggle
-                    : tag == url.split("=")[1]
-                    ? ccss.toggleActive
-                    : ccss.toggle
-                }
+                className={tag == null ? (lastPathname == params[params.length - 1] ? ccss.toggleActive : ccss.toggle) : tag == url.split("=")[1] ? ccss.toggleActive : ccss.toggle}
                 //// 현재 페이지 확인
                 // 쿼리tag가 없으면 path와 url비교
                 // 퀴리tag가 있으면 tag와 url 태크와 비교

@@ -14,7 +14,7 @@ export default async function Word(props) {
   // data 순서 소팅
   const page = props.searchParams.page ?? 1;
   // 단어는 카드 최대 10장
-  const maxCardInPage = 10;
+  const maxCardInPage = 12;
   const wordData = await setCardList("word", page, maxCardInPage);
   const maxPages = Math.ceil(wordData.allLength / maxCardInPage);
 

@@ -1,6 +1,6 @@
 export const logo = "h-8 py-1 px-4 rounded-full bg-green-100";
 export const noHeroContent = "m-4";
-export const hero = "bg-gray-100 h-60 flex flex-col justify-center items-center";
+export const hero = "bg-gray-50 rounded-lg text-center p-14";
 export const subNavWrap = "flex flex-col gap-4 md:flex-row justify-between items-center mt-8";
 export const toggle = "rounded-full py-2 px-7 border shadow-md hover:border-green-600 ";
 export const toggleActive = toggle + " bg-green-600 text-white";
@@ -19,8 +19,7 @@ export const hr = "mt-12 mb-8";
 export const textBox = "p-4 my-4 bg-gray-50 rounded-xl shadow-md";
 export const alpCardWrap = "flex flex-wrap my-4 gap-2";
 export const alpCardOutBox = "transition-color p-1 border rounded-lg hover:bg-green-300";
-export const alpCardInBox =
-  "p-3 border bg-gray-50 inline-block rounded-md text-lg hover:bg-green-500 hover:font-bold hover:text-white";
+export const alpCardInBox = "p-3 border bg-gray-50 inline-block rounded-md text-lg hover:bg-green-500 hover:font-bold hover:text-white";
 export const alpTitle = "p-8 bg-gray-50 shadow-lg inline-block rounded-md font-bold text-6xl";
 export const cnTitleBox = "flex items-center rounded-xl shadow-lg ring ring-green-200 px-6";
 
@@ -41,12 +40,12 @@ export const blogCardTextWrap = "px-4 pt-4 pb-8";
 export const blogCardText = "mt-4 text-sm text-nowrap overflow-hidden text-ellipsis";
 export const blogDate = "text-gray-600 text-xs";
 
-export const cnCardsWrap = "mx-4 grid grid-cols-2 sm:grid-cols-4  gap-4";
+export const cnCardsWrap = "mx-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4";
 export const cnCard = "rounded-md border text-center shadow-md hover:shadow hover:scale-105";
 export const cnCardJutYin = "py-3 text-sm";
 export const cnCardTC = "font-bold text-6xl pb-6";
 export const cnCardTitle = "py-2 text-sm font-bold bg-gray-100";
-export const wordCardsWrap = "grid grid-cols-1 sm:grid-cols-3 mx-4";
+export const wordCardsWrap = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-4";
 
 export const syllableWrap = "mx-auto py-2 mb-4 px-4 rounded-xl";
 export const syllableDetail = "text-start mx-auto my-4 text-sm";

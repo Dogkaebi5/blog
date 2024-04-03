@@ -45,15 +45,21 @@ export default async function Read(props) {
     if (data.category == "cantonese") return "광둥어";
   };
 
+  // 마크다운 이미지 옵션
+  // 링크가 이미지 확장자(jpg ...)가 아닌 경우 <img>는 표기가 안되서 Image 컴포넌트로 변경 사용
+  const options = {
+    overrides: {
+      img: ({ src, ...props }) => <Image width={500} height={500} src={src} {...props} />,
+    },
+  };
+
   return (
     <div className="p-16">
       <PrismLoader />
       <div className="px-4">
         <h1 className={ccss.h1}>{data.title}</h1>
         <p className={ccss.blogDate}>- {createdDate.toLocaleDateString()}</p>
-        {updatedDate != null || updatedDate != undefined ? (
-          <p className={ccss.blogDate}>( {updatedDate.toLocaleDateString()} Updated )</p>
-        ) : null}
+        {updatedDate != null || updatedDate != undefined ? <p className={ccss.blogDate}>( {updatedDate.toLocaleDateString()} Updated )</p> : null}
         <div className="flex mt-4">
           <Link className={ccss.headerBtn} href={`/?tag=${data.category}`}>
             {category()}
@@ -61,17 +67,11 @@ export default async function Read(props) {
         </div>
       </div>
       <div className="mt-8 ">
-        <Image
-          className="object-cover w-full max-h-96"
-          width={600}
-          height={400}
-          src={imgURL + data.images[0]}
-          alt={data.title}
-        />
+        <Image className="object-cover w-full max-h-96" width={600} height={400} src={imgURL + data.images[0]} alt={data.title} />
       </div>
       <article class="prose prose-stone">
         <PrismLoader />
-        <Markdown>{content}</Markdown>
+        <Markdown options={options}>{content}</Markdown>
       </article>
     </div>
   );

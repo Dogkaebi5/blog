@@ -7,18 +7,7 @@ export default function Syllable() {
   const vowels = Object.keys(syllable.vowel);
   const vowelHeads = [
     ["운복", "aa", "a", "e", "i", "o", "u", "oe", "eo", "yu"],
-    [
-      "2발음",
-      "[ aː ]",
-      "[ ɐ ]",
-      "[ ɛː ] [ e ]",
-      "[ iː ] [ ɪ ]",
-      "[ ɔː ] [ o ]",
-      "[ uː ] [ ʊ ]",
-      "[ œː ]",
-      "[ ɵ ]",
-      "[ yː ]",
-    ],
+    ["2발음", "[ aː ]", "[ ɐ ]", "[ ɛː ] [ e ]", "[ iː ] [ ɪ ]", "[ ɔː ] [ o ]", "[ uː ] [ ʊ ]", "[ œː ]", "[ ɵ ]", "[ yː ]"],
     ["ㅏ~", "ㅏ", "ㅔ", "ㅣ/ㅐ", "ㅗㅓ", "ㅜ~", "ㅓ", "ㅗ", "ㅟ"],
   ];
   const vowelFinals = [

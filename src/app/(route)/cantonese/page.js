@@ -10,7 +10,7 @@ export default async function Cantonese(props) {
   // 데이터는 read ctrl 으로 이동
   const page = props.searchParams.page ?? 1;
   // 한자는 카드 최대24장
-  const maxCardInPage = 24;
+  const maxCardInPage = 12;
   const tcData = await setCardList("tc", page, maxCardInPage);
   const maxPages = Math.ceil(tcData.allLength / maxCardInPage);
 
