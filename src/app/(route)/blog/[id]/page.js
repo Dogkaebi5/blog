@@ -61,7 +61,7 @@ export default async function Read(props) {
         <p className={ccss.blogDate}>- {createdDate.toLocaleDateString()}</p>
         {updatedDate != null || updatedDate != undefined ? <p className={ccss.blogDate}>( {updatedDate.toLocaleDateString()} Updated )</p> : null}
         <div className="flex mt-4">
-          <Link className={ccss.headerBtn} href={`/?tag=${data.category}`}>
+          <Link className={ccss.headerBtn} href={`/blog?tag=${data.category}`}>
             {category()}
           </Link>
         </div>

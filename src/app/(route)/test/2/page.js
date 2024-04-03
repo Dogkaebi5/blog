@@ -24,7 +24,7 @@ export default async function Test() {
   };
   const imglink = `https://drive.google.com/uc?id=${images[0]}`;
 
-  const content = text.replaceAll("MDIMG[0]", imglink);
+  const content = text.replaceAll("MDIMG=1", imglink);
   return (
     <div className="p-16">
       <div className="px-4">
@@ -39,7 +39,7 @@ export default async function Test() {
         <Image className="object-cover w-full max-h-96" width={1000} height={1000} src={imgURL + images[0]} alt="sample image" />
       </div>
 
-      <article className="prose prose-stone">
+      <article className="prose prose-stone mt-8">
         <PrismLoader />
         <Markdown options={options}>{content}</Markdown>
       </article>
