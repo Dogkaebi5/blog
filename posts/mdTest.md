@@ -144,8 +144,8 @@ Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
 
 ## Images
 
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
+![피자유나](replaceImgLink)
+![핫케익유나](replaceImgLink "핫케익 유나")
 
 Like links, Images also have a footnote style syntax
 
@@ -153,9 +153,9 @@ Like links, Images also have a footnote style syntax
 
 With a reference later in the document defining the URL location:
 
-[id]: https://octodex.github.com/images/dojocat.jpg "The Dojocat"
+[id]: replaceImgLink "id테스트 광둥어 개요"
 
-<img src="https://octodex.github.com/images/stormtroopocat.jpg" class="w-20" >
+<img src="replaceImgLink" class="w-20" alt="댕댕이" >
 
 ## Plugins
 

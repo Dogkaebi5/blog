@@ -35,7 +35,17 @@ export default async function Read(props) {
   // - html에 컨포넌트를 포함하면 dangerouslySetInnerHTML는 읽지 못함.
   // 결론 : (1)markdown-to-jsx을 사용 (2)md 별도 저장 (3)tailwind plugin @tailwindcss/typography 사용
   const contentObj = await fetch(imgURL + data.content);
-  const content = await contentObj.text();
+  const contentText = await contentObj.text();
+
+  // 이미지 링크 replacer
+  const imgLinkReplacer = (text) => {
+    let res = text;
+    data.images.map((id) => (res = res.replace("replaceImgLink", imgURL + id)));
+    return res;
+  };
+  const content = imgLinkReplacer(contentText);
+
+  console.log(content);
 
   // 카테고리(태그) 표기 func
   const category = () => {
@@ -49,7 +59,7 @@ export default async function Read(props) {
   // 링크가 이미지 확장자(jpg ...)가 아닌 경우 <img>는 표기가 안되서 Image 컴포넌트로 변경 사용
   const options = {
     overrides: {
-      img: ({ src, ...props }) => <Image width={500} height={500} src={src} {...props} />,
+      img: ({ src, alt, ...props }) => <Image width={500} height={500} alt={alt} src={src} {...props} />,
     },
   };
 
