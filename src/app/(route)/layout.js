@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "../globals.css";
 import Navigation from "@components/Navigation";
+import Footer from "../components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +20,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className + " max-w-4xl mx-auto relative"}>
         <Navigation />
         <div>{children}</div>
-        <footer>
-          <hr />
-          <p className="py-2 text-center text-sm text-gray-400">© DogKaeBi</p>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
