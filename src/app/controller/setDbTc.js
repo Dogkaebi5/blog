@@ -40,14 +40,14 @@ export const setDb = async (data4) => {
   // A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
   // firebase 파일에서 app를 export하지 않았더니 성공했다?...
 
-  //// 테스트 내용
+  // 테스트 내용
   // try {
   //   const docRef = await addDoc(collection(db, "tc"), data1);
   //   console.log("Document written with ID: ", docRef.id);
   // } catch (error) {
   //   console.error("Error adding document: ", error);
   // }
-  ////
+
   // try {
   //   data3.map(async (word) => {
   //     await setDoc(doc(db, "tc", String(setIdFromTc(word.tc))), word);
@@ -55,13 +55,20 @@ export const setDb = async (data4) => {
   // } catch (error) {
   //   console.error("Error adding document: ", error);
   // }
-  ////
+
   console.log("제출중 ...");
-  try {
-    const tcId = String(setIdFromTc(data4.tc));
-    await setDoc(doc(firestore, "tc", tcId), data4);
-    console.log("제출 완료");
-  } catch (error) {
-    console.error("Error adding document: ", error);
-  }
+  const tcId = String(setIdFromTc(data4.tc));
+  console.log("id", tcId);
+  const fireDoc = doc(firestore, "tc", tcId);
+  await setDoc(fireDoc, data4);
+  console.log("제출 완료");
 };
+
+// 이벤트로 setdb를 호출하면 작동을 하지 않는다
+// client에서는 '제출중'까지 출력되는 것을 보아 try문이 실행이 되지 않는 것 같지만
+// server에서는 아예 console이 없어서 아예 실행이 되지 않은 것으로 판단.
+// setDb 내부에 '제출중'이 있으니 호출은 된 것 같지만.
+// setDb를 이벤트가 아닌 컴포넌트에 바로 사용하면 정상적으로 작동한다.
+// ? 마운팅 단계에서는 server가 호출하는 것으로, 정상으로 작동한다.
+// ! 확인결과: .env NEXT_PUBLIC 접두사가 없어서 client 에서 접근을 못했던 것이었음
+// TODO: 서비스 실행할 때는 .env NEXT_PUBLIC 삭제

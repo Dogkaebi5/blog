@@ -11,7 +11,7 @@ import matter from "gray-matter";
 ////////
 // [id] 폴더 router
 export default async function Read(props) {
-  //// 데이터 fire에서 가져오는 방식으로 변경 완료
+  // 데이터 fire에서 가져오는 방식으로 변경 완료
   const data = dbPost.filter((post) => {
     if (post.slug == props.params.id) {
       return post;
