@@ -29,19 +29,6 @@ export default function Admin() {
     setDb(formData);
   };
 
-  const data = {
-    sortId: "19",
-    tc: "望",
-    yueYin: "mong6",
-    cn: "",
-    pinyin: "wàng",
-    mandarin: "看",
-    hanja: "바랄 망/보름 망",
-    category: "동사",
-    title: "쳐다보다",
-    mean: "자세히 살펴보다. 물건의 표면을 보다. 쳐다보다./( 외부를 보는 행위. 책, 티비 같은 내용물을 볼 때는 사용하지 않는다. [ 望書 ]는 책을 읽는 것이 아니라 책 외부 자체를 보는 행위를 얘기한다. 컴퓨터를 보는데 사용이 된다. 이유는 컴퓨터는 보는 것이 아니라 사용하는 것으로 [ 望住電腦 ]는 '컴퓨터를 쳐다본다'의 뜻이다.)/바란다. 희망./만월, 음력15일",
-  };
-
   return (
     <div>
       <p>Admin</p>

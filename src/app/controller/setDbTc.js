@@ -70,5 +70,5 @@ export const setDb = async (data4) => {
 // setDb 내부에 '제출중'이 있으니 호출은 된 것 같지만.
 // setDb를 이벤트가 아닌 컴포넌트에 바로 사용하면 정상적으로 작동한다.
 // ? 마운팅 단계에서는 server가 호출하는 것으로, 정상으로 작동한다.
-// ! 확인결과: .env NEXT_PUBLIC 접두사가 없어서 client 에서 접근을 못했던 것이었음
+// ! 해결: .env NEXT_PUBLIC 접두사가 없어서 client 에서 접근을 못했던 것이었음
 // TODO: 서비스 실행할 때는 .env NEXT_PUBLIC 삭제
