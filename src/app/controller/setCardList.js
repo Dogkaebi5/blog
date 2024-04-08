@@ -13,15 +13,14 @@ export async function setCardList(category, pageNum, maxCardInPage) {
   function setCategoryData() {
     if (category == "tc") return dbTc.sort((a, b) => b.sortId - a.sortId);
     if (category == "word") return dbWord.sort((a, b) => b.sortId - a.sortId);
-    else if (category != null) return dbPost.filter((post) => post.category == category).sort((a, b) => b.id - a.id);
-    return dbPost.sort((a, b) => b.id - a.id);
+    else if (category != null) return dbPost.filter((post) => post.category == category).sort((a, b) => b.createdDate - a.createdDate);
+    return dbPost.sort((a, b) => b.createdDate - a.createdDate);
   }
   const categoryData = setCategoryData();
 
   // 현재 페이지의 카드 수량
   // 임시 최대 카드 8
-  const maxCard =
-    categoryData.length - pageNum * maxCardInPage >= 0 ? maxCardInPage : categoryData.length % maxCardInPage;
+  const maxCard = categoryData.length - pageNum * maxCardInPage >= 0 ? maxCardInPage : categoryData.length % maxCardInPage;
 
   // 시작 & 마지막 카드 id
   const startNum = (pageNum - 1) * maxCardInPage;

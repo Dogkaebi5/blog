@@ -1,13 +1,20 @@
 ---
-__Advertisement :)__
-
-- __[pica](https://nodeca.github.io/pica/demo/)__ - high quality and fast image
-resize in browser.
-- __[babelfish](https://github.com/nodeca/babelfish/)__ - developer friendly
-i18n with plurals support and easy syntax.
-
-You will like those projects!
+title: markdown test
+summary: test test test
 ---
+
+---
+
+**Advertisement :)**
+
+- **[pica](https://nodeca.github.io/pica/demo/)** - high quality and fast image
+  resize in browser.
+- **[babelfish](https://github.com/nodeca/babelfish/)** - developer friendly
+  i18n with plurals support and easy syntax.
+
+---
+
+## You will like those projects!
 
 # h1 Heading 8-)
 
@@ -144,8 +151,8 @@ Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
 
 ## Images
 
-![피자유나](replaceImgLink)
-![핫케익유나](replaceImgLink "핫케익 유나")
+![피자유나](https://drive.google.com/uc?id=1ssG03ftjdPTSJy8Co49mZ73YAOsFGntF)
+![핫케익유나](https://drive.google.com/uc?id=16TOHBZwX30pmS993qvRbZt8uUXEAR_mm "핫케익 유나")
 
 Like links, Images also have a footnote style syntax
 
@@ -153,9 +160,9 @@ Like links, Images also have a footnote style syntax
 
 With a reference later in the document defining the URL location:
 
-[id]: replaceImgLink "id테스트 광둥어 개요"
+[id]: https://drive.google.com/uc?id=1Iodlb8GIbH0CoHjgkguQBlXVY5agz_3d "id테스트 광둥어 개요"
 
-<img src="replaceImgLink" class="w-20" alt="댕댕이" >
+<img src="https://drive.google.com/uc?id=1hm2QhpQzavfKF4tgpFarFgeovfRtOhNw" class="w-20" alt="댕댕이" >
 
 ## Plugins
 

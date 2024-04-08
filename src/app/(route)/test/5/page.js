@@ -35,7 +35,7 @@ export default function Test() {
         </div>
       </div>
       <div className="mt-8">{/* <Image className="object-cover w-full max-h-96" width={1000} height={1000} src={imgURL + images[0]} alt="sample image" /> */}</div>
-      {contents}
+
       <article className="prose prose-stone mt-8"></article>
     </div>
   );

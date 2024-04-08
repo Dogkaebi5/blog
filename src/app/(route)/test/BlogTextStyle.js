@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { imgURL } from "../controller/urls";
+import { imgURL } from "../../controller/urls";
 import Image from "next/image";
-import PrismLoader from "./PrismLoader";
+import PrismLoader from "../../components/PrismLoader";
 
 export function H({ t, s = "2" }) {
   return <h2 className={`text-${s}xl`}>{t}</h2>;
@@ -95,9 +95,7 @@ export function T({ t, d }) {
   return (
     <div className="inline relative ">
       <span className="underline underline-offset-4 decoration-dotted cursor-help peer">{t}</span>
-      <div className="absolute left-2 -bottom-10 inline rounded p-1 text-sm bg-white border shadow invisible whitespace-nowrap opacity-0 peer-hover:visible peer-hover:opacity-100">
-        {d}
-      </div>
+      <div className="absolute left-2 -bottom-10 inline rounded p-1 text-sm bg-white border shadow invisible whitespace-nowrap opacity-0 peer-hover:visible peer-hover:opacity-100">{d}</div>
     </div>
   );
 }

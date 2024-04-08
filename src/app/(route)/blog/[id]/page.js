@@ -4,23 +4,16 @@ import dbPost from "@controller/readDbPost";
 import * as ccss from "@controller/cssName";
 import { imgURL } from "@controller/urls";
 import PrismLoader from "@/app/components/PrismLoader";
+
 import Markdown from "markdown-to-jsx";
+import matter from "gray-matter";
 
 ////////
 // [id] 폴더 router
 export default async function Read(props) {
-  // // 임시로 local json 파일 읽기
-  // const res = await fetch("http://localhost:3000/json/data.json");
-  // const jsonData = await res.json();
-  // const allData = await jsonData.data;
-  // 모든 데이터에서 filter로 id에 해당되는 data 추출
-  // usePathname을 사용하면 use client이어야 하고, async를 사용할 수 없다
-  // json의 날짜를 현지 날짜 string으로 변경
-  // const date = new Date(data.date).toLocaleDateString();
-
   //// 데이터 fire에서 가져오는 방식으로 변경 완료
   const data = dbPost.filter((post) => {
-    if (post.id == Number(props.params.id)) {
+    if (post.slug == props.params.id) {
       return post;
     }
   })[0];
@@ -37,15 +30,9 @@ export default async function Read(props) {
   const contentObj = await fetch(imgURL + data.content);
   const contentText = await contentObj.text();
 
-  // 이미지 링크 replacer
-  const imgLinkReplacer = (text) => {
-    let res = text;
-    data.images.map((id) => (res = res.replace("replaceImgLink", imgURL + id)));
-    return res;
-  };
-  const content = imgLinkReplacer(contentText);
-
-  console.log(content);
+  // gray-matter 사용
+  const dataParsed = matter(contentText);
+  const content = dataParsed.content;
 
   // 카테고리(태그) 표기 func
   const category = () => {
@@ -77,9 +64,9 @@ export default async function Read(props) {
         </div>
       </div>
       <div className="mt-8 ">
-        <Image className="object-cover w-full max-h-96" width={600} height={400} src={imgURL + data.images[0]} alt={data.title} />
+        <Image className="object-cover w-full max-h-96" width={600} height={400} src={imgURL + data.thumbnail} alt={data.title} />
       </div>
-      <article class="prose prose-stone">
+      <article className="prose prose-stone">
         <PrismLoader />
         <Markdown options={options}>{content}</Markdown>
       </article>

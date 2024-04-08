@@ -1,7 +1,7 @@
 import { imgURL } from "@controller/urls";
 import * as ccss from "@controller/cssName";
 import Image from "next/image";
-import { B, BQ, CI, CP, FN, FNR, H, I, IMG, LI, LT, M, T, U, X } from "@/app/components/BlogTextStyle";
+import { B, BQ, CI, CP, FN, FNR, H, I, IMG, LI, LT, M, T, U, X } from "@/app/(route)/test/BlogTextStyle";
 
 export default function Test() {
   const preCode = `const a = "This is indented code.";
@@ -25,13 +25,7 @@ This is blockquotes line 2`;
         </div>
       </div>
       <div className="mt-8">
-        <Image
-          className="object-cover w-full max-h-96"
-          width={1000}
-          height={1000}
-          src={imgURL + "1ssG03ftjdPTSJy8Co49mZ73YAOsFGntF"}
-          alt="sample image"
-        />
+        <Image className="object-cover w-full max-h-96" width={1000} height={1000} src={imgURL + "1ssG03ftjdPTSJy8Co49mZ73YAOsFGntF"} alt="sample image" />
       </div>
       {/* **** 실패 : 컴포넌트 + dangerouslySetInnerHTML 사용 테스트 */}
       {/* prettier-ignore */}
