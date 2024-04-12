@@ -12,20 +12,18 @@ export default function YueYin(props) {
   function splitYueYin() {
     if (checkIsVowel(yueYin)) return ["", yueYin];
     if (yueYin.startsWith("gw") || yueYin.startsWith("kw")) return [yueYin.substring(0, 2), yueYin.substring(2)];
-    if (yueYin.startsWith("ng"))
-      return yueYin.length == 2 ? ["", yueYin] : [yueYin.substring(0, 2), yueYin.substring(2)];
-    if (yueYin.startsWith("m"))
-      return yueYin.length == 1 ? ["", yueYin] : [yueYin.substring(0, 1), yueYin.substring(1)];
+    if (yueYin.startsWith("ng")) return yueYin.length == 2 ? ["", yueYin] : [yueYin.substring(0, 2), yueYin.substring(2)];
+    if (yueYin.startsWith("m")) return yueYin.length == 1 ? ["", yueYin] : [yueYin.substring(0, 1), yueYin.substring(1)];
     return [yueYin.substring(0, 1), yueYin.substring(1)];
   }
   // 해당 데이터 찾기
   function matchData() {
-    const data = syllable.yueYin;
-    const keys = Object.keys(data);
+    const allData = syllable.yueYin;
+    const keys = Object.keys(allData);
 
     for (let i = 0; i < keys.length; i++) {
       if (keys[i] == yueYin) {
-        return data[keys[i]];
+        return allData[keys[i]];
       }
     }
   }
@@ -35,7 +33,7 @@ export default function YueYin(props) {
   let vowel = splitedYueYinArr[1];
   let data = matchData();
   let tones = data.tone;
-  let yueYinArr = tones.map((tone) => yueYin + tone);
+  let yueYinArr = data.tone.map((tone) => yueYin + tone);
   const initialBtnText = initial == "" ? "<< 성모표" : `<< 성모 [ ${initial} ]`;
 
   return (

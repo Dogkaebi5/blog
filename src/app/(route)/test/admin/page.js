@@ -6,18 +6,7 @@ import { useState } from "react";
 import { setDb } from "@controller/setDbTc";
 
 export default function Admin() {
-  const [formData, setFormData] = useState({
-    sortId: "",
-    tc: "",
-    yueYin: "",
-    cn: "",
-    pinyin: "",
-    mandarin: "",
-    hanja: "",
-    category: "",
-    title: "",
-    mean: "",
-  });
+  const [formData, setFormData] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,6 +32,7 @@ export default function Admin() {
         <span>구분 </span> <input className="border" onChange={handleChange} name="category" value={formData.category} /> <br />
         <span>제목 </span> <input className="border" onChange={handleChange} name="title" value={formData.title} /> <br />
         <span>의미 </span> <input className="border w-full" onChange={handleChange} name="mean" value={formData.mean} /> <br />
+        <span>추가 </span> <input className="border w-full" onChange={handleChange} name="detail" value={formData.detail} /> <br />
         <button type="submit">등록</button>
       </form>
     </div>
