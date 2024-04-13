@@ -4,7 +4,7 @@ import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import * as ccss from "@controller/cssName";
 import { useState } from "react";
 
-////////
+//
 // btns + 파람에 따라 css변경함으로 use client를 사용
 // client 를 사용하지 않는 방법을 고려했지만, tag에 따라서 변경으로 수정 못 함
 
