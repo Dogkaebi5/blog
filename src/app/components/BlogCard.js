@@ -12,7 +12,7 @@ const BlogCard = (props) => {
       <Link scroll={false} href={`/blog/${postData.slug}`}>
         <Image className="object-cover w-full h-56" width={600} height={400} src={imgURL + postData.thumbnail} alt={postData.title} />
         <div className={ccss.blogCardTextWrap}>
-          <h2 className={ccss.h2}>{postData.title}</h2>
+          <h2 className={"mb-1 font-bold text-nowrap overflow-hidden text-ellipsis"}>{postData.title}</h2>
           <p className={ccss.blogDate}>{createdDate.toLocaleString()}</p>
           {updatedDate != null ? <p className={ccss.blogDate}>{updatedDate.toLocaleString()} (Updated)</p> : null}
           <p className={ccss.blogCardText}>{postData.summary ?? ""}</p>

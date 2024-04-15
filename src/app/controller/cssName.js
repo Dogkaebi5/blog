@@ -37,7 +37,7 @@ export const pageNum = "p-1 hover:text-gray-500 cursor-pointer";
 export const blogCardsWrap = "mx-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4";
 export const blogCard = "overflow-hidden rounded-md shadow-md hover:shadow hover:scale-105";
 export const blogCardTextWrap = "px-4 pt-4 pb-8";
-export const blogCardText = "mt-4 text-sm text-nowrap overflow-hidden text-ellipsis";
+export const blogCardText = "mt-4 text-sm text-nowrap overflow-hidden text-ellipsis ";
 export const blogDate = "text-gray-600 text-xs";
 
 export const cnCardsWrap = "mx-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  gap-4";
