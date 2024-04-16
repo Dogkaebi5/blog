@@ -5,7 +5,6 @@ import PageNavgation from "@components/Pagenavgation";
 import { setCardList } from "@controller/setCardList";
 
 // Cantonese를 home으로 변경. 현 페이지 Blog로 변경
-
 export default async function Blog(props) {
   const tag = props.searchParams.tag;
   const page = props.searchParams.page ?? 1;

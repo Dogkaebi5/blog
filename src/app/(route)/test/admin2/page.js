@@ -20,16 +20,16 @@ export default function Admin2() {
     console.log("제출 완료 :", docRef.id);
   };
 
-  let modelSample = {
-    title: "",
-    slug: "",
-    category: "",
-    summary: "",
-    content: "",
-    thumbnail: "",
-    createDate: "",
-    updatedDate: "",
-  };
+  // let modelSample = {
+  //   title: "",
+  //   slug: "",
+  //   category: "",
+  //   summary: "",
+  //   content: "",
+  //   thumbnail: "",
+  //   createDate: "",
+  //   updatedDate: "",
+  // };
 
   return (
     <div>
