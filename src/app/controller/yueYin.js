@@ -914,3 +914,11 @@ export const syllable = {
     hng: { tone: [6], pronunciation: `흥`, han: `哼` },
   },
 };
+
+export const countJut = () => {
+  const juts = Object.values(syllable.yueYin);
+  console.log("월음 수 : ", juts.length);
+  let count = 0;
+  juts.map((jut) => (count = count + jut.tone.length));
+  console.log("전체 : ", count);
+};

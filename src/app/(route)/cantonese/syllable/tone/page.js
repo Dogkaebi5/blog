@@ -1,3 +1,4 @@
+import { syllableURL } from "@/app/controller/urls";
 import * as ccss from "@controller/cssName";
 import Image from "next/image";
 import Link from "next/link";
@@ -58,15 +59,15 @@ export default function Syllable() {
         <p className={ccss.textBox}>
           모든 성조가 다 있는 음절은 매우 적다.
           <br />
-          <Link className={ccss.linkGreenText} href={yueYinURL + "maa"}>
+          <Link className={ccss.linkGreenText} href={syllableURL + "maa"}>
             maa
           </Link>
           ,&nbsp;
-          <Link className={ccss.linkGreenText} href={yueYinURL + "si"}>
+          <Link className={ccss.linkGreenText} href={syllableURL + "si"}>
             si
           </Link>
           ,&nbsp;
-          <Link className={ccss.linkGreenText} href={yueYinURL + "ngaa"}>
+          <Link className={ccss.linkGreenText} href={syllableURL + "ngaa"}>
             ngaa
           </Link>
           &nbsp;가 대표적인 모든 성조가 있는 음절이다.
