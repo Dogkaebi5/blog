@@ -22,12 +22,12 @@ export default function Initial() {
   return (
     <div className={ccss.noHeroContent}>
       <div className={ccss.headerBtnBlock}>
-        <button className={ccss.headerBtn} type="button">
-          <Link href={syllableURL}>👈 음절</Link>
-        </button>
-        <button className={ccss.headerBtn} type="button">
-          <Link href={vowelURL}>운모 👉</Link>
-        </button>
+        <Link className={ccss.headerBtn} href={syllableURL}>
+          👈 음절
+        </Link>
+        <Link className={ccss.headerBtn} href={vowelURL}>
+          운모 👉
+        </Link>
       </div>
       <div className={ccss.mainBlock}>
         <h1 className={ccss.h1}>성모(聲母)</h1>

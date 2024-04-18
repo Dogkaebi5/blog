@@ -5,10 +5,9 @@ export const subNavWrap = "flex flex-col gap-4 md:flex-row justify-between items
 export const toggle = "rounded-full py-2 px-7 border shadow-md hover:border-green-600 ";
 export const toggleActive = toggle + " bg-green-600 text-white";
 export const btn = "bg-black text-white border rounded-lg py-1 px-6";
-export const searchWrap =
-  "bg-[10px] bg-[url('/magnifying-glass-solid.svg')] bg-no-repeat flex border rounded py-2 pr-4 pl-10 w-80 mr-2 shadow-sm focus:ring-1 focus:outline-none focus:border-green-500 focus:ring-green-500";
+export const searchWrap = `bg-[10px] bg-[url('/magnifying-glass-solid.svg')] bg-no-repeat flex border rounded py-2 pr-4 pl-10 w-80 mr-2 shadow-sm focus:ring-1 focus:outline-none focus:border-green-500 focus:ring-green-500`;
 export const headerBtnBlock = "p-4 flex justify-between";
-export const headerBtn = "px-4 py-1 bg-gray-100 rounded-full text-green-500 shadow";
+export const headerBtn = "px-4 py-1 bg-gray-100 rounded-full text-green-500 shadow hover:shadow-lg hover:scale-95";
 export const mainBlock = "p-8";
 export const subBlock = "px-4";
 export const h1 = "font-bold text-3xl mb-8";
@@ -23,8 +22,7 @@ export const alpCardInBox = "p-3 border bg-gray-50 inline-block rounded-md text-
 export const alpTitle = "p-8 bg-gray-50 shadow-lg inline-block rounded-md font-bold text-6xl";
 export const cnTitleBox = "flex items-center rounded-xl shadow-lg ring ring-green-200 px-6";
 
-export const yueYinPlayer =
-  "inline-block px-4 py-2 rounded-lg text-blue-600 underline underline-offset-4 hover:bg-green-50 hover:shadow after:content-['🔊'] after:ml-1 after:inline-block after:no-underline";
+export const yueYinPlayer = `inline-block px-4 py-2 rounded-lg text-blue-600 underline underline-offset-4 hover:bg-green-50 hover:shadow after:content-['🔊'] after:ml-1 after:inline-block after:no-underline`;
 export const linkGreenText = "text-green-600 underline-offset-2 hover:underline hover:font-bold";
 
 export const smLabel = "py-2 text-gray-500 text-sm";

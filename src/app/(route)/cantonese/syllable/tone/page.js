@@ -22,12 +22,20 @@ export default function Syllable() {
   <br />모든 중국어(각 방언 포함)의 발음은 일반적으로 5개 음높이에서 성조를 만든다.
   <br />`;
 
+  const LinkText = ({ text }) => {
+    return (
+      <Link className={ccss.linkGreenText} href={syllableURL + text}>
+        {text}
+      </Link>
+    );
+  };
+
   return (
     <div className={ccss.noHeroContent}>
       <div className={ccss.headerBtnBlock}>
-        <button className={ccss.headerBtn} type="button">
-          <Link href={"/cantonese/syllable"}>👈 음절</Link>
-        </button>
+        <Link className={ccss.headerBtn} href={"/cantonese/syllable"}>
+          👈 음절
+        </Link>
       </div>
       <div className={ccss.mainBlock}>
         <h1 className={ccss.h1}>성조(聲調)</h1>
@@ -57,18 +65,9 @@ export default function Syllable() {
         <p className={ccss.textBox}>
           모든 성조가 다 있는 음절은 매우 적다.
           <br />
-          <Link className={ccss.linkGreenText} href={syllableURL + "maa"}>
-            maa
-          </Link>
-          ,&nbsp;
-          <Link className={ccss.linkGreenText} href={syllableURL + "si"}>
-            si
-          </Link>
-          ,&nbsp;
-          <Link className={ccss.linkGreenText} href={syllableURL + "ngaa"}>
-            ngaa
-          </Link>
-          &nbsp;가 대표적인 모든 성조가 있는 음절이다.
+          <LinkText text="maa" /> ,&nbsp;
+          <LinkText text="si" /> ,&nbsp;
+          <LinkText text="ngaa" /> &nbsp;가 대표적인 모든 성조가 있는 음절이다.
         </p>
         <hr className={ccss.hr} />
         <h2 className={ccss.h2}>성조 변화 예시</h2>
@@ -114,7 +113,6 @@ export default function Syllable() {
           <br />
           <br /> 하지만 &quot;밥 먹었어&quot;와 &quot;밥 먹었어?&quot; 같은 말은 성조로 구분한다.
         </p>
-        <hr className={ccss.hr} />
       </div>
     </div>
   );
