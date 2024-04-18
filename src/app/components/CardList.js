@@ -1,7 +1,7 @@
 import * as ccss from "@controller/cssName";
 import BlogCard from "./BlogCard";
 import CnCard from "./CnCard";
-import { setIdFromTc } from "../controller/handleId";
+import { setIdFromTc } from "@controller/handleId";
 
 const CardList = async (props) => {
   //// 서버 컴포넌트를 사용하려 했지만 쿼리를 확인해야 해서 방법 모색 중 -->

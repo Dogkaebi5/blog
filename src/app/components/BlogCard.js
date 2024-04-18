@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import * as ccss from "@controller/cssName";
-import { imgURL } from "../controller/urls";
+import { imgURL } from "@controller/urls";
 
 const BlogCard = (props) => {
   const postData = props.data;
