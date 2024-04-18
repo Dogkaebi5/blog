@@ -44,10 +44,8 @@ export default function Syllable() {
         <h1 className={ccss.h1}>운모(韻母)</h1>
         <p className={ccss.textBox}>
           운모는 한국어의 모음과 비슷한 개념이다.
-          <br />
-          운모는 또 운복(韻腹)과 운미(韻尾)로 구성되어 있다.
-          <br />
-          운복은 9개, 운미는 8개가 있고 총57개 조합이 있다.
+          <br /> 운모는 또 운복(韻腹)과 운미(韻尾)로 구성되어 있다.
+          <br /> 운복은 9개, 운미는 8개가 있고 총57개 조합이 있다.
         </p>
         <hr className={ccss.hr} />
         <div className={ccss.subBlock}>

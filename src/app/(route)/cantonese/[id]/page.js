@@ -4,6 +4,7 @@ import dbWord from "@controller/readDbWord";
 import { syllable } from "@controller/yueYin";
 import { setTcFromId, splitIds } from "@controller/handleId";
 import YueYinPlayer from "@components/YueYinPlayer";
+import Link from "next/link";
 
 // use client에서 에러 지속 발생, async로 변경
 export default async function HanJa(props) {
@@ -56,7 +57,10 @@ export default async function HanJa(props) {
   // 페이지
   return (
     <div className={ccss.noHeroContent}>
-      <div className="flex">
+      <Link className={ccss.headerBtn} href={isOneChar ? "/cantonese" : "/cantonese/word"}>
+        👈 {isOneChar ? "한자" : "단어"}
+      </Link>
+      <div className="flex mt-4">
         <div className={ccss.cnTitleBox}>
           <h1 className={isOneChar ? " text-8xl" : " text-7xl"}>{character}</h1>
         </div>
