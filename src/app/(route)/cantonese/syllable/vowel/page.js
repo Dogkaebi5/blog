@@ -34,10 +34,10 @@ export default function Syllable() {
     <div className={ccss.noHeroContent}>
       <div className={ccss.headerBtnBlock}>
         <button className={ccss.headerBtn} type="button">
-          <Link href={syllableURL}>&lt;&lt; 음절</Link>
+          <Link href={syllableURL}>👈 음절</Link>
         </button>
         <button className={ccss.headerBtn} type="button">
-          <Link href={initialURL}>성모 &gt;&gt; </Link>
+          <Link href={initialURL}>성모 👉</Link>
         </button>
       </div>
       <div className={ccss.mainBlock}>

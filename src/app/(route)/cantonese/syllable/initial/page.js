@@ -8,17 +8,7 @@ export default function Initial() {
   const initialTable = [
     ["中文2", "塞音 (清)2", "塞擦音 (清)2", "鼻音 (濁)", "邊音 (濁)", "擦音 (清)", "半元音"],
     ["발음 분류2", "청음2", "청음2", "탁음", "탁음", "청음", "-"],
-    [
-      "발음2",
-      "파열음\n(내쉼)",
-      "파열음\n(내쉼X)",
-      "파찰음\n(내쉼)",
-      "파찰음\n(내쉼X)",
-      "코음",
-      "옆음",
-      "마찰음",
-      "반원음",
-    ],
+    ["발음2", "파열음\n(내쉼)", "파열음\n(내쉼X)", "파찰음\n(내쉼)", "파찰음\n(내쉼X)", "코음", "옆음", "마찰음", "반원음"],
     ["2입", "입술", "0b 波", "0p 婆", "", "", "0m 摸", "", "", "0w 華"],
     ["입술, 이빨", "", "", "", "", "", "", "0f 科", ""],
     ["5혀", "끝", "0d 多", "0t 拖", "", "", "0n 挪", "0l 羅", "", ""],
@@ -33,10 +23,10 @@ export default function Initial() {
     <div className={ccss.noHeroContent}>
       <div className={ccss.headerBtnBlock}>
         <button className={ccss.headerBtn} type="button">
-          <Link href={syllableURL}>&lt;&lt; 음절</Link>
+          <Link href={syllableURL}>👈 음절</Link>
         </button>
         <button className={ccss.headerBtn} type="button">
-          <Link href={vowelURL}>운모 &gt;&gt; </Link>
+          <Link href={vowelURL}>운모 👉</Link>
         </button>
       </div>
       <div className={ccss.mainBlock}>

@@ -52,7 +52,7 @@ export default function Syllable() {
 <br/>즉 학파와 학교마다 표기법이 다른 경우가 많다.
 <br/><br/>월음의 대표적인 표기법은 :
 <br/>① 월병(粵拼), ② 황석릉(黃錫凌), ③ 예일(耶魯), ④ 광저우(廣州), ⑤ IPA, ⑥ 교원(教院), ⑦ 유석상(劉錫祥) 등이 있다.
-<br/>본 사이트에서 사용하는 월음은
+<br/>본 사이트에서 사용하는 월음은 월병
 `;
 
   const SelectorBox = ({ type }) => {
@@ -106,8 +106,7 @@ export default function Syllable() {
           <div className={ccss.syllableDetail}>
             <span className={ccss.h2}>월음(粵音)</span>
             <span dangerouslySetInnerHTML={{ __html: syllableDescription }} />
-            <span className="bg-green-100 p-1/2 rounded-xl ">월병(粵拼)</span>
-            이다.
+            <span className=" bg-green-100 p-1/2 rounded-xl ">(粵拼)</span>이다.
           </div>
           <div className={ccss.syllableSelectorsWrap}>
             <SelectorBox type="i" />
