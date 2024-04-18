@@ -14,7 +14,14 @@ const CardList = async (props) => {
     <div className={wrapCss}>
       {props.data == null || props.data == undefined
         ? "데이터가 없거나 읽지 못했습니다"
-        : props.data.map((post) => (props.path == "blog" ? <BlogCard key={post.slug} data={post} /> : <CnCard key={setIdFromTc(post.tc)} data={post} />))}
+        : props.data.map((data) => {
+            if (props.path == "blog") {
+              return <BlogCard key={data.slug} data={data} />;
+            } else {
+              const id = setIdFromTc(data.tc);
+              return <CnCard key={id} id={id} data={data} />;
+            }
+          })}
     </div>
   );
 };

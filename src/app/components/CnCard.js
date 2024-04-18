@@ -1,15 +1,12 @@
 import Link from "next/link";
-import { setIdFromTc } from "@controller/handleId";
 import * as ccss from "@controller/cssName";
 
 const CnCard = (props) => {
-  const data = props.data;
-  const id = setIdFromTc(data.tc);
   return (
-    <Link key={id} className={ccss.cnCard} href={`/cantonese/${id}`}>
-      <p className={ccss.cnCardJutYin}>{data.yueYin}</p>
-      <h1 className={ccss.cnCardTC}>{data.tc}</h1>
-      <p className={ccss.cnCardTitle}>{data.title}</p>
+    <Link key={props.id} className={ccss.cnCard} href={`/cantonese/${props.id}`}>
+      <p className={ccss.cnCardJutYin}>{props.data.yueYin}</p>
+      <h1 className={ccss.cnCardTC}>{props.data.tc}</h1>
+      <p className={ccss.cnCardTitle}>{props.data.title}</p>
     </Link>
   );
 };
