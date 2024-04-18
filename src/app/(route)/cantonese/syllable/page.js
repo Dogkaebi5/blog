@@ -47,6 +47,56 @@ export default function Syllable() {
     setIshan(!isHan);
   };
 
+  const syllableDescription = `<br/>광둥어 발음과 표기법을 뜻한다.
+<br/>중국도 광둥어 전공은 있지만 통일된 학습법이 있지는 않다.
+<br/>즉 학파와 학교마다 표기법이 다른 경우가 많다.
+<br/><br/>월음의 대표적인 표기법은 :
+<br/>① 월병(粵拼), ② 황석릉(黃錫凌), ③ 예일(耶魯), ④ 광저우(廣州), ⑤ IPA, ⑥ 교원(教院), ⑦ 유석상(劉錫祥) 등이 있다.
+<br/>본 사이트에서 사용하는 월음은
+`;
+
+  const SelectorBox = ({ type }) => {
+    let data = {};
+    if (type == "i") {
+      data.title = "성모(聲母)";
+      data.value = selectedInitial;
+      data.handle = handleInitial;
+      data.data = allInitials;
+      data.url = initialURL;
+    }
+    if (type == "v") {
+      data.title = "운모(韻母)";
+      data.value = selectedVowel;
+      data.handle = handleVowel;
+      data.data = allVowels;
+      data.url = vowelURL;
+    }
+    if (type == "t") {
+      data.title = "성조(聲調)";
+      data.value;
+      data.handle;
+      data.data = [1, 2, 3, 4, 5, 6];
+      data.url = toneURL;
+    }
+
+    return (
+      <div className={ccss.syllableSelectorBox}>
+        <p className={ccss.syllablelable}>{data.title}</p>
+        <select className={ccss.syllableSelect} value={data.value} onChange={data.handle}>
+          <option value="전체">전체</option>
+          {data.data.map((i) => (
+            <option value={i} key={"select-" + i}>
+              {i}
+            </option>
+          ))}
+        </select>
+        <Link href={data.url} className={ccss.linkGreenText}>
+          More ➡️
+        </Link>
+      </div>
+    );
+  };
+
   return (
     <>
       <Heros path={"cantonese"} />
@@ -54,64 +104,18 @@ export default function Syllable() {
       <div className="text-center mb-8 max-w-4xl">
         <div className={ccss.syllableWrap}>
           <div className={ccss.syllableDetail}>
-            <span className={ccss.h2}>월음(粵音)</span>은 <br />
-            광둥어 발음 표기법을 뜻한다. <br />
-            중국도 광둥어 전공은 있지만 통일된 학습법이 있지는 않다. <br />
-            즉 학파와 학교마다 표기법이 다른 경우가 많다. <br />
-            <br />
-            월음의 대표적인 표기법은 : <br />
-            ① 월병(粵拼), ② 황석릉(黃錫凌), ③ 예일(耶魯), ④ 광저우(廣州), ⑤ IPA, ⑥ 교원(教院), ⑦ 유석상(劉錫祥) 등이
-            있다. <br />
-            <br />본 사이트에서 사용하는 월음은 <span className="bg-green-100 p-1 rounded-xl ">월병(粵拼)</span>
+            <span className={ccss.h2}>월음(粵音)</span>
+            <span dangerouslySetInnerHTML={{ __html: syllableDescription }} />
+            <span className="bg-green-100 p-1/2 rounded-xl ">월병(粵拼)</span>
             이다.
           </div>
           <div className={ccss.syllableSelectorsWrap}>
-            <div className={ccss.syllableSelectorBox}>
-              <p className={ccss.syllablelable}>성모(聲母)</p>
-              <select value={selectedInitial} className={ccss.syllableSelect} onChange={handleInitial}>
-                <option value="전체">전체</option>
-                {allInitials.map((i) => (
-                  <option value={i} key={i + 1}>
-                    {i}
-                  </option>
-                ))}
-              </select>
-              <Link href={initialURL}>
-                <p className={ccss.linkGreenText}>More &gt;&gt;</p>
-              </Link>
-            </div>
-            <div className={ccss.syllableSelectorBox}>
-              <p className={ccss.syllablelable}>운모(韻母)</p>
-              <select value={selectedVowel} className={ccss.syllableSelect} onChange={handleVowel}>
-                <option value="전체">전체</option>
-                {allVowels.map((v) => (
-                  <option value={v} key={v + 1}>
-                    {v}
-                  </option>
-                ))}
-              </select>
-              <Link href={vowelURL}>
-                <p className={ccss.linkGreenText}>More &gt;&gt;</p>
-              </Link>
-            </div>
-            <div className={ccss.syllableSelectorBox}>
-              <p className={ccss.syllablelable}>성조(聲調)</p>
-              <select className={ccss.syllableSelect}>
-                <option>전체</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-              </select>
-              <Link href={toneURL}>
-                <p className={ccss.linkGreenText}>More &gt;&gt;</p>
-              </Link>
-            </div>
+            <SelectorBox type="i" />
+            <SelectorBox type="v" />
+            <SelectorBox type="t" />
           </div>
-          <Link href={simpleSyllableURL}>
-            <div className={ccss.linkGreenText + " mt-2 text-right"}>월음 간략 버전 &gt;&gt;</div>
+          <Link className={ccss.linkGreenText + " text-sm block mt-2"} href={simpleSyllableURL}>
+            월음 간략 설명 ➡️
           </Link>
           {/* toggle */}
           <label className="relative inline-flex items-center cursor-pointer mt-4">
@@ -121,52 +125,44 @@ export default function Syllable() {
           </label>
         </div>
 
-        <div className="scrollBarX overflow-x-scroll p-2 bg-gray-50">
+        <div className="scrollBarX overflow-x-scroll p-2 bg-gray-100 rounded">
           <table className="mx-auto bg-white">
             <tbody>
               <tr>
-                {/* 첫줄 첫 빈칸 */}
+                {/* 첫줄 첫칸 */}
                 <td className={ccss.thRed}></td>
-                {
-                  /* 첫줄 성모 */
-                  showInitials.map((i) => (
-                    <td className={ccss.thRed + ccss.tableLink} key={i + 2}>
-                      <Link href={initialURL + i}>{i}</Link>
-                    </td>
-                  ))
-                }
+                {/* 성모 */}
+                {showInitials.map((i) => (
+                  <td className={ccss.thRed + ccss.tableLink} key={"th-" + i}>
+                    <Link href={initialURL + i}>{i}</Link>
+                  </td>
+                ))}
               </tr>
-              {
-                /* 첫열 운모 */
-                showVowels.map((v) => {
-                  return (
-                    <tr key={v}>
-                      <td className={ccss.thBlue + ccss.tableLink}>
-                        <Link href={initialURL + v}>{v}</Link>
-                      </td>
-                      {
-                        /* 월음 유무 확인 및 테이블 작성 */
-                        showInitials.map((i) => {
-                          let init;
-                          i == "-" ? (init = "") : (init = i);
-                          if (yueYin.includes(init + v)) count++;
-                          return (
-                            <td className="text-sm" key={i + 3}>
-                              {yueYin.includes(init + v) ? (
-                                <Link href={syllableURL + init + v} className={"px-0.5" + ccss.tableLink}>
-                                  {isHan ? hans[count] : init + v}
-                                </Link>
-                              ) : (
-                                ""
-                              )}
-                            </td>
-                          );
-                        })
-                      }
-                    </tr>
-                  );
-                })
-              }
+              {showVowels.map((v) => {
+                return (
+                  <tr key={"th-" + v}>
+                    {/* 첫열 운모 */}
+                    <td className={ccss.thBlue + ccss.tableLink}>
+                      <Link href={initialURL + v}>{v}</Link>
+                    </td>
+                    {/* 월음 유무 확인 및 테이블 작성 */}
+                    {showInitials.map((i) => {
+                      let init;
+                      i == "-" ? (init = "") : (init = i);
+                      if (yueYin.includes(init + v)) count++;
+                      return (
+                        <td className="text-sm" key={"tb-" + i}>
+                          {yueYin.includes(init + v) ? (
+                            <Link href={syllableURL + init + v} className={"px-0.5" + ccss.tableLink}>
+                              {isHan ? hans[count] : init + v}
+                            </Link>
+                          ) : null}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
