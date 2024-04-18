@@ -6,11 +6,12 @@ import dbWord from "./readDbWord";
 
 export function setCardList(category, pageNum, maxCardInPage) {
   const dbTcArr = Object.values(dbTc);
+  const dbWordArr = Object.values(dbWord);
 
   function setCategoryData() {
     // id 최신순 return (sort b - a)
     if (category == "tc") return dbTcArr.sort((a, b) => b.sortId - a.sortId);
-    if (category == "word") return dbWord.sort((a, b) => b.sortId - a.sortId);
+    if (category == "word") return dbWordArr.sort((a, b) => b.sortId - a.sortId);
     // 해당 카테고리 데이터 return (filter). 시간순
     else if (category != null) return dbPost.filter((post) => post.category == category).sort((a, b) => b.createdDate - a.createdDate);
     // 카테고리가 없으면 시간순 전체 return.

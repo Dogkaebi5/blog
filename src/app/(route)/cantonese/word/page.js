@@ -6,16 +6,12 @@ import { setCardList } from "@controller/setCardList";
 
 ////////
 // 원래 한자와 같은 데이터를 공유
-// 하지만 sort 및 관리에 불리로 예상하여
-// word DB 테이블 별도 작성
+// sort 및 관리에 불리로 예상하여 word DB 테이블 별도 작성
 
-export default async function Word(props) {
-  // ctrl에서 db읽기로 통합
-  // data 순서 소팅
+export default function Word(props) {
   const page = props.searchParams.page ?? 1;
-  // 단어는 카드 최대 10장
   const maxCardInPage = 12;
-  const wordData = await setCardList("word", page, maxCardInPage);
+  const wordData = setCardList("word", page, maxCardInPage);
   const maxPages = Math.ceil(wordData.allLength / maxCardInPage);
 
   return (
