@@ -54,6 +54,8 @@ export default async function HanJa(props) {
     return "-";
   };
 
+  const kr = krSyllable();
+
   // 페이지
   return (
     <div className={ccss.noHeroContent}>
@@ -69,7 +71,7 @@ export default async function HanJa(props) {
           {/* use client에서 onClick을 사용할 수 없어서 별도 컴포넌트로 작성 */}
           <YueYinPlayer yueYinArr={yueYinArr} />
           <p className={ccss.smLabel}>발음</p>
-          <p className={ccss.contentBox}>{krSyllable()}</p>
+          <p className={ccss.contentBox}>{isOneChar ? kr : kr.replace(",", " ")}</p>
         </div>
       </div>
       {isHasData ? isOneChar == 1 ? <TcContent data={data} ids={idsArr} yueYin={yueYinArr} /> : <WordContent data={data} yueYin={yueYinArr} /> : <NoContent />}
