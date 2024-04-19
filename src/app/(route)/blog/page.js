@@ -11,14 +11,14 @@ export default async function Blog(props) {
   // 블로그는 카드 최대8장
   const maxCardInPage = 6;
   // 상위 페이지에서 데이터 받아 list, nav에 전달
-  const blogData = await setCardList(tag, page, maxCardInPage);
+  const blogData = setCardList(tag, page, maxCardInPage);
   // 페이지 수량
   const maxPages = Math.ceil(blogData.allLength / maxCardInPage);
 
   return (
     <>
       <Heros path={"blog"} />
-      <SubNav path={"blog"} />
+      <SubNav path={"blog"} slug={tag} />
       <CardList path={"blog"} data={blogData.list} />
       <PageNavgation tag={tag} page={page} maxPages={maxPages} />
     </>

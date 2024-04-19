@@ -100,7 +100,7 @@ export default function Syllable() {
   return (
     <>
       <Heros path={"cantonese"} />
-      <SubNav path={"cantonese"} />
+      <SubNav path={"cantonese"} slug={"syllable"} />
       <div className="text-center mb-8 max-w-4xl">
         <div className={ccss.syllableWrap}>
           <div className={ccss.syllableDetail}>

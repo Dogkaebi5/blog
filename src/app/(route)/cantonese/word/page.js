@@ -17,7 +17,7 @@ export default function Word(props) {
   return (
     <>
       <Heros path={"cantonese"} />
-      <SubNav path={"cantonese"} />
+      <SubNav path={"cantonese"} slug="word" />
       <p className="text-sm pb-4 text-gray-400">등록 단어 : {wordData.allLength}</p>
       <CardList path={"word"} data={wordData.list} />
       <PageNavgation page={page} maxPages={maxPages} />

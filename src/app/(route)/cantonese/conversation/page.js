@@ -13,7 +13,7 @@ export default async function Conversation(props) {
   return (
     <>
       <Heros path={"cantonese"} />
-      <SubNav path={"cantonese"} />
+      <SubNav path={"cantonese"} slug={"conversation"} />
       <CardList path={"blog"} data={data.list} />
       <PageNavgation page={page} maxPages={maxPages} />
     </>
