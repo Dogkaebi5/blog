@@ -72,10 +72,13 @@ export default async function HanJa(props) {
           <p className={ccss.contentBox}>{krSyllable()}</p>
         </div>
       </div>
-      {isOneChar == 1 ? <TcContent data={data} ids={idsArr} yueYin={yueYinArr} /> : <WordContent data={data} yueYin={yueYinArr} />}
-      <hr className="border-gray-400" />
+      {isHasData ? isOneChar == 1 ? <TcContent data={data} ids={idsArr} yueYin={yueYinArr} /> : <WordContent data={data} yueYin={yueYinArr} /> : <NoContent />}
     </div>
   );
+}
+
+function NoContent() {
+  return <div className="py-10">아직 데이터가 없습니다.</div>;
 }
 
 // 한자 콘텐츠 컴포넌트

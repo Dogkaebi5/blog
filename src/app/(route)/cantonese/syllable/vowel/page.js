@@ -110,16 +110,16 @@ export default function Syllable() {
                       {row.map((text) => {
                         return text.endsWith("2") ? (
                           <td key={text} colspan="2">
-                            {text.split("2")[0]}
+                            {text.replace("2", "")}
                           </td>
                         ) : text.endsWith("3") ? (
                           <td key={text} colspan="3">
-                            {text.split("3")[0]}
+                            {text.replace("3", "")}
                           </td>
                         ) : text.startsWith("0") ? (
                           <td key={text}>
-                            <Link className={ccss.tableLink} href={initialURL + text.split(0)[1].split(" ")[0]}>
-                              {text.split("0")[1]}
+                            <Link className={ccss.tableLink} href={initialURL + text.replace("0", "").split(" ")[0]}>
+                              {text.replace("0", "")}
                             </Link>
                           </td>
                         ) : (

@@ -23,11 +23,11 @@ td {
   font-size: 12px;
 }
 .initial-table tr:first-child {
-  background-color: rgb(243, 244, 246);
+  background-color: rgb(240, 253, 244);
   font-weight: bold;
 }
 .initial-table tr:nth-child(2) {
-  background-color: rgb(243, 244, 246);
+  background-color: rgb(240, 253, 244);
 }
 .initial-table tr:nth-child(3) td {
   background-color: rgb(254, 249, 195);

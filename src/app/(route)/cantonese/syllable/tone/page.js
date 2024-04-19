@@ -47,7 +47,7 @@ export default function Syllable() {
             <tr>
               <td className={ccss.tGray}>구분</td>
               <td className={ccss.tGray}>표기</td>
-              <td className={ccss.tGray}>음평 </td>
+              <td className={ccss.tGray}>음평</td>
               <td className={ccss.tGray}>입성</td>
             </tr>
             {toneTable.map((span) => {

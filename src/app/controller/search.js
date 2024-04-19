@@ -10,12 +10,13 @@ export function search(quary) {
 
   const setTcRes = () => {
     let tcs = [];
-    dbTc.map((data) => {
+    Object.values(dbTc).map((data) => {
       if (data.tc == quary) tcs.push(data);
       if (data.cn == quary) tcs.push(data);
       if (data.mean.includes(quary)) tcs.push(data);
       if (data.category.includes(quary)) tcs.push(data);
-      if (data.yueYin.replace(/\d/g, "").includes(quary)) tcs.push(data);
+      if (data.yueYin.includes(quary)) tcs.push(data);
+      if (data.yueYin.replace(/\d/g, "").includes(quary.replace(/\d/g, ""))) tcs.push(data);
       if (data.mandarin.includes(quary)) tcs.push(data);
     });
     if (tcs.length) {
@@ -35,7 +36,7 @@ export function search(quary) {
 
   const setWordRes = () => {
     let words = [];
-    dbWord.map((data) => {
+    Object.values(dbWord).map((data) => {
       if (data.tc.includes(quary)) words.push(data);
       if (data.cn.includes(quary)) words.push(data);
       if (data.mean.includes(quary)) words.push(data);
