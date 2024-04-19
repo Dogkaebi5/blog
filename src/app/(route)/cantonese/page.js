@@ -18,7 +18,7 @@ export default function Cantonese(props) {
   return (
     <>
       <Heros path={"cantonese"} />
-      <SubNav path={"cantonese"} slug="" />
+      <SubNav path={"cantonese"} />
       <p className="text-sm pb-4 text-gray-400">등록 한자 : {tcData.allLength}</p>
       <CardList path={"tc"} data={tcData.list} />
       <PageNavgation page={page} maxPages={maxPages} />
