@@ -22,12 +22,3 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 export const firestore = getFirestore(app);
-
-// --- get test ---
-// const db = getFirestore(app);
-// export const getTest = async () => {
-//   const testCol = collection(db, "post");
-//   const testSnapshot = await getDocs(testCol);
-//   const testData = testSnapshot.docs.map((doc) => doc.data());
-//   console.log(testData);
-// };

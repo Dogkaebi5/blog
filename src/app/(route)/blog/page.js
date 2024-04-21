@@ -1,7 +1,7 @@
 import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
 import CardList from "@/app/components/CardList";
-import PageNavgation from "@components/Pagenavgation";
+import PageNavgation from "@/app/components/Pagination";
 import { setCardList } from "@controller/setCardList";
 
 // Cantonese를 home으로 변경. 현 페이지 Blog로 변경
@@ -17,9 +17,9 @@ export default async function Blog(props) {
 
   return (
     <>
-      <Heros path={"blog"} />
-      <SubNav path={"blog"} slug={tag} />
-      <CardList path={"blog"} data={blogData.list} />
+      <Heros path="blog" />
+      <SubNav path="blog" slug={tag} />
+      <CardList path="blog" data={blogData.list} />
       <PageNavgation tag={tag} page={page} maxPages={maxPages} />
     </>
   );

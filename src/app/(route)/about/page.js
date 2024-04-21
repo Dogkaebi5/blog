@@ -11,10 +11,10 @@ export default function About() {
         <p className="text-sm">강아지를 좋아하는 중국 광둥 생활 20년 넘은 수상한 아재</p>
       </div>
       <div className={ccss.textBox + " text-sm"}>
-        1996년 중국 썬전(深圳)으로 이주. <br />
-        로컬 초/중학교 졸업. 港澳台 학생을 위한 예과로 고등학교 대체. <br />
-        대학교 졸업 후 현지 취업 및 창업. <br />
-        2017년 전 직장상사의 권유로 한국 입국.
+        1996년 중국 썬전(深圳)으로 이주.
+        <br /> 로컬 초/중학교 졸업. 港澳台 학생을 위한 예과로 고등학교 대체.
+        <br /> 대학교 졸업 후 현지 취업 및 창업.
+        <br /> 2017년 전 직장상사의 권유로 한국 입국.
       </div>
       <div className={ccss.textBox}>
         <p className="text-green-500 font-bold mb-1">OB</p>

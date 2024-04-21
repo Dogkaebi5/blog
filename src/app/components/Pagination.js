@@ -1,7 +1,7 @@
 import Link from "next/link";
 import * as ccss from "@controller/cssName";
 
-const PageNavgation = (props) => {
+const Pagination = (props) => {
   // 부모에서 받지 않고 직접 path 확인 == 낭비?
   // 최대 페이지, 현재 페이지, 현재 태그, 현재 페이지
   ////// 부모에서 최대 및 페이지만 받음, Link에 path 필요없음
@@ -76,12 +76,7 @@ const PageNavgation = (props) => {
                 {pageNum}
               </span>
             ) : (
-              <Link
-                href={{ query: setNewParams(pageNum) }}
-                key={`btn${pageNum}`}
-                className={ccss.pageNum}
-                scroll={false}
-              >
+              <Link href={{ query: setNewParams(pageNum) }} key={`btn${pageNum}`} className={ccss.pageNum} scroll={false}>
                 {pageNum}
               </Link>
             )
@@ -115,4 +110,4 @@ const PageNavgation = (props) => {
   );
 };
 
-export default PageNavgation;
+export default Pagination;

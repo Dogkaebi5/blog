@@ -10,7 +10,7 @@ import SearchInput from "./SearchInput";
 const SubNav = (props) => {
   // nav tag name & path
   const navData =
-    props.path == "cantonese"
+    props.path == "tc"
       ? [
           ["한자", ""],
           ["월음", "syllable"],

@@ -1,10 +1,9 @@
 import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
-import PageNavgation from "@components/Pagenavgation";
+import PageNavgation from "@/app/components/Pagination";
 import CardList from "@components/CardList";
 import { setCardList } from "@controller/setCardList";
 
-////////
 // 원래 한자와 같은 데이터를 공유
 // sort 및 관리에 불리로 예상하여 word DB 테이블 별도 작성
 
