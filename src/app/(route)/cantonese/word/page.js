@@ -8,17 +8,19 @@ import { setCardList } from "@controller/setCardList";
 // sort 및 관리에 불리로 예상하여 word DB 테이블 별도 작성
 
 export default function Word(props) {
+  const path = "tc";
+  const slug = "word";
   const page = props.searchParams.page ?? 1;
   const maxCardInPage = 12;
-  const wordData = setCardList("word", page, maxCardInPage);
+  const wordData = setCardList(slug, page, maxCardInPage);
   const maxPages = Math.ceil(wordData.allLength / maxCardInPage);
 
   return (
     <>
-      <Heros path={"cantonese"} />
-      <SubNav path={"cantonese"} slug="word" />
+      <Heros path={path} />
+      <SubNav path={path} slug={slug} />
       <p className="text-sm pb-4 text-gray-400">등록 단어 : {wordData.allLength}</p>
-      <CardList path={"word"} data={wordData.list} />
+      <CardList path={slug} data={wordData.list} />
       <PageNavgation page={page} maxPages={maxPages} />
     </>
   );

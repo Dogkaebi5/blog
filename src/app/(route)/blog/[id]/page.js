@@ -35,12 +35,7 @@ export default async function Read(props) {
   const content = dataParsed.content;
 
   // 카테고리(태그) 표기 func
-  const category = () => {
-    if (data.category == "book") return "책";
-    if (data.category == "daily") return "일상";
-    if (data.category == "coding") return "코딩";
-    if (data.category == "cantonese") return "광둥어";
-  };
+  const category = { book: "책", daily: "일상", coding: "코딩", cantonese: "광둥어" };
 
   // 마크다운 이미지 옵션
   // 링크가 이미지 확장자(jpg ...)가 아닌 경우 <img>는 표기가 안되서 Image 컴포넌트로 변경 사용
@@ -59,7 +54,7 @@ export default async function Read(props) {
         {updatedDate != null || updatedDate != undefined ? <p className={ccss.blogDate}>( {updatedDate.toLocaleDateString()} Updated )</p> : null}
         <div className="flex mt-4">
           <Link className={ccss.headerBtn} href={`/blog?tag=${data.category}`}>
-            {category()}
+            {category[data.category]}
           </Link>
         </div>
       </div>

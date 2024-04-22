@@ -16,35 +16,22 @@ export default function YueYin(props) {
     if (yueYin.startsWith("m")) return yueYin.length == 1 ? ["", yueYin] : [yueYin.substring(0, 1), yueYin.substring(1)];
     return [yueYin.substring(0, 1), yueYin.substring(1)];
   }
-  // 해당 데이터 찾기
-  function matchData() {
-    const allData = syllable.yueYin;
-    const keys = Object.keys(allData);
 
-    for (let i = 0; i < keys.length; i++) {
-      if (keys[i] == yueYin) {
-        return allData[keys[i]];
-      }
-    }
-  }
-
-  let splitedYueYinArr = splitYueYin();
-  let initial = splitedYueYinArr[0];
-  let vowel = splitedYueYinArr[1];
-  let data = matchData();
-  let tones = data.tone;
-  let yueYinArr = data.tone.map((tone) => yueYin + tone);
-  const initialBtnText = initial == "" ? "<< 성모표" : `<< 성모 [ ${initial} ]`;
+  const initial = splitYueYin()[0];
+  const vowel = splitYueYin()[1];
+  const data = syllable.yueYin[yueYin];
+  const yueYinArr = data.tone.map((tone) => yueYin + tone);
+  const initialBtnText = initial == "" ? "👈 성모표" : `👈 성모 [ ${initial} ]`;
 
   return (
     <div className={ccss.noHeroContent}>
       <div className={ccss.headerBtnBlock}>
-        <button className={ccss.headerBtn}>
-          <Link href={initialURL + initial}>{initialBtnText}</Link>
-        </button>
-        <button className={ccss.headerBtn}>
-          <Link href={initialURL + vowel}>운모 [ {vowel} ] &gt;&gt;</Link>
-        </button>
+        <Link className={ccss.headerBtn} href={initialURL + initial}>
+          {initialBtnText}
+        </Link>
+        <Link className={ccss.headerBtn} href={initialURL + vowel}>
+          운모 [ {vowel} ] 👉
+        </Link>
       </div>
       <div className={ccss.mainBlock}>
         <div className="flex">

@@ -1,14 +1,13 @@
 "use client";
 import * as ccss from "@controller/cssName";
 
-const YueYinPlayer = (props) => {
+const YueYinPlayer = ({ yueYinArr }) => {
   function handleAudio(syllabel) {
     const audioUrlOrigin = `https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/sound/`;
     const audioUrl = `${audioUrlOrigin}/${syllabel}.Mp3`;
     const audio = new Audio(audioUrl);
     audio.play();
   }
-  const yueYinArr = props.yueYinArr;
   return (
     <>
       {yueYinArr.map((yueYin) => (

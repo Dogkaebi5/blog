@@ -9,17 +9,29 @@ const dbTcArr = Object.values(dbTc).sort((a, b) => b.sortId - a.sortId);
 const dbWordArr = Object.values(dbWord).sort((a, b) => b.sortId - a.sortId);
 const dbPostArr = dbPost.sort((a, b) => b.createdDate - a.createdDate);
 
-export function setCardList(category, pageNum, maxCardInPage) {
-  const categoryData = category == "tc" ? dbTcArr : category == "word" ? dbWordArr : category == null ? dbPostArr : dbPostArr.filter((post) => post.category == category);
+dbTcArr.map((value) => {
+  for (let key in dbTc) {
+    if (dbTc[key].sortId == value.sortId) return (value.id = key);
+  }
+});
 
+dbWordArr.map((value) => {
+  for (let key in dbWord) {
+    if (dbWord[key].sortId == value.sortId) return (value.id = key);
+  }
+});
+
+export function setCardList(category, pageNum, maxCardInPage) {
+  const data = category == "tc" ? dbTcArr : category == "word" ? dbWordArr : category == null ? dbPostArr : dbPostArr.filter((post) => post.category == category);
+  const dataLength = data.length;
   // 현재 페이지의 카드 수량
-  const maxCard = categoryData.length - pageNum * maxCardInPage >= 0 ? maxCardInPage : categoryData.length % maxCardInPage;
+  const maxCard = dataLength - pageNum * maxCardInPage >= 0 ? maxCardInPage : dataLength % maxCardInPage;
   // 시작 & 마지막 카드 id
   const startNum = (pageNum - 1) * maxCardInPage;
   const endNum = startNum + maxCard;
 
   return {
-    list: categoryData.slice(startNum, endNum),
-    allLength: categoryData.length,
+    list: data.slice(startNum, endNum),
+    allLength: dataLength,
   };
 }

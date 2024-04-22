@@ -6,8 +6,7 @@ import { useState } from "react";
 import * as ccss from "@controller/cssName";
 
 const Navigation = () => {
-  const fullPath = usePathname();
-  const pathname = "/" + fullPath.split("/")[1];
+  const pathname = "/" + usePathname().split("/")[1];
   const navigation = [
     ["Home", "/"],
     ["粵", "/cantonese"],
@@ -18,21 +17,21 @@ const Navigation = () => {
 
   // bugerBtn & menu css를 tailwind로 만들기 어려워, 별도 globals.css에 작성
   // => 보기 싫어서, 전부 globals.css에 작성
+  const [isActive, setIsActive] = useState(false);
   const [navSide, setNavSide] = useState("nav-side");
   const [navBurger, setNavBurger] = useState("nav-burger");
 
   // btn handle. 아이콘 변경, 메뉴 출연, 스크롤 방지
-  const setActive = () => {
-    setNavBurger("nav-burger active");
-    setNavSide("nav-side active");
-  };
-  const setInactive = () => {
-    setNavBurger("nav-burger");
-    setNavSide("nav-side");
-  };
-  function burgerBtnHandle(e) {
+  function clickHandle(e) {
     e.preventDefault();
-    navBurger == "nav-burger" ? setActive() : setInactive();
+    if (isActive) {
+      setNavBurger("nav-burger active");
+      setNavSide("nav-side active");
+    } else {
+      setNavBurger("nav-burger");
+      setNavSide("nav-side");
+    }
+    setIsActive(!isActive);
   }
 
   // TODO: 임시로고 변경
@@ -45,29 +44,22 @@ const Navigation = () => {
       </Link>
       <nav className="nav-main">
         {navigation.map(([title, url]) => {
-          const isActive = pathname == url;
           return (
-            <Link href={url} key={title} className={isActive ? "spread-underline active" : "spread-underline"}>
+            <Link href={url} key={title} className={pathname == url ? "spread-underline active" : "spread-underline"}>
               {title}
             </Link>
           );
         })}
       </nav>
-      <div className={navBurger} onClick={burgerBtnHandle}>
+      <div className={navBurger} onClick={clickHandle}>
         <span className={"top-0"}> </span>
         <span className={"top-2"}> </span>
         <span className={"bottom-0"}> </span>
       </div>
       <div className={navSide}>
         {navigation.map(([title, url]) => {
-          const isActive = pathname === url;
           return (
-            <Link
-              onClick={setInactive}
-              href={url}
-              key={title}
-              className={isActive ? "draw-underline font-bold" : "draw-underline"}
-            >
+            <Link onClick={clickHandle} href={url} key={title} className={pathname === url ? "draw-underline font-bold" : "draw-underline"}>
               {title}
             </Link>
           );

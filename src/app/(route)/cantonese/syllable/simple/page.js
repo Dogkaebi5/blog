@@ -3,136 +3,105 @@ import * as ccss from "@controller/cssName";
 import { initialURL, syllableURL } from "@controller/urls";
 
 export default function SyllableSp() {
-  const initials = {
-    b: "ㅂ",
-    p: "ㅍ",
-    m: "ㅁ",
-    f: "ㅎ",
-    d: "ㄷ",
-    t: "ㅌ",
-    n: "ㄴ",
-    l: "ㄹ",
-    g: "ㄱ",
-    k: "ㅋ",
-    ng: "으",
-    w: "우",
-    z: "ㅈ",
-    c: "ㅊ",
-    s: "ㅅ",
-    j: "이",
-  };
-  const initials2 = {
-    p: "ㅍ(ㅂ)",
-    t: "ㅅ(ㄷ)",
-    k: "ㅋ(ㄱ)",
-    n: "ㄴ",
-    ng: "ㅇ",
-    m: "ㅁ",
-  };
-  const vowels = { a: "ㅏ", e: "ㅔ", i: "ㅣ", o: "ㅗㅓ", u: "ㅜ", y: "ㅣ" };
-  const vowels2 = { ing: "앵", oe: "ㅕ", eo: "ㅗ", yu: "ㅟ" };
+  const initials = [
+    ["b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "ng", "w", "z", "c", "s", "j"],
+    ["ㅂ", "ㅍ", "ㅁ", "ㅎ", "ㄷ", "ㅌ", "ㄴ", "ㄹ", "ㄱ", "ㅋ", "으", "우", "ㅈ", "ㅊ", "ㅅ", "이"],
+    ["p", "t", "k", "n", "ng", "m"],
+    ["ㅍ(ㅂ)", "ㅅ(ㄷ)", "ㅋ(ㄱ)", "ㄴ", "ㅇ", "ㅁ"],
+  ];
+
+  const vowels = [
+    ["a", "e", "i", " o", "u", "y"],
+    ["ㅏ", "ㅔ", "ㅣ", "ㅗㅓ", "ㅜ", "ㅣ"],
+    ["ing", "oe", "eo", "yu"],
+    ["앵", "ㅕ", "ㅗ", "ㅟ"],
+  ];
+
+  const thClass = "border p-1 hover:underline ";
 
   return (
     <div className={ccss.noHeroContent}>
       <div className={ccss.mainBlock}>
         <h1 className={ccss.h1}>음절(音節) 간단하게 보기</h1>
         <div className={ccss.textBox}>
-          <p>
-            [음절 간단하게 보기]는 이해를 돕기위한 예시로 실제의 월음 음절(粵音音節)와는 내용이 다르니, 음절의 자세한
-            내용은 성모, 운모, 음절에서 확인하세요.
-          </p>
+          <p>[음절 간단하게 보기]는 이해를 돕기위한 예시로 실제의 월음 음절(粵音音節)와는 내용이 다르니, 음절의 자세한 내용은 성모, 운모, 음절에서 확인하세요.</p>
         </div>
         <div className="flex justify-between mt-8">
           <Link className={ccss.headerBtn} href={syllableURL}>
-            월음음절 &gt;&gt;
+            월음음절 👉
           </Link>
-
           <Link className={ccss.headerBtn} href={syllableURL + "initial"}>
-            성모 &gt;&gt;
+            성모 👉
           </Link>
           <Link className={ccss.headerBtn} href={syllableURL + "vowel"}>
-            운모 &gt;&gt;
+            운모 👉
           </Link>
         </div>
         <hr className={ccss.hr} />
         <div className={ccss.subBlock}>
-          <h3 className={ccss.h3}>성모(聲母)</h3>
-          <table>
-            <tbody className="text-center">
-              <tr>
-                {Object.keys(initials).map((i) => (
-                  <th className="border p-1 text-pink-400" key={i}>
-                    <Link href={initialURL + i}>{i}</Link>
-                  </th>
-                ))}
-              </tr>
-              <tr>
-                {Object.values(initials).map((i) => (
-                  <td className="border p-1" key={i}>
-                    {i}
-                  </td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
+          <h3 className="font-bold">성모(聲母)</h3>
+          <tbody>
+            <tr>
+              {initials[0].map((i) => (
+                <th className={thClass + "text-pink-400"} key={i}>
+                  <Link href={initialURL + i}>{i}</Link>
+                </th>
+              ))}
+            </tr>
+            <tr>
+              {initials[1].map((i) => (
+                <td key={i}>{i}</td>
+              ))}
+            </tr>
+          </tbody>
+          <h3 className="font-bold mt-4">받침 성모</h3>
+          <tbody>
+            <tr>
+              {initials[2].map((i) => (
+                <th className={thClass + "text-pink-400 min-w-16"} key={i}>
+                  <Link href={initialURL + i}>{i}</Link>
+                </th>
+              ))}
+            </tr>
+            <tr>
+              {initials[3].map((i) => (
+                <td key={i}>{i}</td>
+              ))}
+            </tr>
+          </tbody>
         </div>
-        <div className={ccss.subBlock + " mt-4"}>
-          <h3 className={ccss.h3}>받침 성모</h3>
-          <table>
-            <tbody>
-              <tr>
-                {Object.keys(initials2).map((i) => (
-                  <th className="border p-1 text-pink-400" key={i}>
-                    <Link href={initialURL + i}>{i}</Link>
-                  </th>
-                ))}
-              </tr>
-              <tr>
-                {Object.values(initials2).map((i) => (
-                  <td key={i}>{i}</td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
-          <hr className={ccss.hr} />
-        </div>
+        <hr className={ccss.hr} />
         <div className={ccss.subBlock}>
-          <h3 className={ccss.h3}>운모(聲母)</h3>
-          <table>
-            <tbody>
-              <tr>
-                {Object.keys(vowels).map((i) => (
-                  <th className="border p-1 text-blue-400" key={i}>
-                    <Link href={initialURL + i}>{i}</Link>
-                  </th>
-                ))}
-              </tr>
-              <tr>
-                {Object.values(vowels).map((i) => (
-                  <td key={i}>{i}</td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className={ccss.subBlock}>
-          <h3 className={ccss.h3 + " mt-4"}>특수 운모</h3>
-          <table>
-            <tbody>
-              <tr>
-                {Object.keys(vowels2).map((i) => (
-                  <th className="border p-1 text-blue-400" key={i}>
-                    {i}
-                  </th>
-                ))}
-              </tr>
-              <tr>
-                {Object.values(vowels2).map((i) => (
-                  <td key={i}>{i}</td>
-                ))}
-              </tr>
-            </tbody>
-          </table>
+          <h3 className="font-bold">운모(聲母)</h3>
+          <tbody>
+            <tr>
+              {vowels[0].map((v) => (
+                <th className={thClass + "text-blue-400 min-w-10"} key={v}>
+                  <Link href={initialURL + v}>{v}</Link>
+                </th>
+              ))}
+            </tr>
+            <tr>
+              {vowels[1].map((v) => (
+                <td key={v}>{v}</td>
+              ))}
+            </tr>
+          </tbody>
+          <h3 className="font-bold mt-4">특수 운모</h3>
+          <tbody>
+            <tr>
+              {vowels[2].map((v) => (
+                <th className={thClass + "text-blue-400 min-w-10"} key={v}>
+                  {v}
+                </th>
+              ))}
+            </tr>
+            <tr>
+              {vowels[3].map((v) => (
+                <td key={v}>{v}</td>
+              ))}
+            </tr>
+          </tbody>
         </div>
       </div>
     </div>

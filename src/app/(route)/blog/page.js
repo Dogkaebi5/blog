@@ -18,7 +18,7 @@ export default async function Blog(props) {
   return (
     <>
       <Heros path="blog" />
-      <SubNav path="blog" slug={tag} />
+      <SubNav path="blog" slug={tag ?? ""} />
       <CardList path="blog" data={blogData.list} />
       <PageNavgation tag={tag} page={page} maxPages={maxPages} />
     </>

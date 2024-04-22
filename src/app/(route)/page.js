@@ -2,11 +2,11 @@ import Link from "next/link";
 import Heros from "@components/Heros";
 
 export default function Home() {
-  const cardClass = "shadow p-6 rounded-xl block";
+  const cardClass = "block p-6 rounded-xl shadow text-center";
   return (
     <>
       <Heros path={""} />
-      <div className="m-4 gap-8 columns-3">
+      <div className="m-4 md:columns-3">
         <Link className={cardClass + " bg-green-50"} href="/cantonese">
           광둥어
         </Link>

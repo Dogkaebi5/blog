@@ -39,7 +39,7 @@ export default async function HanJa(props) {
   // 발음 세팅
   const krSyllable = () => {
     // 초기 데이터가 아닌 경우 설정
-    if (data.yueYin != "-") {
+    if (isHasData) {
       // 성조(숫자) 정규식으로 제거
       const syllableWithoutTones = data.yueYin.replace(/\d+/g, "").split(" ");
       // 한자(문자 1개) or 단어의 경우(단어는 , 있음)
@@ -48,12 +48,11 @@ export default async function HanJa(props) {
       if (syllableWithoutTones.length == 1) {
         return syllable.yueYin[syllableWithoutTones[0]].pronunciation;
       } else {
-        return syllableWithoutTones.map((syl) => syllable.yueYin[syl].pronunciation).join(", ");
+        return syllableWithoutTones.map((syl) => syllable.yueYin[syl].pronunciation).join(" ");
       }
     }
     return "-";
   };
-
   const kr = krSyllable();
 
   // 페이지
@@ -71,7 +70,7 @@ export default async function HanJa(props) {
           {/* use client에서 onClick을 사용할 수 없어서 별도 컴포넌트로 작성 */}
           <YueYinPlayer yueYinArr={yueYinArr} />
           <p className={ccss.smLabel}>발음</p>
-          <p className={ccss.contentBox}>{isOneChar ? kr : kr.replace(",", " ")}</p>
+          <p className={ccss.contentBox}>{kr}</p>
         </div>
       </div>
       {isHasData ? isOneChar == 1 ? <TcContent data={data} ids={idsArr} yueYin={yueYinArr} /> : <WordContent data={data} yueYin={yueYinArr} /> : <NoContent />}
