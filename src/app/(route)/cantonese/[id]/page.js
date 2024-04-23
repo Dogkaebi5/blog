@@ -1,37 +1,35 @@
+import Link from "next/link";
+
 import * as ccss from "@controller/cssName";
 import dbTc from "@controller/readDbTc";
 import dbWord from "@controller/readDbWord";
 import { syllable } from "@controller/yueYin";
 import { setTcFromId, splitIds } from "@controller/handleId";
 import YueYinPlayer from "@components/YueYinPlayer";
-import Link from "next/link";
+
+// 기본 데이터 세팅
+const noData = { tc: "-", yueYin: "-", cn: "-", pinyin: "-", mandarin: "-", hanja: "-", category: "-", mean: "-" };
+
+// export let metadata = {};
+export async function generateMetadata(props) {
+  const id = props.params.id;
+  const idsArr = splitIds(id);
+  const data = idsArr.length == 1 ? dbTc[id] : dbWord[id];
+  return {
+    title: `${data?.tc ?? setTcFromId(idsArr)} : ${data?.title ?? "-"}`,
+  };
+}
 
 // use client에서 에러 지속 발생, async로 변경
 export default async function HanJa(props) {
-  // params 5글자씩 분리, 각 한자 추출
-  const params = props.params.id;
-  const idsArr = splitIds(params);
-  // Param Id를 char로 전환. character는 array
-  const character = setTcFromId(idsArr);
-  const isOneChar = character.length == 1;
-  const isHasData = isOneChar ? dbTc[params] != null : dbWord[params] != null;
+  const id = props.params.id;
+  const idsArr = splitIds(id);
+  const char = setTcFromId(idsArr);
+  const isOneChar = idsArr.length == 1;
+  const isHasData = dbTc[id] != null || dbWord[id] != null;
 
   // firestore 데이터 받기 => ctrl로 통합 이동
-  // 기본 데이터 세팅
-  const data = isHasData
-    ? isOneChar
-      ? dbTc[params]
-      : dbWord[params]
-    : {
-        tc: "-",
-        yueYin: "-",
-        cn: "-",
-        pinyin: "-",
-        mandarin: "-",
-        hanja: "-",
-        category: "-",
-        mean: "-",
-      };
+  const data = isHasData ? (isOneChar ? dbTc[id] : dbWord[id]) : noData;
 
   // 월음 한개씩 array로 분리
   let yueYinArr = data.yueYin?.split(" ");
@@ -43,17 +41,18 @@ export default async function HanJa(props) {
       // 성조(숫자) 정규식으로 제거
       const syllableWithoutTones = data.yueYin.replace(/\d+/g, "").split(" ");
       // 한자(문자 1개) or 단어의 경우(단어는 , 있음)
-      // 한자: 해당 발음 return
-      // 단어: map으로 해당 발음 array 생성 및 join으로 string으로 전환
-      if (syllableWithoutTones.length == 1) {
-        return syllable.yueYin[syllableWithoutTones[0]].pronunciation;
-      } else {
-        return syllableWithoutTones.map((syl) => syllable.yueYin[syl].pronunciation).join(" ");
-      }
+      // 한자: 발음 return // 단어: 발음 map -> join
+      return syllableWithoutTones.length == 1 ? syllable.yueYin[syllableWithoutTones[0]].pronunciation : syllableWithoutTones.map((syl) => syllable.yueYin[syl].pronunciation).join(" ");
     }
     return "-";
   };
   const kr = krSyllable();
+
+  // const setMeta = (data) => {
+  //   metadata = { title: data.title, description: data.description };
+  // };
+  // const meta = { title: `${data.tc} : ${data.title}`, description: `광둥어에서 [ ${data.tc} ]의 뜻` };
+  // setMeta(meta);
 
   // 페이지
   return (
@@ -63,7 +62,7 @@ export default async function HanJa(props) {
       </Link>
       <div className="flex mt-4">
         <div className={ccss.cnTitleBox}>
-          <h1 className={isOneChar ? " text-8xl" : " text-7xl"}>{character}</h1>
+          <h1 className={isOneChar ? " text-8xl" : " text-7xl"}>{char}</h1>
         </div>
         <div className="ml-4">
           <p className={ccss.smLabel}>월음 (粵音)</p>
@@ -78,12 +77,12 @@ export default async function HanJa(props) {
   );
 }
 
-function NoContent() {
+const NoContent = () => {
   return <div className="py-10">아직 데이터가 없습니다.</div>;
-}
+};
 
 // 한자 콘텐츠 컴포넌트
-function TcContent({ data, ids, yueYin }) {
+const TcContent = ({ data, ids, yueYin }) => {
   // 간체자 & 보통화
   const cn = data.cn == "" ? data.tc : data.cn;
   const mandarin = data.mandarin == "" ? cn : data.mandarin;
@@ -130,7 +129,7 @@ function TcContent({ data, ids, yueYin }) {
       ) : null}
     </>
   );
-}
+};
 
 // 단어 콘텐츠 컴포넌트
 function WordContent({ data }) {
