@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import * as ccss from "@controller/cssName";
+import Image from "next/image";
 
 const Navigation = () => {
   const pathname = "/" + usePathname().split("/")[1];
@@ -39,9 +39,11 @@ const Navigation = () => {
 
   return (
     <div className="navbar">
-      <Link href={"/"} className={ccss.logo}>
-        DogKaeBi
-      </Link>
+      <div className="overflow-hidden rounded-full">
+        <Link href="/">
+          <Image className="object-cover h-10" src="/logo2.png" alt="logo" width={100} height={50} />
+        </Link>
+      </div>
       <nav className="nav-main">
         {navigation.map(([title, url]) => {
           return (

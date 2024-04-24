@@ -15,7 +15,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <head>
-        <link rel="icon" href="/next.svg" sizes="any" />
+        <meta name="google-adsense-account" content="ca-pub-4395279661539134" />
+        <link rel="icon" href="/logo.png" sizes="any" />
       </head>
       <body className={inter.className + " max-w-4xl mx-auto relative"}>
         <Navigation />

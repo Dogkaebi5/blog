@@ -3,6 +3,7 @@ import SubNav from "@components/SubNav";
 import Pagination from "@/app/components/Pagination";
 import CardList from "@components/CardList";
 import { setCardList } from "@controller/setCardList";
+
 // 한자 리스트 페이지
 // 데이터는 read ctrl 으로 이동
 export default function Cantonese(props) {
