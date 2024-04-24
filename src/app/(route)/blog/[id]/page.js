@@ -9,6 +9,31 @@ import PrismLoader from "@/app/components/PrismLoader";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
 
+export async function generateMetadata(props) {
+  const data = dbPost.filter((post) => {
+    if (post.slug == props.params.id) {
+      return post;
+    }
+  })[0];
+
+  console.log(data);
+  return {
+    title: `DogKaeBi | ${data.title}`,
+    description: data.summary,
+    openGraph: {
+      title: `DogKaeBi | ${data.title}`,
+      description: data.summary,
+      images: [
+        {
+          url: imgURL + data.thumbnail,
+          width: 600,
+          height: 315,
+        },
+      ],
+    },
+  };
+}
+
 // [id] 폴더 router
 export default async function Read(props) {
   // 데이터 fire에서 가져오는 방식으로 변경 완료

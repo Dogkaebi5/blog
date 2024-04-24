@@ -16,7 +16,11 @@ export async function generateMetadata(props) {
   const idsArr = splitIds(id);
   const data = idsArr.length == 1 ? dbTc[id] : dbWord[id];
   return {
-    title: `${data?.tc ?? setTcFromId(idsArr)} : ${data?.title ?? "-"}`,
+    title: `DogKaeBi | ${data?.tc ?? setTcFromId(idsArr)} : ${data?.title ?? "-"}`,
+    description: `한자 : [ ${data?.tc ?? setTcFromId(idsArr)} ] 의 광둥어 뜻 풀이`,
+    openGraph: {
+      title: `DogKaeBi 광둥어 | ${data?.tc ?? setTcFromId(idsArr)}`,
+    },
   };
 }
 
@@ -47,12 +51,6 @@ export default async function HanJa(props) {
     return "-";
   };
   const kr = krSyllable();
-
-  // const setMeta = (data) => {
-  //   metadata = { title: data.title, description: data.description };
-  // };
-  // const meta = { title: `${data.tc} : ${data.title}`, description: `광둥어에서 [ ${data.tc} ]의 뜻` };
-  // setMeta(meta);
 
   // 페이지
   return (
