@@ -16,7 +16,6 @@ export async function generateMetadata(props) {
     }
   })[0];
 
-  console.log(data);
   return {
     title: `DogKaeBi | ${data.title}`,
     description: data.summary,
@@ -71,7 +70,7 @@ export default async function Read(props) {
   };
 
   return (
-    <div className="p-16">
+    <div className="p-8 md:p-16">
       <PrismLoader />
       <div className="px-4">
         <h1 className={ccss.h1}>{data.title}</h1>
