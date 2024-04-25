@@ -52,7 +52,7 @@ const Navigation = () => {
           );
         })}
       </nav>
-      <div className={navBurger} onClick={clickHandle}>
+      <div onClick={clickHandle} className={navBurger}>
         <span className={"top-0"}> </span>
         <span className={"top-2"}> </span>
         <span className={"bottom-0"}> </span>
@@ -60,7 +60,7 @@ const Navigation = () => {
       <div className={navSide}>
         {navigation.map(([title, url]) => {
           return (
-            <Link href={url == "/product" ? "/" : url} key={title} className={pathname === url ? "draw-underline font-bold" : "draw-underline"}>
+            <Link onClick={clickHandle} href={url == "/product" ? "/" : url} key={title} className={pathname === url ? "draw-underline font-bold" : "draw-underline"}>
               {title}
             </Link>
           );
