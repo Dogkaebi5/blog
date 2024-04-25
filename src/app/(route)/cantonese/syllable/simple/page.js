@@ -28,7 +28,7 @@ export default function SyllableSp() {
         </div>
         <div className="flex justify-between mt-8">
           <Link className={ccss.headerBtn} href={syllableURL}>
-            월음음절 👉
+            월음 👉
           </Link>
           <Link className={ccss.headerBtn} href={syllableURL + "initial"}>
             성모 👉
@@ -40,68 +40,76 @@ export default function SyllableSp() {
         <hr className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h3 className="font-bold">성모(聲母)</h3>
-          <tbody>
-            <tr>
-              {initials[0].map((i) => (
-                <th className={thClass + "text-pink-400"} key={i}>
-                  <Link href={initialURL + i}>{i}</Link>
-                </th>
-              ))}
-            </tr>
-            <tr>
-              {initials[1].map((i) => (
-                <td key={i}>{i}</td>
-              ))}
-            </tr>
-          </tbody>
+          <div className="scrollBarX overflow-x-scroll p-1 bg-gray-50">
+            <tbody>
+              <tr>
+                {initials[0].map((i) => (
+                  <th className={thClass + "text-pink-400"} key={i}>
+                    <Link href={initialURL + i}>{i}</Link>
+                  </th>
+                ))}
+              </tr>
+              <tr>
+                {initials[1].map((i) => (
+                  <td key={i}>{i}</td>
+                ))}
+              </tr>
+            </tbody>
+          </div>
           <h3 className="font-bold mt-4">받침 성모</h3>
-          <tbody>
-            <tr>
-              {initials[2].map((i) => (
-                <th className={thClass + "text-pink-400 min-w-16"} key={i}>
-                  <Link href={initialURL + i}>{i}</Link>
-                </th>
-              ))}
-            </tr>
-            <tr>
-              {initials[3].map((i) => (
-                <td key={i}>{i}</td>
-              ))}
-            </tr>
-          </tbody>
+          <div className="scrollBarX overflow-x-scroll p-1 bg-gray-50">
+            <tbody>
+              <tr>
+                {initials[2].map((i) => (
+                  <th className={thClass + "text-pink-400 min-w-16"} key={i}>
+                    <Link href={initialURL + i}>{i}</Link>
+                  </th>
+                ))}
+              </tr>
+              <tr>
+                {initials[3].map((i) => (
+                  <td key={i}>{i}</td>
+                ))}
+              </tr>
+            </tbody>
+          </div>
         </div>
         <hr className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h3 className="font-bold">운모(聲母)</h3>
-          <tbody>
-            <tr>
-              {vowels[0].map((v) => (
-                <th className={thClass + "text-blue-400 min-w-10"} key={v}>
-                  <Link href={initialURL + v}>{v}</Link>
-                </th>
-              ))}
-            </tr>
-            <tr>
-              {vowels[1].map((v) => (
-                <td key={v}>{v}</td>
-              ))}
-            </tr>
-          </tbody>
+          <div className="scrollBarX overflow-x-scroll p-1 bg-gray-50">
+            <tbody>
+              <tr>
+                {vowels[0].map((v) => (
+                  <th className={thClass + "text-blue-400 min-w-10"} key={v}>
+                    <Link href={initialURL + v}>{v}</Link>
+                  </th>
+                ))}
+              </tr>
+              <tr>
+                {vowels[1].map((v) => (
+                  <td key={v}>{v}</td>
+                ))}
+              </tr>
+            </tbody>
+          </div>
           <h3 className="font-bold mt-4">특수 운모</h3>
-          <tbody>
-            <tr>
-              {vowels[2].map((v) => (
-                <th className={thClass + "text-blue-400 min-w-10"} key={v}>
-                  {v}
-                </th>
-              ))}
-            </tr>
-            <tr>
-              {vowels[3].map((v) => (
-                <td key={v}>{v}</td>
-              ))}
-            </tr>
-          </tbody>
+          <div className="scrollBarX overflow-x-scroll p-1 bg-gray-50">
+            <tbody>
+              <tr>
+                {vowels[2].map((v) => (
+                  <th className={thClass + "text-blue-400 min-w-10"} key={v}>
+                    {v}
+                  </th>
+                ))}
+              </tr>
+              <tr>
+                {vowels[3].map((v) => (
+                  <td key={v}>{v}</td>
+                ))}
+              </tr>
+            </tbody>
+          </div>
         </div>
       </div>
     </div>
