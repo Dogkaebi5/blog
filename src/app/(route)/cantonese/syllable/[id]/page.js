@@ -36,7 +36,7 @@ export default function YueYin(props) {
       <div className={ccss.mainBlock}>
         <div className="flex">
           <h1 className={ccss.alpTitle}>{yueYin}</h1>
-          <div className={ccss.subBlock + " py-4"}>
+          <div className={ccss.subBlock + " m-4"}>
             <p className="font-bold mb-2">월음 (粵音)</p>
             <p>발음 : [{data.pronunciation}]</p>
           </div>

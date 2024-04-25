@@ -54,7 +54,7 @@ export default function Initial(props) {
       <div className={ccss.mainBlock}>
         <div className="flex">
           <h1 className={ccss.alpTitle}>{alpha}</h1>
-          <div className={ccss.subBlock + " py-4"}>
+          <div className={ccss.subBlock + " m-4"}>
             <p className="font-bold mb-2">{alpha == "ng" || alpha == "m" ? " 성모(聲母) 겸 음모(韻母) " : type[isInitial].kr}</p>
             <p>발음 : {data.pronunciation}</p>
           </div>

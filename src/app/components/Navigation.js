@@ -11,7 +11,7 @@ const Navigation = () => {
     ["Home", "/"],
     ["粵", "/cantonese"],
     ["Blog", "/blog"],
-    ["Product", "/product"],
+    // ["Product", "/product"],
     ["About", "/about"],
   ];
 
@@ -37,7 +37,7 @@ const Navigation = () => {
   // 광둥어를 home으로 변경하면서, isActive의 2번째 조건 추가
 
   return (
-    <div className="navbar">
+    <div className="navbar ml-2 lg:ml-0">
       <div className="overflow-hidden rounded-full">
         <Link href="/">
           <Image className="object-cover h-10" src="/logo2.png" alt="logo" width={100} height={50} />
@@ -60,7 +60,7 @@ const Navigation = () => {
       <div className={navSide}>
         {navigation.map(([title, url]) => {
           return (
-            <Link onClick={clickHandle} href={url} key={title} className={pathname === url ? "draw-underline font-bold" : "draw-underline"}>
+            <Link href={url == "/product" ? "/" : url} key={title} className={pathname === url ? "draw-underline font-bold" : "draw-underline"}>
               {title}
             </Link>
           );
