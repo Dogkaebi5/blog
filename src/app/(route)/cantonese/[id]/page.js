@@ -82,8 +82,8 @@ const NoContent = () => {
 // 한자 콘텐츠 컴포넌트
 const TcContent = ({ data, ids, yueYin }) => {
   // 간체자 & 보통화
-  const cn = data.cn == "" ? data.tc : data.cn;
-  const mandarin = data.mandarin == "" ? cn : data.mandarin;
+  const cn = data.cn == undefined || data.cn == "" ? data.tc : data.cn;
+  const mandarin = data.mandarin == undefined || data.mandarin == "" ? cn : data.mandarin;
   // mean 부분 발음별 분리용 count
   let count = -1;
   return (

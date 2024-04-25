@@ -12,8 +12,7 @@ export default function About() {
       </div>
       <div className="bg-green-50 p-4 text-sm">
         1996년 중국 썬전(深圳)으로 이주.
-        <br /> 중국 초/중/고/대학 졸업 후.
-        <br /> 현지 취업 및 친구들과 창업.
+        <br /> 중국 초/중/고/대학 졸업. 중국 취업 및 친구들과 창업.
         <br />
         <br /> 2017년 전 직장상사의 권유로 한국 입국.
       </div>

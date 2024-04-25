@@ -17,7 +17,7 @@ export function search(quary) {
       if (data.category.includes(quary)) tcs.push(data);
       if (data.yueYin.includes(quary)) tcs.push(data);
       if (data.yueYin.replace(/\d/g, "").includes(quary.replace(/\d/g, ""))) tcs.push(data);
-      if (data.mandarin.includes(quary)) tcs.push(data);
+      if (data.mandarin?.includes(quary)) tcs.push(data);
     });
     if (tcs.length) {
       const tcSet = new Set(tcs);
