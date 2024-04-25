@@ -47,10 +47,10 @@ export const cnCardTC = "font-bold text-6xl pb-6";
 export const cnCardTitle = "py-2 text-sm font-bold bg-gray-100";
 export const wordCardsWrap = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3";
 
-export const syllableWrap = "mx-auto py-2 mb-4 px-4 rounded-xl";
+export const syllableWrap = "mx-auto py-2 px-4 rounded-xl";
 export const syllableDetail = "text-start mx-auto my-4 text-sm";
-export const syllableSelectorsWrap = "sm:flex gap-2";
-export const syllableSelectorBox = "flex-1 justify-center px-4 py-2 rounded-xl bg-gray-50 border";
+export const syllableSelectorsWrap = "sm:flex gap-2 mt-8";
+export const syllableSelectorBox = "flex-1 justify-center p-4 rounded-xl bg-gray-50 border";
 export const syllablelable = "font-bold text-sm";
 export const syllableSelect = "my-1 py-1 border rounded-lg text-sm text-center w-full";
 
