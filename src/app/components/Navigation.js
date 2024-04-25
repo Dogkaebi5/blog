@@ -23,7 +23,6 @@ const Navigation = () => {
 
   // btn handle. 아이콘 변경, 메뉴 출연, 스크롤 방지
   function clickHandle(e) {
-    e.preventDefault();
     if (isActive) {
       setNavBurger("nav-burger active");
       setNavSide("nav-side active");
