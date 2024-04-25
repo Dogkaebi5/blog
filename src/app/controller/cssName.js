@@ -40,12 +40,12 @@ export const blogCardTitle = "leading-6 text-lg font-bold text-ellipsis line-cla
 export const blogCardText = "text-sm text-gray-600 text-ellipsis line-clamp-2";
 export const blogDate = "text-green-500 text-xs";
 
-export const cnCardsWrap = "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4";
+export const cnCardsWrap = "grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 ";
 export const cnCard = "rounded-md border text-center shadow-md hover:shadow hover:scale-105";
 export const cnCardJutYin = "py-3 text-sm";
 export const cnCardTC = "font-bold text-6xl pb-6";
 export const cnCardTitle = "py-2 text-sm font-bold bg-gray-100";
-export const wordCardsWrap = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-4";
+export const wordCardsWrap = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3";
 
 export const syllableWrap = "mx-auto py-2 mb-4 px-4 rounded-xl";
 export const syllableDetail = "text-start mx-auto my-4 text-sm";

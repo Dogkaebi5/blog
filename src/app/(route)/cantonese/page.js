@@ -19,8 +19,10 @@ export default function Cantonese(props) {
     <>
       <Heros path={path} />
       <SubNav path={path} />
-      <p className="text-sm pb-4 text-gray-400">등록 한자 : {tcData.allLength}</p>
-      <CardList path={path} data={tcData.list} />
+      <div className="mx-4">
+        <p className="text-sm pb-4 text-gray-400">등록 한자 : {tcData.allLength}</p>
+        <CardList path={path} data={tcData.list} />
+      </div>
       <Pagination page={page} maxPages={maxPages} />
     </>
   );

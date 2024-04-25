@@ -19,8 +19,10 @@ export default function Word(props) {
     <>
       <Heros path={path} />
       <SubNav path={path} slug={slug} />
-      <p className="text-sm pb-4 text-gray-400">등록 단어 : {wordData.allLength}</p>
-      <CardList path={slug} data={wordData.list} />
+      <div className="mx-4">
+        <p className="text-sm pb-4 text-gray-400">등록 단어 : {wordData.allLength}</p>
+        <CardList path={slug} data={wordData.list} />
+      </div>
       <PageNavgation page={page} maxPages={maxPages} />
     </>
   );
