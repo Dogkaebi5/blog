@@ -147,13 +147,19 @@ function WordContent({ data }) {
       </div>
       <div className="w-full bg-green-50 text-sm p-4 rounded">구분 : {data.category}</div>
       <hr className="border-gray-400" />
-      <div className="px-4 py-2">
+      <div className="border px-4 py-2">
         {data.mean.split("/").map((text) => (
           <p className="py-1" key={text}>
             · {text}
           </p>
         ))}
       </div>
+      {data.detail != null && data.detail != undefined ? (
+        <div className="bg-gray-100 p-4 rounded-md my-4">
+          ※ 추가내용 <br />
+          {data.detail}
+        </div>
+      ) : null}
     </>
   );
 }

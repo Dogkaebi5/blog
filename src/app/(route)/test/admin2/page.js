@@ -5,16 +5,18 @@ import { firestore } from "@controller/firebase";
 
 export default function Admin2() {
   const [formData, setFormData] = useState({});
+  // SSR 이면 굳이 state를 사용해야 하는지에 대한 의문이 들었다.
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  // 시작을 자동 추가하는 방식을 만들었는데, 계속해서 오류가 발생한다.
   const handleSubmit = async (e) => {
     e.preventDefault();
     const createdDate = new Date();
-    setFormData({ ...formData, ["createdDate"]: createdDate });
+    setFormData({ createdDate: createdDate, ...formData });
     console.log("제출중");
     const docRef = await addDoc(collection(firestore, "post"), formData);
     console.log("제출 완료 :", docRef.id);

@@ -19,9 +19,13 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/logo.png" sizes="any" />
       </head>
       <body className={inter.className + " max-w-4xl mx-auto relative"}>
-        <Navigation />
-        <div>{children}</div>
-        <Footer />
+        <div className="min-h-screen flex flex-col justify-between">
+          <div>
+            <Navigation />
+            <div>{children}</div>
+          </div>
+          <Footer />
+        </div>
       </body>
     </html>
   );
