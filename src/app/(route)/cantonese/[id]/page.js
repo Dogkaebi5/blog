@@ -18,9 +18,6 @@ export async function generateMetadata(props) {
   return {
     title: `DogKaeBi | ${data?.tc ?? setTcFromId(idsArr)} : ${data?.title ?? "-"}`,
     description: `한자 : [ ${data?.tc ?? setTcFromId(idsArr)} ] 의 광둥어 뜻 풀이`,
-    openGraph: {
-      title: `DogKaeBi 광둥어 | ${data?.tc ?? setTcFromId(idsArr)}`,
-    },
   };
 }
 
@@ -70,83 +67,80 @@ export default async function HanJa(props) {
           <p className={ccss.contentBox}>{kr}</p>
         </div>
       </div>
-      {isHasData ? isOneChar == 1 ? <TcContent data={data} ids={idsArr} yueYin={yueYinArr} /> : <WordContent data={data} yueYin={yueYinArr} /> : <NoContent />}
-    </div>
-  );
-}
-
-const NoContent = () => {
-  return <div className="py-10">아직 데이터가 없습니다.</div>;
-};
-
-// 한자 콘텐츠 컴포넌트
-const TcContent = ({ data, ids, yueYin }) => {
-  // 간체자 & 보통화
-  const cn = data.cn == undefined || data.cn == "" ? data.tc : data.cn;
-  const mandarin = data.mandarin == undefined || data.mandarin == "" ? cn : data.mandarin;
-  // mean 부분 발음별 분리용 count
-  let count = -1;
-  return (
-    <>
-      <div className="p-6 flex">
-        <div>
-          <p className={ccss.smLabel}>한국 한자음</p>
-          <p className={ccss.smLabel}>简体字 · 拼音</p>
-          <p className={ccss.smLabel}>普通话</p>
-          <p className={ccss.smLabel}>UTF</p>
-        </div>
-        <div>
-          <p className={ccss.contentBox}>{data.hanja}</p>
-          <p className={ccss.contentBox}>{`${cn} ${data.pinyin}`}</p>
-          <p className={ccss.contentBox}>{mandarin}</p>
-          <p className={ccss.contentBox}>{ids}</p>
-        </div>
-      </div>
+      <SubContent />
       <div className="w-full bg-green-50 text-sm p-4 rounded">구분 : {data.category}</div>
-      <hr className="border-gray-400" />
-      {data.mean.split("#").map((mean) => {
-        count++;
-        return (
-          <div className="border px-4 py-2" key={mean}>
-            <p className="font-bold">{yueYin[count]}</p>
-            {mean.split("/").map((text) => {
-              return (
-                <p className="py-1" key={text}>
-                  · {text}
-                </p>
-              );
-            })}
-          </div>
-        );
-      })}
-      {data.detail != null && data.detail != undefined ? (
+      {isHasData ? isOneChar == 1 ? <TcContent /> : <WordContent /> : <NoContent />}
+      {data.detail != null && data.detail != undefined && data.detail != "" ? (
         <div className="bg-gray-100 p-4 rounded-md my-4">
           ※ 추가내용 <br />
           {data.detail}
         </div>
       ) : null}
-    </>
+    </div>
   );
-};
 
-// 단어 콘텐츠 컴포넌트
-function WordContent({ data }) {
-  const cn = data.cn == "" ? data.tc : data.cn;
-  const mandarin = data.mandarin == "" ? cn : data.mandarin;
-  return (
-    <>
+  function NoContent() {
+    return <div className="py-10">아직 데이터가 없습니다.</div>;
+  }
+
+  function SubContent() {
+    // 간체자 & 보통화
+    const cn = data.cn == undefined || data.cn == "" ? data.tc : data.cn;
+    const mandarin = data.mandarin == undefined || data.mandarin == "" ? cn : data.mandarin;
+    return (
       <div className="p-6 flex">
         <div>
           <p className={ccss.smLabel}>简体字 · 拼音</p>
           <p className={ccss.smLabel}>普通话</p>
+          {isOneChar ? (
+            <>
+              <p className={ccss.smLabel}>한국 한자음</p>
+              <p className={ccss.smLabel}>UTF</p>
+            </>
+          ) : null}
         </div>
         <div>
           <p className={ccss.contentBox}>{`${cn} ${data.pinyin}`}</p>
           <p className={ccss.contentBox}>{mandarin}</p>
+          {isOneChar ? (
+            <>
+              <p className={ccss.contentBox}>{data.hanja}</p>
+              <p className={ccss.contentBox}>{idsArr}</p>
+            </>
+          ) : null}
         </div>
       </div>
-      <div className="w-full bg-green-50 text-sm p-4 rounded">구분 : {data.category}</div>
-      <hr className="border-gray-400" />
+    );
+  }
+
+  // 한자 콘텐츠 컴포넌트
+  function TcContent() {
+    // mean 부분 발음별 분리용 count
+    let count = -1;
+    return (
+      <>
+        {data.mean.split("#").map((mean) => {
+          count++;
+          return (
+            <div className="border px-4 py-2" key={mean}>
+              <p className="font-bold">{yueYinArr[count]}</p>
+              {mean.split("/").map((text) => {
+                return (
+                  <p className="py-1" key={text}>
+                    · {text}
+                  </p>
+                );
+              })}
+            </div>
+          );
+        })}
+      </>
+    );
+  }
+
+  // 단어 콘텐츠 컴포넌트
+  function WordContent() {
+    return (
       <div className="border px-4 py-2">
         {data.mean.split("/").map((text) => (
           <p className="py-1" key={text}>
@@ -154,12 +148,6 @@ function WordContent({ data }) {
           </p>
         ))}
       </div>
-      {data.detail != null && data.detail != undefined ? (
-        <div className="bg-gray-100 p-4 rounded-md my-4">
-          ※ 추가내용 <br />
-          {data.detail}
-        </div>
-      ) : null}
-    </>
-  );
+    );
+  }
 }

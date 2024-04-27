@@ -45,7 +45,7 @@ export const cnCard = "rounded-md border text-center shadow-md hover:shadow hove
 export const cnCardJutYin = "py-3 text-sm";
 export const cnCardTC = "font-bold text-6xl pb-6";
 export const cnCardTitle = "py-2 text-sm font-bold bg-gray-100";
-export const wordCardsWrap = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3";
+export const wordCardsWrap = "grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3";
 
 export const syllableWrap = "mx-auto py-2 px-4 rounded-xl";
 export const syllableDetail = "text-start mx-auto my-4 text-sm";
