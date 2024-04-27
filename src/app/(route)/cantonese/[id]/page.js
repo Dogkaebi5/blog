@@ -72,8 +72,7 @@ export default async function HanJa(props) {
       {isHasData ? isOneChar == 1 ? <TcContent /> : <WordContent /> : <NoContent />}
       {data.detail != null && data.detail != undefined && data.detail != "" ? (
         <div className="bg-gray-100 p-4 rounded-md my-4">
-          ※ 추가내용 <br />
-          {data.detail}
+          ※ 추가내용 <br /> {data.detail}
         </div>
       ) : null}
     </div>
