@@ -10,13 +10,13 @@ export default function About() {
         <h2 className="text-lg mt-2">독깨비, 狗叔, 肥狗</h2>
         <p className="text-sm">강아지를 좋아하는 중국 광둥 생활 20년 넘은 수상한 아재</p>
       </div>
-      <div className="bg-green-50 p-4 text-sm">
+      <div className="ring-1 ring-green-300 rounded p-4 text-sm">
         1996년 중국 썬전(深圳)으로 이주.
         <br /> 중국 초/중/고/대학 졸업. 중국 취업 및 친구들과 창업.
         <br />
         <br /> 2017년 전 직장상사의 권유로 한국 입국.
       </div>
-      <div className="mx-4">
+      <div>
         <div className={ccss.textBox}>
           <p className="text-green-500 font-bold mb-1">OB</p>
           <ul className="p-1 text-sm">

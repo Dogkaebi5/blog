@@ -38,3 +38,5 @@ next-env.d.ts
 # post test contents
 /posts
 /src/app/(route)/setdata
+/src/app/(route)/setdata1
+/src/app/(route)/setdata2
