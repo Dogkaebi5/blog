@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import Image from "next/image";
 
 const Navigation = () => {
   const pathname = "/" + usePathname().split("/")[1];
@@ -38,11 +37,9 @@ const Navigation = () => {
 
   return (
     <div className="navbar ml-2 lg:ml-0">
-      <div className="overflow-hidden rounded-full">
-        <Link href="/">
-          <Image className="object-cover h-10" src="/logo2.png" alt="logo" width={100} height={50} />
-        </Link>
-      </div>
+      <Link className="px-4 py-2 font-bold rounded-full hover:bg-green-100" href="/">
+        DogKaeBi
+      </Link>
       <nav className="nav-main">
         {navigation.map(([title, url]) => {
           return (

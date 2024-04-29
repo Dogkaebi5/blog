@@ -1,6 +1,5 @@
 export const logo = "h-8 py-1 px-4 rounded-full bg-green-100";
 export const noHeroContent = "m-2 md:m-4";
-export const hero = "bg-gray-50 rounded-lg text-center p-14";
 export const subNavWrap = "flex flex-col gap-4 md:flex-row justify-between items-center mt-8";
 export const toggle = "rounded-full py-2 px-7 border shadow-md hover:border-green-600 ";
 export const toggleActive = toggle + " bg-green-600 text-white";
