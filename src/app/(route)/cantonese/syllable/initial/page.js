@@ -39,7 +39,7 @@ export default function Initial() {
           <br /> 광둥어에만 있는 개념이 아닌 중국어 발음에 공통적으로 있다.
           <br /> 보통화 병음(拼音)에서도 첫 발음인 알파벳을 성모라고 칭한다.
         </div>
-        <hr className={ccss.hr} />
+        <div className={ccss.hr} />
         <div className="px-4">
           <h2 className={ccss.h2}>성모 종류</h2>
           <div className={ccss.alpCardWrap}>
@@ -50,7 +50,7 @@ export default function Initial() {
             ))}
           </div>
         </div>
-        <hr className={ccss.hr} />
+        <div className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h2 className={ccss.h2}>성모 발음</h2>
           <div className="text-sm p-4 mt-2 shadow">

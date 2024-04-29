@@ -40,7 +40,7 @@ export default function Syllable() {
       <div className={ccss.mainBlock}>
         <h1 className={ccss.h1}>성조(聲調)</h1>
         <p className={ccss.textBox} dangerouslySetInnerHTML={{ __html: toneDescription }} />
-        <hr className={ccss.hr} />
+        <div className={ccss.hr} />
         <h2 className={ccss.h2}>광둥어 성조</h2>
         <table className="my-4 text-sm">
           <tbody>
@@ -69,7 +69,7 @@ export default function Syllable() {
           <LinkText text="si" /> ,&nbsp;
           <LinkText text="ngaa" /> &nbsp;가 대표적인 모든 성조가 있는 음절이다.
         </p>
-        <hr className={ccss.hr} />
+        <div className={ccss.hr} />
         <h2 className={ccss.h2}>성조 변화 예시</h2>
         <p className={ccss.textBox}>
           시작하는 음은 사람마다 다르다.
@@ -88,7 +88,7 @@ export default function Syllable() {
             src="https://blogfiles.pstatic.net/MjAyMTAzMDlfNjkg/MDAxNjE1MjUzMDE1MzMy.TI8nWZICWMDE6nlg0qBCycpQ_9HMeCAnllQhzVsWorsg.6IDE3mH6hODoqDjEhRQl2J462iScFgWa9Cfetl3LuYIg.JPEG.st9dog/SE-e449a329-8faa-4fd9-88f7-79ae74fad006.jpg"
           />
         </p>
-        <hr className={ccss.hr} />
+        <div className={ccss.hr} />
         <h2 className={ccss.h2}>평상거입(平上去入)</h2>
         <p className={ccss.textBox}>
           평상거입은 중국 발음 체계이다. <br />
@@ -100,9 +100,9 @@ export default function Syllable() {
           <br /> &#39;ㄱ, ㄷ, ㄹ, ㅂ, ㅅ&#39; 받침인 글자가 입성이다.
           <br /> (광둥어는 &#39;ㄹ&#39; 받침음은 없다)
         </p>
-        <hr className={ccss.hr} />
+        <div className={ccss.hr} />
         <h2 className={ccss.h2}>한국어 성조</h2>
-        <p className={ccss.textBox}>
+        <p className={ccss.textBox + " mb-20"}>
           한국어에 대한 오해 중 하나가 &quot;한국어에 성조가 없다&quot;이다.
           <br />
           <br /> 훈민정음에도 평상거입이 있었다.

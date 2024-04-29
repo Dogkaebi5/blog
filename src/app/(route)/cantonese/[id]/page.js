@@ -71,8 +71,8 @@ export default async function HanJa(props) {
       <div className="w-full border border-green-200 bg-green-100 text-sm px-4 py-2">구분 : {data.category}</div>
       {isHasData ? isOneChar == 1 ? <TcContent /> : <WordContent /> : <NoContent />}
       {data.detail != null && data.detail != undefined && data.detail != "" ? (
-        <div className="ring-2 ring-green-100 p-4 rounded-md my-4">
-          <p className="text-green-500">※ 추가내용</p>
+        <div className={ccss.textBox}>
+          <p className="text-sm font-bold text-green-500">※ 비고 ※</p>
           <p className="mx-4 my-2">{data.detail}</p>
         </div>
       ) : null}

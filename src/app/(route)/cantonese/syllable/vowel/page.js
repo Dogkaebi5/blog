@@ -47,7 +47,7 @@ export default function Syllable() {
           <br /> 운모는 또 운복(韻腹)과 운미(韻尾)로 구성되어 있다.
           <br /> 운복은 9개, 운미는 8개가 있고 총57개 조합이 있다.
         </p>
-        <hr className={ccss.hr} />
+        <div className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h2 className={ccss.h2}>운모 종류</h2>
           <div className={ccss.alpCardWrap}>
@@ -58,7 +58,7 @@ export default function Syllable() {
             ))}
           </div>
         </div>
-        <hr className={ccss.hr} />
+        <div className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h2 className={ccss.h2}>운복(韻腹) & 운미(韻尾)</h2>
           <div className="scrollBarX overflow-x-scroll ">
@@ -98,7 +98,7 @@ export default function Syllable() {
             </table>
           </div>
         </div>
-        <hr className={ccss.hr} />
+        <div className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h2 className={ccss.h2}>운모 조합표</h2>
           <div className="scrollBarX overflow-x-scroll mt-4">

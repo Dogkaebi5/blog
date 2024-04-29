@@ -64,7 +64,7 @@ export default function Initial(props) {
             <p key={alpha + contentKeyIndex++}>{content}</p>
           ))}
         </div>
-        <hr className={ccss.hr} />
+        <div className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h2 className={ccss.h2}>음절 조합</h2>
           <div className={ccss.alpCardWrap}>

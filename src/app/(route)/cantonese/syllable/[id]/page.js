@@ -45,7 +45,7 @@ export default function YueYin(props) {
           <p>성모 : {initial}</p>
           <p>운모 : {vowel}</p>
         </div>
-        <hr className={ccss.hr} />
+        <div className={ccss.hr} />
         <div className={ccss.subBlock}>
           <h2 className={ccss.h2}>성조</h2>
           <YueYinPlayer yueYinArr={yueYinArr} />
