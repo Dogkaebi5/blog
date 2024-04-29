@@ -55,7 +55,7 @@ export default async function HanJa(props) {
       <Link className={ccss.headerBtn} href={isOneChar ? "/cantonese" : "/cantonese/word"}>
         👈 {isOneChar ? "한자" : "단어"}
       </Link>
-      <div className="flex mt-4">
+      <div className="flex mt-8">
         <div className={ccss.cnTitleBox}>
           <h1 className={isOneChar ? " text-8xl" : " text-7xl"}>{char}</h1>
         </div>
@@ -68,13 +68,15 @@ export default async function HanJa(props) {
         </div>
       </div>
       <SubContent />
-      <div className="w-full bg-green-50 text-sm p-4 rounded">구분 : {data.category}</div>
+      <div className="w-full border border-green-200 bg-green-100 text-sm px-4 py-2">구분 : {data.category}</div>
       {isHasData ? isOneChar == 1 ? <TcContent /> : <WordContent /> : <NoContent />}
       {data.detail != null && data.detail != undefined && data.detail != "" ? (
-        <div className="bg-gray-100 p-4 rounded-md my-4">
-          ※ 추가내용 <br /> {data.detail}
+        <div className="ring-2 ring-green-100 p-4 rounded-md my-4">
+          <p className="text-green-500">※ 추가내용</p>
+          <p className="mx-4 my-2">{data.detail}</p>
         </div>
       ) : null}
+      <div className="min-h-16"></div>
     </div>
   );
 

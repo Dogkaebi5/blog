@@ -1,12 +1,11 @@
 export const logo = "h-8 py-1 px-4 rounded-full bg-green-100";
 export const noHeroContent = "m-2 md:m-4";
-export const subNavWrap = "flex flex-col gap-4 md:flex-row justify-between items-center mt-8";
-export const toggle = "rounded-full py-2 px-7 border shadow-md hover:border-green-600 ";
-export const toggleActive = toggle + " bg-green-600 text-white";
-export const btn = "bg-black text-white border rounded-lg py-1 px-6";
+export const subNavWrap = "mt-8 flex flex-col gap-4 md:flex-row justify-between items-center";
+export const toggle = "rounded-full py-2 px-7 border shadow-md hover:border-green-500 ";
+export const toggleActive = toggle + " bg-green-600 font-bold text-white";
 export const searchWrap = `bg-[10px] bg-[url('/magnifying-glass-solid.svg')] bg-no-repeat flex border rounded py-2 pr-4 pl-10 w-80 mr-2 shadow-sm focus:ring-1 focus:outline-none focus:border-green-500 focus:ring-green-500`;
 export const headerBtnBlock = "p-4 flex justify-between";
-export const headerBtn = "px-4 py-1 bg-gray-100 rounded-full text-green-500 shadow hover:shadow-lg hover:scale-95";
+export const headerBtn = "px-6 py-2 bg-green-100 rounded-full shadow hover:shadow-lg hover:scale-95";
 export const mainBlock = "p-4 md:p-8";
 export const subBlock = "md:px-4";
 export const h1 = "font-bold text-3xl mb-8";

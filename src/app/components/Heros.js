@@ -7,7 +7,7 @@ const Heros = ({ path }) => {
   };
 
   return (
-    <div className="py-10 text-center">
+    <div className="p-10 text-center">
       <p className="font-bold text-lg text-green-500">{texts[path][0]}</p>
       <h1 className="font-bold mb-2 text-3xl">{texts[path][1]}</h1>
       <p className="text-sm">{texts[path][2]}</p>

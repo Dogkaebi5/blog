@@ -8,7 +8,6 @@ export default function CssTester() {
       <div className={ccss.subNavWrap}>subNavWrap</div>
       <div className={ccss.toggle}>toggle</div>
       <div className={ccss.toggleActive}>toggleActive</div>
-      <div className={ccss.btn}>btn</div>
       <div className={ccss.searchWrap}>searchWrap</div>
       <div className={ccss.headerBtnBlock}>headerBtnBlock</div>
       <div className={ccss.headerBtn}>headerBtn</div>

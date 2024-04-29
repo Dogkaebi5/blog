@@ -13,8 +13,8 @@ const SubNav = ({ path, slug = "" }) => {
     tc: {
       nav: [
         ["한자", ""],
-        ["월음", "syllable"],
         ["단어", "word"],
+        ["월음", "syllable"],
         ["회화", "conversation"],
       ],
       url: "/cantonese",
