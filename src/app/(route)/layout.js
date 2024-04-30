@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import Navigation from "@components/Navigation";
 import Footer from "../components/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="google-adsense-account" content="ca-pub-4395279661539134" />
         <link rel="icon" href="/logo.png" sizes="any" />
+        {/* <!-- Google tag (gtag.js) --> */}
       </head>
       <body className={inter.className + " max-w-4xl mx-auto relative"}>
         <div className="min-h-screen flex flex-col justify-between">
@@ -27,6 +29,7 @@ export default function RootLayout({ children }) {
           <Footer />
         </div>
       </body>
+      <GoogleAnalytics gaId="G-RM4HNBFXFN" />
     </html>
   );
 }
