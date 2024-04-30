@@ -4,7 +4,7 @@ import * as ccss from "@controller/cssName";
 import dbTc from "@controller/readDbTc";
 import dbWord from "@controller/readDbWord";
 import { syllable } from "@controller/yueYin";
-import { setTcFromId, splitIds } from "@controller/handleId";
+import { setIdFromTc, setTcFromId, splitIds } from "@controller/handleId";
 import YueYinPlayer from "@components/YueYinPlayer";
 
 // 기본 데이터 세팅
@@ -34,8 +34,7 @@ export default async function HanJa(props) {
 
   // 월음 한개씩 array로 분리
   let yueYinArr = data.yueYin?.split(" ");
-
-  // 발음 세팅
+  // 한국 발음 세팅
   const krSyllable = () => {
     // 초기 데이터가 아닌 경우 설정
     if (isHasData) {
@@ -49,6 +48,9 @@ export default async function HanJa(props) {
   };
   const kr = krSyllable();
 
+  // 관련 한자
+  const relatedTcArr = data.relevance?.split(" ");
+
   // 페이지
   return (
     <div className={ccss.noHeroContent}>
@@ -60,11 +62,11 @@ export default async function HanJa(props) {
           <h1 className={isOneChar ? " text-8xl" : " text-7xl"}>{char}</h1>
         </div>
         <div className="ml-4">
-          <p className={ccss.smLabel}>월음 (粵音)</p>
+          <h3 className={ccss.smLabel}>월음 (粵音)</h3>
           {/* use client에서 onClick을 사용할 수 없어서 별도 컴포넌트로 작성 */}
           <YueYinPlayer yueYinArr={yueYinArr} />
-          <p className={ccss.smLabel}>발음</p>
-          <p className={ccss.contentBox}>{kr}</p>
+          <h3 className={ccss.smLabel}>발음</h3>
+          <h3 className={ccss.contentBox}>{kr}</h3>
         </div>
       </div>
       <SubContent />
@@ -72,18 +74,22 @@ export default async function HanJa(props) {
       {isHasData ? isOneChar == 1 ? <TcContent /> : <WordContent /> : <NoContent />}
       {data.detail != null && data.detail != undefined && data.detail != "" ? (
         <div className={ccss.textBox}>
-          <p className="text-sm font-bold text-green-500">※ 비고 ※</p>
+          <h3 className="text-sm font-bold text-green-500">※ 비고 ※</h3>
           <p className="mx-4 my-2">{data.detail}</p>
         </div>
       ) : null}
+      {relatedTcArr?.length ? <Related /> : null}
       <div className="min-h-16"></div>
     </div>
   );
 
+  // 없는 정보
+  // TODO: 내용 추가 신청
   function NoContent() {
     return <div className="py-10">아직 데이터가 없습니다.</div>;
   }
 
+  // 기본정보
   function SubContent() {
     // 간체자 & 보통화
     const cn = data.cn == undefined || data.cn == "" ? data.tc : data.cn;
@@ -91,12 +97,12 @@ export default async function HanJa(props) {
     return (
       <div className="p-6 flex">
         <div>
-          <p className={ccss.smLabel}>简体字 · 拼音</p>
-          <p className={ccss.smLabel}>普通话</p>
+          <h3 className={ccss.smLabel}>简体字 · 拼音</h3>
+          <h3 className={ccss.smLabel}>普通话</h3>
           {isOneChar ? (
             <>
-              <p className={ccss.smLabel}>한국 한자음</p>
-              <p className={ccss.smLabel}>UTF</p>
+              <h3 className={ccss.smLabel}>한국 한자음</h3>
+              <h3 className={ccss.smLabel}>UTF</h3>
             </>
           ) : null}
         </div>
@@ -114,7 +120,7 @@ export default async function HanJa(props) {
     );
   }
 
-  // 한자 콘텐츠 컴포넌트
+  // 한자 상세정보
   function TcContent() {
     // mean 부분 발음별 분리용 count
     let count = -1;
@@ -139,7 +145,7 @@ export default async function HanJa(props) {
     );
   }
 
-  // 단어 콘텐츠 컴포넌트
+  // 단어 상세정보
   function WordContent() {
     return (
       <div className="border px-4 py-2">
@@ -149,6 +155,33 @@ export default async function HanJa(props) {
           </p>
         ))}
       </div>
+    );
+  }
+
+  function Related() {
+    return (
+      <>
+        <div className="my-8 h-2 w-full bg-green-50" />
+        <h3 className="font-bold text-sm mb-4">관련 내용</h3>
+        {relatedTcArr.map((word) => {
+          const id = setIdFromTc(word);
+          return word == data.tc ? null : isOneChar ? (
+            dbTc[id] != null ? (
+              <Link className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
+                {word}
+              </Link>
+            ) : (
+              <span className="p-2 text-lg">{word}</span>
+            )
+          ) : dbWord[id] != null ? (
+            <Link className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
+              {word}
+            </Link>
+          ) : (
+            <span className="p-2 text-lg">{word}</span>
+          );
+        })}
+      </>
     );
   }
 }
