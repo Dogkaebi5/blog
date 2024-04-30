@@ -7,28 +7,26 @@ import { syllable } from "@controller/yueYin";
 import { setIdFromTc, setTcFromId, splitIds } from "@controller/handleId";
 import YueYinPlayer from "@components/YueYinPlayer";
 
-// 기본 데이터 세팅
-const noData = { tc: "-", yueYin: "-", cn: "-", pinyin: "-", mandarin: "-", hanja: "-", category: "-", mean: "-" };
-
 // export let metadata = {};
 export async function generateMetadata(props) {
   const id = props.params.id;
   const idsArr = splitIds(id);
   const data = idsArr.length == 1 ? dbTc[id] : dbWord[id];
   return {
-    title: `DogKaeBi | ${data?.tc ?? setTcFromId(idsArr)} : ${data?.title ?? "-"}`,
+    title: `DogKaeBi | 광둥어 ${data?.tc ?? setTcFromId(idsArr)} : ${data?.title ?? "-"}`,
     description: `한자 : [ ${data?.tc ?? setTcFromId(idsArr)} ] 의 광둥어 뜻 풀이`,
   };
 }
 
 // use client에서 에러 지속 발생, async로 변경
 export default async function HanJa(props) {
+  // 기본 데이터 세팅
+  const noData = { tc: "-", yueYin: "-", cn: "-", pinyin: "-", mandarin: "-", hanja: "-", category: "-", mean: "-" };
   const id = props.params.id;
   const idsArr = splitIds(id);
   const char = setTcFromId(idsArr);
   const isOneChar = idsArr.length == 1;
   const isHasData = dbTc[id] != null || dbWord[id] != null;
-
   // firestore 데이터 받기 => ctrl로 통합 이동
   const data = isHasData ? (isOneChar ? dbTc[id] : dbWord[id]) : noData;
 
@@ -36,11 +34,9 @@ export default async function HanJa(props) {
   let yueYinArr = data.yueYin?.split(" ");
   // 한국 발음 세팅
   const krSyllable = () => {
-    // 초기 데이터가 아닌 경우 설정
     if (isHasData) {
       // 성조(숫자) 정규식으로 제거
       const syllableWithoutTones = data.yueYin.replace(/\d+/g, "").split(" ");
-      // 한자(문자 1개) or 단어의 경우(단어는 , 있음)
       // 한자: 발음 return // 단어: 발음 map -> join
       return syllableWithoutTones.length == 1 ? syllable.yueYin[syllableWithoutTones[0]].pronunciation : syllableWithoutTones.map((syl) => syllable.yueYin[syl].pronunciation).join(" ");
     }
@@ -57,10 +53,8 @@ export default async function HanJa(props) {
       <Link className={ccss.headerBtn} href={isOneChar ? "/cantonese" : "/cantonese/word"}>
         👈 {isOneChar ? "한자" : "단어"}
       </Link>
-      <div className="flex mt-8">
-        <div className={ccss.cnTitleBox}>
-          <h1 className={isOneChar ? " text-8xl" : " text-7xl"}>{char}</h1>
-        </div>
+      <div className="flex mt-12">
+        <CnTitle />
         <div className="ml-4">
           <h3 className={ccss.smLabel}>월음 (粵音)</h3>
           {/* use client에서 onClick을 사용할 수 없어서 별도 컴포넌트로 작성 */}
@@ -70,7 +64,6 @@ export default async function HanJa(props) {
         </div>
       </div>
       <SubContent />
-      <div className="w-full border border-green-200 bg-green-100 text-sm px-4 py-2">구분 : {data.category}</div>
       {isHasData ? isOneChar == 1 ? <TcContent /> : <WordContent /> : <NoContent />}
       {data.detail != null && data.detail != undefined && data.detail != "" ? (
         <div className={ccss.textBox}>
@@ -87,6 +80,31 @@ export default async function HanJa(props) {
   // TODO: 내용 추가 신청
   function NoContent() {
     return <div className="py-10">아직 데이터가 없습니다.</div>;
+  }
+
+  function CnTitle() {
+    const linkClass = "hover:underline hover:text-green-600 underline-offset-8 decoration-2";
+    let i = -1;
+    return (
+      <div className={ccss.cnTitleBox}>
+        {isOneChar ? (
+          <h1 className=" text-8xl">{char}</h1>
+        ) : (
+          <h1 className=" text-7xl">
+            {idsArr.map((id) => {
+              i++;
+              return dbTc[id] == null ? (
+                <span key={id}>{char[i]}</span>
+              ) : (
+                <Link key={id} className={linkClass} href={"/cantonese/" + id}>
+                  {char[i]}
+                </Link>
+              );
+            })}
+          </h1>
+        )}
+      </div>
+    );
   }
 
   // 기본정보
@@ -126,18 +144,17 @@ export default async function HanJa(props) {
     let count = -1;
     return (
       <>
+        <div className={ccss.cnCategoryBox}>구분 : {data.category}</div>
         {data.mean.split("#").map((mean) => {
           count++;
           return (
             <div className="border px-4 py-2" key={mean}>
               <p className="font-bold">{yueYinArr[count]}</p>
-              {mean.split("/").map((text) => {
-                return (
-                  <p className="py-1" key={text}>
-                    · {text}
-                  </p>
-                );
-              })}
+              {mean.split("/").map((text) => (
+                <p className="py-1" key={text}>
+                  · {text}
+                </p>
+              ))}
             </div>
           );
         })}
@@ -148,13 +165,16 @@ export default async function HanJa(props) {
   // 단어 상세정보
   function WordContent() {
     return (
-      <div className="border px-4 py-2">
-        {data.mean.split("/").map((text) => (
-          <p className="py-1" key={text}>
-            · {text}
-          </p>
-        ))}
-      </div>
+      <>
+        <div className={ccss.cnCategoryBox}>구분 : {data.category}</div>
+        <div className="border px-4 py-2">
+          {data.mean.split("/").map((text) => (
+            <p className="py-1" key={text}>
+              · {text}
+            </p>
+          ))}
+        </div>
+      </>
     );
   }
 
