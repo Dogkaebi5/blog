@@ -8,6 +8,7 @@ import { imgURL } from "@controller/urls";
 import PrismLoader from "@/app/components/PrismLoader";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props) {
   const data = dbPost.filter((post) => {
@@ -16,21 +17,26 @@ export async function generateMetadata(props) {
     }
   })[0];
 
-  return {
-    title: `DogKaeBi | ${data.title}`,
-    description: data.summary,
-    openGraph: {
-      title: `DogKaeBi | ${data.title}`,
-      description: data.summary,
-      images: [
-        {
-          url: imgURL + data.thumbnail,
-          width: 600,
-          height: 315,
+  return data == null
+    ? {
+        title: `DogKaeBi | 404`,
+        description: `Page not found`,
+      }
+    : {
+        title: `DogKaeBi | ${data.title}`,
+        description: data.summary,
+        openGraph: {
+          title: `DogKaeBi | ${data.title}`,
+          description: data.summary,
+          images: [
+            {
+              url: imgURL + data.thumbnail,
+              width: 600,
+              height: 315,
+            },
+          ],
         },
-      ],
-    },
-  };
+      };
 }
 
 // [id] 폴더 router
@@ -50,9 +56,9 @@ export default async function Read(props) {
   // 결론 : (1)markdown-to-jsx을 사용 (2)md 별도 저장 (3)tailwind plugin @tailwindcss/typography 사용
 
   // firestore에서 가져온 date 데이터는 toDate를 해야 javascript에서 정상적으로 표기됨
-  const createdDate = data.createdDate.toDate();
-  const updatedDate = data.updatedDate != null || data.updatedDate != undefined ? data.updatedDate.toDate() : null;
-  const contentObj = await fetch(imgURL + data.content);
+  const createdDate = data?.createdDate.toDate();
+  const updatedDate = data?.updatedDate != null || data?.updatedDate != undefined ? data?.updatedDate.toDate() : null;
+  const contentObj = await fetch(imgURL + data?.content);
   const contentText = await contentObj.text();
   // gray-matter 사용
   const dataParsed = matter(contentText);
@@ -69,7 +75,9 @@ export default async function Read(props) {
     },
   };
 
-  return (
+  return data == null ? (
+    notFound()
+  ) : (
     <div className="p-8 md:p-16">
       <PrismLoader />
       <div className="px-4">
