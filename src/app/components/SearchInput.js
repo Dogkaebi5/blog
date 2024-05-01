@@ -3,9 +3,10 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import * as ccss from "@controller/cssName";
 
-const SearchInput = () => {
+const SearchInput = ({ q }) => {
+  const query = q ?? "";
   const router = useRouter();
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(query);
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();

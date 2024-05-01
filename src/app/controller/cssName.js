@@ -61,3 +61,5 @@ export const tBlue = "bg-blue-50 px-4";
 export const thRed = "text-sm font-bold text-pink-600";
 export const thBlue = "text-sm font-bold text-blue-600";
 export const tableLink = " hover:underline underline-offset-4";
+
+export const searchResType = "flex font-bold before:inline-block before:h-3 before:w-1 before:mr-2 before:bg-green-500";

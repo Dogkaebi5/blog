@@ -4,6 +4,7 @@ import { search } from "@/app/controller/search";
 import { setIdFromTc } from "@/app/controller/handleId";
 import { syllableURL } from "@/app/controller/urls";
 import { syllable } from "@/app/controller/yueYin";
+import SearchInput from "@/app/components/SearchInput";
 
 export default function Search(props) {
   const searchText = props.searchParams.q;
@@ -15,31 +16,34 @@ export default function Search(props) {
   const isNoData = resTc == null && resSy == null && resWd == null && resPs == null;
 
   return (
-    <div className={ccss.noHeroContent}>
-      <div className="p-2">
-        <p className="mb-8">
+    <div className={ccss.noHeroContent + " p-4"}>
+      <div className="bg-gray-50 p-4 mb-12 rounded">
+        <SearchInput q={searchText} />
+        <p className="">
           검색어 : <span className=" text-green-500">{searchText}</span>
         </p>
-        {isNoData ? (
-          "결색된 내용이 없습니다"
-        ) : (
-          <>
-            {/* 한자 검색결과 */}
-            {resTc != null ? (
-              <div>
-                <p>한자</p>
-                {resTc.map((data) => (
-                  <TcResults key={"tc" + data.sortId} data={data} />
-                ))}
-                {resSy == null && resWd == null && resPs == null ? null : <hr />}
-              </div>
-            ) : null}
+      </div>
+      {isNoData ? (
+        "결색된 내용이 없습니다"
+      ) : (
+        <>
+          {/* 한자 검색결과 */}
+          {resTc != null ? (
+            <div>
+              <p className={ccss.searchResType}>한자</p>
+              {resTc.map((data) => (
+                <TcResults key={"tc" + data.sortId} data={data} />
+              ))}
+            </div>
+          ) : null}
 
-            {/* 발음 검색결과 */}
-            {resSy != null ? (
-              <div className="mt-4">
-                <p>월음</p>
-                <Link className={ccss.linkGreenText + " p-4 text-xl"} href={syllableURL + resSy}>
+          {/* 발음 검색결과 */}
+          {resSy != null ? (
+            <div>
+              {resTc == null ? null : <div className={ccss.hr + " my-12"} />}
+              <p className={ccss.searchResType}>월음</p>
+              <div className="p-4">
+                <Link className={ccss.linkGreenText + " mx-2 text-xl"} href={syllableURL + resSy}>
                   {resSy}
                 </Link>
                 {syllable.yueYin[resSy].tone.map((tone) => (
@@ -47,40 +51,38 @@ export default function Search(props) {
                     {resSy + tone}
                   </span>
                 ))}
-                {resWd == null && resPs == null ? null : <hr className="mt-4" />}
               </div>
-            ) : null}
+            </div>
+          ) : null}
 
-            {/* 단어 검색결과 */}
-            {resWd != null ? (
-              <div className="mt-4">
-                <p>단어</p>
-                {resWd.map((data) => (
-                  <TcResults key={"wd" + data.sortId} data={data} />
-                ))}
-                {resPs == null ? null : <hr />}
-              </div>
-            ) : null}
+          {/* 단어 검색결과 */}
+          {resWd != null ? (
+            <div>
+              {resSy == null && resTc == null ? null : <div className={ccss.hr + " my-12"} />}
+              <p className={ccss.searchResType}>단어</p>
+              {resWd.map((data) => (
+                <TcResults key={"wd" + data.sortId} data={data} />
+              ))}
+            </div>
+          ) : null}
 
-            {/* 일기 검색결과 */}
-            {resPs != null ? (
-              <div>
-                <p>관련 포스트</p>
-                {resPs.map((data) => (
-                  <PostResults key={data.slug} data={data} />
-                ))}
-              </div>
-            ) : null}
-          </>
-        )}
-      </div>
+          {/* 일기 검색결과 */}
+          {resPs != null ? (
+            <div>
+              {resSy == null && resTc == null && resWd == null ? null : <div className={ccss.hr + " my-12"} />}
+              <p className={ccss.searchResType}>관련 포스트</p>
+              {resPs.map((data) => (
+                <PostResults key={data.slug} data={data} />
+              ))}
+            </div>
+          ) : null}
+        </>
+      )}
     </div>
   );
 }
 
-{
-  /* <p className="mt-20 mb-40">검색된 내용이 없습니다</p> */
-}
+// TODO: 내용 없음 작성? <p className="mt-20 mb-40">검색된 내용이 없습니다</p>
 
 const TcResults = (props) => {
   const data = props.data;
