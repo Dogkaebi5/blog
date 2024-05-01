@@ -28,7 +28,7 @@ export default CardList;
 
 const CnCard = ({ data }) => {
   return (
-    <Link key={data.id} className={ccss.cnCard} href={`/cantonese/${data.id}`}>
+    <Link className={ccss.cnCard} href={`/cantonese/${data.id}`}>
       <p className={ccss.cnCardJutYin}>{data.yueYin}</p>
       <h1 className={ccss.cnCardTC}>{data.tc}</h1>
       <p className={ccss.cnCardTitle}>{data.title}</p>
