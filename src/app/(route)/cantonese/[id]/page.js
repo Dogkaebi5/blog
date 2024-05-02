@@ -45,7 +45,7 @@ export default async function HanJa(props) {
   const kr = krSyllable();
 
   // 관련 한자
-  const relatedTcArr = data.relevance?.split(" ");
+  const relatedTcArr = data.relevance != null && data.relevance != "" ? data.relevance?.split(" ") : null;
 
   // 페이지
   return (
@@ -71,7 +71,7 @@ export default async function HanJa(props) {
           <p className="mx-4 my-2">{data.detail}</p>
         </div>
       ) : null}
-      {relatedTcArr?.length ? <Related /> : null}
+      {relatedTcArr != null ? <Related /> : null}
       <div className="min-h-16"></div>
     </div>
   );
