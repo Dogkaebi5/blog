@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "DogKaeBi | Cantonese",
-  description: "중국 광둥 생활 20년인 독깨비의 광둥어 이야기",
+  title: "DogKaeBi | About",
+  description: "중국 20년 생활한 독깨비에 대해서",
 };
 
 export default function RootLayout({ children }) {
