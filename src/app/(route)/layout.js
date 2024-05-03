@@ -19,10 +19,12 @@ export default function RootLayout({ children }) {
         <meta name="google-adsense-account" content="ca-pub-4395279661539134" />
         <link rel="icon" href="/logo.png" sizes="any" />
       </head>
-      <body className={inter.className + " max-w-4xl mx-auto relative flex flex-col"}>
-        <Navigation />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className={inter.className}>
+        <div className=" max-w-4xl mx-auto relative flex flex-col">
+          <Navigation />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
       <GoogleAnalytics gaId="G-RM4HNBFXFN" />
     </html>
