@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className + " max-w-4xl mx-auto relative flex flex-col"}>
         <Navigation />
-        <main className="h-full flex-1">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
       </body>
       <GoogleAnalytics gaId="G-RM4HNBFXFN" />

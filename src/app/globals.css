@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Microsoft YaHei";
-  src: local("Microsoft YaHei");
+  font-family: "Microsoft JhengHei";
+  src: local("Microsoft JhengHei");
   unicode-range: U+2E80-2EFF, U+3400-4DBF, U+4E00-9FBF, U+F900-FAFF, U+20000-2A6DF, U+2F800-2FA1F;
 }
 
@@ -15,9 +15,9 @@
 
 html,
 body,
-body > div:first-child,
 div#__next,
 div#__next > div {
+  height: 100%;
   min-height: 100vh;
 }
 
