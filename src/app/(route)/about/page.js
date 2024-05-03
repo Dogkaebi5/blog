@@ -3,21 +3,21 @@ import * as ccss from "@controller/cssName";
 
 export default function About() {
   return (
-    <div className="max-w-md mx-auto">
+    <div className="max-w-md mx-auto my-8 pt-8 border-2 border-green-100 rounded-xl">
       <div className="text-center mb-4">
         <Image className="mx-auto rounded-full border shadow-lg" width={200} height={200} src={"https://drive.google.com/uc?id=1hm2QhpQzavfKF4tgpFarFgeovfRtOhNw"} alt="profile" />
         <h1 className="mt-4 text-3xl font-bold">DogKaeBi</h1>
         <h2 className="font-bold text-green-500">독깨비, 狗叔, 肥狗</h2>
         <p className="mt-2 mb-12 text-sm">강아지를 좋아하는 중국 광둥 생활 20년 넘은 수상한 아재</p>
       </div>
-      <div className={ccss.textBox + " text-sm"}>
+      <div className={ccss.textBox + " text-sm mx-4"}>
         1996년 중국 썬전(深圳)으로 이주.
         <br /> 중국 초/중/고/대학 졸업. 중국 취업 및 친구들과 창업.
         <br />
         <br /> 2017년 전 직장상사의 권유로 한국 입국.
       </div>
-      <div className="my-8 w-full h-1 bg-green-100" />
-      <div className={ccss.textBox}>
+      <div className="my-4 w-full h-2 bg-green-100" />
+      <div className={ccss.textBox + " mx-4"}>
         <p className="text-green-500 font-bold mb-2">OB</p>
         <ul className="text-sm ml-4 mb-4">
           <li>초 : 深圳 华宝实验小学 ( 현: 龙腾小学 )</li>
@@ -26,7 +26,7 @@ export default function About() {
           <li>대 : 广州 暨南大学 경제학</li>
         </ul>
       </div>
-      <div className={ccss.textBox}>
+      <div className={ccss.textBox + " mx-4"}>
         <p className="text-green-500 font-bold mb-2">이런 일 해봄</p>
         <p className="text-sm font-bold ml-4">중국</p>
         <ul className="ml-8 mb-2 p-1 text-sm list-disc">
@@ -42,7 +42,7 @@ export default function About() {
           <li>암호화폐 거래소 사업기획, NFT 마켓플레이스 PM</li>
         </ul>
       </div>
-      <div className="my-8 w-full h-1 bg-green-100" />
+      <div className="my-4 w-full h-2 bg-green-100" />
     </div>
   );
 }

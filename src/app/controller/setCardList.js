@@ -11,7 +11,7 @@ const dbPostArr = dbPost.sort((a, b) => b.createdDate - a.createdDate);
 
 dbTcArr.map((value) => {
   for (let key in dbTc) {
-    if (dbTc[key].sortId == value.sortId) return (value.id = key);
+    if (dbTc[key].tc == value.tc) return (value.id = key);
   }
 });
 
