@@ -13,6 +13,14 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html,
+body,
+body > div:first-child,
+div#__next,
+div#__next > div {
+  min-height: 100vh;
+}
+
 tbody {
   background-color: #fff;
 }

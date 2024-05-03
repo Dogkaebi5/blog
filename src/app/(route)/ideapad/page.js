@@ -4,5 +4,5 @@ export const metadata = {
 };
 
 export default function Product() {
-  return <>product page</>;
+  return <div className="bg-gray-50 h-full">product page</div>;
 }

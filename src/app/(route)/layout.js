@@ -19,20 +19,16 @@ export default function RootLayout({ children }) {
         <meta name="google-adsense-account" content="ca-pub-4395279661539134" />
         <link rel="icon" href="/logo.png" sizes="any" />
       </head>
-      <body className={inter.className + " max-w-4xl mx-auto relative"}>
-        <div className="min-h-screen flex flex-col justify-between">
-          <div>
-            <Navigation />
-            <div>{children}</div>
-          </div>
-          <Footer />
-        </div>
+      <body className={inter.className + " max-w-4xl mx-auto relative flex flex-col"}>
+        <Navigation />
+        <main className="h-full flex-1">{children}</main>
+        <Footer />
       </body>
       <GoogleAnalytics gaId="G-RM4HNBFXFN" />
     </html>
   );
 }
 ////////
-// 사이드를 남기는 것을 예상해서 max-w-7xl로 했다.
+// 사이드를 남기는 것을 예상해서 max-w-7xl -> 4xl로 했다.
 // 모든 페이지에 헤더 nav를 사용해서 layout에서 wrap으로 nav와 children을 포함
 ////////
