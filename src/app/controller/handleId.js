@@ -4,6 +4,9 @@ export function splitIds(idsStr) {
   // 한 글자 (아이디 길이가 5개)
   if (idsStr.length == 5) {
     result.push(idsStr);
+  } else if (idsStr.startsWith("55380")) {
+    // 벽자의 경우
+    result.push(idsStr);
   } else {
     // 한 글자 이상의 경우, 5문자씩 자르기
     for (let i = 0; i < idsStr.length; i += 5) {

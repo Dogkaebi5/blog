@@ -24,12 +24,11 @@ export default async function HanJa(props) {
   const noData = { tc: "-", yueYin: "-", cn: "-", pinyin: "-", mandarin: "-", hanja: "-", category: "-", mean: "-" };
   const id = props.params.id;
   const idsArr = splitIds(id);
-  const char = setTcFromId(idsArr);
   const isOneChar = idsArr.length == 1;
   const isHasData = dbTc[id] != null || dbWord[id] != null;
   // firestore 데이터 받기 => ctrl로 통합 이동
   const data = isHasData ? (isOneChar ? dbTc[id] : dbWord[id]) : noData;
-
+  const char = isHasData ? data.tc : setTcFromId(idsArr);
   // 월음 한개씩 array로 분리
   let yueYinArr = data.yueYin?.split(" ");
   // 한국 발음 세팅
