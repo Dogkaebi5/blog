@@ -186,18 +186,22 @@ export default async function HanJa(props) {
           const id = setIdFromTc(word);
           return word == data.tc ? null : isOneChar ? (
             dbTc[id] != null ? (
-              <Link className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
+              <Link key={id} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
                 {word}
               </Link>
             ) : (
-              <span className="p-2 text-lg">{word}</span>
+              <span key={id} className="p-2 text-lg">
+                {word}
+              </span>
             )
           ) : dbWord[id] != null ? (
-            <Link className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
+            <Link key={id} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
               {word}
             </Link>
           ) : (
-            <span className="p-2 text-lg">{word}</span>
+            <span key={id} className="p-2 text-lg">
+              {word}
+            </span>
           );
         })}
       </>
