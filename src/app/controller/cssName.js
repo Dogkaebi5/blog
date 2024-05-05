@@ -49,10 +49,12 @@ export const wordCardsWrap = "grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols
 
 export const syllableWrap = "mx-auto py-2 px-4 rounded-xl";
 export const syllableDetail = "text-start mx-auto my-4 text-sm";
-export const syllableSelectorsWrap = "sm:flex gap-2 mt-8";
-export const syllableSelectorBox = "flex-1 justify-center p-4 rounded-xl bg-gray-50 border";
+
+export const syllableSelectorsWrap = "sm:flex gap-2 ";
+export const syllableSelectorBox = "flex flex-1 p-4 rounded-xl text-start items-center";
 export const syllablelable = "font-bold text-sm";
-export const syllableSelect = "my-1 py-1 border rounded-lg text-sm text-center w-full";
+export const syllableSelect = "hover:ring ring-green-400 ml-2 py-1.5 border rounded-lg text-sm text-center flex-1";
+export const syllableLinkCard = `block my-2 flex flex-col justify-center items-center flex-1 h-28 bg-white rounded-lg shadow ring-1 ring-green-200 hover:ring hover:ring-green-400 hover:bg-green-50`;
 
 export const table = "my-4 text-sm container w-full text-nowrap";
 export const th = "font-extrabold";
