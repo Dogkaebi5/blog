@@ -15,6 +15,7 @@ snapshot.forEach((doc) => (dbTc[doc.id] = doc.data()));
 // 원래 페이지에서는 data를 await로 받지 않으면 에러 발생
 
 // DB 다시 읽기
+
 export const reloadTc = async () => {
   const updateSnapshot = await getDocs(collection(firestore, "tc"));
   dbTc = updateSnapshot.forEach((doc) => (dbTc[doc.id] = doc.data()));
