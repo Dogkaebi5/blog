@@ -65,7 +65,7 @@ export default async function HanJa(props) {
       <SubContent />
       {isHasData ? isOneChar == 1 ? <TcContent /> : <WordContent /> : <NoContent />}
       {data.detail != null && data.detail != undefined && data.detail != "" ? (
-        <div className={ccss.textBox}>
+        <div className={ccss.textBox + " mt-8"}>
           <h3 className="text-sm font-bold text-green-500">※ 비고 ※</h3>
           <p className="mx-4 my-2">{data.detail}</p>
         </div>
