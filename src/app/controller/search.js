@@ -7,17 +7,25 @@ export function search(quary) {
   if (quary == null || quary == undefined || quary?.length < 1) return null;
 
   const engOnlyRegex = /^[a-zA-Z]*$/g;
+  const noDigit = quary.replaceAll(/\d/g, "");
+  const isOnlyNum = /^[0-9]*$/g.test(quary);
 
   const setTcRes = () => {
     let tcs = [];
     Object.values(dbTc).map((data) => {
-      if (data.tc == quary) return tcs.push(data);
-      if (data.cn == quary) return tcs.push(data);
-      if (data.mean.includes(quary)) return tcs.push(data);
-      if (data.category.includes(quary)) return tcs.push(data);
-      if (data.yueYin.includes(quary)) return tcs.push(data);
-      if (data.yueYin.replace(/\d/g, "").includes(quary.replace(/\d/g, ""))) return tcs.push(data);
-      if (data.mandarin?.includes(quary)) return tcs.push(data);
+      if (!isOnlyNum) {
+        if (data.tc === quary) return tcs.push(data);
+        if (data.cn === quary) return tcs.push(data);
+        if (data.mean.includes(quary)) return tcs.push(data);
+        if (data.category.includes(quary)) return tcs.push(data);
+        if (engOnlyRegex.test(noDigit)) {
+          if (data.yueYin.includes(quary)) return tcs.push(data);
+          if (data.yueYin.replace(/\d/g, "").includes(quary.replace(/\d/g, ""))) return tcs.push(data);
+        }
+        if (data.mandarin?.includes(quary)) return tcs.push(data);
+      } else {
+        if (data.mean.includes(quary)) return tcs.push(data);
+      }
     });
     if (tcs.length) {
       const tcSet = new Set(tcs);
@@ -27,7 +35,6 @@ export function search(quary) {
   };
 
   const setSyllableRes = () => {
-    const noDigit = quary.replaceAll(/\d/g, "");
     if (engOnlyRegex.test(noDigit)) {
       if (syllable.yueYin[noDigit] != undefined) return noDigit;
     }
