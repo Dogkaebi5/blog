@@ -8,10 +8,8 @@ import { setCardList } from "@controller/setCardList";
 // 데이터는 read ctrl 으로 이동
 export default function Cantonese(props) {
   const path = "tc";
-  // Query 페이지, 없으면 1
-  const page = props.searchParams.page ?? 1;
-  // 한자는 카드 최대12장
-  const maxCardInPage = 12;
+  const page = props.searchParams.page ?? 1; // Query 페이지, 없으면 1
+  const maxCardInPage = 12; // 한자는 카드 최대12장
   const tcData = setCardList(path, page, maxCardInPage);
   const maxPages = Math.ceil(tcData.allLength / maxCardInPage);
 

@@ -9,6 +9,32 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "DogKaeBi",
   description: "독깨비의 광둥어 & 개발 블로그",
+  openGraph: {
+    title: `DogKaeBi | 독깨비 광둥어`,
+    url: "dogkaebi.com",
+    siteName: "DogKaeBi 독깨비",
+    images: [
+      {
+        alt: "dogkaebi",
+        url: "/logo.png",
+        width: 500,
+        height: 500,
+      },
+    ],
+  },
+  twitter: {
+    title: `DogKaeBi | 독깨비 광둥어`,
+    url: "dogkaebi.com",
+    siteName: "DogKaeBi 독깨비",
+    images: [
+      {
+        alt: "dogkaebi",
+        url: "/logo.png",
+        width: 500,
+        height: 500,
+      },
+    ],
+  },
 };
 
 // TODO: 임시 파피콘, Meta 수정
