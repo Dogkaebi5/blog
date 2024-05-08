@@ -3,7 +3,7 @@ export default function robots() {
     rules: [
       {
         userAgent: "*",
-        disallow: ["/test/", "/syllable/initial/*", "/syllable/vowel/*"],
+        disallow: ["/test/", "/syllable/initial/*", "/syllable/vowel/*", "/search/"],
       },
     ],
     sitemap: "https://dogkaebi.com/sitemap.xml",
