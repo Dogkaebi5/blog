@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export default function Syllable() {
   const toneTable = [
-    ["IA", "1", "음평 陰平", "상음입 上陰入"],
-    ["IIA", "2", "음상 陰上", ""],
-    ["IIIA", "3", "음거 陰去", "하음입 下陰入"],
-    ["IB", "4", "양평 陽平", ""],
-    ["IIB", "5", "양상 陽上", ""],
-    ["IIIB", "6", "양거 陽去", "양입 陽入"],
+    ["1", "IA", "陰平 (음평)", "上陰入 (상음입)"],
+    ["2", "IIA", "陰上 (음상)", ""],
+    ["3", "IIIA", "陰去 (음거)", "下陰入 (하음입)"],
+    ["4", "IB", "陽平 (양평)", ""],
+    ["5", "IIB", "陽上 (양상)", ""],
+    ["6", "IIIB", "陽去 (양거)", "陽入 (양입)"],
   ];
 
   const toneDescription = `
@@ -24,7 +24,7 @@ export default function Syllable() {
 
   const LinkText = ({ text }) => {
     return (
-      <Link className={ccss.linkGreenText} href={syllableURL + text}>
+      <Link className={ccss.linkGreenText + " underline"} href={syllableURL + text}>
         {text}
       </Link>
     );
@@ -38,17 +38,17 @@ export default function Syllable() {
         </Link>
       </div>
       <div className={ccss.mainBlock}>
-        <h1 className={ccss.h1}>성조(聲調)</h1>
+        <h1 className={ccss.h1}>광둥어 성조(聲調)</h1>
         <p className={ccss.textBox} dangerouslySetInnerHTML={{ __html: toneDescription }} />
         <div className={ccss.hr} />
         <h2 className={ccss.h2}>광둥어 성조</h2>
         <table className="my-4 text-sm">
           <tbody>
             <tr>
-              <td className={ccss.tGray}>구분</td>
+              <td className={ccss.tGray}>월병</td>
               <td className={ccss.tGray}>표기</td>
-              <td className={ccss.tGray}>음평</td>
-              <td className={ccss.tGray}>입성</td>
+              <td className={ccss.tGray}>명칭</td>
+              <td className={ccss.tGray}>入聲 (입성)</td>
             </tr>
             {toneTable.map((span) => {
               return (
@@ -63,14 +63,27 @@ export default function Syllable() {
           </tbody>
         </table>
         <p className={ccss.textBox}>
-          모든 성조가 다 있는 음절은 매우 적다.
+          <span className="font-bold">陰平, 陰上, 陰去, 陽平, 陽上, 陽去, 上陰入, 下陰入, 陽入</span>
+          <br /> 성조의 정식명칭은 평상거입(平上去入)의 이름이다.
           <br />
-          <LinkText text="maa" /> ,&nbsp;
-          <LinkText text="si" /> ,&nbsp;
-          <LinkText text="ngaa" /> &nbsp;가 대표적인 모든 성조가 있는 음절이다.
+          <br /> 성은 총 9개가 있지만 성조는
+          <br /> 1, 2, 3, 4, 5, 6 으로 표기한다.
+          <br />
+          <br /> 광둥어 발음 중에서 모든 성조가 다 있는 음절은 매우 적다.
+          <br /> <LinkText text="maa" /> ,&nbsp; <LinkText text="si" /> ,&nbsp; <LinkText text="ngaa" /> &nbsp;가 대표적인 모든 성조가 있는 음절이다.
         </p>
         <div className={ccss.hr} />
-        <h2 className={ccss.h2}>성조 변화 예시</h2>
+        <h2 className={ccss.h2}>광둥어 입성(入聲)</h2>
+        <p className={ccss.textBox}>
+          <span className="font-bold">上陰入, 下陰入, 陽入</span>
+          <br /> 입성은 한국어의 받침음과 비슷하다.
+          <br /> 운미(韻味)가 p, t, k 으로, 발음 끝부분이 짧은 발음이다.
+          <br />
+          <br /> 7, 8, 9성은 1, 3, 6성과 같은 조(調)를 가지고 있어서
+          <br /> 1, 3, 6성으로 7, 8, 9성조를 표기한다.
+        </p>
+        <div className={ccss.hr} />
+        <h2 className={ccss.h2}>광둥어 성조 발음 예시</h2>
         <p className={ccss.textBox}>
           시작하는 음은 사람마다 다르다.
           <br /> 사람의 목소리 음이 태생으로 낮거나 높을 수 있다.
@@ -102,7 +115,7 @@ export default function Syllable() {
         </p>
         <div className={ccss.hr} />
         <h2 className={ccss.h2}>한국어 성조</h2>
-        <p className={ccss.textBox + " mb-20"}>
+        <p className={ccss.textBox}>
           한국어에 대한 오해 중 하나가 &quot;한국어에 성조가 없다&quot;이다.
           <br />
           <br /> 훈민정음에도 평상거입이 있었다.
@@ -112,6 +125,66 @@ export default function Syllable() {
           <br /> 하지만 한국어는 성조가 달라도 의미가 크게 변화하지 않는다.
           <br />
           <br /> 하지만 &quot;밥 먹었어&quot;와 &quot;밥 먹었어?&quot; 같은 말은 성조로 구분한다.
+        </p>
+        <div className={ccss.hr} />
+        <h2 className={ccss.h2}>다른 광둥어 성조 표기법</h2>
+        <p className={ccss.textBox}>
+          홍콩어언학학회, 예일(현재), 만국음표, 광저우, 유석상은 전부 숫자로 표기한다.
+          <br /> <span className="font-bold">1, 2, 3, 4, 5, 6</span>
+          <br />
+          <br /> 예일(전통) : <span className="border p-1 rounded">⎺</span>
+          <span className="border p-1 rounded">
+            <sup>
+              <span className="text-[8px]">╱</span>
+            </sup>
+          </span>
+          <span className="border p-1 rounded">&nbsp;&nbsp;</span>
+          <span className="border p-1 rounded">
+            <sup>
+              <span className="text-[8px]">╲</span>
+            </sup>
+            h
+          </span>
+          <span className="border p-1 rounded">
+            <sup>
+              <span className="text-[8px]">╱</span>
+            </sup>
+            h
+          </span>
+          <span className="border p-1 rounded">h</span>
+          <br />
+          <br />
+          황석릉 :{" "}
+          <span className="border py-1 px-2 rounded">
+            <sup>
+              <span className="text-[6px]">│</span>
+            </sup>
+          </span>
+          <span className="border py-1 px-2 rounded">
+            <sup>
+              <span className="text-[6px]">╱</span>
+            </sup>
+          </span>
+          <span className="border py-1 px-2 rounded">
+            <sup>
+              <span className="text-[6px]">─</span>
+            </sup>
+          </span>
+          <span className="border py-1 px-2 rounded">
+            <sub>
+              <span className="text-[6px]">│</span>
+            </sub>
+          </span>
+          <span className="border py-1 px-2 rounded">
+            <sub>
+              <span className="text-[6px]">╱</span>
+            </sub>
+          </span>
+          <span className="border py-1 px-2 rounded">
+            <sub>
+              <span className="text-[6px]">─</span>
+            </sub>
+          </span>
         </p>
       </div>
     </div>
