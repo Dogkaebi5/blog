@@ -7,6 +7,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
+  metadataBase: new URL("https://dogkaebi.com"),
   title: "DogKaeBi",
   description: "독깨비의 광둥어 & 개발 블로그",
   icons: { icon: "/logo.png" },
