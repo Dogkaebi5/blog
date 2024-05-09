@@ -62,7 +62,7 @@ export default function Syllable() {
             })}
           </tbody>
         </table>
-        <p className={ccss.textBox}>
+        <div className={ccss.textBox}>
           <span className="font-bold">陰平, 陰上, 陰去, 陽平, 陽上, 陽去, 上陰入, 下陰入, 陽入</span>
           <br /> 성조의 정식명칭은 평상거입(平上去入)의 이름이다.
           <br />
@@ -71,24 +71,25 @@ export default function Syllable() {
           <br />
           <br /> 광둥어 발음 중에서 모든 성조가 다 있는 음절은 매우 적다.
           <br /> <LinkText text="maa" /> ,&nbsp; <LinkText text="si" /> ,&nbsp; <LinkText text="ngaa" /> &nbsp;가 대표적인 모든 성조가 있는 음절이다.
-        </p>
+        </div>
         <div className={ccss.hr} />
         <h2 className={ccss.h2}>광둥어 입성(入聲)</h2>
-        <p className={ccss.textBox}>
+        <div className={ccss.textBox}>
           <span className="font-bold">上陰入, 下陰入, 陽入</span>
           <br /> 입성은 한국어의 받침음과 비슷하다.
           <br /> 운미(韻味)가 p, t, k 으로, 발음 끝부분이 짧은 발음이다.
           <br />
-          <br /> 7, 8, 9성은 1, 3, 6성과 같은 조(調)를 가지고 있어서
+          <br /> 7, 8, 9성은 1, 3, 6성과 같은 조(調)다
           <br /> 1, 3, 6성으로 7, 8, 9성조를 표기한다.
-        </p>
+        </div>
         <div className={ccss.hr} />
         <h2 className={ccss.h2}>광둥어 성조 발음 예시</h2>
-        <p className={ccss.textBox}>
+        <div className={ccss.textBox}>
           시작하는 음은 사람마다 다르다.
           <br /> 사람의 목소리 음이 태생으로 낮거나 높을 수 있다.
           <br />
-          <br /> 예시로 음역이 &#39;도, 도#, 레, 레#, 미&#39;인 사람의 경우
+          <br /> 예시.
+          <br /> 음역이 &#39;도, 도#, 레, 레#, 미&#39;인 사람의 경우
           <br /> 각 음을 1, 2, 3, 4, 5로 표기하면
           <br /> 보통화 발음은 [ 55, 35, 214, 51 ] 4개 성조이다.
           <br /> 광둥어 발음은 [ 55, 35, 33, 11, 13, 22 ] 6개 성조와 [5, 3, 2] 3개 입성이다.
@@ -100,10 +101,10 @@ export default function Syllable() {
             alt="tone"
             src="https://blogfiles.pstatic.net/MjAyMTAzMDlfNjkg/MDAxNjE1MjUzMDE1MzMy.TI8nWZICWMDE6nlg0qBCycpQ_9HMeCAnllQhzVsWorsg.6IDE3mH6hODoqDjEhRQl2J462iScFgWa9Cfetl3LuYIg.JPEG.st9dog/SE-e449a329-8faa-4fd9-88f7-79ae74fad006.jpg"
           />
-        </p>
+        </div>
         <div className={ccss.hr} />
         <h2 className={ccss.h2}>평상거입(平上去入)</h2>
-        <p className={ccss.textBox}>
+        <div className={ccss.textBox}>
           평상거입은 중국 발음 체계이다. <br />
           <br /> 보통화의 성조는 음평(陰平), 양평(陽平), 상성(上聲), 거성(去聲)이다.
           <br /> 보통화는 입성이 없다.
@@ -112,10 +113,10 @@ export default function Syllable() {
           <br /> 훈민정음에도 사용된 것으로 보아 한국어도 평상거입이 있었을 것이다.
           <br /> &#39;ㄱ, ㄷ, ㄹ, ㅂ, ㅅ&#39; 받침인 글자가 입성이다.
           <br /> (광둥어는 &#39;ㄹ&#39; 받침음은 없다)
-        </p>
+        </div>
         <div className={ccss.hr} />
         <h2 className={ccss.h2}>한국어 성조</h2>
-        <p className={ccss.textBox}>
+        <div className={ccss.textBox}>
           한국어에 대한 오해 중 하나가 &quot;한국어에 성조가 없다&quot;이다.
           <br />
           <br /> 훈민정음에도 평상거입이 있었다.
@@ -125,10 +126,10 @@ export default function Syllable() {
           <br /> 하지만 한국어는 성조가 달라도 의미가 크게 변화하지 않는다.
           <br />
           <br /> 하지만 &quot;밥 먹었어&quot;와 &quot;밥 먹었어?&quot; 같은 말은 성조로 구분한다.
-        </p>
+        </div>
         <div className={ccss.hr} />
         <h2 className={ccss.h2}>다른 광둥어 성조 표기법</h2>
-        <p className={ccss.textBox}>
+        <div className={ccss.textBox}>
           홍콩어언학학회, 예일(현재), 만국음표, 광저우, 유석상은 전부 숫자로 표기한다.
           <br /> <span className="font-bold">1, 2, 3, 4, 5, 6</span>
           <br />
@@ -185,7 +186,7 @@ export default function Syllable() {
               <span className="text-[6px]">─</span>
             </sub>
           </span>
-        </p>
+        </div>
       </div>
     </div>
   );
