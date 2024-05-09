@@ -9,6 +9,9 @@ import PrismLoader from "@/app/components/PrismLoader";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
 import { notFound } from "next/navigation";
+import { setIdFromTc, setTcFromId, splitIds } from "@/app/controller/handleId";
+import dbTc from "@/app/controller/readDbTc";
+import dbWord from "@/app/controller/readDbWord";
 
 export async function generateMetadata(props) {
   const data = dbPost.filter((post) => {
@@ -64,6 +67,10 @@ export default async function Read(props) {
   const dataParsed = matter(contentText);
   const content = dataParsed.content;
 
+  // 관련 한자, 단어
+
+  const wordIdArr = data?.word?.split(" ").map((w) => setIdFromTc(w));
+
   // 카테고리(태그) 표기 func
   const category = { book: "책", daily: "일상", coding: "코딩", cantonese: "광둥어" };
 
@@ -94,9 +101,62 @@ export default async function Read(props) {
         <Image className="object-cover w-full max-h-96" width={600} height={400} src={imgURL + data.thumbnail} alt={data.title} />
       </div>
       <article className="prose prose-stone">
-        <PrismLoader />
         <Markdown options={options}>{content}</Markdown>
       </article>
+
+      {data?.tc != null || data?.word != null ? (
+        <>
+          <div className={ccss.hr} />
+          <div>
+            <h3 className="font-bold text-sm mb-2">관련 한자/단어</h3>
+            <RelatedTc /> <RelatedWord />
+          </div>
+        </>
+      ) : null}
     </div>
   );
+
+  function RelatedTc() {
+    const tcArr = data?.tc?.split(" ");
+    return tcArr.map((tc) => {
+      const id = setIdFromTc(tc);
+      return dbTc[id] != null ? (
+        <Link key={id} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
+          {tc}
+        </Link>
+      ) : (
+        <span key={id} className="p-2 text-lg">
+          {tc}
+        </span>
+      );
+    });
+  }
+
+  function RelatedWord() {
+    const WordArr = data?.word?.split(" ");
+    return WordArr.map((word) => {
+      const id = setIdFromTc(word);
+      return dbWord[id] != null ? (
+        <Link key={id} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
+          {word}
+        </Link>
+      ) : (
+        <span key={id} className="p-2 text-lg">
+          {word}
+        </span>
+      );
+    });
+  }
 }
+
+// {wordIdArr.map((wordId) =>
+//   dbWord[wordId] != null ? (
+//     <Link key={wordId} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + wordId}>
+//       {setTcFromId(wordId)}
+//     </Link>
+//   ) : (
+//     <span key={wordId} className="p-2 text-lg">
+//       {setTcFromId(wordId)}
+//     </span>
+//   )
+// )}
