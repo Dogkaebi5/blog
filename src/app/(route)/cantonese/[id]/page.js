@@ -11,7 +11,7 @@ import YueYinPlayer from "@components/YueYinPlayer";
 export async function generateMetadata(props) {
   const id = props.params.id;
   const idsArr = splitIds(id);
-  const data = idsArr.length == 1 ? dbTc[id] : dbWord[id];
+  const data = dbTc[id] ?? dbWord[id];
   return {
     title: `DogKaeBi | 광둥어 ${data?.tc ?? setTcFromId(idsArr)} : ${data?.title ?? "-"}`,
     description: `한자 : [ ${data?.tc ?? setTcFromId(idsArr)} ] 의 광둥어 뜻 풀이`,
