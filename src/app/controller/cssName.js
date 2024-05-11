@@ -25,8 +25,8 @@ export const cnCategoryBox = "w-full border border-green-200 bg-green-100 text-s
 export const yueYinPlayer = `inline-block px-4 py-2 rounded-lg text-blue-600 underline underline-offset-4 hover:bg-green-50 hover:shadow after:content-['🔊'] after:ml-1 after:inline-block after:no-underline`;
 export const linkGreenText = "text-green-600 underline-offset-2 hover:underline hover:font-bold";
 
-export const smLabel = "py-2 text-gray-500 text-sm";
-export const contentBox = "px-6 py-2 text-sm";
+export const smLabel = "py-2 w-24 flex-none text-gray-500 text-sm ";
+export const contentBox = "px-6 py-2 flex-initial text-sm";
 
 export const pageNavWrap = "my-6 flex justify-center items-center";
 export const pageNumAct = "px-1 font-bold bg-green-500 rounded text-white";

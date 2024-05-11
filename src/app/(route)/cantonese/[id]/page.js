@@ -112,27 +112,27 @@ export default async function HanJa(props) {
     const cn = data.cn == undefined || data.cn == "" ? data.tc : data.cn;
     const mandarin = data.mandarin == undefined || data.mandarin == "" ? cn : data.mandarin;
     return (
-      <div className="p-6 flex">
-        <div>
+      <div className="p-6">
+        <div className="flex">
           <h3 className={ccss.smLabel}>简体字 · 拼音</h3>
-          <h3 className={ccss.smLabel}>普通话</h3>
-          {isOneChar ? (
-            <>
-              <h3 className={ccss.smLabel}>한국 한자음</h3>
-              <h3 className={ccss.smLabel}>Code Point</h3>
-            </>
-          ) : null}
-        </div>
-        <div>
           <p className={ccss.contentBox}>{`${cn} ${data.pinyin}`}</p>
-          <p className={ccss.contentBox}>{mandarin}</p>
-          {isOneChar ? (
-            <>
-              <p className={ccss.contentBox}>{data.hanja}</p>
-              <p className={ccss.contentBox}>{idsArr}</p>
-            </>
-          ) : null}
         </div>
+        <div className="flex">
+          <h3 className={ccss.smLabel}>普通话</h3>
+          <p className={ccss.contentBox}>{mandarin}</p>
+        </div>
+        {isOneChar ? (
+          <div className="flex">
+            <h3 className={ccss.smLabel}>한국 한자음</h3>
+            <p className={ccss.contentBox}>{data.hanja}</p>
+          </div>
+        ) : null}
+        {isOneChar ? (
+          <div className="flex">
+            <h3 className={ccss.smLabel}>Code Point</h3>
+            <p className={ccss.contentBox}>{idsArr}</p>
+          </div>
+        ) : null}
       </div>
     );
   }
