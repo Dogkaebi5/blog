@@ -19,7 +19,7 @@ export const alpCardWrap = "flex flex-wrap my-4 gap-2";
 export const alpCardOutBox = "transition-color p-1 border rounded-lg hover:bg-green-300";
 export const alpCardInBox = "p-3 border bg-gray-50 inline-block rounded-md text-lg hover:bg-green-500 hover:font-bold hover:text-white";
 export const alpTitle = "p-8 bg-gray-50 shadow-lg inline-block rounded-md font-bold text-6xl";
-export const cnTitleBox = "flex items-center rounded-xl shadow-lg ring ring-green-200 px-6";
+export const cnTitleBox = "my-auto mx-4 sm:mx-0 p-6 inline-block text-center rounded-xl shadow-lg ring ring-green-200 ";
 export const cnCategoryBox = "w-full border border-green-200 bg-green-100 text-sm px-4 py-2";
 
 export const yueYinPlayer = `inline-block px-4 py-2 rounded-lg text-blue-600 underline underline-offset-4 hover:bg-green-50 hover:shadow after:content-['🔊'] after:ml-1 after:inline-block after:no-underline`;

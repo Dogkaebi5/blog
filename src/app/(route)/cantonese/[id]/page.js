@@ -49,17 +49,21 @@ export default async function HanJa(props) {
   // 페이지
   return (
     <div className={ccss.noHeroContent}>
-      <Link className={ccss.headerBtn} href={isOneChar ? "/cantonese" : "/cantonese/word"}>
+      <Link className={ccss.headerBtn + " ml-2 sm:ml-0"} href={isOneChar ? "/cantonese" : "/cantonese/word"}>
         👈 {isOneChar ? "한자" : "단어"}
       </Link>
       <div className="flex mt-12">
         <CnTitle />
-        <div className="ml-4">
-          <h3 className={ccss.smLabel}>월음 (粵音)</h3>
-          {/* use client에서 onClick을 사용할 수 없어서 별도 컴포넌트로 작성 */}
-          <YueYinPlayer yueYinArr={yueYinArr} />
-          <h3 className={ccss.smLabel}>발음</h3>
-          <h3 className={ccss.contentBox}>{kr}</h3>
+        <div className="ml-6">
+          <div>
+            <h3 className={ccss.smLabel}>월음 (粵音)</h3>
+            {/* use client에서 onClick을 사용할 수 없어서 별도 컴포넌트로 작성 */}
+            <YueYinPlayer yueYinArr={yueYinArr} />
+          </div>
+          <div>
+            <h3 className={ccss.smLabel}>발음</h3>
+            <h3 className={ccss.contentBox}>{kr}</h3>
+          </div>
         </div>
       </div>
       <SubContent />
