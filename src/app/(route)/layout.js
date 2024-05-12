@@ -3,6 +3,7 @@ import "../globals.css";
 import Navigation from "@components/Navigation";
 import Footer from "../components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import GoogleAdsense from "../components/GoogleAdsence";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,8 +42,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <head>
-        <meta name="google-adsense-account" content="ca-pub-4395279661539134" />
         <link rel="icon" href="/logo.png" sizes="any" />
+        <meta name="google-adsense-account" content="ca-pub-4395279661539134" />
+        <GoogleAdsense pId="ca-pub-4395279661539134" />
       </head>
       <body className={inter.className}>
         <div className=" max-w-4xl mx-auto relative flex flex-col">
