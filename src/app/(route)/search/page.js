@@ -24,7 +24,7 @@ export default function Search(props) {
         </p>
       </div>
       {isNoData ? (
-        "결색된 내용이 없습니다"
+        "검색된 내용이 없습니다"
       ) : (
         <>
           {/* 한자 검색결과 */}
