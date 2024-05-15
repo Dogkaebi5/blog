@@ -30,6 +30,7 @@ export function setCardList(category, pageNum, maxCardInPage) {
   const startNum = (pageNum - 1) * maxCardInPage;
   const endNum = startNum + maxCard;
 
+  console.log(data);
   return {
     list: data.slice(startNum, endNum),
     allLength: dataLength,
