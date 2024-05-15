@@ -7,8 +7,9 @@ export const metadata = {
 
 export default function Product() {
   return (
-    <div className="bg-gray-50 h-full">
-      <h3>Title</h3>
+    <div className="h-full p-4 bg-gray-50 text-sm">
+      <h2 className="font-black mb-2 ">기본 기획</h2>
+      <h3>서비스/상품 이름</h3>
       <input className={ccss.input + " pl-2 w-full"} />
     </div>
   );
