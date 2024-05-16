@@ -3,7 +3,6 @@ import { useState } from "react";
 // import { doc, setDoc } from "firebase/firestore";
 // import { firestore } from "@controller/firebase";
 // import { setIdFromTc } from "@controller/handleId";
-import { setDb } from "@controller/setDbTc";
 
 export default function Admin() {
   const [formData, setFormData] = useState({});
@@ -15,7 +14,11 @@ export default function Admin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setDb(formData);
+    const type = "tc";
+    const tcId = String(setIdFromTc(formData.tc));
+    const fireDoc = doc(fire, type, tcId);
+    await setDoc(fireDoc, formData);
+    alert("제출 완료: ", tcId);
   };
 
   // let modelSample = {
