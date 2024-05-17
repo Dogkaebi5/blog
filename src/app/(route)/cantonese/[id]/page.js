@@ -151,12 +151,14 @@ export default async function HanJa(props) {
           <p className="font-bold">{jyut}</p>
           <ul className="">
             {data.meaning[jyut].map((obj) => {
-              count++;
+              obj.m ? count++ : null;
               return obj.m ? (
-                <li className="mx-2 my-3" key={obj.m}>
-                  {count}. {obj.m}
+                <li className="mx-2 mt-3" key={obj.m}>
+                  <p className="mb-1">
+                    {count}. {obj.m}
+                  </p>
                   {obj.e ? (
-                    <div className="bg-gray-50 mx-4 pb-1 border">
+                    <div className="bg-gray-50 pb-1 border">
                       <p className="ml-2">
                         <span className="text-gray-500 text-sm">(粵)</span> {obj.e}
                       </p>
@@ -165,7 +167,7 @@ export default async function HanJa(props) {
                   ) : null}
                 </li>
               ) : (
-                <div key={jyut + obj.e} className="bg-gray-50 mx-6 pb-1 border">
+                <div key={jyut + obj.e} className="bg-gray-50 mx-2 pb-1 border">
                   <p className="ml-2">
                     <span className="text-gray-500 text-sm">(粵)</span> {obj.e}
                   </p>
