@@ -85,7 +85,7 @@ export default async function Read(props) {
   return data == null ? (
     notFound()
   ) : (
-    <div className="p-8 md:p-16">
+    <div className="p-8">
       <PrismLoader />
       <div className="px-4">
         <h1 className={ccss.h1}>{data.title}</h1>
@@ -97,10 +97,10 @@ export default async function Read(props) {
           </Link>
         </div>
       </div>
-      <div className="mt-8 ">
+      <div className="mt-8">
         <Image className="object-cover w-full max-h-96" width={600} height={400} src={imgURL + data.thumbnail} alt={data.title} />
       </div>
-      <article className="prose prose-stone">
+      <article className="prose prose-stone mt-8 p-2">
         <Markdown options={options}>{content}</Markdown>
       </article>
 
