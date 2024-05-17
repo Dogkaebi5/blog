@@ -30,7 +30,7 @@ export default async function HanJa(props) {
   const data = isHasData ? dbTc[id] ?? dbWord[id] : noData;
   const char = isHasData ? data.tc : setTcFromId(idsArr);
   // 월음 한개씩 array로 분리
-  let yueYinArr = Object.keys(data.meaning);
+  const yueYinArr = data.yueYin.split(" ");
   // 한국 발음 세팅
   const krSyllable = () => {
     if (isHasData) {
@@ -67,6 +67,7 @@ export default async function HanJa(props) {
         </div>
       </div>
       <SubContent />
+      <div className={ccss.cnCategoryBox}>구분 : {data.category}</div>
       {isHasData ? isOneChar == 1 ? <TcContent /> : <WordContent /> : <NoContent />}
       {data.detail != null && data.detail != undefined && data.detail != "" ? (
         <div className={ccss.textBox + " mt-8"}>
@@ -93,7 +94,7 @@ export default async function HanJa(props) {
         {isOneChar ? (
           <h1 className=" text-8xl">{char}</h1>
         ) : (
-          <h1 className=" text-7xl">
+          <h1 className=" text-8xl">
             {idsArr.map((id) => {
               i++;
               return dbTc[id] == null ? (
@@ -143,41 +144,49 @@ export default async function HanJa(props) {
 
   // 한자 상세정보
   function TcContent() {
-    // mean 부분 발음별 분리용 count
-    let count = -1;
-    return (
-      <>
-        <div className={ccss.cnCategoryBox}>구분 : {data.category}</div>
-        {data.mean.split("#").map((mean) => {
-          count++;
-          return (
-            <div className="border px-4 py-2" key={mean}>
-              <p className="font-bold">{yueYinArr[count]}</p>
-              {mean.split("/").map((text) => (
-                <p className="py-1" key={text}>
-                  · {text}
-                </p>
-              ))}
-            </div>
-          );
-        })}
-      </>
-    );
+    return yueYinArr.map((jyut) => {
+      return (
+        <div className="border p-4" key={jyut}>
+          <p className="font-bold">{jyut}</p>
+          <ol className="list-decimal">
+            {data.meaning[jyut].map((obj) =>
+              obj.m ? (
+                <li className="py-1 ml-6" key={obj.m}>
+                  {obj.m}
+                  {obj.e ? (
+                    <div className="bg-gray-50 pb-1 border">
+                      <p className="ml-2">
+                        <span className="text-gray-500 text-sm">(粵)</span> {obj.e}
+                      </p>
+                      <p className="ml-2 text-sm text-gray-500">(역) {obj.t}</p>
+                    </div>
+                  ) : null}
+                </li>
+              ) : (
+                <div key={jyut + obj.e} className="bg-gray-50 pb-1 ml-6 border">
+                  <p className="ml-2">
+                    <span className="text-gray-500 text-sm">(粵)</span> {obj.e}
+                  </p>
+                  <p className="ml-2 text-sm text-gray-500">(역) {obj.t}</p>
+                </div>
+              )
+            )}
+          </ol>
+        </div>
+      );
+    });
   }
 
   // 단어 상세정보
   function WordContent() {
     return (
-      <>
-        <div className={ccss.cnCategoryBox}>구분 : {data.category}</div>
-        <div className="border px-4 py-2">
-          {data.mean.split("/").map((text) => (
-            <p className="py-1" key={text}>
-              · {text}
-            </p>
-          ))}
-        </div>
-      </>
+      <div className="border px-4 py-2">
+        {data.mean.split("/").map((text) => (
+          <p className="py-1" key={text}>
+            · {text}
+          </p>
+        ))}
+      </div>
     );
   }
 
