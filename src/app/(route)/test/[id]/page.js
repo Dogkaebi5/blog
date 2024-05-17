@@ -76,7 +76,7 @@ export default async function HanJa(props) {
         </div>
       ) : null}
       {relatedTcArr != null ? <Related /> : null}
-      <div className="min-h-16"></div>
+      <div className="min-h-16" />
     </div>
   );
 

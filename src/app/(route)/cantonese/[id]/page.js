@@ -6,6 +6,7 @@ import dbWord from "@controller/readDbWord";
 import { syllable } from "@controller/yueYin";
 import { setIdFromTc, setTcFromId, splitIds } from "@controller/handleId";
 import YueYinPlayer from "@components/YueYinPlayer";
+import { checkHasData } from "@/app/controller/checkHasData";
 
 // export let metadata = {};
 export async function generateMetadata(props) {
@@ -31,52 +32,37 @@ export default async function HanJa(props) {
   const char = isHasData ? data.tc : setTcFromId(idsArr);
   // 월음 한개씩 array로 분리
   const yueYinArr = data.yueYin?.split(" ");
-  // 한국 발음 세팅
-  const krSyllable = () => {
-    if (isHasData) {
-      // 성조(숫자) 정규식으로 제거
-      const syllableWithoutTones = data.yueYin.replace(/\d+/g, "").split(" ");
-      // 한자: 발음 return // 단어: 발음 map -> join
-      return syllableWithoutTones.length == 1 ? syllable.yueYin[syllableWithoutTones[0]].pronunciation : syllableWithoutTones.map((syl) => syllable.yueYin[syl].pronunciation).join(" ");
-    }
-    return "-";
-  };
-  const kr = krSyllable();
-
+  // 정규식으로 성조(숫자) 없는 월음
+  const syllableWithoutTones = data.yueYin.replace(/\d+/g, "").split(" ");
+  // 한글로 발음
+  const kr = isHasData
+    ? syllableWithoutTones.length == 1
+      ? syllable.yueYin[syllableWithoutTones[0]].pronunciation
+      : syllableWithoutTones.map((syl) => syllable.yueYin[syl].pronunciation).join(" ")
+    : "-";
   // 관련 한자
-  const relatedTcArr = data.relevance != null && data.relevance != "" ? data.relevance?.split(" ") : null;
+  const relatedTcArr = checkHasData(data.relevance) ? data.relevance?.split(" ") : null;
+  // 비고 유무
+  const isHasDetail = checkHasData(data.detail);
+  // 헤더버튼 내용
+  const backBtn = { true: ["/cantonese", "한자"], false: ["/cantonese/word", "단어"] };
 
   // 페이지
   return (
     <div className={ccss.noHeroContent}>
-      <Link className={ccss.headerBtn + " ml-2 sm:ml-0"} href={isOneChar ? "/cantonese" : "/cantonese/word"}>
-        👈 {isOneChar ? "한자" : "단어"}
+      <Link className={ccss.headerBtn + " ml-2 sm:ml-0"} href={backBtn[isOneChar][0]}>
+        👈 {backBtn[isOneChar][1]}
       </Link>
       <div className="flex mt-12">
         <CnTitle />
-        <div className="ml-6">
-          <div>
-            <h3 className={ccss.smLabel}>월음 (粵音)</h3>
-            {/* use client에서 onClick을 사용할 수 없어서 별도 컴포넌트로 작성 */}
-            <YueYinPlayer yueYinArr={yueYinArr} />
-          </div>
-          <div>
-            <h3 className={ccss.smLabel}>발음</h3>
-            <h3 className={ccss.contentBox}>{kr}</h3>
-          </div>
-        </div>
+        <Pronounce />
       </div>
       <SubContent />
       <div className={ccss.cnCategoryBox}>구분 : {data.category}</div>
       {isHasData ? isOneChar == 1 ? <TcContent /> : <WordContent /> : <NoContent />}
-      {data.detail != null && data.detail != undefined && data.detail != "" ? (
-        <div className={ccss.textBox + " mt-8"}>
-          <h3 className="text-sm font-bold text-green-500">※ 비고 ※</h3>
-          <p className="mx-4 my-2">{data.detail}</p>
-        </div>
-      ) : null}
+      {isHasDetail ? <Detail /> : null}
       {relatedTcArr != null ? <Related /> : null}
-      <div className="min-h-16"></div>
+      <div className="min-h-16" />
     </div>
   );
 
@@ -107,6 +93,18 @@ export default async function HanJa(props) {
             })}
           </h1>
         )}
+      </div>
+    );
+  }
+
+  function Pronounce() {
+    return (
+      <div className="ml-6">
+        <h3 className={ccss.smLabel}>월음 (粵音)</h3>
+        {/* use client에서 onClick을 사용할 수 없어서 별도 컴포넌트로 작성 */}
+        <YueYinPlayer yueYinArr={yueYinArr} />
+        <h3 className={ccss.smLabel}>발음</h3>
+        <h3 className={ccss.contentBox}>{kr}</h3>
       </div>
     );
   }
@@ -190,6 +188,15 @@ export default async function HanJa(props) {
             · {text}
           </p>
         ))}
+      </div>
+    );
+  }
+
+  function Detail() {
+    return (
+      <div className={ccss.textBox + " mt-8"}>
+        <h3 className="text-sm font-bold text-green-500">※ 비고 ※</h3>
+        <p className="mx-4 my-2">{data.detail}</p>
       </div>
     );
   }
