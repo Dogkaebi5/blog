@@ -6,7 +6,7 @@ import dbWord from "@controller/readDbWord";
 import { syllable } from "@controller/yueYin";
 import { setIdFromTc, setTcFromId, splitIds } from "@controller/handleId";
 import YueYinPlayer from "@components/YueYinPlayer";
-import { checkHasData } from "@/app/controller/checkHasData";
+import { checkNoData } from "@/app/controller/checkHasData";
 
 // export let metadata = {};
 export async function generateMetadata(props) {
@@ -40,29 +40,27 @@ export default async function HanJa(props) {
       ? syllable.yueYin[syllableWithoutTones[0]].pronunciation
       : syllableWithoutTones.map((syl) => syllable.yueYin[syl].pronunciation).join(" ")
     : "-";
-  // 관련 한자
-  const relatedTcArr = checkHasData(data.relevance) ? data.relevance?.split(" ") : null;
-  // 비고 유무
-  const isHasDetail = checkHasData(data.detail);
+
   // 헤더버튼 내용
   const backBtn = { true: ["/cantonese", "한자"], false: ["/cantonese/word", "단어"] };
 
+  const titleClass = isOneChar ? "flex mt-12" : "md:flex mt-12";
   // 페이지
   return (
     <div className={ccss.noHeroContent}>
       <Link className={ccss.headerBtn + " ml-2 sm:ml-0"} href={backBtn[isOneChar][0]}>
         👈 {backBtn[isOneChar][1]}
       </Link>
-      <div className="flex mt-12">
+      <div className={titleClass}>
         <CnTitle />
         <Pronounce />
       </div>
       <SubContent />
       <div className={ccss.cnCategoryBox}>구분 : {data.category}</div>
       {isHasData ? isOneChar == 1 ? <TcContent /> : <WordContent /> : <NoContent />}
-      {isHasDetail ? <Detail /> : null}
-      {relatedTcArr != null ? <Related /> : null}
-      <div className="min-h-16" />
+      {checkNoData(data.detail) ? null : <Detail />}
+      {checkNoData(data.relevance) ? null : <Related />}
+      <div className="min-h-12" />
     </div>
   );
 
@@ -80,7 +78,7 @@ export default async function HanJa(props) {
         {isOneChar ? (
           <h1 className=" text-8xl">{char}</h1>
         ) : (
-          <h1 className=" text-8xl">
+          <h1 className=" text-7xl">
             {idsArr.map((id) => {
               i++;
               return dbTc[id] == null ? (
@@ -98,13 +96,18 @@ export default async function HanJa(props) {
   }
 
   function Pronounce() {
+    const lineWrapClass = isOneChar ? "" : "flex md:block";
     return (
-      <div className="ml-6">
-        <h3 className={ccss.smLabel}>월음 (粵音)</h3>
-        {/* use client에서 onClick을 사용할 수 없어서 별도 컴포넌트로 작성 */}
-        <YueYinPlayer yueYinArr={yueYinArr} />
-        <h3 className={ccss.smLabel}>발음</h3>
-        <h3 className={ccss.contentBox}>{kr}</h3>
+      <div className="m-6">
+        <div className={lineWrapClass}>
+          <h3 className={ccss.smLabel}>월음 (粵音)</h3>
+          {/* use client에서 onClick을 사용할 수 없어서 별도 컴포넌트로 작성 */}
+          <YueYinPlayer yueYinArr={yueYinArr} />
+        </div>
+        <div className={lineWrapClass}>
+          <h3 className={ccss.smLabel}>발음</h3>
+          <h3 className={ccss.contentBox}>{kr}</h3>
+        </div>
       </div>
     );
   }
@@ -115,7 +118,7 @@ export default async function HanJa(props) {
     const cn = data.cn == undefined || data.cn == "" ? data.tc : data.cn;
     const mandarin = data.mandarin == undefined || data.mandarin == "" ? cn : data.mandarin;
     return (
-      <div className="p-6">
+      <div className="m-6">
         <div className="flex">
           <h3 className={ccss.smLabel}>简体字 · 拼音</h3>
           <p className={ccss.contentBox}>{`${cn} ${data.pinyin}`}</p>
@@ -157,19 +160,19 @@ export default async function HanJa(props) {
                   </p>
                   {obj.e ? (
                     <div className="bg-gray-50 pb-1 border">
-                      <p className="ml-2">
+                      <p className="mx-2">
                         <span className="text-gray-500 text-sm">(粵)</span> {obj.e}
                       </p>
-                      <p className="ml-2 text-sm text-gray-500">(역) {obj.t}</p>
+                      <p className="mx-2 text-sm text-gray-500">(역) {obj.t}</p>
                     </div>
                   ) : null}
                 </li>
               ) : (
                 <div key={jyut + obj.e} className="bg-gray-50 mx-2 pb-1 border">
-                  <p className="ml-2">
+                  <p className="mx-2">
                     <span className="text-gray-500 text-sm">(粵)</span> {obj.e}
                   </p>
-                  <p className="ml-2 text-sm text-gray-500">(역) {obj.t}</p>
+                  <p className="mx-2 text-sm text-gray-500">(역) {obj.t}</p>
                 </div>
               );
             })}
@@ -202,22 +205,17 @@ export default async function HanJa(props) {
   }
 
   function Related() {
+    const relatedTcArr = data.relevance?.split(" ");
     return (
       <>
         <div className="my-8 h-2 w-full bg-green-50" />
         <h3 className="font-bold text-sm mb-4">관련 내용</h3>
         {relatedTcArr.map((word) => {
           const id = setIdFromTc(word);
-          return word == data.tc ? null : isOneChar ? (
-            dbTc[id] != null ? (
-              <Link key={id} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
-                {word}
-              </Link>
-            ) : (
-              <span key={id} className="p-2 text-lg">
-                {word}
-              </span>
-            )
+          return word == data.tc ? null : dbTc[id] != null ? (
+            <Link key={id} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
+              {word}
+            </Link>
           ) : dbWord[id] != null ? (
             <Link key={id} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
               {word}

@@ -1,3 +1,3 @@
-export function checkHasData(data) {
-  return data != null || data != undefined || data != "" || data.length != 0;
+export function checkNoData(data) {
+  return data == null || data == undefined || data == "" || data.length == 0;
 }
