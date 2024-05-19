@@ -51,12 +51,12 @@ export default async function Read(props) {
     }
   })[0];
 
-  // Post 읽는 방법을 여러개 테스트 결과 :
-  // - fetch로 가져온 객체를 text()로 변경해야함.
-  // - firestore에 바로 저장하면 줄바꿈이 없어짐.
-  // - html을 저장해도 됨.
-  // - html에 컨포넌트를 포함하면 dangerouslySetInnerHTML는 읽지 못함.
-  // 결론 : (1)markdown-to-jsx을 사용 (2)md 별도 저장 (3)tailwind plugin @tailwindcss/typography 사용
+  //** Post 읽는 방법을 여러개 테스트 결과 :
+  //* - fetch로 가져온 객체를 text()로 변경해야함.
+  //* - firestore에 바로 저장하면 줄바꿈이 없어짐.
+  //* - html을 저장해도 됨.
+  //* - html에 컨포넌트를 포함하면 dangerouslySetInnerHTML는 읽지 못함.
+  //* 결론 : (1)markdown-to-jsx을 사용 (2)md 별도 저장 (3)tailwind plugin @tailwindcss/typography 사용
 
   // firestore에서 가져온 date 데이터는 toDate를 해야 javascript에서 정상적으로 표기됨
   const createdDate = data?.createdDate.toDate();

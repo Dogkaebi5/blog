@@ -8,7 +8,8 @@ export default function About() {
         <Image className="mx-auto rounded-full border shadow-lg" width={200} height={200} src={"https://drive.google.com/uc?id=1hm2QhpQzavfKF4tgpFarFgeovfRtOhNw"} alt="profile" />
         <h1 className="mt-4 text-3xl font-bold">DogKaeBi</h1>
         <h2 className="font-bold text-green-500">독깨비, 狗叔, 肥狗</h2>
-        <p className="mt-2 mb-12 text-sm">강아지를 좋아하는 중국 광둥 생활 20년 넘은 수상한 아재</p>
+        <p className="mt-2 text-sm">강아지를 좋아하는 중국 광둥 생활 20년 넘은 수상한 아재</p>
+        <p className="mt-1 mb-12 text-xs text-green-500">독깨비 = Dog🐶 + 도깨비👻</p>
       </div>
       <div className={ccss.textBox + " text-sm mx-4"}>
         1996년 중국 썬전(深圳)으로 이주.
