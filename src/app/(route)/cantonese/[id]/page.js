@@ -1,18 +1,18 @@
 import Link from "next/link";
 
 import * as ccss from "@controller/cssName";
-import dbTc from "@controller/readDbTc";
-import dbWord from "@controller/readDbWord";
 import { syllable } from "@controller/yueYin";
 import { setIdFromTc, setTcFromId, splitIds } from "@controller/handleId";
 import YueYinPlayer from "@components/YueYinPlayer";
 import { checkNoData } from "@/app/controller/checkHasData";
+import { hanData } from "@/app/controller/han";
+import { wordData } from "@/app/controller/word";
 
 // export let metadata = {};
 export async function generateMetadata(props) {
   const id = props.params.id;
   const idsArr = splitIds(id);
-  const data = dbTc[id] ?? dbWord[id];
+  const data = hanData[id] ?? wordData[id];
   return {
     title: `DogKaeBi | 광둥어 ${data?.tc ?? setTcFromId(idsArr)} : ${data?.title ?? "-"}`,
     description: `한자 : [ ${data?.tc ?? setTcFromId(idsArr)} ] 의 광둥어 뜻 풀이`,
@@ -25,10 +25,10 @@ export default async function HanJa(props) {
   const noData = { tc: "-", yueYin: "-", cn: "-", pinyin: "-", mandarin: "-", hanja: "-", category: "-", mean: "-" };
   const id = props.params.id;
   const idsArr = splitIds(id);
-  const isOneChar = dbTc[id] != null;
-  const isHasData = dbTc[id] != null || dbWord[id] != null;
+  const isOneChar = hanData[id] != null;
+  const isHasData = hanData[id] != null || wordData[id] != null;
   // firestore 데이터 받기 => ctrl로 통합 이동
-  const data = isHasData ? dbTc[id] ?? dbWord[id] : noData;
+  const data = isHasData ? hanData[id] ?? wordData[id] : noData;
   const char = isHasData ? data.tc : setTcFromId(idsArr);
   // 월음 한개씩 array로 분리
   const yueYinArr = data.yueYin?.split(" ");
@@ -81,7 +81,7 @@ export default async function HanJa(props) {
           <h1 className=" text-7xl">
             {idsArr.map((id) => {
               i++;
-              return dbTc[id] == null ? (
+              return hanData[id] == null ? (
                 <span key={id}>{char[i]}</span>
               ) : (
                 <Link key={id} className={linkClass} href={"/cantonese/" + id}>
@@ -212,11 +212,11 @@ export default async function HanJa(props) {
         <h3 className="font-bold text-sm mb-4">관련 내용</h3>
         {relatedTcArr.map((word) => {
           const id = setIdFromTc(word);
-          return word == data.tc ? null : dbTc[id] != null ? (
+          return word == data.tc ? null : hanData[id] != null ? (
             <Link key={id} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
               {word}
             </Link>
-          ) : dbWord[id] != null ? (
+          ) : wordData[id] != null ? (
             <Link key={id} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
               {word}
             </Link>

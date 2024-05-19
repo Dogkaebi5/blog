@@ -9,9 +9,9 @@ import PrismLoader from "@/app/components/PrismLoader";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
 import { notFound } from "next/navigation";
-import { setIdFromTc, setTcFromId, splitIds } from "@/app/controller/handleId";
-import dbTc from "@/app/controller/readDbTc";
-import dbWord from "@/app/controller/readDbWord";
+import { setIdFromTc } from "@/app/controller/handleId";
+import { hanData } from "@/app/controller/han";
+import { wordData } from "@/app/controller/word";
 
 export async function generateMetadata(props) {
   const data = dbPost.filter((post) => {
@@ -120,7 +120,7 @@ export default async function Read(props) {
     const tcArr = data?.tc?.split(" ");
     return tcArr.map((tc) => {
       const id = setIdFromTc(tc);
-      return dbTc[id] != null ? (
+      return hanData[id] != null ? (
         <Link key={id} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
           {tc}
         </Link>
@@ -136,7 +136,7 @@ export default async function Read(props) {
     const WordArr = data?.word?.split(" ");
     return WordArr.map((word) => {
       const id = setIdFromTc(word);
-      return dbWord[id] != null ? (
+      return wordData[id] != null ? (
         <Link key={id} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + id}>
           {word}
         </Link>

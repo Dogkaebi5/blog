@@ -1,7 +1,7 @@
-import dbTc from "./readDbTc";
 import dbPost from "./readDbPost";
-import dbWord from "./readDbWord";
 import { syllable } from "./yueYin";
+import { hanData } from "./han";
+import { wordData } from "./word";
 
 export function search(quary) {
   if (quary == null || quary == undefined || quary?.length < 1) return null;
@@ -12,7 +12,7 @@ export function search(quary) {
 
   const setTcRes = () => {
     let tcs = [];
-    Object.values(dbTc).map((data) => {
+    Object.values(hanData).map((data) => {
       if (!isOnlyNum) {
         if (data.tc === quary) return tcs.push(data);
         if (data.cn === quary) return tcs.push(data);
@@ -43,7 +43,7 @@ export function search(quary) {
 
   const setWordRes = () => {
     let words = [];
-    Object.values(dbWord).map((data) => {
+    Object.values(wordData).map((data) => {
       if (data.tc.includes(quary)) return words.push(data);
       if (data.cn?.includes(quary)) return words.push(data);
       if (data.mean.includes(quary)) return words.push(data);
