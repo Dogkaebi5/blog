@@ -87,8 +87,6 @@ export default async function Read(props) {
     );
   }
 
-  // const wordIdArr = parsed.data.word?.split(" ").map((w) => setIdFromTc(w));
-
   function RelatedTc({ tcArr }) {
     return tcArr.map((tc) => {
       const id = setIdFromTc(tc);
@@ -119,15 +117,3 @@ export default async function Read(props) {
     });
   }
 }
-
-// {wordIdArr.map((wordId) =>
-//   dbWord[wordId] != null ? (
-//     <Link key={wordId} className={ccss.linkGreenText + " p-2 text-lg"} href={"/cantonese/" + wordId}>
-//       {setTcFromId(wordId)}
-//     </Link>
-//   ) : (
-//     <span key={wordId} className="p-2 text-lg">
-//       {setTcFromId(wordId)}
-//     </span>
-//   )
-// )}
