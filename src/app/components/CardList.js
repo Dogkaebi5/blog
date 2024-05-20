@@ -34,19 +34,17 @@ const CardList = async ({ path, data }) => {
   }
 
   function BlogCard({ data }) {
-    const createdDate = data.createdDate.toDate();
-    const updatedDate = data.updatedDate != null ? data.updatedDate.toDate() : null;
     return (
-      <Link className={ccss.blogCard} scroll={false} href={`/blog/${data.slug}`}>
-        <Image className={ccss.blogCardImage} width={600} height={400} src={imgURL + data.thumbnail} alt={data.title} />
+      <Link className={ccss.blogCard} href={`/blog/${data.slug}`}>
+        <Image className={ccss.blogCardImage} width={600} height={400} src={imgURL + data.cover} alt={data.title} />
         <div className={ccss.blogCardTextWrap}>
           <div>
             <h2 className={ccss.blogCardTitle}>{data.title}</h2>
-            <p className={ccss.blogCardText}>{data.summary ?? ""}</p>
+            <p className={ccss.blogCardText}>{data.description ?? ""}</p>
           </div>
           <div>
-            <p className={ccss.blogDate}>{createdDate.toLocaleString()}</p>
-            {updatedDate != null ? <p className={ccss.blogDate}>{updatedDate.toLocaleString()} (Updated)</p> : null}
+            <p className={ccss.blogDate}>{data.date.toLocaleString()}</p>
+            {data.updated != null ? <p className={ccss.blogDate}>{data.updated.toLocaleString()} (Updated)</p> : null}
           </div>
         </div>
       </Link>
