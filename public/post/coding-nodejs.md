@@ -1,10 +1,10 @@
 ---
-title: 블로그 개발 - Node.js
+title: 코딩 공부 - Node.js
 description: 노드제이에스는 자바스크립트 런타임 환경이다.
-date: 2024-05-10 09:21:06
-cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC
+date: 2024-05-10 08:21:06
+cover: 1Tt4ilKIYWJrhRC4D1X3_LfoqqDtDHUKn
 category: coding
-slug: blog-development-nodejs
+slug: coding-nodejs
 ---
 
 # Node.js
