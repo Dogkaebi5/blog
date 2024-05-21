@@ -158,14 +158,6 @@ export default async function HanJa(props) {
                   <p className="mb-1">
                     {count}. {obj.m}
                   </p>
-                  {obj.e ? (
-                    <div className="bg-gray-50 pb-1 border">
-                      <p className="mx-2">
-                        <span className="text-gray-500 text-sm">(粵)</span> {obj.e}
-                      </p>
-                      <p className="mx-2 text-sm text-gray-500">(역) {obj.t}</p>
-                    </div>
-                  ) : null}
                 </li>
               ) : (
                 <div key={jyut + obj.e} className="bg-gray-50 mx-2 pb-1 border">
@@ -184,13 +176,28 @@ export default async function HanJa(props) {
 
   // 단어 상세정보
   function WordContent() {
+    let count = 0;
     return (
-      <div className="border px-4 py-2">
-        {data.mean.split("/").map((text) => (
-          <p className="py-1" key={text}>
-            · {text}
-          </p>
-        ))}
+      <div className="border p-4" key={data.yueYin}>
+        <ul className="">
+          {data.meaning.map((obj) => {
+            obj.m ? count++ : null;
+            return obj.m ? (
+              <li className="mx-2" key={obj.m}>
+                <p className="mb-1">
+                  {count}. {obj.m}
+                </p>
+              </li>
+            ) : (
+              <div key={obj.e} className="bg-gray-50 mx-2 pb-1 border">
+                <p className="mx-2">
+                  <span className="text-gray-500 text-sm">(粵)</span> {obj.e}
+                </p>
+                <p className="mx-2 text-sm text-gray-500">(역) {obj.t}</p>
+              </div>
+            );
+          })}
+        </ul>
       </div>
     );
   }
