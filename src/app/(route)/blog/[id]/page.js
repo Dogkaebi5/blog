@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import fs from "fs";
+import path from "path";
+
 import * as ccss from "@controller/cssName";
 import { imgURL } from "@controller/urls";
 
@@ -12,14 +15,14 @@ import { setIdFromTc } from "@/app/controller/handleId";
 import { hanData } from "@/app/controller/han";
 import { wordData } from "@/app/controller/word";
 
-const url = "https://dogkaebi.com/post/";
 export async function generateMetadata(props) {
-  const mdFile = await fetch(`${url}${props.params.id}.md`);
+  const directoryPath = path.join(process.cwd(), "public/post");
+  const mdFile = fs.readFileSync(directoryPath + "/" + props.params.id + ".md", "utf8");
 
-  if (mdFile.status == 404) {
+  if (mdFile == undefined) {
     return { title: `DogKaeBi | 404`, description: `Page not found` };
   } else {
-    const parsed = matter(await mdFile.text());
+    const parsed = matter(mdFile);
     return {
       title: `DogKaeBi | ${parsed.data.title}`,
       description: parsed.data.description,
@@ -40,12 +43,13 @@ export async function generateMetadata(props) {
 
 // [id] 폴더 router
 export default async function Read(props) {
-  const mdFile = await fetch(`${url}${props.params.id}.md`);
-  if (mdFile.status == 404) {
+  const directoryPath = path.join(process.cwd(), "public/post");
+  const mdFile = fs.readFileSync(directoryPath + "/" + props.params.id + ".md", "utf8");
+  if (mdFile == undefined) {
     return notFound();
   } else {
     // gray-matter 사용
-    const parsed = matter(await mdFile.text());
+    const parsed = matter(mdFile);
     const category = { book: "책", daily: "일상", coding: "코딩", cantonese: "광둥어" };
 
     // 마크다운 이미지 옵션 : 링크가 이미지 확장자(jpg ...)가 아닌 경우 <img>는 표기가 안되서 Image 컴포넌트로 변경 사용
@@ -59,7 +63,7 @@ export default async function Read(props) {
         <PrismLoader />
         <div className="px-4">
           <h1 className={ccss.h1}>{parsed.data.title}</h1>
-          <p className={ccss.blogDate}>- {parsed.data.date?.toLocaleDateString()}</p>
+          <p className={ccss.blogDate}>- {parsed.data.date?.toLocaleString()}</p>
           {parsed.data.updated != null || parsed.data.updated != undefined ? <p className={ccss.blogDate}>( {parsed.data.updated?.toLocaleDateString()} Updated )</p> : null}
           <div className="flex mt-4">
             <Link className={ccss.headerBtn} href={`/blog?tag=${parsed.data.category}`}>
