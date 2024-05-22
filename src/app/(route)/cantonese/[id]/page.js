@@ -15,7 +15,31 @@ export async function generateMetadata(props) {
   const data = hanData[id] ?? wordData[id];
   return {
     title: `DogKaeBi | 광둥어 ${data?.tc ?? setTcFromId(idsArr)} : ${data?.title ?? "-"}`,
-    description: `한자 : [ ${data?.tc ?? setTcFromId(idsArr)} ] 의 광둥어 뜻 풀이`,
+    description: `광둥어 : [ ${data?.tc ?? setTcFromId(idsArr)} ] 의 발음, 뜻 풀이, 예시`,
+    icons: { icon: "/logo.png" },
+    openGraph: {
+      title: `DogKaeBi | 광둥어 ${data?.tc ?? setTcFromId(idsArr)} : ${data?.title ?? "-"}`,
+      description: `광둥어 : [ ${data?.tc ?? setTcFromId(idsArr)} ] 의 발음, 뜻 풀이, 예시`,
+      url: "dogkaebi.com",
+      siteName: "DogKaeBi 독깨비",
+      type: "website",
+      images: [
+        {
+          url: "https://dogkaebi.com/logo.png",
+          width: 600,
+          height: 600,
+          alt: "dogkaebi",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `DogKaeBi | 광둥어 ${data?.tc ?? setTcFromId(idsArr)} : ${data?.title ?? "-"}`,
+      description: `광둥어 : [ ${data?.tc ?? setTcFromId(idsArr)} ] 의 발음, 뜻 풀이, 예시`,
+      url: "dogkaebi.com",
+      site: "DogKaeBi 독깨비",
+      images: { url: "https://dogkaebi.com/logo2.png", alt: "dogkaebi" },
+    },
   };
 }
 

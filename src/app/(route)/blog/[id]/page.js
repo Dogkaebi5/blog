@@ -37,6 +37,14 @@ export async function generateMetadata(props) {
           },
         ],
       },
+      twitter: {
+        card: "summary_large_image",
+        title: `DogKaeBi | ${parsed.data.title}`,
+        description: parsed.data.description,
+        url: "dogkaebi.com",
+        site: "DogKaeBi 독깨비",
+        images: { url: imgURL + parsed.data.cover, alt: parsed.data.title },
+      },
     };
   }
 }

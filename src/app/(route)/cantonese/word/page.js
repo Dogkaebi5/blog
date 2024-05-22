@@ -6,6 +6,34 @@ import { setCardList } from "@controller/setCardList";
 
 // 원래 한자와 같은 데이터를 공유
 // sort 및 관리에 불리로 예상하여 word DB 테이블 별도 작성
+export const metadata = {
+  title: "DogKaeBi | Cantonese 단어",
+  description: "광둥어 단어 사전. 한자 뜻풀이, 발음",
+  icons: { icon: "/logo.png" },
+  openGraph: {
+    title: "DogKaeBi | Cantonese 사전",
+    description: "광둥어 단어 사전. 한자 뜻풀이, 발음",
+    url: "dogkaebi.com",
+    siteName: "DogKaeBi 독깨비",
+    type: "website",
+    images: [
+      {
+        url: "https://dogkaebi.com/logo.png",
+        width: 600,
+        height: 600,
+        alt: "dogkaebi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DogKaeBi | Cantonese 단어",
+    description: "광둥어 단어 사전. 한자 뜻풀이, 발음",
+    url: "dogkaebi.com",
+    site: "DogKaeBi 독깨비",
+    images: { url: "https://dogkaebi.com/logo2.png", alt: "dogkaebi" },
+  },
+};
 
 export default function Word(props) {
   const path = "tc";

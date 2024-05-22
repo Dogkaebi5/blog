@@ -3,6 +3,35 @@ import { syllable } from "@controller/yueYin";
 import { initialURL, syllableURL, vowelURL } from "@controller/urls";
 import * as ccss from "@controller/cssName";
 
+export const metadata = {
+  title: "DogKaeBi | Cantonese 성모(聲母)",
+  description: "광둥어의 성모 발음법 및 조합",
+  icons: { icon: "/logo.png" },
+  openGraph: {
+    title: "DogKaeBi | Cantonese 성모(聲母)",
+    description: "광둥어의 성모 발음법 및 조합",
+    url: "dogkaebi.com",
+    siteName: "DogKaeBi 독깨비",
+    type: "website",
+    images: [
+      {
+        url: "https://dogkaebi.com/logo.png",
+        width: 600,
+        height: 600,
+        alt: "dogkaebi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DogKaeBi | Cantonese 성모(聲母)",
+    description: "광둥어의 성모 발음법 및 조합",
+    url: "dogkaebi.com",
+    site: "DogKaeBi 독깨비",
+    images: { url: "https://dogkaebi.com/logo2.png", alt: "dogkaebi" },
+  },
+};
+
 export default function Initial() {
   const initials = Object.keys(syllable.initial);
   const initialTable = [

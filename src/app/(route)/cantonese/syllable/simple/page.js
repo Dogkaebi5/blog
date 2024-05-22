@@ -2,6 +2,35 @@ import Link from "next/link";
 import * as ccss from "@controller/cssName";
 import { initialURL, syllableURL } from "@controller/urls";
 
+export const metadata = {
+  title: "DogKaeBi | Cantonese 발음",
+  description: "최소한의 광둥어 발음 및 간단화 정리",
+  icons: { icon: "/logo.png" },
+  openGraph: {
+    title: "DogKaeBi | Cantonese 발음",
+    description: "최소한의 광둥어 발음 및 간단화 정리",
+    url: "dogkaebi.com",
+    siteName: "DogKaeBi 독깨비",
+    type: "website",
+    images: [
+      {
+        url: "https://dogkaebi.com/logo.png",
+        width: 600,
+        height: 600,
+        alt: "dogkaebi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DogKaeBi | Cantonese 발음",
+    description: "최소한의 광둥어 발음 및 간단화 정리",
+    url: "dogkaebi.com",
+    site: "DogKaeBi 독깨비",
+    images: { url: "https://dogkaebi.com/logo2.png", alt: "dogkaebi" },
+  },
+};
+
 export default function SyllableSp() {
   const initials = [
     ["b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "ng", "w", "z", "c", "s", "j"],

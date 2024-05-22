@@ -4,6 +4,37 @@ import { syllableURL } from "@controller/urls";
 import * as check from "@controller/checkYueYinType";
 import * as ccss from "@controller/cssName";
 
+export async function generateMetadata(props) {
+  return {
+    title: `DogKaeBi | Cantonese 음절 [${props.params.id}]`,
+    description: `광둥어의 음절 [${props.params.id}] 발음 및 조합`,
+    icons: { icon: "/logo.png" },
+    openGraph: {
+      title: `DogKaeBi | Cantonese 음절 [${props.params.id}]`,
+      description: `광둥어의 음절 [${props.params.id}] 발음 및 조합`,
+      url: "dogkaebi.com",
+      siteName: "DogKaeBi 독깨비",
+      type: "website",
+      images: [
+        {
+          url: "https://dogkaebi.com/logo.png",
+          width: 600,
+          height: 600,
+          alt: "dogkaebi",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `DogKaeBi | Cantonese 음절 [${props.params.id}]`,
+      description: `광둥어의 음절 [${props.params.id}] 발음 및 조합`,
+      url: "dogkaebi.com",
+      site: "DogKaeBi 독깨비",
+      images: { url: "https://dogkaebi.com/logo2.png", alt: "dogkaebi" },
+    },
+  };
+}
+
 export default function Initial(props) {
   // 성모 or 운모 확인
   const alpha = props.params.id;

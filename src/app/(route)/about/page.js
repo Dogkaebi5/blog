@@ -1,6 +1,11 @@
 import Image from "next/image";
 import * as ccss from "@controller/cssName";
 
+export const metadata = {
+  title: "DogKaeBi | About",
+  description: "중국 20년 생활한 독깨비에 대해서",
+};
+
 export default function About() {
   return (
     <div className="max-w-md mx-auto my-8 pt-8 border-2 border-green-100 rounded-xl">

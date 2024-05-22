@@ -6,6 +6,37 @@ import { syllableURL } from "@/app/controller/urls";
 import { syllable } from "@/app/controller/yueYin";
 import SearchInput from "@/app/components/SearchInput";
 
+export async function generateMetadata(props) {
+  return {
+    title: `DogKaeBi | 검색어 : ${props.searchParams.q}`,
+    description: `${props.searchParams.q} | 대한 dogkaebi.com의 사전 및 블로그 내용 검색 결과`,
+    icons: { icon: "/logo.png" },
+    openGraph: {
+      title: `DogKaeBi | 검색어 : ${props.searchParams.q}`,
+      description: `${props.searchParams.q} | 대한 dogkaebi.com의 사전 및 블로그 내용 검색 결과`,
+      url: "dogkaebi.com",
+      siteName: "DogKaeBi 독깨비",
+      type: "website",
+      images: [
+        {
+          url: "https://dogkaebi.com/logo.png",
+          width: 600,
+          height: 600,
+          alt: "dogkaebi",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `DogKaeBi | 검색어 : ${props.searchParams.q}`,
+      description: `${props.searchParams.q} | 대한 dogkaebi.com의 사전 및 블로그 내용 검색 결과`,
+      url: "dogkaebi.com",
+      site: "DogKaeBi 독깨비",
+      images: { url: "https://dogkaebi.com/logo2.png", alt: "dogkaebi" },
+    },
+  };
+}
+
 export default function Search(props) {
   const searchText = props.searchParams.q;
   const res = search(searchText);

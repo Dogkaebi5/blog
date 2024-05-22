@@ -5,9 +5,39 @@ import { checkIsVowel } from "@controller/checkYueYinType";
 import * as ccss from "@controller/cssName";
 import YueYinPlayer from "@components/YueYinPlayer";
 
+export async function generateMetadata(props) {
+  return {
+    title: `DogKaeBi | Cantonese 월음(粵音) [${props.params.id}]`,
+    description: `광둥어의 음절 [${props.params.id}] 발음 및 성조 조합`,
+    icons: { icon: "/logo.png" },
+    openGraph: {
+      title: `DogKaeBi | Cantonese 월음(粵音) [${props.params.id}]`,
+      description: `광둥어의 음절 [${props.params.id}] 발음 및 성조 조합`,
+      url: "dogkaebi.com",
+      siteName: "DogKaeBi 독깨비",
+      type: "website",
+      images: [
+        {
+          url: "https://dogkaebi.com/logo.png",
+          width: 600,
+          height: 600,
+          alt: "dogkaebi",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `DogKaeBi | Cantonese 월음(粵音) [${props.params.id}]`,
+      description: `광둥어의 음절 [${props.params.id}] 발음 및 성조 조합`,
+      url: "dogkaebi.com",
+      site: "DogKaeBi 독깨비",
+      images: { url: "https://dogkaebi.com/logo2.png", alt: "dogkaebi" },
+    },
+  };
+}
+
 export default function YueYin(props) {
   const yueYin = props.params.id;
-
   // 성모 운모 분리
   function splitYueYin() {
     if (checkIsVowel(yueYin)) return ["", yueYin];

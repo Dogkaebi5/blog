@@ -4,6 +4,35 @@ import Pagination from "@/app/components/Pagination";
 import CardList from "@components/CardList";
 import { setCardList } from "@controller/setCardList";
 
+export const metadata = {
+  title: "DogKaeBi | Cantonese 사전",
+  description: "광둥어 한자 사전. 한자 뜻풀이, 발음",
+  icons: { icon: "/logo.png" },
+  openGraph: {
+    title: "DogKaeBi | Cantonese 사전",
+    description: "광둥어 한자 사전. 한자 뜻풀이, 발음",
+    url: "dogkaebi.com",
+    siteName: "DogKaeBi 독깨비",
+    type: "website",
+    images: [
+      {
+        url: "https://dogkaebi.com/logo.png",
+        width: 600,
+        height: 600,
+        alt: "dogkaebi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DogKaeBi | Cantonese 사전",
+    description: "광둥어 한자 사전. 한자 뜻풀이, 발음",
+    url: "dogkaebi.com",
+    site: "DogKaeBi 독깨비",
+    images: { url: "https://dogkaebi.com/logo2.png", alt: "dogkaebi" },
+  },
+};
+
 // 한자 리스트 페이지
 // 데이터는 read ctrl 으로 이동
 export default function Cantonese(props) {

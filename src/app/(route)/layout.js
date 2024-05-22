@@ -13,7 +13,7 @@ export const metadata = {
   description: "독깨비의 광둥어 & 개발 블로그",
   icons: { icon: "/logo.png" },
   openGraph: {
-    title: "DogKaeBi | 독깨비 광둥어",
+    title: "DogKaeBi | 독깨비",
     description: "독깨비의 광둥어 & 개발 블로그",
     url: "dogkaebi.com",
     siteName: "DogKaeBi 독깨비",
@@ -37,7 +37,6 @@ export const metadata = {
   },
 };
 
-// TODO: 임시 파피콘, Meta 수정
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">

@@ -3,6 +3,35 @@ import * as ccss from "@controller/cssName";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata = {
+  title: "DogKaeBi | Cantonese 성조",
+  description: "광둥어 성조의 종류 및 성조에 대한 설명",
+  icons: { icon: "/logo.png" },
+  openGraph: {
+    title: "DogKaeBi | Cantonese 성조",
+    description: "광둥어 성조의 종류 및 성조에 대한 설명",
+    url: "dogkaebi.com",
+    siteName: "DogKaeBi 독깨비",
+    type: "website",
+    images: [
+      {
+        url: "https://dogkaebi.com/logo.png",
+        width: 600,
+        height: 600,
+        alt: "dogkaebi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DogKaeBi | Cantonese 성조",
+    description: "광둥어 성조의 종류 및 성조에 대한 설명",
+    url: "dogkaebi.com",
+    site: "DogKaeBi 독깨비",
+    images: { url: "https://dogkaebi.com/logo2.png", alt: "dogkaebi" },
+  },
+};
+
 export default function Syllable() {
   const toneTable = [
     ["1", "IA", "陰平 (음평)", "上陰入 (상음입)"],

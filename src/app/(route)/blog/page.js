@@ -4,6 +4,35 @@ import CardList from "@/app/components/CardList";
 import PageNavgation from "@/app/components/Pagination";
 import { setCardList } from "@controller/setCardList";
 
+export const metadata = {
+  title: "DogKaeBi | Blog",
+  description: "독깨비의 광둥어, 코딩, 일상 일기장",
+  icons: { icon: "/logo.png" },
+  openGraph: {
+    title: "DogKaeBi | Blog",
+    description: "독깨비의 광둥어, 코딩, 일상 일기장",
+    url: "dogkaebi.com",
+    siteName: "DogKaeBi 독깨비",
+    type: "website",
+    images: [
+      {
+        url: "https://dogkaebi.com/logo.png",
+        width: 600,
+        height: 600,
+        alt: "dogkaebi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DogKaeBi | Blog",
+    description: "독깨비의 광둥어, 코딩, 일상 일기장",
+    url: "dogkaebi.com",
+    site: "DogKaeBi 독깨비",
+    images: { url: "https://dogkaebi.com/logo2.png", alt: "dogkaebi" },
+  },
+};
+
 export default async function Blog(props) {
   const tag = props.searchParams.tag;
   const page = props.searchParams.page ?? 1;
