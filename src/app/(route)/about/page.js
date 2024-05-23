@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function About() {
   return (
-    <div className="max-w-md mx-auto my-8 pt-8 border-2 border-green-100 rounded-xl">
+    <section className="max-w-md mx-auto my-8 pt-8 border-2 border-green-100 rounded-xl">
       <div className="text-center mb-4">
         <Image className="mx-auto rounded-full border shadow-lg" width={200} height={200} src={"https://drive.google.com/uc?id=1hm2QhpQzavfKF4tgpFarFgeovfRtOhNw"} alt="profile" />
         <h1 className="mt-4 text-3xl font-bold">DogKaeBi</h1>
@@ -49,6 +49,6 @@ export default function About() {
         </ul>
       </div>
       <div className="my-4 w-full h-2 bg-green-100" />
-    </div>
+    </section>
   );
 }

@@ -32,7 +32,7 @@ export const pageNavWrap = "my-6 flex justify-center items-center";
 export const pageNumAct = "px-1 font-bold bg-green-500 rounded text-white";
 export const pageNum = "p-1 hover:text-gray-500 cursor-pointer";
 
-export const blogCardsWrap = "grid mx-10 grid-cols-1 gap-4 sm:grid-cols-2 lg:mx-0 lg:grid-cols-3";
+export const blogCardsWrap = "grid mx-6 grid-cols-1 gap-4 sm:grid-cols-2 lg:mx-0 lg:grid-cols-3";
 export const blogCard = "overflow-hidden rounded-md shadow-md hover:shadow hover:scale-105";
 export const blogCardImage = "object-cover w-full h-40";
 export const blogCardTextWrap = "min-h-40 px-4 pt-4 pb-4 flex flex-col justify-between";
