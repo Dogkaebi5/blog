@@ -205,4 +205,16 @@ export const wordData = {
     title: "내일",
     mandarin: "明天",
   },
+  201543895739151: {
+    sortId: "14",
+    tc: "人頭飯",
+    yueYin: "jan4 tau4 faan4",
+    cn: "人头饭",
+    pinyin: "rén tóu fàn",
+    mandarin: "一人一个饭",
+    category: "명사",
+    meaning: [{ m: "인원수 만큼의 공기밥" }, { e: "唔該要人頭飯", t: "한 사람당 공기밥 1개 주세요" }],
+    mean: "인원수 만큼의 공기밥",
+    title: "사람 수 공기밥",
+  },
 };
