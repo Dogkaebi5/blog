@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <footer className="flex-initial">
+    <footer className="mt-12">
       <hr />
-      <p className="py-2 text-center text-sm text-gray-400">© DogKaeBi</p>
+      <p className="py-6 text-center text-sm text-gray-400">© DogKaeBi</p>
     </footer>
   );
 };
