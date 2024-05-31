@@ -36,7 +36,7 @@ export const metadata = {
 export default async function Conversation(props) {
   const path = "tc";
   const page = props.searchParams.page ?? 1;
-  const maxCardInPage = 8;
+  const maxCardInPage = 6;
   const data = setCardList("cantonese", page, maxCardInPage);
   const maxPages = Math.ceil(data.allLength / maxCardInPage);
 

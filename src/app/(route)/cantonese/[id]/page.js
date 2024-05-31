@@ -230,7 +230,7 @@ export default async function HanJa(props) {
     return (
       <div className={ccss.textBox + " mt-8"}>
         <h3 className="text-sm font-bold text-green-500">※ 비고 ※</h3>
-        <p className="mx-4 my-2">{data.detail}</p>
+        <p className="mx-4 my-2 whitespace-pre-line leading-8">{data.detail}</p>
       </div>
     );
   }
