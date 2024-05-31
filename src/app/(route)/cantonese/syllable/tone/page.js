@@ -42,14 +42,12 @@ export default function Syllable() {
     ["6", "IIIB", "陽去 (양거)", "陽入 (양입)"],
   ];
 
-  const toneDescription = `
-  광둥어의 성조는 9성6조(九聲六調)이다.
-  <br />간단하게 설명하면 성조는 6개이고, 입성(入聲)이 있다.
-  <br />
-  <br />성조의 뜻은 음높이가 변화하는 것을 뜻한다. 
-  <br />예시로 '도 → 도# → 레'의 변화와 비슷하다
-  <br />모든 중국어(각 방언 포함)의 발음은 일반적으로 5개 음높이에서 성조를 만든다.
-  <br />`;
+  const toneDescription = `광둥어의 성조는 9성6조(九聲六調)이다.
+간단하게 설명하면 성조는 6개이고, 입성(入聲)이 있다.
+
+성조의 뜻은 음높이가 변화하는 것을 뜻한다. 
+예시로 '도 → 도# → 레'의 변화와 비슷하다
+모든 중국어(각 방언 포함)의 발음은 일반적으로 5개 음높이에서 성조를 만든다.`;
 
   const LinkText = ({ text }) => {
     return (
@@ -68,7 +66,7 @@ export default function Syllable() {
       </div>
       <div className={ccss.mainBlock}>
         <h1 className={ccss.h1}>광둥어 성조(聲調)</h1>
-        <p className={ccss.textBox} dangerouslySetInnerHTML={{ __html: toneDescription }} />
+        <p className={ccss.textBox}>{toneDescription}</p>
         <div className={ccss.hr} />
         <h2 className={ccss.h2}>광둥어 성조</h2>
         <table className="my-4 text-sm">
@@ -92,7 +90,7 @@ export default function Syllable() {
           </tbody>
         </table>
         <div className={ccss.textBox}>
-          <span className="font-bold">陰平, 陰上, 陰去, 陽平, 陽上, 陽去, 上陰入, 下陰入, 陽入</span>
+          <span className="font-bold"> 陰平, 陰上, 陰去, 陽平, 陽上, 陽去, 上陰入, 下陰入, 陽入</span>
           <br /> 성조의 정식명칭은 평상거입(平上去入)의 이름이다.
           <br />
           <br /> 성은 총 9개가 있지만 성조는
@@ -104,9 +102,9 @@ export default function Syllable() {
         <div className={ccss.hr} />
         <h2 className={ccss.h2}>광둥어 입성(入聲)</h2>
         <div className={ccss.textBox}>
-          <span className="font-bold">上陰入, 下陰入, 陽入</span>
+          <span className="font-bold"> 上陰入, 下陰入, 陽入</span>
           <br /> 입성은 한국어의 받침음과 비슷하다.
-          <br /> 운미(韻味)가 p, t, k 으로, 발음 끝부분이 짧은 발음이다.
+          <br /> 운미(韻尾)가 p, t, k 으로, 끝부분이 짧은 발음이다.
           <br />
           <br /> 7, 8, 9성은 1, 3, 6성과 같은 조(調)다
           <br /> 1, 3, 6성으로 7, 8, 9성조를 표기한다.
@@ -114,15 +112,19 @@ export default function Syllable() {
         <div className={ccss.hr} />
         <h2 className={ccss.h2}>광둥어 성조 발음 예시</h2>
         <div className={ccss.textBox}>
-          시작하는 음은 사람마다 다르다.
-          <br /> 사람의 목소리 음이 태생으로 낮거나 높을 수 있다.
+          시작 음은 사람마다 다르다. 태생으로 낮거나 높을 수 있다.
           <br />
-          <br /> 예시.
-          <br /> 음역이 &#39;도, 도#, 레, 레#, 미&#39;인 사람의 경우
-          <br /> 각 음을 1, 2, 3, 4, 5로 표기하면
-          <br /> 보통화 발음은 [ 55, 35, 214, 51 ] 4개 성조이다.
-          <br /> 광둥어 발음은 [ 55, 35, 33, 11, 13, 22 ] 6개 성조와 [5, 3, 2] 3개 입성이다.
-          <br /> 입성의 성조는 1성, 3성, 6성의 짧은 음으로 음절표기는 1, 3, 6를 사용한다.
+          <br />
+          예시.
+          <br />
+          음역이 &#39;도, 도#, 레, 레#, 미&#39;인 사람의 경우
+          <br />각 음을 1, 2, 3, 4, 5로 표기하면
+          <br />
+          보통화 발음은 [ 55, 35, 214, 51 ] 4개 성조이다.
+          <br />
+          광둥어 발음은 [ 55, 35, 33, 11, 13, 22 ] 6개 성조와 [5, 3, 2] 3개 입성이다.
+          <br />
+          입성의 성조는 1성, 3성, 6성의 짧은 음으로 음절표기는 1, 3, 6를 사용한다.
           <Image
             className="py-4"
             width={600}
@@ -135,13 +137,18 @@ export default function Syllable() {
         <h2 className={ccss.h2}>평상거입(平上去入)</h2>
         <div className={ccss.textBox}>
           평상거입은 중국 발음 체계이다. <br />
-          <br /> 보통화의 성조는 음평(陰平), 양평(陽平), 상성(上聲), 거성(去聲)이다.
-          <br /> 보통화는 입성이 없다.
           <br />
-          <br /> 입성(入聲)은 사성인 평상거입(平上去入)중 하나로, 짧고 빨리 닫는 소리를 얘기한다. <br />
-          <br /> 훈민정음에도 사용된 것으로 보아 한국어도 평상거입이 있었을 것이다.
-          <br /> &#39;ㄱ, ㄷ, ㄹ, ㅂ, ㅅ&#39; 받침인 글자가 입성이다.
-          <br /> (광둥어는 &#39;ㄹ&#39; 받침음은 없다)
+          보통화의 성조는 음평(陰平), 양평(陽平), 상성(上聲), 거성(去聲)이다.
+          <br />
+          보통화는 입성이 없다.
+          <br /> <br />
+          입성(入聲)은 사성인 평상거입(平上去入)중 하나로, 짧고 빨리 닫는 소리를 얘기한다. <br />
+          <br />
+          훈민정음에도 사용된 것으로 보아 한국어도 평상거입이 있었을 것이다.
+          <br />
+          &#39;ㄱ, ㄷ, ㄹ, ㅂ, ㅅ&#39; 받침인 글자가 입성이다.
+          <br />
+          (광둥어는 &#39;ㄹ&#39; 받침음은 없다)
         </div>
         <div className={ccss.hr} />
         <h2 className={ccss.h2}>한국어 성조</h2>
@@ -162,7 +169,8 @@ export default function Syllable() {
           홍콩어언학학회, 예일(현재), 만국음표, 광저우, 유석상은 전부 숫자로 표기한다.
           <br /> <span className="font-bold">1, 2, 3, 4, 5, 6</span>
           <br />
-          <br /> 예일(전통) : <span className="border p-1 rounded">⎺</span>
+          <br />
+          예일(전통) : <span className="border p-1 rounded">⎺</span>
           <span className="border p-1 rounded">
             <sup>
               <span className="text-[8px]">╱</span>

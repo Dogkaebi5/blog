@@ -14,7 +14,7 @@ export const h2 = "text-lg font-bold text-start";
 export const h3 = "mb-2 font-bold text-start";
 export const hr = "my-16 h-2 w-full bg-green-50 ";
 
-export const textBox = "p-4 my-2 border border-green-200 rounded-xl shadow-md";
+export const textBox = "p-4 my-2 border border-green-200 rounded-xl shadow-md whitespace-pre";
 export const alpCardWrap = "flex flex-wrap my-4 gap-2";
 export const alpCardOutBox = "transition-color p-1 border rounded-lg hover:bg-green-300";
 export const alpCardInBox = "p-3 border bg-gray-50 inline-block rounded-md text-lg hover:bg-green-500 hover:font-bold hover:text-white";

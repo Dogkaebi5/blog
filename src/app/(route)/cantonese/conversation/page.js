@@ -33,7 +33,7 @@ export const metadata = {
   },
 };
 
-export default async function Conversation(props) {
+export default function Conversation(props) {
   const path = "tc";
   const page = props.searchParams.page ?? 1;
   const maxCardInPage = 6;
