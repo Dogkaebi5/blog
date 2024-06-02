@@ -102,18 +102,21 @@ export default async function HanJa(props) {
         {isOneChar ? (
           <h1 className=" text-8xl">{char}</h1>
         ) : (
-          <h1 className=" text-7xl">
-            {idsArr.map((id) => {
-              i++;
-              return hanData[id] == null ? (
-                <span key={id}>{char[i]}</span>
-              ) : (
-                <Link key={id} className={linkClass} href={"/cantonese/" + id}>
-                  {char[i]}
-                </Link>
-              );
-            })}
-          </h1>
+          <>
+            <h1 className=" mt-1 text-7xl">
+              {idsArr.map((id) => {
+                i++;
+                return hanData[id] == null ? (
+                  <span key={id}>{char[i]}</span>
+                ) : (
+                  <Link key={id} className={linkClass} href={"/cantonese/" + id}>
+                    {char[i]}
+                  </Link>
+                );
+              })}
+            </h1>
+            <p className="text-xs mt-2 text-gray-600">한자 클릭 한자 뜻 보기</p>
+          </>
         )}
       </div>
     );
