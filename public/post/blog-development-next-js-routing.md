@@ -8,6 +8,7 @@ slug: blog-development-next-js-routing
 ---
 
 Next.js 14에서 라우팅 방식은 진짜 쉬워졌다.  
+터미널로직 (Terminology)을 사용해서  
 `..app\` 폴더를 기준으로 폴더를 만들면  
 폴더명이 url 이름이 된다.
 
@@ -22,7 +23,8 @@ app
 └ about
 ```
 
-이렇게 폴더를 만들면 이미 기본 라우팅은 끝이다
+이렇게 폴더를 만들면 이미 기본 라우팅은 끝이다.  
+[nextjs 공식 설명](https://nextjs.org/docs/app/building-your-application/routing)
 
 하지만 지금 터미널에서 `next dev` 를 실행하고  
 해당 url을 브라우저에 입력하면 404 페이지가 나타난다.
