@@ -4,7 +4,7 @@ import Link from "next/link";
 import * as ccss from "@controller/cssName";
 import { imgURL } from "@controller/urls";
 
-import PrismLoader from "@/app/components/PrismLoader";
+import PrismLoader from "../../../../components/PrismLoader";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
 import { notFound } from "next/navigation";

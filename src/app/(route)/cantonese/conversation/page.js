@@ -1,6 +1,6 @@
-import CardList from "@/app/components/CardList";
-import PageNavgation from "@/app/components/Pagination";
-import { setCardList } from "@/app/controller/setCardList";
+import CardList from "@components/CardList";
+import PageNavgation from "@components/Pagination";
+import { setCardList } from "@controller/setCardList";
 import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
 

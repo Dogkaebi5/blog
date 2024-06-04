@@ -4,9 +4,9 @@ import * as ccss from "@controller/cssName";
 import { syllable } from "@controller/yueYin";
 import { setIdFromTc, setTcFromId, splitIds } from "@controller/handleId";
 import YueYinPlayer from "@components/YueYinPlayer";
-import { checkNoData } from "@/app/controller/checkHasData";
-import { hanData } from "@/app/controller/han";
-import { wordData } from "@/app/controller/word";
+import { checkNoData } from "@controller/checkHasData";
+import { hanData } from "@controller/han";
+import { wordData } from "@controller/word";
 
 // export let metadata = {};
 export async function generateMetadata(props) {

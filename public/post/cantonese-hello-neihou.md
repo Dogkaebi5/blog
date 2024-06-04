@@ -1,5 +1,5 @@
 ---
-title: 광둥어 인사 你好您好
+title: 광둥어 - 안녕하세요 你好/您好
 description: 인사말 你好您好은 둘 다 존댓말이다. 평소에 친구들 사이는 더 가벼운 인사말을 한다.
 date: 2024-05-09 08:29:43
 cover: 1kQMvwYNtxCU3eaMf6lwoVEFz3l2aAHJ4

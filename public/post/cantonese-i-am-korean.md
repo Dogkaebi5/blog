@@ -1,5 +1,5 @@
 ---
-title: 광둥어 문법. 나는 한국인 我係韓國人
+title: 광둥어 - 저는 한국인 我係韓國人
 description: 중국어는 기본적으로 SVO (Subject-Verb-Object)을 사용한다.
 date: 2024-05-22 06:50:43
 cover: 1KUlxRS5Tx5HzfJDyeX_N0-XEW_OEjTcB

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Heros from "@components/Heros";
-import SearchInput from "../components/SearchInput";
+import SearchInput from "@components/SearchInput";
 
 export default function Home() {
   const cardClass = "block p-6 m-4 mx-10 rounded-xl shadow text-center font-bold text-lg hover:scale-105 hover:ring-2 ring-green-200";

@@ -1,9 +1,9 @@
 import { Inter } from "next/font/google";
 import "../globals.css";
 import Navigation from "@components/Navigation";
-import Footer from "../components/Footer";
+import Footer from "@components/Footer";
+import GoogleAdsense from "@components/GoogleAdsence";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import GoogleAdsense from "../components/GoogleAdsence";
 
 const inter = Inter({ subsets: ["latin"] });
 

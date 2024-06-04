@@ -1,7 +1,7 @@
-import Heros from "@components/Heros";
-import SubNav from "@components/SubNav";
-import CardList from "@/app/components/CardList";
-import PageNavgation from "@/app/components/Pagination";
+import Heros from "../../../components/Heros";
+import SubNav from "../../../components/SubNav";
+import CardList from "../../../components/CardList";
+import PageNavgation from "../../../components/Pagination";
 import { setCardList } from "@controller/setCardList";
 
 export default async function Blog(props) {

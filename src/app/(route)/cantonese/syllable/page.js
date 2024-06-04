@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import Heros from "@components/Heros";
 import SubNav from "@components/SubNav";
-import JyutPingTable from "@/app/components/JyutPingTable";
+import JyutPingTable from "@components/JyutPingTable";
 import * as ccss from "@controller/cssName";
 import { simpleSyllableURL, initialURL, vowelURL, toneURL } from "@controller/urls";
 
