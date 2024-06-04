@@ -33,11 +33,11 @@ word: 韓國
 한국어에서 "에/서/에서"와 비슷하게 사용된다.  
 실제로는 동사 "~에 있다"는 뜻이 강하다
 
-> hai2 ni1 dou6  
+> hai6 ni1 dou6  
 > 係呢度  
 > 여기입니다
 
-> hai6 ni1 dou6  
+> hai2 ni1 dou6  
 > 喺呢度  
 > 여기에 있습니다 / 여기에서 입니다
 
@@ -61,7 +61,7 @@ word: 韓國
 <br/>
 보어 (補語)의 위치는 서술어 뒤에 사용한다.
 
-> ngo5 zo6 hai6 keoi5 cin4 min6  
+> ngo5 zo6 hai2 keoi5 cin4 min6  
 > 我坐喺佢前面  
 > 나는 그의 앞에 앉아있다
 
@@ -71,7 +71,7 @@ word: 韓國
 狀語에 사용하면 서술의 발생한 장소이고,  
 補語에 사용하면 서술의 결과/상태 위치이다.
 
-> ngo5 hai2 gung1 si1 zo6 hai6 keoi5 cin4 min6  
+> ngo5 hai2 gung1 si1 zo6 hai2 keoi5 cin4 min6  
 > 我喺公司坐喺佢前面  
 > 나는 회사에서 그의 앞에 앉아있다.
 
@@ -85,7 +85,7 @@ word: 韓國
 <br/>
 (단어가 길어지면 복잡하고 어려우니 짧게 사용하자...)
 
-> ngo5 hai2 gung1 si1 zo6 hai6 keoi5 cin4 min6 zuo6 je5  
+> ngo5 hai2 gung1 si1 zo6 hai2 keoi5 cin4 min6 zuo6 je5  
 > 我喺公司坐喺佢前面做嘢  
 > 나는 회사에서 그의 앞에 앉아서 일을 한다
 
