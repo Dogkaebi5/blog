@@ -5762,7 +5762,7 @@ export const hanData = {
     mandarin: "点 怎 为什么",
     hanja: "점 점, 시들 다",
     category: "대명사 동사",
-    title: "으로 인해/원인",
+    title: "어떻게/점",
     meaning: {
       dim2: [
         { m: "어떤가?" },

@@ -91,8 +91,8 @@ export default async function Read(props) {
             <div className={ccss.hr} />
             <div>
               <h3 className="font-bold text-sm mb-2">관련 한자/단어</h3>
-              <RelatedTc tcArr={parsed.data.tc?.split(" ")} />
-              <RelatedWord wordArr={parsed.data.word?.split(" ")} />
+              {parsed.data.tc != undefined ? <RelatedTc tcArr={parsed.data.tc?.split(" ")} /> : null}
+              {parsed.data.word != undefined ? <RelatedWord wordArr={parsed.data.word?.split(" ")} /> : null}
             </div>
           </>
         ) : null}
