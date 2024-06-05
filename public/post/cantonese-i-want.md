@@ -59,9 +59,9 @@ tc: 我 要
 > 我要去迪士尼  
 > 디즈니에 갈 것이다 / 가고 싶다
 
-> ngo5 jiu1 sik6 daan6 taat1  
-> 我要食蛋撻  
-> 에그타르트 먹을 것이다 / 먹고 싶다
+> ngo5 jiu1 heoi3 sik6 daan6 taat1  
+> 我要去食蛋撻  
+> 에그타르트 먹으러 갈 것이다 / 가고 싶다
 
 <br/>
 
@@ -92,13 +92,13 @@ tc: 我 要
 하지만 단어를 사용하는 경우,  
 [要]를 [想]으로 대체하는 것이 자연스럽다
 
-> ngo5 jiu1 heoi3 dik6 si6 nei4  
+> ngo5 soeng2 heoi3 dik6 si6 nei4  
 > 我想去迪士尼  
 > 디즈니에 가고 싶다
 
-> ngo5 jiu1 sik6 daan6 taat1  
-> 我想食蛋撻  
-> 에그타르트 먹고 싶다
+> ngo5 soeng2 heoi3 sik6 daan6 taat1  
+> 我想去食蛋撻  
+> 에그타르트 먹으려 가고 싶다
 
 <br/>
 
