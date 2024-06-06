@@ -86,6 +86,10 @@ export default function RootLayout({ children }) {
 }
 ```
 
+UI계획에  
+해더 navigation을 만들 것이고,  
+푸터도 고정이어서 header와 footer를 추가했다.
+
 <br>
 <br>
 
@@ -172,6 +176,20 @@ export default function Home() {
     </div>
   );
 }
+```
+
+```html
+<!-- 위에 코드 출력 예시 (layout포함) -->
+<body class="__className_a123456">
+  <header>해더입니다</header>
+  <main>
+    <div>
+      <h1>여기가 독깨비 홈페이지입니다</h1>
+      <p>독깨비 홈페이지에 오신 것을 환영합니다</p>
+    </div>
+  </main>
+  <footer>푸터입니다</footer>
+</body>
 ```
 
 pages와 layouts의 [nextjs 공식 설명](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts)
