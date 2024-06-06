@@ -17,7 +17,6 @@ Home / Cantonese / Blog / About 페이지가 있다.
 
 ```
 app
-└ home
 └ cantonese
 └ blog
 └ about
