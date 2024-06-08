@@ -67,7 +67,7 @@ export default async function Read(props) {
       },
     };
     return (
-      <div className="p-8">
+      <div className="p-4">
         <PrismLoader />
         <div className="px-4">
           <h1 className={ccss.h1}>{parsed.data.title}</h1>

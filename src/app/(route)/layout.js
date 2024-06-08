@@ -39,7 +39,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className="bg-slate-950">
       <head>
         <link rel="icon" href="/logo.png" sizes="any" />
         <meta name="google-adsense-account" content="ca-pub-4395279661539134" />
@@ -47,7 +47,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className + " max-w-4xl mx-auto relative flex flex-col"}>
         <Navigation />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 lg:p-4">{children}</main>
         <Footer />
       </body>
       <GoogleAnalytics gaId="G-RM4HNBFXFN" />
