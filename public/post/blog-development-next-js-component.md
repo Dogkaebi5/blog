@@ -1,5 +1,5 @@
 ---
-title: 블로그 개발 - Next.js 컴포넌트 (component)
+title: Next.js 블로그 개발 - 컴포넌트 (component)
 description: 컴포넌트는 Next가 아닌 React 방법으로 사용된다.
 date: 2024-06-07 03:23:29
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC

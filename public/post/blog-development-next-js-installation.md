@@ -1,5 +1,5 @@
 ---
-title: 블로그 개발 - Next.js 설치
+title: Next.js 블로그 개발 - 설치
 description: Next.js 설치해서.. 빠르게 블로그 만들어보기
 date: 2024-05-21 07:34:29
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC

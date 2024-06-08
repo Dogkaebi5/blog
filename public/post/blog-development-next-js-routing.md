@@ -1,5 +1,5 @@
 ---
-title: 블로그 개발 - Next.js 14 라우팅 (Routing)
+title: Next.js 블로그 개발 - 라우팅 (Routing)
 description: Next.js에서 페이지를 이동/전환하는 라우팅은 터미널로직(Terminology)를 사용해서, 더욱 간단하게 url 세팅이 가능해졌다.
 date: 2024-06-03 03:06:29
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC

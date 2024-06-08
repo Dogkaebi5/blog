@@ -1,10 +1,10 @@
 ---
-title: 블로그 개발 - Next.js 동적 라우팅 (Dynamic Routes)
+title: Next.js 블로그 개발 - 동적 라우팅 (Dynamic Routes)
 description: Next.js의 터미널로직(Terminology)를 사용해서, 간단하게 동적 라우팅 (Dynamic Routes)이 가능하다
 date: 2024-06-04 09:03:29
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC
 category: coding
-slug: blog-development-next-js-dynamic-Routes
+slug: blog-development-next-js-dynamic-routes
 ---
 
 Next.js 14에서  

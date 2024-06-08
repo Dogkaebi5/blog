@@ -1,5 +1,5 @@
 ---
-title: 블로그 개발 Next.js 14 페이지와 레이아웃
+title: Next.js 블로그 개발 - 페이지와 레이아웃
 description: Next.js에서 터미널로직(Terminology) 폴더에 page.js와 layout.js를 사용해서 UI를 만든다.
 date: 2024-06-06 02:06:29
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC
