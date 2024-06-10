@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
         <meta name="google-adsense-account" content="ca-pub-4395279661539134" />
         <GoogleAdsense pId="4395279661539134" />
       </head>
-      <body className={inter.className + " max-w-4xl mx-auto relative flex flex-col"}>
+      <body className={inter.className + " max-w-4xl mx-auto relative"}>
         <Navigation />
         <main className="flex-1 lg:p-4">{children}</main>
         <Footer />
