@@ -19,7 +19,8 @@ export async function generateMetadata(props) {
   const directoryPath = path.join(process.cwd(), "public/post");
   const mdFile = fs.readFileSync(directoryPath + "/" + props.params.id + ".md", "utf8");
 
-  // const mdClass = "prose prose-stone prose-li:my-1 prose-code:bg-gray-200 prose-code:rounded prose-code:py-0.5 prose-code:px-1 mt-8 p-2 markdown"
+  const mdClass =
+    "prose prose-stone prose-li:my-1 prose-blockquote:border-green-600 prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:bg-slate-50 prose-code:bg-gray-200 prose-code:rounded prose-code:py-0.5 prose-code:px-1 mt-8 p-2 markdown";
 
   if (mdFile == undefined) {
     return { title: `DogKaeBi | 404`, description: `Page not found` };
@@ -84,7 +85,7 @@ export default async function Read(props) {
         <div className="mt-8">
           <Image className="object-cover w-full max-h-96" width={600} height={400} src={imgURL + parsed.data.cover} alt={parsed.data.title} />
         </div>
-        <article className="prose prose-stone prose-li:my-1 prose-blockquote:border-green-600 prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:bg-slate-50 prose-code:bg-gray-200 prose-code:rounded prose-code:py-0.5 prose-code:px-1 mt-8 p-2 markdown">
+        <article className={mdClass}>
           <Markdown options={options}>{parsed.content}</Markdown>
         </article>
 
