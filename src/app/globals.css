@@ -260,3 +260,13 @@ td {
   background: #d4dffc;
   border-radius: 20px;
 }
+
+.markdown code::before,
+.markdown code::after {
+  content: none;
+}
+
+.markdown blockquote p::before,
+.markdown blockquote p::after {
+  content: none;
+}
