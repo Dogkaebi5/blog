@@ -42,6 +42,7 @@ export default function RootLayout({ children }) {
     <html lang="ko" className="bg-slate-950">
       <head>
         <link rel="icon" href="/logo.png" sizes="any" />
+        <meta name="naver-site-verification" content="227e66cf3fceb7e24486ae79f2203448477195f2" />
         <meta name="google-adsense-account" content="ca-pub-4395279661539134" />
         <GoogleAdsense pId="4395279661539134" />
       </head>
