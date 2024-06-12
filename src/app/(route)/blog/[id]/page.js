@@ -19,9 +19,6 @@ export async function generateMetadata(props) {
   const directoryPath = path.join(process.cwd(), "public/post");
   const mdFile = fs.readFileSync(directoryPath + "/" + props.params.id + ".md", "utf8");
 
-  const mdClass =
-    "prose prose-stone prose-li:my-1 prose-blockquote:border-green-600 prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:bg-slate-50 prose-code:bg-gray-200 prose-code:rounded prose-code:py-0.5 prose-code:px-1 mt-8 p-2 markdown";
-
   if (mdFile == undefined) {
     return { title: `DogKaeBi | 404`, description: `Page not found` };
   } else {
@@ -69,6 +66,10 @@ export default async function Read(props) {
         img: ({ src, alt, ...props }) => <Image width={500} height={500} alt={alt} src={src} {...props} />,
       },
     };
+
+    const mdClass =
+      "prose prose-stone prose-li:my-1 prose-blockquote:border-green-600 prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:bg-slate-50 prose-code:bg-gray-200 prose-code:rounded prose-code:py-0.5 prose-code:px-1 mt-8 p-2 markdown";
+
     return (
       <div className="p-4">
         <PrismLoader />
