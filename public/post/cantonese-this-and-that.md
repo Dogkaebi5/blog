@@ -5,7 +5,7 @@ date: 2024-06-13 04:03:35
 cover: 1-ALflHGbJ7_PUv3xia_JzKBzDaut-3-1
 category: cantonese
 slug: cantonese-this-and-that
-tc: 呢 依 嗰 果
+tc: 呢 依 嗰 果 個 支 條 隻 把 件 架 部 本
 word: 呢個 嗰個
 ---
 
