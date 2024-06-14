@@ -68,7 +68,7 @@ export default async function Read(props) {
     };
 
     const mdClass =
-      "prose prose-stone prose-li:my-1 prose-blockquote:border-green-600 prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:bg-slate-50 prose-code:bg-gray-200 prose-code:rounded prose-code:py-0.5 prose-code:px-1 mt-8 p-2 markdown";
+      "prose prose-stone prose-strong:text-green-600 prose-li:my-1 prose-blockquote:border-green-600 prose-blockquote:not-italic prose-blockquote:font-normal prose-blockquote:bg-slate-50 prose-code:rounded prose-code:py-0.5 prose-code:px-1 mt-8 p-2 markdown";
 
     return (
       <div className="p-4">

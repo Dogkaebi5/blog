@@ -50,7 +50,7 @@ https://dogkaebi.com/cantonese 에서
 나의 경우 `components` 폴더를 만들고,  
 모든 컴포넌트를 이 폴더 안에서 만들었다.
 
-```
+```js
 components
 └ HeaderBar.js
 ```
@@ -112,7 +112,7 @@ export default HeaderBar;
 
 HeaderBar는 전체 레이아웃에서 사용했다
 
-```
+```js
 app
 └ layout.js
 └ page.js

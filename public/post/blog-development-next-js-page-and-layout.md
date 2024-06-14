@@ -16,7 +16,7 @@ Next.js 14의 라우팅은 터미널로직을 사용한다.
 
 기본값으로 폴더의 `page.js` 파일을 페이지 UI로 사용한다.
 
-```
+```js
 app
 └ layout.js
 └ page.js
@@ -109,7 +109,7 @@ export default function Home() {
 
 위에 언급한 것처럼 layout은 하위 페이지에 영향을 준다.
 
-```
+```js
 app
 └ layout.js
 └ page.js

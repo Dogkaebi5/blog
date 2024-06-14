@@ -36,7 +36,7 @@ const Navigation = () => {
   // 광둥어를 home으로 변경하면서, isActive의 2번째 조건 추가
 
   return (
-    <header className="navbar flex-initial">
+    <header className="navbar">
       <Link className="ml-2 px-4 py-2 font-bold rounded-full hover:bg-green-100" href="/">
         DogKaeBi
       </Link>

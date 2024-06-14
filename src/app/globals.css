@@ -27,6 +27,15 @@ td {
   border: 1px solid;
   border-color: #ddd;
 }
+
+code {
+  background-color: #ddd;
+}
+
+pre code {
+  background-color: none;
+}
+
 .initial-table {
   font-size: 12px;
 }
