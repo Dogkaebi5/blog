@@ -4,7 +4,7 @@ description: map()함수와 Link 컴포넌트로 네비게이션 바 기본틀 �
 date: 2024-06-14 05:03:29
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC
 category: coding
-slug: blog-development-header-navigation-bar-and-link-component
+slug: blog-development-header-navigation-design
 ---
 
 ## Preview
