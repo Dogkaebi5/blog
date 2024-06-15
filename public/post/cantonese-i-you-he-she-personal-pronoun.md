@@ -1,6 +1,6 @@
 ---
 title: 광둥어 인칭대명사 我 你 佢
-description: 광둥어의 나, 너, 그/그녀 그리고 사용하는 관계형의 디테일
+description: 광둥어의 나, 너, 그/그녀 그리고 사용하는 관계형 변형의 디테일
 date: 2024-06-15 06:01:01
 cover: 14GVKR0Ml0Y0yhAST8jVyRI1BgEXQkeJL
 category: cantonese
