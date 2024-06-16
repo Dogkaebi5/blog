@@ -193,7 +193,7 @@ hover의 효과도 추가했다.
 
 위에서 부터 설명하면  
 `content: ""` 내용 없음,  
-`position: absolute` 절대 위치,  
+`position: absolute` class와 같은 위치 (겹침),  
 `left: 50%` 중간에서 시작,  
 `bottom: 0` (class의)밑으로 정렬,  
 `height: 1px` 높이 1px,  
