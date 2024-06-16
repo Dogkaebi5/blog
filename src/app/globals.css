@@ -155,7 +155,6 @@ pre code {
   display: flex;
 }
 .spread-underline {
-  position: relative;
   text-align: center;
   width: 80px;
 }
@@ -167,22 +166,21 @@ pre code {
   color: #16a34a;
   scale: 110%;
 }
-
 .spread-underline:after {
-  bottom: 0;
   content: "";
-  height: 1px;
-  left: 50%;
   position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 1px;
+  width: 0;
   background: #16a34a;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
 }
-
 .spread-underline:hover:after {
   width: 100%;
   left: 0;
 }
+
 .nav-side {
   visibility: hidden;
   position: absolute;
