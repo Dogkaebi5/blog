@@ -1,10 +1,10 @@
 ---
-title: Next 블로그 개발 - 네비 호버 밑줄 애니메이션 css
+title: Next 블로그 개발 - 호버 밑줄 애니메이션 css
 description: Header Navigation, 링크 hover하면 밑줄이 나오는 css를 작성했다.
 date: 2024-06-16 01:14:23
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC
 category: coding
-slug: blog-development-spread-underline-css
+slug: blog-development-header-spread-underline-css
 ---
 
 # Preview

@@ -1,6 +1,6 @@
 ---
-title: Next 블로그 개발 - Header Navigation 외형과 링크
-description: map()함수와 Link 컴포넌트로 네비게이션 바 기본틀 만들기
+title: Next 블로그 개발 - 헤더 네비 외형과 링크
+description: map()함수와 Link 컴포넌트로 header navigation bar 기본틀 만들기
 date: 2024-06-14 05:03:29
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC
 category: coding
