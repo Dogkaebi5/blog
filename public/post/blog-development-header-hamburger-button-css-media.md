@@ -90,9 +90,9 @@ active는 [페이지 강조](/blog/blog-development-header-highlight-current-pag
 2. 링크별 각 페이지로 이동
 3. 마우스 호버, 애니메이션
 4. 현재 경로(페이지) 강조
-5. **반응형 햄버거 버튼, 작은 화면 nav 대체**
-6. 사이드 메뉴 및 링크, 각 페이지로 이동
-7. 햄버거 버튼 애니메이션
+5. **햄버거 버튼, 반응형 웹 작은 화면 nav 대체**
+6. 햄버거 버튼 애니메이션
+7. 사이드 메뉴 및 링크, 각 페이지로 이동
 8. 햄버거 버튼 활성 시 사이드 메뉴 나타남
 9. 햄버거 버튼 비활성 시 사이드 메뉴 없어짐
 10. 링크 클릭시 햄버거 버튼 비활성
@@ -256,3 +256,65 @@ absolute을 사용했기 때문에 3개의 span이 겹쳐있다.
 `max-width`을 사용해서  
 화면 넓이가 960px 혹 이하일 때,  
 `nav-main`가 보이지 않게했다.
+
+<br><br><br>
+
+# 결론
+
+### HeaderBar 컴포넌트
+
+nav 태그 뒤에 nav-burger를 추가  
+각 span에 tailwindcss 위치 추가
+
+```js
+// .\app\components\HeaderBar.js - header
+
+<header className="nav">
+  <Link href="/">Dogkaebi</Link>
+  <nav className="nav-main">
+    {links.map(([title, url]) => (
+      <Link href={url} key={title} className={url == firstPath ? "spread-underline active" : "spread-underline"}>
+        {title}
+      </Link>
+    ))}
+  </nav>
+  <div className="nav-burger">
+    <span className="top-0"> </span>
+    <span className="top-2"> </span>
+    <span className="bottom-0"> </span>
+  </div>
+</header>
+```
+
+<br>
+
+### css 추가 내용
+
+```css
+/* .\app\globals.css */
+
+.nav-burger {
+  position: relative;
+  height: 1.75rem;
+  width: 2rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  z-index: 9999;
+  box-sizing: border-box;
+}
+.nav-burger span {
+  position: absolute;
+  height: 0.25rem;
+  width: 1.5rem;
+  border-radius: 100px;
+  margin: 0.25rem 0;
+  background-color: #111;
+  box-sizing: border-box;
+}
+
+@media (min-width: 960px) {
+  .nav-burger {
+    display: none;
+  }
+}
+```
