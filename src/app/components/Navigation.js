@@ -50,9 +50,9 @@ const Navigation = () => {
         })}
       </nav>
       <div onClick={clickHandle} className={navBurger}>
-        <span className={"top-0"}> </span>
-        <span className={"top-2"}> </span>
-        <span className={"bottom-0"}> </span>
+        <span className="top-0"> </span>
+        <span className="top-2"> </span>
+        <span className="bottom-0"> </span>
       </div>
       <div className={navSide}>
         {navigation.map(([title, url]) => {
