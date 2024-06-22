@@ -1,5 +1,5 @@
 ---
-title: Next 블로그 개발 - 햄버거-닫기 버튼 만들기
+title: Next 블로그 개발 - 햄버거×닫기 버튼 만들기
 description: hamburger to close menu icon 만들고 변경 애니메이션 추가하기
 date: 2024-06-20 08:24:32
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC

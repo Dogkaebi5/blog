@@ -36,7 +36,7 @@ const Navigation = () => {
   // 광둥어를 home으로 변경하면서, isActive의 2번째 조건 추가
 
   return (
-    <header className="navbar">
+    <header className="flex justify-between items-center px-1 py-2">
       <Link className="ml-2 px-4 py-2 font-bold rounded-full hover:bg-green-100" href="/">
         DogKaeBi
       </Link>
@@ -54,15 +54,15 @@ const Navigation = () => {
         <span className="top-2"> </span>
         <span className="bottom-0"> </span>
       </div>
-      <div className={navSide}>
+      <nav className={navSide}>
         {navigation.map(([title, url]) => {
           return (
-            <Link onClick={clickHandle} href={url == "/product" ? "/" : url} key={title} className={pathname === url ? "draw-underline font-bold" : "draw-underline"}>
+            <Link onClick={clickHandle} href={url} key={title} className={pathname === url ? "draw-underline font-bold" : "draw-underline"}>
               {title}
             </Link>
           );
         })}
-      </div>
+      </nav>
     </header>
   );
 };
