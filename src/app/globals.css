@@ -231,7 +231,7 @@ pre code {
 }
 
 @media (min-width: 960px) {
-  .nav-side {
+  .nav-side.active {
     display: none;
   }
   .nav-burger {

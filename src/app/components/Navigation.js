@@ -17,20 +17,9 @@ const Navigation = () => {
   // bugerBtn & menu css를 tailwind로 만들기 어려워, 별도 globals.css에 작성
   // => 보기 싫어서, 전부 globals.css에 작성
   const [isActive, setIsActive] = useState(false);
-  const [navSide, setNavSide] = useState("nav-side");
-  const [navBurger, setNavBurger] = useState("nav-burger");
 
   // btn handle. 아이콘 변경, 메뉴 출연, 스크롤 방지
-  function clickHandle() {
-    if (isActive) {
-      setNavBurger("nav-burger active");
-      setNavSide("nav-side active");
-    } else {
-      setNavBurger("nav-burger");
-      setNavSide("nav-side");
-    }
-    setIsActive(!isActive);
-  }
+  const clickHandle = () => setIsActive(!isActive);
 
   // TODO: 임시로고 변경
   // 광둥어를 home으로 변경하면서, isActive의 2번째 조건 추가
@@ -49,12 +38,12 @@ const Navigation = () => {
           );
         })}
       </nav>
-      <div onClick={clickHandle} className={navBurger}>
+      <div onClick={clickHandle} className={isActive ? "nav-burger active" : "nav-burger"}>
         <span className="top-0"> </span>
         <span className="top-2"> </span>
         <span className="bottom-0"> </span>
       </div>
-      <nav className={navSide}>
+      <nav className={isActive ? "nav-side active" : "nav-side"}>
         {navigation.map(([title, url]) => {
           return (
             <Link onClick={clickHandle} href={url} key={title} className={pathname === url ? "draw-underline font-bold" : "draw-underline"}>

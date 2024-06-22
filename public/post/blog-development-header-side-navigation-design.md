@@ -269,7 +269,7 @@ css의 `.nav-side` `.nav-side.active` 내용을 분리했다.
 
 ```css
 @media (min-width: 960px) {
-  .nav-side {
+  .nav-side.active {
     display: none;
   }
   .nav-burger {
@@ -410,7 +410,7 @@ css 추가된 코드
 }
 
 @media (min-width: 960px) {
-  .nav-side {
+  .nav-side.active {
     display: none;
   }
 }
