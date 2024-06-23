@@ -9,7 +9,7 @@ slug: blog-development-header-highlight-current-page
 
 # Preview
 
-### 전체 레이아웃
+### 전편 전체 레이아웃
 
 ```js
 // .\app\layout.js
@@ -26,7 +26,7 @@ import HeaderBar from "./components/HeaderBar";
 
 <br>
 
-### 헤더 컴포넌트
+### 전편 헤더 컴포넌트
 
 ```js
 // .\app\components\HeaderBar.js

@@ -9,7 +9,7 @@ slug: blog-development-header-side-navigation-design
 
 # Preview
 
-### 헤더 컴포넌트
+### 전편 헤더 컴포넌트
 
 ```javascript
 // .\app\components\HeaderBar.js
