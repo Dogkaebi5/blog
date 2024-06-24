@@ -4,7 +4,7 @@ description: 광둥어은 早晨을 '좋은 아침'처럼 사용한다.
 date: 2024-06-20 07:22:41
 cover: 1uNo0MkZqZ0IR6pZt68W38FBc4stI8WZL
 category: cantonese
-slug: cantonese-good-morning
+slug: cantonese-greeting-good-morning
 word: 早晨 你好
 ---
 

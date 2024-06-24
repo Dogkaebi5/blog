@@ -4,7 +4,7 @@ description: 광둥어의 나, 너, 그/그녀 그리고 사용하는 관계형,
 date: 2024-06-15 06:01:01
 cover: 14GVKR0Ml0Y0yhAST8jVyRI1BgEXQkeJL
 category: cantonese
-slug: cantonese-i-you-he-she-personal-pronoun
+slug: cantonese-personal-pronoun
 tc: 我 你 佢 您
 word: 我哋 你哋 佢哋
 ---

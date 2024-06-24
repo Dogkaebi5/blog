@@ -4,7 +4,7 @@ description: 인사말 你好您好은 둘 다 존댓말이다. 평소에 친구
 date: 2024-05-09 08:29:43
 cover: 1kQMvwYNtxCU3eaMf6lwoVEFz3l2aAHJ4
 category: cantonese
-slug: cantonese-hello-neihou
+slug: cantonese-greeting-hello
 tc: 你 您
 word: 你好 您好
 ---

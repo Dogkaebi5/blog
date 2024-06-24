@@ -1,6 +1,6 @@
 ---
 title: Next 블로그 개발 - 헤더 네비게이션 통합편
-description:
+description: header Link, hamburger button, side navigation의 디자인 및 제어
 date: 2024-06-24 04:10:33
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC
 category: coding

@@ -4,7 +4,7 @@ description: 어떻게/왜 [點?]은 광둥어에서 사용빈도가 높다. 단
 date: 2024-06-06 04:00:43
 cover: 11niCcOxjyCGMvjbeu0G10XCMbWdK0PmQ
 category: cantonese
-slug: cantonese-how-and-why-dim
+slug: cantonese-ask-how-and-why
 tc: 點
 word: 點解
 ---

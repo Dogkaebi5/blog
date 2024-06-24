@@ -1,10 +1,10 @@
 ---
-title: 광둥어 - 올해 20살 今年廿歲
+title: 광둥어 - 숫자. 올해 20살
 description: 광둥어 숫자와 나이 표현하기.
 date: 2024-06-11 02:04:21
 cover: 1JWKdw-WPlrumMbFSgf6utSAObme1Tamq
 category: cantonese
-slug: cantonese-00-years-old
+slug: cantonese-numbers
 tc: 零 一 二 三 四 五 六 七 八 九 十 廿 卅 卌 歲
 ---
 
