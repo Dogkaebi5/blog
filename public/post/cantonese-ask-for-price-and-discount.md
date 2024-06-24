@@ -5,8 +5,8 @@ date: 2024-06-24 08:03:24
 cover: 1lqziiQ6r5J1KU6T-SleH1H_ITj5J3xzI
 category: cantonese
 slug: cantonese-ask-for-price-and-discount
-tc: 幾 錢 蚊 總
-word: 幾錢
+tc: 幾 錢 蚊 總 折
+word: 幾錢 優惠 活動 折扣
 ---
 
 참고.  
