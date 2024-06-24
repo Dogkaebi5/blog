@@ -30,13 +30,11 @@ const Navigation = () => {
         DogKaeBi
       </Link>
       <nav className="nav-main">
-        {navigation.map(([title, url]) => {
-          return (
-            <Link href={url} key={title} className={pathname == url ? "spread-underline active" : "spread-underline"}>
-              {title}
-            </Link>
-          );
-        })}
+        {navigation.map(([title, url]) => (
+          <Link href={url} key={title} className={pathname == url ? "spread-underline active" : "spread-underline"}>
+            {title}
+          </Link>
+        ))}
       </nav>
       <div onClick={clickHandle} className={isActive ? "nav-burger active" : "nav-burger"}>
         <span className="top-0"> </span>
@@ -44,13 +42,11 @@ const Navigation = () => {
         <span className="bottom-0"> </span>
       </div>
       <nav className={isActive ? "nav-side active" : "nav-side"}>
-        {navigation.map(([title, url]) => {
-          return (
-            <Link onClick={clickHandle} href={url} key={title} className={pathname === url ? "draw-underline font-bold" : "draw-underline"}>
-              {title}
-            </Link>
-          );
-        })}
+        {navigation.map(([title, url]) => (
+          <Link onClick={clickHandle} href={url} key={title} className={pathname === url ? "draw-underline font-bold" : "draw-underline"}>
+            {title}
+          </Link>
+        ))}
       </nav>
     </header>
   );
