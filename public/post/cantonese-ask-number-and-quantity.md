@@ -4,7 +4,7 @@ description: 얼마/몇 幾, 숫자와 관련이 있는 모든 질문에 사용�
 date: 2024-06-07 04:00:43
 cover: 1tuESn3GmsKq6zTd5KfWia25JEvdC11UX
 category: cantonese
-slug: cantonese-ask-number-gei
+slug: cantonese-ask-number-and-quantity
 tc: 幾
 word: 幾錢 幾點 幾耐
 ---
