@@ -5,6 +5,7 @@ date: 2024-06-21 06:12:41
 cover: 1naniZH0blm6GRew0CVqZWfsxFatqAxTK
 category: cantonese
 slug: cantonese-good-night
+tc: 唞
 word: 早唞 晚安
 ---
 
