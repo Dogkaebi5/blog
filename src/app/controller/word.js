@@ -473,7 +473,7 @@ export const wordData = {
   2419026178: {
     sortId: "36",
     tc: "幾時",
-    yueYin: "	gei2 si4",
+    yueYin: "gei2 si4",
     cn: "几时",
     pinyin: "jǐ shí",
     mandarin: "什么时候",
@@ -485,7 +485,7 @@ export const wordData = {
   2419040670: {
     sortId: "37",
     tc: "幾點",
-    yueYin: "	gei2 dim2",
+    yueYin: "gei2 dim2",
     cn: "几点",
     pinyin: "jǐ diǎn",
     mandarin: "几点 多少点",
@@ -497,7 +497,7 @@ export const wordData = {
   2419032784: {
     sortId: "38",
     tc: "幾耐",
-    yueYin: "	gei2 noi6",
+    yueYin: "gei2 noi6",
     cn: "几耐",
     pinyin: "jǐ nài",
     mandarin: "多久",
@@ -509,7 +509,7 @@ export const wordData = {
   2419037666: {
     sortId: "39",
     tc: "幾錢",
-    yueYin: "	gei2 cin2",
+    yueYin: "gei2 cin2",
     cn: "几钱",
     pinyin: "jǐ qián",
     mandarin: "多少钱",
