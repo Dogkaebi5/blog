@@ -6,7 +6,7 @@ cover: 1Pc1dbG5e9If5UwZf4H5J58O0p_U3FoEf
 category: cantonese
 slug: cantonese-ask-for-directions
 tc: 點 去 喺 邊 行 轉 左 右 上 落 過
-word: 唔該 請問 點去 喺邊 前邊 呢度 直行 馬路 路口 十字路口 地庫 對面 斜對面
+word: 唔該 請問 點去 邊度 前邊 呢度 直行 馬路 路口 十字路口 地庫 對面 斜對面
 ---
 
 [點 : 어떻게](/blog/cantonese-how-and-why-dim) 참고
