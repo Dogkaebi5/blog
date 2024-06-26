@@ -5,7 +5,8 @@ date: 2024-06-17 05:44:43
 cover: 1EQfM0VuEqfM-rEF4LyTyRJ7M2ZyAiPOW
 category: cantonese
 slug: cantonese-plural
-tc: 哋 啲 我哋 你哋 佢哋 呢啲 嗰啲
+tc: 哋 啲
+word: 我哋 你哋 佢哋 呢啲 嗰啲
 ---
 
 광둥어의 복수형 변화는 없다. 복수 단어가 있을 뿐이다.  
