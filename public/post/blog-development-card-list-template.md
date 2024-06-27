@@ -1,5 +1,5 @@
 ---
-title: Next 블로그 개발 - 카드 리스트 기본틀 (한자사전)
+title: Next 블로그 개발 - 카드 리스트 틀 (한자 사전)
 description: 한자 사전의 한자 리스트의 기본틀 만들기
 date: 2024-06-27 05:39:12
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC
