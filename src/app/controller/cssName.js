@@ -32,7 +32,6 @@ export const pageNavWrap = "my-6 flex justify-center items-center";
 export const pageNumAct = "px-1 font-bold bg-green-500 rounded text-white";
 export const pageNum = "p-1 hover:text-gray-500 cursor-pointer";
 
-export const blogCardsWrap = "grid mx-6 grid-cols-1 gap-4 sm:grid-cols-2 lg:mx-0 lg:grid-cols-3";
 export const blogCard = "overflow-hidden rounded-md shadow-md hover:shadow hover:scale-105";
 export const blogCardImage = "object-cover w-full h-40";
 export const blogCardTextWrap = "min-h-40 px-4 pt-4 pb-4 flex flex-col justify-between";
@@ -40,12 +39,10 @@ export const blogCardTitle = "leading-6 text-lg font-bold text-ellipsis line-cla
 export const blogCardText = "text-sm text-gray-600 text-ellipsis line-clamp-2";
 export const blogDate = "text-green-500 text-xs";
 
-export const cnCardsWrap = "grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 ";
 export const cnCard = "rounded-md border text-center shadow-md hover:shadow hover:scale-105";
 export const cnCardJutYin = "px-2 py-3 text-sm text-ellipsis whitespace-nowrap overflow-hidden ";
 export const cnCardTC = "font-bold text-6xl pb-6";
 export const cnCardTitle = "py-2 text-sm font-bold bg-gray-100";
-export const wordCardsWrap = "grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3";
 
 export const syllableWrap = "mx-auto py-2 px-4 rounded-xl";
 export const syllableDetail = "text-start mx-auto my-4 text-sm";
