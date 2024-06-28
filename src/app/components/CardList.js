@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import * as ccss from "@controller/cssName";
 import { imgURL } from "@controller/urls";
 
 const CardList = async ({ path, data }) => {
@@ -15,47 +14,53 @@ const CardList = async ({ path, data }) => {
     blog: "mx-6 lg:mx-0 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3",
   };
 
-  return (
-    <div className={`grid gap-4 ${wrapClass[path]}`}>
-      {data == null || data == undefined
-        ? "데이터가 없거나 읽지 못했습니다"
-        : data.map((v) => {
-            if (path == "blog") {
-              return <BlogCard key={v.slug} data={v} />;
-            } else {
-              return <CnCard key={v.id} data={v} />;
-            }
-          })}
-    </div>
-  );
+  const CnCard = ({ data }) => {
+    const CardCss = "rounded-md border text-center shadow-md hover:shadow hover:scale-105";
+    const jutJamCss = "px-2 py-3 text-sm text-ellipsis whitespace-nowrap overflow-hidden ";
+    const tcCss = "font-bold text-6xl pb-6";
+    const titleCss = "py-2 text-sm font-bold bg-gray-100";
 
-  function CnCard({ data }) {
     return (
-      <Link className={ccss.cnCard} href={`/cantonese/${data.id}`}>
-        <p className={ccss.cnCardJutYin}>{data.yueYin}</p>
-        <h1 className={ccss.cnCardTC}>{data.tc}</h1>
-        <p className={ccss.cnCardTitle}>{data.title}</p>
+      <Link className={CardCss} href={`/cantonese/${data.id}`}>
+        <p className={jutJamCss}>{data.yueYin}</p>
+        <h1 className={tcCss}>{data.tc}</h1>
+        <p className={titleCss}>{data.title}</p>
       </Link>
     );
-  }
+  };
 
-  function BlogCard({ data }) {
+  const BlogCard = ({ data }) => {
+    const CardCss = "overflow-hidden rounded-md shadow-md hover:shadow hover:scale-105";
+    const imageCss = "object-cover w-full h-40";
+    const textWrapCss = "min-h-40 px-4 pt-4 pb-4 flex flex-col justify-between";
+    const titleCss = "leading-6 text-lg font-bold text-ellipsis line-clamp-2";
+    const descCss = "text-sm text-gray-600 text-ellipsis line-clamp-2";
+    const dateCss = "text-green-500 text-xs";
+
     return (
-      <Link className={ccss.blogCard} href={`/blog/${data.slug}`}>
-        <Image className={ccss.blogCardImage} width={600} height={400} src={imgURL + data.cover} alt={data.title} />
-        <div className={ccss.blogCardTextWrap}>
+      <Link className={CardCss} href={`/blog/${data.slug}`}>
+        <Image className={imageCss} width={600} height={400} src={imgURL + data.cover} alt={data.title} />
+        <div className={textWrapCss}>
           <div>
-            <h2 className={ccss.blogCardTitle}>{data.title}</h2>
-            <p className={ccss.blogCardText}>{data.description ?? ""}</p>
+            <h2 className={titleCss}>{data.title}</h2>
+            <p className={descCss}>{data.description ?? ""}</p>
           </div>
           <div>
-            <p className={ccss.blogDate}>{data.date.toLocaleString()}</p>
-            {data.updated != null ? <p className={ccss.blogDate}>{data.updated.toLocaleString()} (Updated)</p> : null}
+            <p className={dateCss}>{data.date.toLocaleString()}</p>
+            {data.updated != null ? <p className={dateCss}>{data.updated.toLocaleString()} (Updated)</p> : null}
           </div>
         </div>
       </Link>
     );
-  }
+  };
+
+  return (
+    <div className={`grid gap-4 ${wrapClass[path]}`}>
+      {data == null || data == undefined
+        ? "데이터가 없거나 읽지 못했습니다"
+        : data.map((v) => (path == "blog" ? <BlogCard key={v.slug} data={v} /> : <CnCard key={v.id} data={v} />))}
+    </div>
+  );
 };
 
 export default CardList;

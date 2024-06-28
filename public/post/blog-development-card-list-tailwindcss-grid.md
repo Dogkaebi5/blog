@@ -1,6 +1,6 @@
 ---
 title: Next 블로그 개발 - 카드 리스트 반응형 tailwind grid
-description: 한자 리스트의 grid를 사용해서 디자인하기
+description: 한자 카드 리스트의 grid를 사용해서 정렬 디자인하기
 date: 2024-06-28 04:19:22
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC
 category: coding
