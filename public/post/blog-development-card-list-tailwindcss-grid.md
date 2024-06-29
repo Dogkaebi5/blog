@@ -42,17 +42,17 @@ const CardList = ({dataList}) => {
 - tailwindcss grid
 - tailwindcss grid-cols-
 - tailwindcss sm: md: lg:
-- tailwindcss overflow-hidden
-- tailwindcss whitespace-nowrap
-- tailwindcss text-ellipsis
 
-<br/><br/><br/>
+<br/><br/><hr/>
 
 ## Tailwindcss 추가하기
 
 "카드 리스트"이기 때문에 grid를 사용했다.  
-grid를 사용하면 자동으로 자녀의 크기 조절을 해서,  
-"카드" 크기에 대한 디자인은 고려하지 않아도 된다.
+grid를 사용하면 한줄의 자녀 수량을 정할 수 있다.
+
+자동 정렬이어서  
+넓이 혹 높이를 동등하게 나누고  
+각 줄의 자녀의 시작점이 같게 된다.
 
 ```js
 // .\app\components\CardList.js - CardList
@@ -77,50 +77,11 @@ div의 클라스명으로 `grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4`
 
 정말 매우 편리하고 간단하다.
 
-<br/><br/>
-
-```js
-// .\app\components\CardList.js - CardList - CnCard
-
-function CnCard({data}{
-  return (
-    <Link className="border rounded-md text-center shadow-md hover:scale-105" href={`/cantonese/${data.sortId}`}>
-      <p className="p-2 text-sm overflow-hidden whitespace-nowrap text-ellipsis">{data.jyutJam}</p>
-      <h1 className="mb-6 font-bold text-6xl">{data.tc}</h1>
-      <p className="py-2 font-bold text-sm bg-gray-10">{data.title}</p>
-    </Link>
-  )
-})
-```
-
-광둥어 카드의 경우
-
-- Link 컴포넌트 : border rounded-md text-center hover:scale-105
-- 월음 P 태그 : p-2 text-sm whitespace-nowrap overflow-hidden text-ellipsis
-- 한자 h1 태그 : mb-6 font-bold text-6xl
-- 제목 p 태그 : py-2 font-bold text-sm bg-gray-10
-
-<br/>
-
-Link 컴포넌트는  
-`border를` 만들고 모서리를 `rounded-md` 둥굴게.  
-문자를 `text-center` 중간 정렬.  
-호버 `hover:scale-105` 커지게.  
-이전에 모든 css에 애니메이션을 추가했어서  
-별도로 애니메이션은 만들지 않았다.
-
-월음은 한줄 넘음 방지  
-`overflow-hidden`로 넘는 글자를 숨기기.  
-`whitespace-nowrap`로 줄바꿈 안함.  
-`text-ellipsis`로 "`...`" 생략 표시.
-
-한자와 제목은 크기, 굵이, 배경색만 설정했다.
-
-<br/><br/><br/>
+<br/><br/><hr/>
 
 ## 결과
 
-grid로 잘 정렬되고  
+grid로 잘 정렬된다  
 각 화면 크기에 따라서 한줄의 카드 수량이 달라진다.
 
 flex를 사용하고 카드의 크기를 지정할 수도 있지만...  
@@ -130,8 +91,3 @@ flex를 사용하고 카드의 크기를 지정할 수도 있지만...
 grid를 선언한 부모의 클라스를 path에 따라서 변경하면,  
 CardList를 블로그`/blog`와 단어`/cantonese/word`에서 똑같이 사용이 가능하고,  
 한자와 단어는 같은 CnCard를 사용해도 된다.
-
-다음은  
-같은 CardList을 사용해서  
-다른 path에 따라서  
-grid만 변경되는 부분도 작성해야겠다.
