@@ -5,7 +5,7 @@ date: 2024-06-26 05:00:01
 cover: 1OjJFaTlkYFA6ggDid_7zhA_TxCAJsLLd
 category: cantonese
 slug: cantonese-tense-about-time-and-date
-tc: 前 後 內 年 月 日 時 點 分 秒 陣
+tc: 前 後 內 啱 年 月 日 時 點 分 秒 陣
 word: 今日 聽日 琴日 幾時 個鐘 分鐘 秒鐘 而家 陣間 啱啱 啱先 頭先 求先 嗰陣 過陣
 ---
 
