@@ -1,5 +1,5 @@
 ---
-title: Next 블로그 개발 - 한자 카드 디자인 tailwind text-ellipsis
+title: Next 블로그 개발 - 한자 카드 tailwind text-ellipsis
 description: 광둥어 카드 문자 넘침 생략 overflow와 whitespace로 text-ellipsis 적용하기
 date: 2024-06-29 05:10:22
 cover: 1QaNBuiA-anlt_QzydbGtZGbFWy1USlVC
