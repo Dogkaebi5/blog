@@ -7156,6 +7156,21 @@ export const hanData = {
     mean: "쪼개다. 분리하다. 부러트리다",
     relevance: "掰 擘",
   },
+  27506: {
+    sortId: "277",
+    tc: "歲",
+    yueYin: "seoi3",
+    cn: "岁",
+    pinyin: "suì",
+    mandarin: "",
+    hanja: "해 세",
+    category: "단위 명사",
+    title: "나이/해",
+    meaning: {
+      seoi3: [{ m: "나이 단위. 살, 세" }, { e: "今年三歲", t: "올해 3살" }, { m: "해, 년" }, { e: "歲月", t: "세월" }],
+    },
+    mean: "나이 단위. 살, 세. 해, 년, 년도",
+  },
   // 00000: {
   //   sortId: "200",
   //   tc: "但",
