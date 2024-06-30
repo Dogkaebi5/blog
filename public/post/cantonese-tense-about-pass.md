@@ -5,7 +5,8 @@ date: 2024-06-27 09:44:12
 cover: 1DFrZ8f5JEAJUsgqcLm2sIw4YYGFOndf7
 category: cantonese
 slug: cantonese-tense-about-pass
-tc: 咗 過 完
+tc: 咗 過 完 前
+word: 啱啱 啱先 頭先 求先
 ---
 
 ## 중국어 시제에 대한 오해

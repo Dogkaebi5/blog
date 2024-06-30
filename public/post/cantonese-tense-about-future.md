@@ -5,7 +5,8 @@ date: 2024-06-29 05:00:02
 cover: 1n0szsGM9eOhTTV6lRxydo6LiZpd30Pl0
 category: cantonese
 slug: cantonese-tense-about-future
-tc: 會 要
+tc: 會 要 後
+word: 陣間 過陣
 ---
 
 ## 중국어 시제에 대한 오해
