@@ -1,6 +1,6 @@
 ---
 title: 광둥어 - 시제
-description: 광둥어는 緊 咗 過 要 會 과 동사를 사용해 시제를 나타내거나, 시간을 사용해서 시제를 나타낸다.
+description: 緊/咗/會 + 동사를 사용해 시제를 나타내거나, 시간을 사용해서 시제를 나타낸다.
 date: 2024-07-01 04:43:00
 cover: 19XqMiwJzsndeleAySJkBBbOCpiPu0Ytk
 category: cantonese
