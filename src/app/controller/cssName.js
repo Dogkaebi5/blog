@@ -28,6 +28,8 @@ export const linkGreenText = "text-green-600 underline-offset-2 hover:underline 
 export const smLabel = "py-2 w-24 flex-none text-gray-500 text-sm ";
 export const contentBox = "px-6 py-2 flex-initial text-sm";
 
+export const blogDate = "text-green-500 text-xs";
+
 export const pageNavWrap = "my-6 flex justify-center items-center";
 export const pageNumAct = "px-1 font-bold bg-green-500 rounded text-white";
 export const pageNum = "p-1 hover:text-gray-500 cursor-pointer";

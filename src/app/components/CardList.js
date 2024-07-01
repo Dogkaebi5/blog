@@ -31,7 +31,7 @@ const CardList = async ({ path, data }) => {
 
   const BlogCard = ({ data }) => {
     const CardCss = "overflow-hidden rounded-md shadow-md hover:shadow hover:scale-105";
-    const imageCss = "object-cover w-full h-40";
+    const imageCss = "object-cover h-40";
     const textWrapCss = "min-h-40 px-4 pt-4 pb-4 flex flex-col justify-between";
     const titleCss = "leading-6 text-lg font-bold text-ellipsis line-clamp-2";
     const descCss = "text-sm text-gray-600 text-ellipsis line-clamp-2";
