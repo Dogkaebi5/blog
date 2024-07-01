@@ -76,7 +76,9 @@ export default async function Read(props) {
         <div className="px-4">
           <h1 className={ccss.h1}>{parsed.data.title}</h1>
           <p className={ccss.blogDate}>- {parsed.data.date?.toLocaleString()}</p>
-          {parsed.data.updated != null || parsed.data.updated != undefined ? <p className={ccss.blogDate}>( {parsed.data.updated?.toLocaleDateString()} Updated )</p> : null}
+          {parsed.data.updated != null || parsed.data.updated != undefined ? (
+            <p className={ccss.blogDate}>( {parsed.data.updated?.toLocaleDateString()} Updated )</p>
+          ) : null}
           <div className="flex mt-4">
             <Link className={ccss.headerBtn} href={`/blog?tag=${parsed.data.category}`}>
               {category[parsed.data.category]}
